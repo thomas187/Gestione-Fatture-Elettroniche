@@ -1,0 +1,341 @@
+#ifndef CORE_MACRO_H
+#define CORE_MACRO_H
+
+#include <QDebug>
+#include <QList>
+#include <QMap>
+
+#ifdef QT_QML_LIB
+#include <QQmlEngine>
+#endif
+
+#define Q_READY_CHECK_START(ready) \
+    bool ready = true;
+
+#define Q_READY_CHECK(ready, check) \
+    ready &= ready && check;
+
+#ifdef QT_DEBUG
+#ifndef ASSERT_X_DISABLED
+#define ASSERT_X(control, file, message) Q_ASSERT_X(control, file, message)
+#define ASSERT_X_RET(control, file, message, ret) Q_ASSERT_X(control, file, message)
+#else
+#define ASSERT_X(control, file, message) if(!(control)) { qDebug() << QStringList({"ASSERT!", file, message}); return; } (void)0
+#define ASSERT_X_RET(control, file, message, ret) if(!(control)) { qDebug() << QStringList({"ASSERT!", file, message}); return ret; } (void)0
+#endif
+#else
+#define ASSERT_X(control, file, message) if(!(control)) { qDebug() << QStringList({"ASSERT!", file, message}); return; } (void)0
+#define ASSERT_X_RET(control, file, message, ret) if(!(control)) { qDebug() << QStringList({"ASSERT!", file, message}); return ret; } (void)0
+#endif
+
+#include <QMetaProperty>
+#define Q_COMPARABLE(Class) public: \
+    Class(const Class &other, QObject *parent = nullptr) \
+        : QObject(parent) { \
+        for(int i = this->metaObject()->propertyOffset(); i < this->metaObject()->propertyCount(); ++i){ \
+            QString property = this->metaObject()->property(i).name(); \
+            this->setProperty(property.toStdString().c_str(), other.property(property.toStdString().c_str())); \
+        } \
+    } \
+    Class& operator =(const Class &other) { \
+        for(int i = this->metaObject()->propertyOffset(); i < this->metaObject()->propertyCount(); ++i){ \
+            QString property = this->metaObject()->property(i).name(); \
+            this->setProperty(property.toStdString().c_str(), other.property(property.toStdString().c_str())); \
+        } \
+        return *this; \
+    } \
+    bool operator == (const Class &other) const{ \
+       bool isEqual = true; \
+       for(int i = this->metaObject()->propertyOffset(); i < this->metaObject()->propertyCount(); ++i){ \
+            QString property = this->metaObject()->property(i).name(); \
+            isEqual &= this->property(property.toStdString().c_str())==other.property(property.toStdString().c_str()); \
+       } \
+       return isEqual; \
+    } \
+    bool operator != (const Class &other) const{ \
+       return !(*this==other); \
+    }
+
+#define Q_COMPARABLE_PARENT(Class, Parent) public: \
+    Class(const Class &other, Parent *parent = nullptr) \
+        : Parent(parent) { \
+        for(int i = this->metaObject()->propertyOffset(); i < this->metaObject()->propertyCount(); ++i){ \
+            QString property = this->metaObject()->property(i).name(); \
+            this->setProperty(property.toStdString().c_str(), other.property(property.toStdString().c_str())); \
+        } \
+    } \
+    Class& operator =(const Class &other) { \
+        for(int i = this->metaObject()->propertyOffset(); i < this->metaObject()->propertyCount(); ++i){ \
+            QString property = this->metaObject()->property(i).name(); \
+            this->setProperty(property.toStdString().c_str(), other.property(property.toStdString().c_str())); \
+        } \
+        return *this; \
+    } \
+    bool operator == (const Class &other) const{ \
+       bool isEqual = true; \
+       for(int i = this->metaObject()->propertyOffset(); i < this->metaObject()->propertyCount(); ++i){ \
+            QString property = this->metaObject()->property(i).name(); \
+            isEqual &= this->property(property.toStdString().c_str())==other.property(property.toStdString().c_str()); \
+       } \
+       return isEqual; \
+    } \
+    bool operator != (const Class &other) const{ \
+       return !(*this==other); \
+    }
+
+#ifdef QT_QML_LIB
+#define Q_STATIC(ClassName) \
+    public: \
+        static QObject *qmlInstance(QQmlEngine *engine, QJSEngine *scriptEngine) \
+         { \
+             Q_UNUSED(engine) \
+             Q_UNUSED(scriptEngine) \
+             return reinterpret_cast<QObject*>(&getInstance()); \
+         } \
+         static ClassName& getInstance() { \
+             static ClassName instance; \
+             QQmlEngine::setObjectOwnership(reinterpret_cast<QObject*>(&instance), QQmlEngine::CppOwnership); \
+             return instance; \
+         }
+#define Q_STATIC_EXPORT(EXPORT, ClassName) \
+    public: \
+        EXPORT static QObject *qmlInstance(QQmlEngine *engine, QJSEngine *scriptEngine) \
+         { \
+             Q_UNUSED(engine) \
+             Q_UNUSED(scriptEngine) \
+             return reinterpret_cast<QObject*>(&getInstance()); \
+         } \
+         EXPORT static ClassName& getInstance() { \
+             static ClassName instance; \
+             QQmlEngine::setObjectOwnership(reinterpret_cast<QObject*>(&instance), QQmlEngine::CppOwnership); \
+             return instance; \
+         }
+#else
+#define Q_STATIC(ClassName) \
+public: \
+     static ClassName& getInstance() { \
+         static ClassName instance; \
+         return instance; \
+     }
+#define Q_STATIC_EXPORT(EXPORT, ClassName) \
+public: \
+     EXPORT static ClassName& getInstance() { \
+         static ClassName instance; \
+         return instance; \
+     }
+#define Q_STATIC_WIDGET(ClassName) \
+public: \
+     static ClassName* getInstance(QWidget *parent) { \
+         static ClassName *instance = new ClassName(parent); \
+         return instance; \
+     }
+#define Q_STATIC_WIDGET_EXPORT(EXPORT, ClassName) \
+public: \
+     EXPORT static ClassName* getInstance(QWidget *parent) { \
+         static ClassName *instance = new ClassName(parent); \
+         return instance; \
+     }
+#endif
+
+#define Q_ADD_PRIVATE_PROPERTY(type, name, Name, value) \
+    public: \
+        Q_INVOKABLE Q_PROPERTY(type name MEMBER m_##name READ name WRITE set##Name NOTIFY name##Changed) \
+        Q_INVOKABLE type name() const{ \
+            return m_##name; \
+        } \
+    private slots: \
+        void set##Name(type name){ \
+            if (m_##name == name) \
+                return; \
+            m_##name = name; \
+            emit name##Changed(name); \
+        } \
+    Q_SIGNALS: \
+        Q_INVOKABLE void name##Changed(type name); \
+    private: \
+        type m_##name = value;
+
+#define Q_ADD_PROPERTY(type, name, Name, value) \
+    public: \
+        Q_INVOKABLE Q_PROPERTY(type name MEMBER m_##name READ name WRITE set##Name NOTIFY name##Changed) \
+        Q_INVOKABLE type name() const{ \
+            return m_##name; \
+        } \
+    public slots: \
+        void set##Name(type name){ \
+            if (m_##name == name) \
+                return; \
+            m_##name = name; \
+            emit name##Changed(name); \
+        } \
+    Q_SIGNALS: \
+        Q_INVOKABLE void name##Changed(type name); \
+    private: \
+        type m_##name = value;
+
+#define Q_ADD_PROPERTY_LIST(type, name, Name, value) \
+    public: \
+        Q_INVOKABLE Q_PROPERTY(QList<type> name MEMBER m_##name READ name WRITE set##Name NOTIFY name##Changed) \
+        Q_INVOKABLE QList<type>& name() { \
+            return m_##name; \
+        } \
+    public slots: \
+        void set##Name(QList<type> name){ \
+            if (m_##name == name) \
+                return; \
+            m_##name = name; \
+            emit name##Changed(name); \
+        } \
+    Q_SIGNALS: \
+        Q_INVOKABLE void name##Changed(QList<type> name); \
+    private: \
+        QList<type> m_##name = value;
+
+#define Q_ADD_PROPERTY_PREV(type, name, Name, value) \
+    public: \
+        Q_INVOKABLE Q_PROPERTY(type name MEMBER m_##name READ name WRITE set##Name NOTIFY name##Changed) \
+        Q_INVOKABLE type prev##Name() const{ \
+            return m_prev_##name; \
+        } \
+        Q_INVOKABLE type name() const{ \
+            return m_##name; \
+        } \
+    public: \
+        Q_INVOKABLE void setPrev(){ \
+            return this->set##Name(this->prev##Name()); \
+        } \
+    public slots: \
+        void set##Name(type name){ \
+            if (m_##name == name) \
+                return; \
+            m_prev_##name = m_##name; \
+            m_##name = name; \
+            emit name##Changed(name); \
+            emit name##ChangedFrom(m_prev_##name, name); \
+        } \
+    Q_SIGNALS: \
+        Q_INVOKABLE void name##Changed(type name); \
+        Q_INVOKABLE void name##ChangedFrom(type prev_##name, type name); \
+    private: \
+    type m_##name = value; \
+    type m_prev_##name = value;
+
+#define Q_ADD_PROPERTY_PAIR(type1, type2, name, Name, value1, value2) \
+    public: \
+        Q_INVOKABLE Q_PROPERTY(QPair<type1,type2> name MEMBER m_##name READ name WRITE set##Name NOTIFY name##Changed) \
+        Q_INVOKABLE QPair<type1,type2>& name() { \
+            return m_##name; \
+        } \
+    public slots: \
+        void set##Name(QPair<type1,type2> name){ \
+            if (m_##name == name) \
+                return; \
+            m_##name = name; \
+            emit name##Changed(name); \
+        } \
+    Q_SIGNALS: \
+        Q_INVOKABLE void name##Changed(QPair<type1,type2> name); \
+    private: \
+        QPair<type1,type2> m_##name = {value1,value2};
+
+#define Q_ADD_PROPERTY_MAP(type1, type2, name, Name) \
+    public: \
+        Q_INVOKABLE Q_PROPERTY(QMap<type1,type2> name MEMBER m_##name READ name WRITE set##Name NOTIFY name##Changed) \
+        Q_INVOKABLE QMap<type1,type2> &name(){ \
+            return m_##name; \
+        } \
+    public slots: \
+        void set##Name(QMap<type1,type2> name){ \
+            if (m_##name == name) \
+                return; \
+            m_##name = name; \
+            emit name##Changed(name); \
+        } \
+    Q_SIGNALS: \
+        Q_INVOKABLE void name##Changed(QMap<type1,type2> name); \
+    private: \
+        QMap<type1,type2> m_##name;
+
+#define Q_ADD_PROPERTY_CHECK(type, name, Name, value, check) \
+    public: \
+        Q_INVOKABLE Q_PROPERTY(type name MEMBER m_##name READ name WRITE set##Name NOTIFY name##Changed) \
+        Q_INVOKABLE type name() const{ \
+            return m_##name; \
+        } \
+    public slots: \
+        void set##Name(type name){ \
+            if (m_##name == name) \
+                return; \
+            if (!this->check(name)) \
+                return; \
+            m_##name = name; \
+            emit name##Changed(name); \
+        } \
+    Q_SIGNALS: \
+        Q_INVOKABLE void name##Changed(type name); \
+    private: \
+        type m_##name = value;
+
+
+
+#define Q_ADD_PROPERTY_DOUBLE(type, name, Name, value) \
+    public: \
+        Q_INVOKABLE Q_PROPERTY(type name MEMBER m_##name READ name WRITE set##Name NOTIFY name##Changed) \
+        Q_INVOKABLE type name() const{ \
+            return m_##name; \
+        } \
+    public slots: \
+        void set##Name(type name){ \
+            if (qFuzzyCompare(m_##name, name)) \
+                return; \
+            m_##name = name; \
+            emit name##Changed(name); \
+        } \
+    Q_SIGNALS: \
+        Q_INVOKABLE void name##Changed(type name); \
+    private: \
+        type m_##name = value;
+
+
+#define forChildren(parent, ClassName, item) QList<ClassName> \
+    list = parent->findChildren<ClassName>(); \
+    for(ClassName item : qAsConst(list))
+
+
+#ifdef QT_GUI_LIB
+#include <QResizeEvent>
+#define Q_RESIZE(ParentClassName) \
+    Q_ADD_PROPERTY(QSize, size, Size, QSize()) \
+    protected: \
+        void resizeEvent(QResizeEvent *event) override { \
+            this->setSize(event->size()); \
+            ParentClassName::resizeEvent(event); \
+        }
+#endif
+
+/// Quando distruggo un widget, voglio assicurarmi che il qmessagebox siano tutti chiusi e distrutti.
+/// Per fare questo, devo accedere direttamente ai top-level-widgets di qapplication.
+/// Provando con i metodi standard (allocazione dinamica e distruzione del widget) il software
+/// portava sempre a crash indesiderati.
+//////////
+#define Q_CLOSE_ALL_MESSAGEBOX QWidgetList allToplevelWidgets = QApplication::topLevelWidgets(); \
+foreach (QWidget *w, allToplevelWidgets) \
+    if (w->inherits("QMessageBox")) { \
+        QMessageBox *mb = qobject_cast<QMessageBox *>(w); \
+        if(mb!=nullptr && mb->objectName()!=""){ \
+            mb->close(); \
+            mb->deleteLater(); \
+        } \
+    } \
+//////////
+
+
+
+#define Q_INIT(propertyName, PropertyName, ClassName) \
+    if(this->propertyName() == nullptr){ \
+        connect(this, &ClassName::propertyName##Changed, this, &ClassName::init##PropertyName); \
+        return; \
+    } \
+    disconnect(this, &ClassName::propertyName##Changed, this, &ClassName::init##PropertyName)
+
+#endif // CORE_MACRO_H

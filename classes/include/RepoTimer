@@ -1,0 +1,35 @@
+#ifndef TIMER_H
+#define TIMER_H
+
+#include <QTimer>
+
+namespace core {
+    namespace timer {
+        inline bool stop(QTimer*timer){
+            bool error = false;
+            error |= timer==nullptr;
+            if(!error){
+                //if(timer->isActive()){
+                    timer->stop();
+                    timer->disconnect();
+                    timer->deleteLater();
+                    timer = nullptr;
+                //}
+            }
+            return !error;
+        }
+
+        inline QTimer* start(int interval, QObject* parent = nullptr, bool singleShot = false, QString objectName = QString(), Qt::TimerType atype = Qt::TimerType::CoarseTimer){
+            QTimer*timer = new QTimer(parent);
+            if(!objectName.isEmpty())
+                timer->setObjectName(objectName);
+            timer->setTimerType(atype);
+            timer->setInterval(interval);
+            timer->setSingleShot(singleShot);
+            timer->start();
+            return  timer;
+        }
+    }
+}
+
+#endif // TIMER_H
