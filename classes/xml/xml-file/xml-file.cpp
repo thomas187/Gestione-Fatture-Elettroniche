@@ -9,6 +9,16 @@ XmlFile::XmlFile(QObject *parent)
 void XmlFile::init()
 {
     this->initTipoStringa();
+    this->initDate();
+}
+
+void XmlFile::initDate()
+{
+    auto updateDate = [=]{
+        this->setDate(QDate::fromString(this->vData(), "yyyy-MM-dd"));
+    };
+    connect(this, &XmlFile::vDataChanged, this, updateDate);
+    updateDate();
 }
 
 void XmlFile::initTipoStringa()

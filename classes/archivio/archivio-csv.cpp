@@ -53,14 +53,19 @@ void Archivio::exportFile(QString format, QList<XmlFile*> list, QString folder, 
     QDesktopServices::openUrl(QUrl(path));
 }
 
-void Archivio::csvExport(QString folder)
+void Archivio::csvExport(QString folder, QString expFromStrDate, QString expToStrDate)
 {
+    QDate expFromDate = QDate::fromString(expFromStrDate, "yyyy-MM-dd");
+    QDate expToDate = QDate::fromString(expToStrDate, "yyyy-MM-dd");
+
     QList<XmlFile*> listFatture;
     QList<XmlFile*> listSpese;
     QList<XmlFile*> listNoteCredito;
 
     auto list = this->xmlList()->model();
     for(auto item : qAsConst(list)){
+        if(item->date()<expFromDate || item->date()>expToDate)
+            continue;
         if(Archivio::getInstance().spese().contains(item->partIva()))
             listSpese += item;
         else if(item->tipo()==XmlFile::TD04 || item->tipo()==XmlFile::TD08)
@@ -70,7 +75,13 @@ void Archivio::csvExport(QString folder)
     }
 
     auto dt = QDateTime::currentDateTime();
-    this->exportFile("export_%1.csv", listFatture, folder, dt);
-    this->exportFile("export_note_%1.csv", listNoteCredito, folder, dt);
-    this->exportFile("export_spese_%1.csv", listSpese, folder, dt);
+
+    if(!listFatture.isEmpty())
+        this->exportFile("export_%1.csv", listFatture, folder, dt);
+
+    if(!listNoteCredito.isEmpty())
+        this->exportFile("export_note_%1.csv", listNoteCredito, folder, dt);
+
+    if(!listSpese.isEmpty())
+        this->exportFile("export_spese_%1.csv", listSpese, folder, dt);
 }

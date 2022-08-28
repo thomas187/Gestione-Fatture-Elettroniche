@@ -28,8 +28,8 @@ private:
     void exportFile(QString format, QList<XmlFile*> list, QString folder, QDateTime dt);
 
 public:
-    Q_INVOKABLE void csvExport(QString folder);
-    Q_INVOKABLE void xlsxExport(QString folder);
+    Q_INVOKABLE void csvExport(QString folder, QString expFromStrDate, QString expToStrDate);
+    Q_INVOKABLE void xlsxExport(QString folder, QString expFromStrDate, QString expToStrDate);
 };
 
 #endif // ARCHIVIO_H

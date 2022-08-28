@@ -15,18 +15,42 @@ Window {
     visible: true
     title: qsTr("Gestione Fatture")
 
+    property date expFromDate : {
+        var date = Date.fromLocaleDateString(Qt.locale("it_IT"),combo.currentText,"MMMM yy")
+        date.setYear(date.getYear() + 2000)
+        return date
+    }
+    property date expToDate : {
+        var date = expFromDate
+        date.setMonth(date.getMonth() + spin.value)
+        return date
+    }
+
+    property string expFromStrDate : ""
+    property string expToStrDate : ""
+    onExpFromDateChanged: updateDateStrings()
+    onExpToDateChanged: updateDateStrings()
+    Component.onCompleted: updateDateStrings()
+
+    function updateDateStrings(){
+        expFromStrDate = expFromDate.toLocaleString(Qt.locale("it_IT"),"yyyy-MM-dd")
+        expToStrDate = expToDate.toLocaleString(Qt.locale("it_IT"),"yyyy-MM-dd")
+    }
+
+
+
     FolderDialog {
         id: folderDialogXlsx
         currentFolder: Archivio.xmlFolder
         folder: Archivio.xmlFolder
-        onAccepted: Archivio.xlsxExport(folder)
+        onAccepted: Archivio.xlsxExport(folder, expFromStrDate, expToStrDate)
     }
 
     FolderDialog {
         id: folderDialogCsv
         currentFolder: Archivio.xmlFolder
         folder: Archivio.xmlFolder
-        onAccepted: Archivio.csvExport(folder)
+        onAccepted: Archivio.csvExport(folder, expFromStrDate, expToStrDate)
     }
 
     Control{
@@ -66,11 +90,7 @@ Window {
                     text: {
                         var testo = "Estrazione da "
                         testo += combo.currentText+" a "
-
-                        var date = Date.fromLocaleDateString(Qt.locale("it_IT"),combo.currentText,"MMMM yy")
-                        date.setMonth(date.getMonth() + spin.value)
-
-                        testo += date.toLocaleString(Qt.locale("it_IT"),"MMMM yy")+""
+                        testo += expToDate.toLocaleString(Qt.locale("it_IT"),"MMMM yy")+""
                         return testo.toUpperCase()
                     }
                     verticalAlignment: Qt.AlignBottom

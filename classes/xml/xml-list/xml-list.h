@@ -28,6 +28,7 @@ public:
         IntestazioneFixedRole,
         VDataRole,
         VDataFixedRole,
+        DateRole,
         Imponibile_4Role,
         Imposta_4Role,
         Imponibile_5Role,
@@ -57,6 +58,7 @@ public:
         roles[IntestazioneFixedRole] = "intestazioneFixed";
         roles[VDataRole] = "vData";
         roles[VDataFixedRole] = "vDataFixed";
+        roles[DateRole] = "date";
         roles[Imponibile_4Role] = "imponibile_4";
         roles[Imposta_4Role] = "imposta_4";
         roles[Imponibile_5Role] = "imponibile_5";
@@ -150,6 +152,7 @@ public:
             {IntestazioneFixedRole, "intestazioneFixed"},
             {VDataRole, "vData"},
             {VDataFixedRole, "vDataFixed"},
+            {DateRole, "date"},
             {Imponibile_4Role, "imponibile_4"},
             {Imposta_4Role, "imposta_4"},
             {Imponibile_5Role, "imponibile_5"},
@@ -306,6 +309,7 @@ public:
         else if(role == IntestazioneFixedRole) return false;
         else if(role == VDataRole) item->setVData(value.toString());
         else if(role == VDataFixedRole) return false;
+        else if(role == DateRole) return false;
         else if(role == Imponibile_4Role) item->setImponibile_4(value.toDouble());
         else if(role == Imposta_4Role) item->setImposta_4(value.toDouble());
         else if(role == Imponibile_5Role) item->setImponibile_5(value.toDouble());
@@ -342,6 +346,7 @@ public:
         else if(role == IntestazioneFixedRole) return XmlList::fix(item->intestazione());
         else if(role == VDataRole) return item->vData();
         else if(role == VDataFixedRole) return XmlList::fix(item->vData());
+        else if(role == DateRole) return item->date();
         else if(role == Imponibile_4Role) return item->imponibile_4();
         else if(role == Imposta_4Role) return item->imposta_4();
         else if(role == Imponibile_5Role) return item->imponibile_5();
@@ -400,6 +405,7 @@ private:
         connect(xmlFile, &XmlFile::syncChanged, this, &XmlList::slotDataChanged);
         connect(xmlFile, &XmlFile::tipoChanged, this, &XmlList::slotDataChanged);
         connect(xmlFile, &XmlFile::tipoStringaChanged, this, &XmlList::slotDataChanged);
+        connect(xmlFile, &XmlFile::dateChanged, this, &XmlList::slotDataChanged);
 
     }
     void disconnectXmlFile(XmlFile *xmlFile){
@@ -419,6 +425,7 @@ private:
         disconnect(xmlFile, &XmlFile::syncChanged, this, &XmlList::slotDataChanged);
         disconnect(xmlFile, &XmlFile::tipoChanged, this, &XmlList::slotDataChanged);
         disconnect(xmlFile, &XmlFile::tipoStringaChanged, this, &XmlList::slotDataChanged);
+        disconnect(xmlFile, &XmlFile::dateChanged, this, &XmlList::slotDataChanged);
     }
 
 private slots:

@@ -14,6 +14,7 @@ class XmlFile : public QObject
     Q_ADD_PROPERTY(QString, partIva, PartIva, "")
     Q_ADD_PROPERTY(QString, intestazione, Intestazione, "")
     Q_ADD_PROPERTY(QString, vData, VData, "")
+    Q_ADD_PROPERTY(QDate, date, Date, {})
     Q_ADD_PROPERTY_DOUBLE(double, imponibile_4, Imponibile_4, 0)
     Q_ADD_PROPERTY_DOUBLE(double, imposta_4, Imposta_4, 0)
     Q_ADD_PROPERTY_DOUBLE(double, imponibile_5, Imponibile_5, 0)
@@ -95,6 +96,7 @@ protected:
 private:
     void init();
     void initTipoStringa();
+    void initDate();
     QString find(QString find);
     void getPartIva();
     void getIntestazione();
@@ -104,6 +106,10 @@ private:
     void getTipo();
     void checkSync();
     XmlFile::DOCUMENT_TYPE tipoFromString(QString value);
+
+public:
+    bool notaDiCredito() { return this->tipo()==TD04 || this->tipo()==TD08; }
+    bool spesa22() { return this->tipo()==SPESE; }
 };
 
 #endif // XML_FILE_H
