@@ -25,6 +25,31 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
     bold.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
     bold.setBottomBorderColor(QColor(196,189,151));
     bold.setBottomBorderStyle(Format::BorderDashDot);
+    bold.setRightBorderColor(QColor(0,0,0));
+    bold.setRightBorderStyle(Format::BorderThin);
+
+    auto normal = Format();
+    normal.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+    normal.setBottomBorderColor(QColor(196,189,151));
+    normal.setBottomBorderStyle(Format::BorderDashDot);
+    normal.setRightBorderColor(QColor(0,0,0));
+    normal.setRightBorderStyle(Format::BorderThin);
+
+    auto spese = Format();
+    spese.setPatternBackgroundColor(QColor(242,220,219));
+    spese.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+    spese.setBottomBorderColor(QColor(196,189,151));
+    spese.setBottomBorderStyle(Format::BorderDashDot);
+    spese.setRightBorderColor(QColor(0,0,0));
+    spese.setRightBorderStyle(Format::BorderThin);
+
+    auto note = Format();
+    note.setPatternBackgroundColor(QColor(235,241,222));
+    note.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+    note.setBottomBorderColor(QColor(196,189,151));
+    note.setBottomBorderStyle(Format::BorderDashDot);
+    note.setRightBorderColor(QColor(0,0,0));
+    note.setRightBorderStyle(Format::BorderThin);
 
     enum COLONNE{
         N_OPERAZ = 1,
@@ -44,10 +69,10 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         IVA_SPESE_22,
     };
 
-    auto inserisciValoreDocumento = [=](XmlFile *item, int row, int column, double value) {
+    auto inserisciValoreDocumento = [=](XmlFile *item, int row, int column, double value, Format format) {
         Q_ASSERT_X(item!=nullptr, Q_FUNC_INFO, "Item non definito");
         value = item->notaDiCredito() ? -value : value;
-        document->write(row, column, value);
+        document->write(row, column, value, format);
     };
 
     auto dummySheet = document->sheetNames().count()>0 ? document->sheetNames().at(0) : "";
@@ -106,28 +131,41 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
             document->write(nRows+rowMin, IVA_SPESE_22,      formula.arg(QChar((short)64+IVA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
         }
 
-        document->write(row, N_OPERAZ, i+1, bold);
-        document->write(row, PIVA, item->partIva());
+        auto boldFormat = bold;
+        auto format = normal;
+
+        if(item->tipo()==XmlFile::SPESE){
+            boldFormat.setPatternBackgroundColor(spese.patternBackgroundColor());
+            format = spese;
+        }
+        if(item->notaDiCredito()){
+            boldFormat.setPatternBackgroundColor(note.patternBackgroundColor());
+            format = note;
+        }
+
+        document->write(row, N_OPERAZ, i+1, boldFormat);
+
+        document->write(row, PIVA, item->partIva(), format);
 
         auto iLength = item->intestazione().length();
         auto intestazione = iLength > 30 ? item->intestazione().left(28)+"…" : item->intestazione();
-        document->write(row, INTESTAZIONE, intestazione);
+        document->write(row, INTESTAZIONE, intestazione, format);
 
         auto tLength = item->tipoStringa().length();
         auto tipo = tLength > 15 ? item->tipoStringa().left(13)+"…" : item->tipoStringa();
-        document->write(row, TIPO_DOCUMENTO, tipo);
+        document->write(row, TIPO_DOCUMENTO, tipo, format);
 
-        inserisciValoreDocumento(item, row, IMPORTI, item->totale());
-        inserisciValoreDocumento(item, row, ALIQUOTA_4, item->imponibile_4());
-        inserisciValoreDocumento(item, row, IVA_4, item->imposta_4());
-        inserisciValoreDocumento(item, row, ALIQUOTA_5, item->imponibile_5());
-        inserisciValoreDocumento(item, row, IVA_5, item->imposta_5());
-        inserisciValoreDocumento(item, row, ALIQUOTA_10, item->imponibile_10());
-        inserisciValoreDocumento(item, row, IVA_10, item->imposta_10());
-        inserisciValoreDocumento(item, row, ALIQUOTA_SPESE_22, item->tipo()==XmlFile::SPESE ? item->imponibile_22() : 0);
-        inserisciValoreDocumento(item, row, IVA_SPESE_22, item->tipo()==XmlFile::SPESE ? item->imposta_22() : 0);
-        inserisciValoreDocumento(item, row, ALIQUOTA_22, item->tipo()==XmlFile::SPESE ? 0 : item->imponibile_22());
-        inserisciValoreDocumento(item, row, IVA_22, item->tipo()==XmlFile::SPESE ? 0 : item->imposta_22());
+        inserisciValoreDocumento(item, row, IMPORTI, item->totale(), format);
+        inserisciValoreDocumento(item, row, ALIQUOTA_4, item->imponibile_4(), format);
+        inserisciValoreDocumento(item, row, IVA_4, item->imposta_4(), format);
+        inserisciValoreDocumento(item, row, ALIQUOTA_5, item->imponibile_5(), format);
+        inserisciValoreDocumento(item, row, IVA_5, item->imposta_5(), format);
+        inserisciValoreDocumento(item, row, ALIQUOTA_10, item->imponibile_10(), format);
+        inserisciValoreDocumento(item, row, IVA_10, item->imposta_10(), format);
+        inserisciValoreDocumento(item, row, ALIQUOTA_SPESE_22, item->tipo()==XmlFile::SPESE ? item->imponibile_22() : 0, format);
+        inserisciValoreDocumento(item, row, IVA_SPESE_22, item->tipo()==XmlFile::SPESE ? item->imposta_22() : 0, format);
+        inserisciValoreDocumento(item, row, ALIQUOTA_22, item->tipo()==XmlFile::SPESE ? 0 : item->imponibile_22(), format);
+        inserisciValoreDocumento(item, row, IVA_22, item->tipo()==XmlFile::SPESE ? 0 : item->imposta_22(), format);
 
     }
 
