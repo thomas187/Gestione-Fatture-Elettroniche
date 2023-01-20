@@ -22,7 +22,7 @@ Window {
     }
     property date expToDate : {
         var date = expFromDate
-        date.setMonth(date.getMonth() + spin.value)
+        date.setMonth(date.getMonth() + spin.value - 1)
         return date
     }
 

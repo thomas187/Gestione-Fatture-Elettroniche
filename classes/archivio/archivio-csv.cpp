@@ -62,8 +62,14 @@ void Archivio::csvExport(QString folder, QString expFromStrDate, QString expToSt
     QList<XmlFile*> listSpese;
     QList<XmlFile*> listNoteCredito;
 
-    auto list = this->xmlList()->model();
-    for(auto item : qAsConst(list)){
+    QSortFilterProxyModel sorted;
+    sorted.setSourceModel(this->xmlList());
+    sorted.setSortRole(XmlList::VDataRole);
+    sorted.sort(0);
+    for(int i=0; i<sorted.rowCount(); i++){
+        auto index = sorted.index(1,0);
+        auto sourceIndex = sorted.mapToSource(index);
+        auto item = this->xmlList()->get(sourceIndex.row());
         if(item->date()<expFromDate || item->date()>expToDate)
             continue;
         if(Archivio::getInstance().spese().contains(item->partIva()))

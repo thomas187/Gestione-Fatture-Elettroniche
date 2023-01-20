@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/img/xml-ae.png</file>
+        <file>assets/img/xml-ae.ico</file>
+        <file>assets/img/ae.ico</file>
+        <file>assets/img/ae.png</file>
+    </qresource>
+</RCC>

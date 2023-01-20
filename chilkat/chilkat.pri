@@ -5,3 +5,4 @@ RESOURCES += \
     $$files($$PWD/*.qrc, true)
 INCLUDEPATH += $$PWD
 INCLUDEPATH += $$PWD/include
+DEPENDPATH += $$PWD/include

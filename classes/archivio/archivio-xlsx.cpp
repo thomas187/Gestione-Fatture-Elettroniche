@@ -53,6 +53,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
 
     enum COLONNE{
         N_OPERAZ = 1,
+        DATA,
         PIVA,
         INTESTAZIONE,
         TIPO_DOCUMENTO,
@@ -82,8 +83,14 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
     auto rowMax = nRows+2;
 
     QList<XmlFile*> items;
-    for(int i=0; i<this->xmlList()->count(); i++){
-        auto item = this->xmlList()->get(i);
+    QSortFilterProxyModel sorted;
+    sorted.setSourceModel(this->xmlList());
+    sorted.setSortRole(XmlList::VDataRole);
+    sorted.sort(0);
+    for(int i=0; i<sorted.rowCount(); i++){
+        auto index = sorted.index(i,0);
+        auto sourceIndex = sorted.mapToSource(index);
+        auto item = this->xmlList()->get(sourceIndex.row());
         if(item->date()<expFromDate || item->date()>expToDate)
             continue;
         items += item;
@@ -92,6 +99,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
     if(items.isEmpty())
         return;
 
+    auto rest = 35*((items.count()/35)+1);
     for(int i=0; i<items.count(); i++){
         auto item = items.at(i);
         auto sheetIndex = i/nRows+1;
@@ -145,6 +153,8 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
 
         document->write(row, N_OPERAZ, i+1, boldFormat);
 
+        document->write(row, DATA, item->date().toString("yyyy-MM-dd"), boldFormat);
+
         document->write(row, PIVA, item->partIva(), format);
 
         auto iLength = item->intestazione().length();
@@ -169,11 +179,40 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
 
     }
 
+    for(int i=items.count(); i<rest; i++){
+        auto sheetIndex = i/nRows+1;
+        QString sheetName = QString("Foglio %1").arg(sheetIndex);
+        auto row = i%nRows+rowMin;
+        document->selectSheet(sheetName);
+
+        auto boldFormat = bold;
+        auto format = normal;
+
+        document->write(row, N_OPERAZ, i+1, boldFormat);
+        document->write(row, DATA, "", boldFormat);
+        document->write(row, PIVA, "", format);
+        document->write(row, INTESTAZIONE, "", format);
+        document->write(row, TIPO_DOCUMENTO, "", format);
+        document->write(row, IMPORTI, "", format);
+        document->write(row, ALIQUOTA_4, "", format);
+        document->write(row, IVA_4, "", format);
+        document->write(row, ALIQUOTA_5, "", format);
+        document->write(row, IVA_5, "", format);
+        document->write(row, ALIQUOTA_10, "", format);
+        document->write(row, IVA_10, "", format);
+        document->write(row, ALIQUOTA_SPESE_22, "", format);
+        document->write(row, IVA_SPESE_22, "", format);
+        document->write(row, ALIQUOTA_22, "", format);
+        document->write(row, IVA_22, "", format);
+
+    }
+
     auto sheetNames = document->sheetNames();
     for(const auto &sheet : qAsConst(sheetNames)){
         document->selectSheet(sheet);
 
         document->setColumnWidth(N_OPERAZ,13);
+        document->setColumnWidth(DATA,13);
         document->setColumnWidth(PIVA,15);
         document->setColumnWidth(INTESTAZIONE,30);
         document->setColumnWidth(TIPO_DOCUMENTO,15);

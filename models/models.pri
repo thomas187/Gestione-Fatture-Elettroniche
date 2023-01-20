@@ -4,3 +4,4 @@ FORMS   += $$files($$PWD/*.ui, true)
 RESOURCES += \
     $$files($$PWD/*.qrc, true)
 INCLUDEPATH += $$PWD/include
+DEPENDPATH += $$PWD/include

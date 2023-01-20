@@ -7,7 +7,8 @@ QT += quick xml xmlpatterns
 SOURCES += \
         main.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    assets.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -48,3 +49,7 @@ include (qxlsx/qxlsx.pri)
 
 INCLUDEPATH += $$PWD/.
 DEPENDPATH += $$PWD/.
+
+win32{
+RC_ICONS = assets/img/ae.ico
+}
