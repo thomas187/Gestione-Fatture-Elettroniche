@@ -11,6 +11,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
 {
     QDate expFromDate = QDate::fromString(expFromStrDate, "yyyy-MM-dd");
     QDate expToDate = QDate::fromString(expToStrDate, "yyyy-MM-dd");
+    expToDate = expToDate.addMonths(1);
 
     folder = folder.remove("file:///");
     QString filename = QString("export_%1.xlsx").arg(QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss"));
@@ -19,33 +20,44 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
 
     auto document = new Document(path, this);
 
+    auto font = QFont();
+    font.setPointSize(14);
+
     auto bold = Format();
+    bold.setFont(font);
     bold.setPatternBackgroundColor(QColor(242,242,242));
     bold.setFontBold(true);
     bold.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+    bold.setVerticalAlignment(Format::VerticalAlignment::AlignVCenter);
     bold.setBottomBorderColor(QColor(196,189,151));
     bold.setBottomBorderStyle(Format::BorderDashDot);
     bold.setRightBorderColor(QColor(0,0,0));
     bold.setRightBorderStyle(Format::BorderThin);
 
     auto normal = Format();
+    normal.setFont(font);
     normal.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+    normal.setVerticalAlignment(Format::VerticalAlignment::AlignVCenter);
     normal.setBottomBorderColor(QColor(196,189,151));
     normal.setBottomBorderStyle(Format::BorderDashDot);
     normal.setRightBorderColor(QColor(0,0,0));
     normal.setRightBorderStyle(Format::BorderThin);
 
     auto spese = Format();
+    spese.setFont(font);
     spese.setPatternBackgroundColor(QColor(242,220,219));
     spese.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+    spese.setVerticalAlignment(Format::VerticalAlignment::AlignVCenter);
     spese.setBottomBorderColor(QColor(196,189,151));
     spese.setBottomBorderStyle(Format::BorderDashDot);
     spese.setRightBorderColor(QColor(0,0,0));
     spese.setRightBorderStyle(Format::BorderThin);
 
     auto note = Format();
+    note.setFont(font);
     note.setPatternBackgroundColor(QColor(235,241,222));
     note.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+    note.setVerticalAlignment(Format::VerticalAlignment::AlignVCenter);
     note.setBottomBorderColor(QColor(196,189,151));
     note.setBottomBorderStyle(Format::BorderDashDot);
     note.setRightBorderColor(QColor(0,0,0));
@@ -114,6 +126,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
                 document->copySheet(dummySheet,sheetName);
         }
         document->selectSheet(sheetName);
+        document->setRowHeight(row,30);
 
         if(newSheet){
             QString formula = QString("=SUM(%1%2:%1%3)");  /// =SUM(D2:D36)+'Foglio 1'!D37
@@ -126,6 +139,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
                 formula += "%4";
 
             QString arg4 = sheetIndex>1 ? QString::number(nRows+rowMin) : "";
+            document->setRowHeight(nRows+rowMin,30);
             document->write(nRows+rowMin, IMPORTI,           formula.arg(QChar((short)64+IMPORTI).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
             document->write(nRows+rowMin, ALIQUOTA_4,        formula.arg(QChar((short)64+ALIQUOTA_4).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
             document->write(nRows+rowMin, IVA_4,             formula.arg(QChar((short)64+IVA_4).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
@@ -158,8 +172,11 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         document->write(row, PIVA, item->partIva(), format);
 
         auto iLength = item->intestazione().length();
-        auto intestazione = iLength > 30 ? item->intestazione().left(28)+"…" : item->intestazione();
-        document->write(row, INTESTAZIONE, intestazione, format);
+        auto intestazione = iLength > 60 ? item->intestazione().left(58)+"…" : item->intestazione();
+        auto intestazione_format = format;
+        intestazione_format.setHorizontalAlignment(Format::HorizontalAlignment::AlignLeft);
+        normal.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+        document->write(row, INTESTAZIONE, intestazione, intestazione_format);
 
         auto tLength = item->tipoStringa().length();
         auto tipo = tLength > 15 ? item->tipoStringa().left(13)+"…" : item->tipoStringa();
@@ -184,6 +201,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         QString sheetName = QString("Foglio %1").arg(sheetIndex);
         auto row = i%nRows+rowMin;
         document->selectSheet(sheetName);
+        document->setRowHeight(row,30);
 
         auto boldFormat = bold;
         auto format = normal;
@@ -211,13 +229,13 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
     for(const auto &sheet : qAsConst(sheetNames)){
         document->selectSheet(sheet);
 
-        document->setColumnWidth(N_OPERAZ,13);
-        document->setColumnWidth(DATA,13);
-        document->setColumnWidth(PIVA,15);
-        document->setColumnWidth(INTESTAZIONE,30);
-        document->setColumnWidth(TIPO_DOCUMENTO,15);
+        document->setColumnWidth(N_OPERAZ,15);
+        document->setColumnWidth(DATA,18);
+        document->setColumnWidth(PIVA,22);
+        document->setColumnWidth(INTESTAZIONE,80);
+        document->setColumnWidth(TIPO_DOCUMENTO,20);
         for(int c=IMPORTI; c<=IVA_SPESE_22; c++)
-            document->setColumnWidth(c,14);
+            document->setColumnWidth(c,18);
     }
 
     if(!dummySheet.isEmpty() && sheetNames.contains(dummySheet))

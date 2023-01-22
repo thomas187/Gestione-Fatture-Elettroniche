@@ -13,7 +13,7 @@ void Archivio::exportFile(QString format, QList<XmlFile*> list, QString folder, 
     QTextStream outData(&fileData);
 
     QList<int> imps({4,5,10,22});
-    QStringList header({"Partita IVA","Tipo documento","Intestazione","Data","Totale fattura"});
+    QStringList header({"Data","Partita IVA","Tipo documento","Intestazione","Totale fattura"});
     for(auto imp : qAsConst(imps)){
         header += QString("Imponibile (%1\%)").arg(imp);
         header += QString("Imposta (%1\%)").arg(imp);
@@ -25,10 +25,10 @@ void Archivio::exportFile(QString format, QList<XmlFile*> list, QString folder, 
 
     for(auto item : qAsConst(list)){
         QString line;
+        line += item->vData() + ";";
         line += item->partIva() + ";";
         line += item->tipoStringa() + ";";
         line += item->intestazione() + ";";
-        line += item->vData() + ";";
         line += QString::number(item->totale(),'f',2).replace(".",",") + ";";
 
         for(auto imp : qAsConst(imps)){
@@ -57,6 +57,7 @@ void Archivio::csvExport(QString folder, QString expFromStrDate, QString expToSt
 {
     QDate expFromDate = QDate::fromString(expFromStrDate, "yyyy-MM-dd");
     QDate expToDate = QDate::fromString(expToStrDate, "yyyy-MM-dd");
+    expToDate = expToDate.addMonths(1);
 
     QList<XmlFile*> listFatture;
     QList<XmlFile*> listSpese;
@@ -67,7 +68,7 @@ void Archivio::csvExport(QString folder, QString expFromStrDate, QString expToSt
     sorted.setSortRole(XmlList::VDataRole);
     sorted.sort(0);
     for(int i=0; i<sorted.rowCount(); i++){
-        auto index = sorted.index(1,0);
+        auto index = sorted.index(i,0);
         auto sourceIndex = sorted.mapToSource(index);
         auto item = this->xmlList()->get(sourceIndex.row());
         if(item->date()<expFromDate || item->date()>expToDate)
