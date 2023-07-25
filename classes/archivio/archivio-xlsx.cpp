@@ -152,7 +152,6 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
             document->write(nRows+rowMin, IVA_22,            formula.arg(QChar((short)64+IVA_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
             document->write(nRows+rowMin, ALIQUOTA_SPESE_22, formula.arg(QChar((short)64+ALIQUOTA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
             document->write(nRows+rowMin, IVA_SPESE_22,      formula.arg(QChar((short)64+IVA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, ALTRO,             formula.arg(QChar((short)64+ALTRO).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
         }
 
         auto boldFormat = bold;
@@ -242,7 +241,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         document->setColumnWidth(PIVA,22);
         document->setColumnWidth(INTESTAZIONE,43);
         document->setColumnWidth(TIPO_DOCUMENTO,20);
-        document->setColumnWidth(ALTRO,43);
+        document->setColumnWidth(ALTRO,30);
         for(int c=IMPORTI; c<=IVA_SPESE_22; c++)
             document->setColumnWidth(c,18);
     }
