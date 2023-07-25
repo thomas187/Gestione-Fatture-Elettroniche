@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkSshKey_H
 #define _CkSshKey_H
@@ -262,7 +262,7 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 	// zHkpG4C02qFa2ASw2DT9oe/qj/sTgckT08KpWlRedNXWZkTXgG+a6wKe7PUcudXcK1JbcE6H3yweLHC7QjjL
 	// ZFnLSx9pMGfXMNe8K/aatUvkPVCc5nwH9WLl9x5B15ot7pTOPq9OLkwFaPO9WiD/EOvS0SjgU9Ga7pJSSZP
 	// OHASIRNJybmo6b1WdOvY72wKJsU+aqs4MYDOmP85YgfZEwxPUH02Xo/om8dZlz3auqtRVkcGRKhqQ1aTK0
-	// s3mNbLHAh0IXFC8KcAqJzu46h0xKKoNQ8kceU8iCH 
+	// s3mNbLHAh0IXFC8KcAqJzu46h0xKKoNQ8kceU8iCH
 	// 
 	// OpenSSH DSA Public Key (Line-breaks are added for readability.)
 	// 
@@ -278,7 +278,7 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 	// WtTDidZWRxWXxP+8J7PrMwA4Pwoq2SPW1u9qQh1mGpPaPDluPiRbMKL2uV9oLfVEY7naVrqH05EPgtbiNjDin7E
 	// Qljo3IoKzpEKB1lFHT/Vd4CMTdl7o+QhZ5ftMGv9sbmf2eZ6y9fQpebO7o4w7/LgQ5SaIWYaCiTZWNTS4vLeNBuJB
 	// VJL/pL3tMQrQFqHAg4o94q6M5Y6NvnsSoyZ3gs5bnuyH/wk2oXdlNhRVx1DMYBSdeWRlgjLYUBEKDABs+1N/9nB
-	// IZDEUQYvVA71Fawp4cqizg== 
+	// IZDEUQYvVA71Fawp4cqizg==
 	bool FromOpenSshPublicKey(const char *keyStr);
 
 
@@ -459,8 +459,7 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 	// key. To load from a file, you may first call LoadText to load the complete
 	// contents of a text file into a string.
 	// 
-	// Here are RSA public/private keys in XML format:
-	// _LT_RSAPublicKey>
+	// Here are RSA public/private keys in XML format:_LT_RSAPublicKey>
 	//     _LT_Modulus>x+52s7vvaZ8rT2UdFZWlSUVDHD ... D/m73pYaEJB3Nd7w==_LT_/Modulus>
 	//     _LT_Exponent>JQ==_LT_/Exponent>
 	// _LT_/RSAPublicKey>
@@ -513,12 +512,10 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 	bool GenerateRsaKey(int numBits, int exponent);
 
 
-	// Generates a fingerpring for an SSH key. A sample fingerprint looks like this:
-	// ssh-dss 2048 d0:5f:f7:d6:49:60:7b:50:19:f4:41:59:d4:1f:61:7a
+	// Generates a fingerpring for an SSH key. A sample fingerprint looks like this:ssh-dss 2048 d0:5f:f7:d6:49:60:7b:50:19:f4:41:59:d4:1f:61:7a
 	bool GenFingerprint(CkString &outStr);
 
-	// Generates a fingerpring for an SSH key. A sample fingerprint looks like this:
-	// ssh-dss 2048 d0:5f:f7:d6:49:60:7b:50:19:f4:41:59:d4:1f:61:7a
+	// Generates a fingerpring for an SSH key. A sample fingerprint looks like this:ssh-dss 2048 d0:5f:f7:d6:49:60:7b:50:19:f4:41:59:d4:1f:61:7a
 	const char *genFingerprint(void);
 
 	// Convenience method for loading an entire text file into an in-memory string.
@@ -776,7 +773,7 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 	// zHkpG4C02qFa2ASw2DT9oe/qj/sTgckT08KpWlRedNXWZkTXgG+a6wKe7PUcudXcK1JbcE6H3yweLHC7QjjL
 	// ZFnLSx9pMGfXMNe8K/aatUvkPVCc5nwH9WLl9x5B15ot7pTOPq9OLkwFaPO9WiD/EOvS0SjgU9Ga7pJSSZP
 	// OHASIRNJybmo6b1WdOvY72wKJsU+aqs4MYDOmP85YgfZEwxPUH02Xo/om8dZlz3auqtRVkcGRKhqQ1aTK0
-	// s3mNbLHAh0IXFC8KcAqJzu46h0xKKoNQ8kceU8iCH 
+	// s3mNbLHAh0IXFC8KcAqJzu46h0xKKoNQ8kceU8iCH
 	// 
 	// OpenSSH DSA Public Key (Line-breaks are added for readability.)
 	// 
@@ -792,7 +789,7 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 	// WtTDidZWRxWXxP+8J7PrMwA4Pwoq2SPW1u9qQh1mGpPaPDluPiRbMKL2uV9oLfVEY7naVrqH05EPgtbiNjDin7E
 	// Qljo3IoKzpEKB1lFHT/Vd4CMTdl7o+QhZ5ftMGv9sbmf2eZ6y9fQpebO7o4w7/LgQ5SaIWYaCiTZWNTS4vLeNBuJB
 	// VJL/pL3tMQrQFqHAg4o94q6M5Y6NvnsSoyZ3gs5bnuyH/wk2oXdlNhRVx1DMYBSdeWRlgjLYUBEKDABs+1N/9nB
-	// IZDEUQYvVA71Fawp4cqizg== 
+	// IZDEUQYvVA71Fawp4cqizg==
 	bool ToOpenSshPublicKey(CkString &outStr);
 
 	// Exports the public key to a string in OpenSSH format. Sample OpenSSH-formatted
@@ -806,7 +803,7 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 	// zHkpG4C02qFa2ASw2DT9oe/qj/sTgckT08KpWlRedNXWZkTXgG+a6wKe7PUcudXcK1JbcE6H3yweLHC7QjjL
 	// ZFnLSx9pMGfXMNe8K/aatUvkPVCc5nwH9WLl9x5B15ot7pTOPq9OLkwFaPO9WiD/EOvS0SjgU9Ga7pJSSZP
 	// OHASIRNJybmo6b1WdOvY72wKJsU+aqs4MYDOmP85YgfZEwxPUH02Xo/om8dZlz3auqtRVkcGRKhqQ1aTK0
-	// s3mNbLHAh0IXFC8KcAqJzu46h0xKKoNQ8kceU8iCH 
+	// s3mNbLHAh0IXFC8KcAqJzu46h0xKKoNQ8kceU8iCH
 	// 
 	// OpenSSH DSA Public Key (Line-breaks are added for readability.)
 	// 
@@ -822,7 +819,7 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 	// WtTDidZWRxWXxP+8J7PrMwA4Pwoq2SPW1u9qQh1mGpPaPDluPiRbMKL2uV9oLfVEY7naVrqH05EPgtbiNjDin7E
 	// Qljo3IoKzpEKB1lFHT/Vd4CMTdl7o+QhZ5ftMGv9sbmf2eZ6y9fQpebO7o4w7/LgQ5SaIWYaCiTZWNTS4vLeNBuJB
 	// VJL/pL3tMQrQFqHAg4o94q6M5Y6NvnsSoyZ3gs5bnuyH/wk2oXdlNhRVx1DMYBSdeWRlgjLYUBEKDABs+1N/9nB
-	// IZDEUQYvVA71Fawp4cqizg== 
+	// IZDEUQYvVA71Fawp4cqizg==
 	const char *toOpenSshPublicKey(void);
 
 	// Exports the private key to PuTTY format. If bEncrypt is true, the key is encrypted
@@ -1145,17 +1142,15 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 
 	// Exports an SSH key to XML. Samples of RSA and DSA private keys are shown below:
 	// 
-	// DSA Key
-	// _LT_DSAKeyValue>
+	// DSA Key_LT_DSAKeyValue>
 	//     _LT_P>qj/5FQjdsvxasIvxd......Ss3TbLQ==_LT_/P>
 	//     _LT_Q>2SI7TTWjPiXOGw7+0PH2uk7If/k=_LT_/Q>
 	//     _LT_G>DxQ3+k/sJgEjUon......643bMhw==_LT_/G>
 	//     _LT_Y>Xh/Akb90+cojwty.....VA71p4cqizg==_LT_/Y>
 	//     _LT_X>ojilJuWXOyBTQ0H4hBNBTsL9Mq8=_LT_/X>
-	// _LT_/DSAKeyValue>
+	// _LT_/DSAKeyValue> 
 	// 
-	// RSA Key
-	// _LT_RSAKeyValue>
+	// RSA Key_LT_RSAKeyValue>
 	//     _LT_Modulus>vTjHMg1+n.....JHHlPIghw==_LT_/Modulus>
 	//     _LT_Exponent>AQAB_LT_/Exponent>
 	//     _LT_P>zfbbQagHiP48y.....udBR7n5w+MhP7c=_LT_/P>
@@ -1170,17 +1165,15 @@ class CK_VISIBLE_PUBLIC CkSshKey  : public CkMultiByteBase
 
 	// Exports an SSH key to XML. Samples of RSA and DSA private keys are shown below:
 	// 
-	// DSA Key
-	// _LT_DSAKeyValue>
+	// DSA Key_LT_DSAKeyValue>
 	//     _LT_P>qj/5FQjdsvxasIvxd......Ss3TbLQ==_LT_/P>
 	//     _LT_Q>2SI7TTWjPiXOGw7+0PH2uk7If/k=_LT_/Q>
 	//     _LT_G>DxQ3+k/sJgEjUon......643bMhw==_LT_/G>
 	//     _LT_Y>Xh/Akb90+cojwty.....VA71p4cqizg==_LT_/Y>
 	//     _LT_X>ojilJuWXOyBTQ0H4hBNBTsL9Mq8=_LT_/X>
-	// _LT_/DSAKeyValue>
+	// _LT_/DSAKeyValue> 
 	// 
-	// RSA Key
-	// _LT_RSAKeyValue>
+	// RSA Key_LT_RSAKeyValue>
 	//     _LT_Modulus>vTjHMg1+n.....JHHlPIghw==_LT_/Modulus>
 	//     _LT_Exponent>AQAB_LT_/Exponent>
 	//     _LT_P>zfbbQagHiP48y.....udBR7n5w+MhP7c=_LT_/P>

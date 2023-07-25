@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkOAuth1W_H
 #define _CkOAuth1W_H

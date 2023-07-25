@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkCsr_H
 #define _CkCsr_H
@@ -332,18 +332,15 @@ class CK_VISIBLE_PUBLIC CkCsr  : public CkMultiByteBase
 	bool GetSans(CkStringTable &sans);
 
 
-	// Gets a subject field by OID, such as "2.5.4.9".
-	// Seehttp://www.alvestrand.no/objectid/2.5.4.html
-	// <http://www.alvestrand.no/objectid/2.5.4.html> for OID values and meanings.
+	// Gets a subject field by OID, such as "2.5.4.9". See
+	// http://www.alvestrand.no/objectid/2.5.4.html for OID values and meanings.
 	bool GetSubjectField(const char *oid, CkString &outStr);
 
-	// Gets a subject field by OID, such as "2.5.4.9".
-	// Seehttp://www.alvestrand.no/objectid/2.5.4.html
-	// <http://www.alvestrand.no/objectid/2.5.4.html> for OID values and meanings.
+	// Gets a subject field by OID, such as "2.5.4.9". See
+	// http://www.alvestrand.no/objectid/2.5.4.html for OID values and meanings.
 	const char *getSubjectField(const char *oid);
-	// Gets a subject field by OID, such as "2.5.4.9".
-	// Seehttp://www.alvestrand.no/objectid/2.5.4.html
-	// <http://www.alvestrand.no/objectid/2.5.4.html> for OID values and meanings.
+	// Gets a subject field by OID, such as "2.5.4.9". See
+	// http://www.alvestrand.no/objectid/2.5.4.html for OID values and meanings.
 	const char *subjectField(const char *oid);
 
 
@@ -357,9 +354,8 @@ class CK_VISIBLE_PUBLIC CkCsr  : public CkMultiByteBase
 	bool SetExtensionRequest(CkXml &extensionReqXml);
 
 
-	// Sets a subject field by OID, such as "2.5.4.9".
-	// Seehttp://www.alvestrand.no/objectid/2.5.4.html
-	// <http://www.alvestrand.no/objectid/2.5.4.html> for OID values and meanings.
+	// Sets a subject field by OID, such as "2.5.4.9". See
+	// http://www.alvestrand.no/objectid/2.5.4.html for OID values and meanings.
 	// 
 	// The asnType can be "UTF8String", "IA5String", or "PrintableString". If you have no
 	// specific requirement, or don't know, choose "UTF8String".

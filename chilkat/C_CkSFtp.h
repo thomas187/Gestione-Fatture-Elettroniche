@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkSFtp_H
 #define _C_CkSFtp_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -252,6 +252,8 @@ CK_C_VISIBLE_PUBLIC int CkSFtp_GetFileSize32(HCkSFtp cHandle, const char *pathOr
 CK_C_VISIBLE_PUBLIC __int64 CkSFtp_GetFileSize64(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_GetFileSizeStr(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSFtp_getFileSizeStr(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
+CK_C_VISIBLE_PUBLIC BOOL CkSFtp_GetHostKeyFP(HCkSFtp cHandle, const char *hashAlg, BOOL includeKeyType, BOOL includeHashName, HCkString outStr);
+CK_C_VISIBLE_PUBLIC const char *CkSFtp_getHostKeyFP(HCkSFtp cHandle, const char *hashAlg, BOOL includeKeyType, BOOL includeHashName);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_HardLink(HCkSFtp cHandle, const char *oldPath, const char *newPath);
 CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_HardLinkAsync(HCkSFtp cHandle, const char *oldPath, const char *newPath);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_InitializeSftp(HCkSFtp cHandle);

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkDsaW_H
 #define _CkDsaW_H
@@ -178,9 +178,7 @@ class CK_VISIBLE_PUBLIC CkDsaW  : public CkWideCharBase
 	bool GenKeyFromParamsDer(CkByteData &derBytes);
 
 	// Generates a new DSA key from a DER-format parameters file created by OpenSSL. An
-	// example of using OpenSSL to generate DSA parameters in DER format is:
-	// openssl dsaparam -outform DER 1024 dsaparam.der
-	// The newly generated key may be exported by calling one of the To* methods.
+	// example of using OpenSSL to generate DSA parameters in DER format is:openssl dsaparam -outform DER 1024dsaparam.derThe newly generated key may be exported by calling one of the To* methods.
 	bool GenKeyFromParamsDerFile(const wchar_t *path);
 
 	// Generates a new DSA key from parameters (PEM formatted string) created by
@@ -191,11 +189,9 @@ class CK_VISIBLE_PUBLIC CkDsaW  : public CkWideCharBase
 	// Generates a new DSA key from a PEM parameters file created by OpenSSL. The newly
 	// generated key may be exported by calling one of the To* methods.
 	// 
-	// OpenSSL provides the ability to generate DSA key parameters. For example:
-	// openssl dsaparam 1024 dsaparam.pem
+	// OpenSSL provides the ability to generate DSA key parameters. For example:openssl dsaparam 1024dsaparam.pem
 	// 
-	// Here is a sample DSA parameters PEM:
-	// -----BEGIN DSA PARAMETERS-----
+	// Here is a sample DSA parameters PEM:-----BEGIN DSA PARAMETERS-----
 	// MIIBHgKBgQCXIAx4XzLVZ5ZqOFzdsYWVyH/6E/mVPw4TgMZS6Wxajnbdn1/CUBzE
 	// RWTUp8SguTSDpjC1Q/nyno0G6Q96VoW+PUXv8qUph8vbSaEdsjYO/8jSfzkGfvsa
 	// cucr1ythfNyk63aZAKzxeutOmsVe77l6pZI96ROjWF5iizuUB4WgmwIVANxM70wH

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkRsaW_H
 #define _CkRsaW_H
@@ -485,8 +485,7 @@ class CK_VISIBLE_PUBLIC CkRsaW  : public CkWideCharBase
 	// can be used to encrypt or decrypt. A private key (by definition) contains both
 	// private and public parts. This is because the public key consist of modulus and
 	// exponent. The private key consists of modulus, exponent, P, Q, DP, DQ, InverseQ,
-	// and D using base64 representation:
-	// _LT_RSAKeyValue>
+	// and D using base64 representation:_LT_RSAKeyValue>
 	//   _LT_Modulus>..._LT_/Modulus>
 	//   _LT_Exponent>..._LT_/Exponent>
 	//   _LT_P>..._LT_/P>
@@ -513,11 +512,10 @@ class CK_VISIBLE_PUBLIC CkRsaW  : public CkWideCharBase
 	// Note: Importing a public key overwrites the key that is currently contained in
 	// this object - even if it's a private key.
 	// 
-	// A public key consists of modulus and exponent using base64 representation:
-	// _LT_RSAPublicKey>
+	// A public key consists of modulus and exponent using base64 representation:_LT_RSAPublicKey>
 	//   _LT_Modulus>..._LT_/Modulus>
 	//   _LT_Exponent>..._LT_/Exponent>
-	// _LT_/RSAPublicKey>
+	// _LT_/RSAPublicKey> 
 	// 
 	// Important: The Rsa object can contain either a private key or a public key, but
 	// not both. Importing a private key overwrites the existing key regardless of

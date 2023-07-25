@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkHttpW_H
 #define _CkHttpW_H
@@ -382,8 +382,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// This property will be set to the status of the last HTTP connection made (or
 	// failed to be made) by any HTTP method.
 	// 
-	// Possible values are:
-	// 0 = success
+	// Possible values are:0 = success
 	// 
 	// Normal (non-TLS) sockets:
 	// 1 = empty hostname
@@ -846,32 +845,28 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	int get_NumCacheRoots(void);
 
 	// If true then causes an OAuth Authorization header to be added to any request
-	// sent by the HTTP object. For example:
-	// Authorization: OAuth realm="http://sp.example.com/",
+	// sent by the HTTP object. For example:Authorization: OAuth realm="http://sp.example.com/",
 	//                 oauth_consumer_key="0685bd9184jfhq22",
 	//                 oauth_token="ad180jjd733klru7",
 	//                 oauth_signature_method="HMAC-SHA1",
 	//                 oauth_signature="wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D",
 	//                 oauth_timestamp="137131200",
 	//                 oauth_nonce="4572616e48616d6d65724c61686176",
-	//                 oauth_version="1.0"
-	// The information used to compute the OAuth Authorization header is obtained from
-	// the other OAuth* properties, such as OAuthConsumerKey, OAuthConsumerSecret,
-	// OAuthRealm, etc.
+	// oauth_version="1.0" The information used to compute the OAuth Authorization
+	// header is obtained from the other OAuth* properties, such as OAuthConsumerKey,
+	// OAuthConsumerSecret, OAuthRealm, etc.
 	bool get_OAuth1(void);
 	// If true then causes an OAuth Authorization header to be added to any request
-	// sent by the HTTP object. For example:
-	// Authorization: OAuth realm="http://sp.example.com/",
+	// sent by the HTTP object. For example:Authorization: OAuth realm="http://sp.example.com/",
 	//                 oauth_consumer_key="0685bd9184jfhq22",
 	//                 oauth_token="ad180jjd733klru7",
 	//                 oauth_signature_method="HMAC-SHA1",
 	//                 oauth_signature="wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D",
 	//                 oauth_timestamp="137131200",
 	//                 oauth_nonce="4572616e48616d6d65724c61686176",
-	//                 oauth_version="1.0"
-	// The information used to compute the OAuth Authorization header is obtained from
-	// the other OAuth* properties, such as OAuthConsumerKey, OAuthConsumerSecret,
-	// OAuthRealm, etc.
+	// oauth_version="1.0" The information used to compute the OAuth Authorization
+	// header is obtained from the other OAuth* properties, such as OAuthConsumerKey,
+	// OAuthConsumerSecret, OAuthRealm, etc.
 	void put_OAuth1(bool newVal);
 
 	// If set to true, then the oauth_body_hash is automatically added to an OAuth1
@@ -1082,13 +1077,13 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	void put_ProxyAuthMethod(const wchar_t *newVal);
 
 	// Set to true if the proxy server expects a direct TLS connection. (This is
-	// where the initial connection to the HTTP proxy server is TLS. SeeSquid Direct
+	// where the initial connection to the HTTP proxy server is TLS. See Squid Direct
 	// TLS Connection
 	// <https://wiki.squid-cache.org/Features/HTTPS>. The default value of this
 	// property is false.
 	bool get_ProxyDirectTls(void);
 	// Set to true if the proxy server expects a direct TLS connection. (This is
-	// where the initial connection to the HTTP proxy server is TLS. SeeSquid Direct
+	// where the initial connection to the HTTP proxy server is TLS. See Squid Direct
 	// TLS Connection
 	// <https://wiki.squid-cache.org/Features/HTTPS>. The default value of this
 	// property is false.
@@ -1156,6 +1151,10 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// seconds.
 	// 
 	void put_ReadTimeout(int newVal);
+
+	// Indicates whether the last HTTPS connection received a TLS CertificateRequest
+	// handshake message indicating that the server may require a client certificate.
+	bool get_ReceivedCertReq(void);
 
 	// Indicates the HTTP verb, such as GET, POST, PUT, etc. to be used for a redirect
 	// when the FollowRedirects property is set to true. The default value of this
@@ -1396,8 +1395,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1413,6 +1411,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_AES_256_CBC_SHA256
 	// TLS_RSA_WITH_AES_256_GCM_SHA384
 	// TLS_RSA_WITH_AES_256_CBC_SHA
+	// TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
@@ -1429,9 +1428,8 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1473,8 +1471,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	void get_SslAllowedCiphers(CkString &str);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1490,6 +1487,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_AES_256_CBC_SHA256
 	// TLS_RSA_WITH_AES_256_GCM_SHA384
 	// TLS_RSA_WITH_AES_256_CBC_SHA
+	// TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
@@ -1506,9 +1504,8 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1550,8 +1547,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	const wchar_t *sslAllowedCiphers(void);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1567,6 +1563,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_AES_256_CBC_SHA256
 	// TLS_RSA_WITH_AES_256_GCM_SHA384
 	// TLS_RSA_WITH_AES_256_CBC_SHA
+	// TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
@@ -1583,9 +1580,8 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1626,13 +1622,8 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// 
 	void put_SslAllowedCiphers(const wchar_t *newVal);
 
-	// Note: Chilkat v9.5.0.84 supports TLS 1.3. In any TLS connection, during the
-	// initial TLS handshake, the client (such as Chilkat) indicates which versions of
-	// TLS it supports, and the server selects the version of TLS to be used for the
-	// connection. Most applications should NOT explictly set this value.
-	// 
-	// Selects the secure protocol to be used for secure (SSL/TLS) connections.
-	// Possible values are:
+	// Selects the SSL/TLS protocol version to be used for connections. Possible values
+	// are:
 	// 
 	//     default
 	//     TLS 1.3
@@ -1644,22 +1635,16 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
-	// The default value is "default" which will choose the, which allows for the
-	// protocol to be selected dynamically at runtime based on the requirements of the
-	// server. Choosing an exact protocol will cause the connection to fail unless that
-	// exact protocol is negotiated. It is better to choose "X or higher" than an exact
-	// protocol. The "default" is effectively "SSL 3.0 or higher".
-	// 
+	// The default value is "default" which allows for the protocol to be selected
+	// dynamically at runtime based on the requirements of the server. Choosing an
+	// exact protocol will cause the connection to fail unless that exact protocol is
+	// negotiated. It is better to choose "X or higher" than an exact protocol. The
+	// "default" is effectively "SSL 3.0 or higher".
 	void get_SslProtocol(CkString &str);
-	// Note: Chilkat v9.5.0.84 supports TLS 1.3. In any TLS connection, during the
-	// initial TLS handshake, the client (such as Chilkat) indicates which versions of
-	// TLS it supports, and the server selects the version of TLS to be used for the
-	// connection. Most applications should NOT explictly set this value.
-	// 
-	// Selects the secure protocol to be used for secure (SSL/TLS) connections.
-	// Possible values are:
+	// Selects the SSL/TLS protocol version to be used for connections. Possible values
+	// are:
 	// 
 	//     default
 	//     TLS 1.3
@@ -1671,22 +1656,16 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
-	// The default value is "default" which will choose the, which allows for the
-	// protocol to be selected dynamically at runtime based on the requirements of the
-	// server. Choosing an exact protocol will cause the connection to fail unless that
-	// exact protocol is negotiated. It is better to choose "X or higher" than an exact
-	// protocol. The "default" is effectively "SSL 3.0 or higher".
-	// 
+	// The default value is "default" which allows for the protocol to be selected
+	// dynamically at runtime based on the requirements of the server. Choosing an
+	// exact protocol will cause the connection to fail unless that exact protocol is
+	// negotiated. It is better to choose "X or higher" than an exact protocol. The
+	// "default" is effectively "SSL 3.0 or higher".
 	const wchar_t *sslProtocol(void);
-	// Note: Chilkat v9.5.0.84 supports TLS 1.3. In any TLS connection, during the
-	// initial TLS handshake, the client (such as Chilkat) indicates which versions of
-	// TLS it supports, and the server selects the version of TLS to be used for the
-	// connection. Most applications should NOT explictly set this value.
-	// 
-	// Selects the secure protocol to be used for secure (SSL/TLS) connections.
-	// Possible values are:
+	// Selects the SSL/TLS protocol version to be used for connections. Possible values
+	// are:
 	// 
 	//     default
 	//     TLS 1.3
@@ -1698,14 +1677,13 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
-	// The default value is "default" which will choose the, which allows for the
-	// protocol to be selected dynamically at runtime based on the requirements of the
-	// server. Choosing an exact protocol will cause the connection to fail unless that
-	// exact protocol is negotiated. It is better to choose "X or higher" than an exact
-	// protocol. The "default" is effectively "SSL 3.0 or higher".
-	// 
+	// The default value is "default" which allows for the protocol to be selected
+	// dynamically at runtime based on the requirements of the server. Choosing an
+	// exact protocol will cause the connection to fail unless that exact protocol is
+	// negotiated. It is better to choose "X or higher" than an exact protocol. The
+	// "default" is effectively "SSL 3.0 or higher".
 	void put_SslProtocol(const wchar_t *newVal);
 
 	// Allows for the HTTP response body to be streamed directly into a file. If this
@@ -1742,15 +1720,14 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1760,15 +1737,14 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1778,15 +1754,14 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -2044,14 +2019,14 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	CkTaskW *DownloadSbAsync(const wchar_t *url, const wchar_t *charset, CkStringBuilderW &sb);
 
 	// Convenience method for extracting the META refresh URL from HTML. For example,
-	// if the htmlContent contains a META refresh tag, such as:
-	// _LT_meta http-equiv="refresh" content="5;URL='http://example.com/'"_GT_
-	// Then the return value of this method would be "http://example.com/".
+	// if the htmlContent contains a META refresh tag, such as:_LT_meta http-equiv="refresh"
+	// content="5;URL='http://example.com/'"_GT_ Then the return value of this method
+	// would be "http://example.com/".
 	bool ExtractMetaRefreshUrl(const wchar_t *htmlContent, CkString &outStr);
 	// Convenience method for extracting the META refresh URL from HTML. For example,
-	// if the htmlContent contains a META refresh tag, such as:
-	// _LT_meta http-equiv="refresh" content="5;URL='http://example.com/'"_GT_
-	// Then the return value of this method would be "http://example.com/".
+	// if the htmlContent contains a META refresh tag, such as:_LT_meta http-equiv="refresh"
+	// content="5;URL='http://example.com/'"_GT_ Then the return value of this method
+	// would be "http://example.com/".
 	const wchar_t *extractMetaRefreshUrl(const wchar_t *htmlContent);
 
 	// Makes an access token request to obtain a Google API OAuth2 access token for a
@@ -2868,8 +2843,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// prior to calling this method. Also requires the AwsEndpoint property to be set
 	// if the endpoint is different than "s3.amazonaws.com".
 	// 
-	// The URL that is generated has this format:
-	// https:////?X-Amz-Algorithm=AWS4-HMAC-SHA256
+	// The URL that is generated has this format:https:////?X-Amz-Algorithm=AWS4-HMAC-SHA256
 	// &X-Amz-Credential=////aws4_request
 	// &X-Amz-Date=&X-Amz-Expires=&X-Amz-SignedHeaders=host
 	// &X-Amz-Signature=
@@ -2888,8 +2862,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// prior to calling this method. Also requires the AwsEndpoint property to be set
 	// if the endpoint is different than "s3.amazonaws.com".
 	// 
-	// The URL that is generated has this format:
-	// https:////?X-Amz-Algorithm=AWS4-HMAC-SHA256
+	// The URL that is generated has this format:https:////?X-Amz-Algorithm=AWS4-HMAC-SHA256
 	// &X-Amz-Credential=////aws4_request
 	// &X-Amz-Date=&X-Amz-Expires=&X-Amz-SignedHeaders=host
 	// &X-Amz-Signature=
@@ -2905,8 +2878,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// valid values prior to calling this method. Also requires the AwsEndpoint
 	// property to be set if the endpoint is different than "s3.amazonaws.com".
 	// 
-	// The URL that is generated has this format:
-	// https:////?X-Amz-Algorithm=AWS4-HMAC-SHA256
+	// The URL that is generated has this format:https:////?X-Amz-Algorithm=AWS4-HMAC-SHA256
 	// &X-Amz-Credential=////aws4_request
 	// &X-Amz-Date=&X-Amz-Expires=&X-Amz-SignedHeaders=host
 	// &X-Amz-Signature=
@@ -2919,8 +2891,7 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// valid values prior to calling this method. Also requires the AwsEndpoint
 	// property to be set if the endpoint is different than "s3.amazonaws.com".
 	// 
-	// The URL that is generated has this format:
-	// https:////?X-Amz-Algorithm=AWS4-HMAC-SHA256
+	// The URL that is generated has this format:https:////?X-Amz-Algorithm=AWS4-HMAC-SHA256
 	// &X-Amz-Credential=////aws4_request
 	// &X-Amz-Date=&X-Amz-Expires=&X-Amz-SignedHeaders=host
 	// &X-Amz-Signature=

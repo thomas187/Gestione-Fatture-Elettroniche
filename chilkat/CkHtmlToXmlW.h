@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkHtmlToXmlW_H
 #define _CkHtmlToXmlW_H
@@ -129,12 +129,12 @@ class CK_VISIBLE_PUBLIC CkHtmlToXmlW  : public CkWideCharBase
 
 	// Convenience method for reading a text file into a string. The character encoding
 	// of the text file is specified by srcCharset. Valid values, such as "iso-8895-1" or
-	// "utf-8" are listed at:List of Charsets
+	// "utf-8" are listed at: List of Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool ReadFileToString(const wchar_t *filename, const wchar_t *srcCharset, CkString &outStr);
 	// Convenience method for reading a text file into a string. The character encoding
 	// of the text file is specified by srcCharset. Valid values, such as "iso-8895-1" or
-	// "utf-8" are listed at:List of Charsets
+	// "utf-8" are listed at: List of Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	const wchar_t *readFileToString(const wchar_t *filename, const wchar_t *srcCharset);
 
@@ -176,7 +176,7 @@ class CK_VISIBLE_PUBLIC CkHtmlToXmlW  : public CkWideCharBase
 
 	// Convenience method for saving a string to a file. The character encoding of the
 	// output text file is specified by charset (the string is converted to this charset
-	// when writing). Valid values, such as "iso-8895-1" or "utf-8" are listed at:List
+	// when writing). Valid values, such as "iso-8895-1" or "utf-8" are listed at: List
 	// of Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteStringToFile(const wchar_t *stringToWrite, const wchar_t *filename, const wchar_t *charset);

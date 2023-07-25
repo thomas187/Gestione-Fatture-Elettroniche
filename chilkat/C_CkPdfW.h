@@ -1,8 +1,9 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkPdfWH
 #define _C_CkPdfWH
 #include "chilkatDefs.h"
 
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -36,7 +37,11 @@ CK_C_VISIBLE_PUBLIC void  CkPdfW_putVerboseLogging(HCkPdfW cHandle, BOOL newVal)
 CK_C_VISIBLE_PUBLIC void CkPdfW_getVersion(HCkPdfW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkPdfW_version(HCkPdfW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkPdfW_AddSigningCert(HCkPdfW cHandle, HCkCertW cert);
+CK_C_VISIBLE_PUBLIC BOOL CkPdfW_AddVerificationInfo(HCkPdfW cHandle, HCkJsonObjectW jsonOptions, const wchar_t *outFilePath);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkPdfW_AddVerificationInfoAsync(HCkPdfW cHandle, HCkJsonObjectW jsonOptions, const wchar_t *outFilePath);
 CK_C_VISIBLE_PUBLIC BOOL CkPdfW_GetDss(HCkPdfW cHandle, HCkJsonObjectW json);
+CK_C_VISIBLE_PUBLIC BOOL CkPdfW_GetMetadata(HCkPdfW cHandle, HCkStringBuilderW sb);
+CK_C_VISIBLE_PUBLIC BOOL CkPdfW_GetSignatureContent(HCkPdfW cHandle, int index, HCkBinDataW bd);
 CK_C_VISIBLE_PUBLIC BOOL CkPdfW_GetSignerCert(HCkPdfW cHandle, int index, HCkCertW cert);
 CK_C_VISIBLE_PUBLIC BOOL CkPdfW_GetUnsignedSigFields(HCkPdfW cHandle, HCkJsonObjectW json);
 CK_C_VISIBLE_PUBLIC HCkJsonObjectW CkPdfW_LastJsonData(HCkPdfW cHandle);
@@ -49,5 +54,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkPdfW_SetSigningCert(HCkPdfW cHandle, HCkCertW cert);
 CK_C_VISIBLE_PUBLIC BOOL CkPdfW_SetSigningCert2(HCkPdfW cHandle, HCkCertW cert, HCkPrivateKeyW privateKey);
 CK_C_VISIBLE_PUBLIC BOOL CkPdfW_SignPdf(HCkPdfW cHandle, HCkJsonObjectW jsonOptions, const wchar_t *outFilePath);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkPdfW_SignPdfAsync(HCkPdfW cHandle, HCkJsonObjectW jsonOptions, const wchar_t *outFilePath);
+CK_C_VISIBLE_PUBLIC BOOL CkPdfW_SignPdfBd(HCkPdfW cHandle, HCkJsonObjectW jsonOptions, HCkBinDataW bd);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkPdfW_SignPdfBdAsync(HCkPdfW cHandle, HCkJsonObjectW jsonOptions, HCkBinDataW bd);
 CK_C_VISIBLE_PUBLIC BOOL CkPdfW_VerifySignature(HCkPdfW cHandle, int index, HCkJsonObjectW sigInfo);
 #endif

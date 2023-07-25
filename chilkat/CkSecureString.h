@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkSecureString_H
 #define _CkSecureString_H
@@ -109,14 +109,14 @@ class CK_VISIBLE_PUBLIC CkSecureString  : public CkMultiByteBase
 
 	// Returns the hash value for the current value of this secure string. The encoding
 	// specifies the encoding to be used. It can be any of the binary encoding
-	// algorithms, such as "base64", "hex", and many more listed atChilkat Binary
+	// algorithms, such as "base64", "hex", and many more listed at Chilkat Binary
 	// Encodings
 	// <http://cknotes.com/chilkat-binary-encoding-list/>
 	bool HashVal(const char *encoding, CkString &outStr);
 
 	// Returns the hash value for the current value of this secure string. The encoding
 	// specifies the encoding to be used. It can be any of the binary encoding
-	// algorithms, such as "base64", "hex", and many more listed atChilkat Binary
+	// algorithms, such as "base64", "hex", and many more listed at Chilkat Binary
 	// Encodings
 	// <http://cknotes.com/chilkat-binary-encoding-list/>
 	const char *hashVal(const char *encoding);
@@ -134,7 +134,7 @@ class CK_VISIBLE_PUBLIC CkSecureString  : public CkMultiByteBase
 	// secure string. The MaintainHash property must've previously been set for this
 	// secure string to maintain an internal hash. The encoding specifies the encoding of
 	// the hashVal. It can be any of the binary encoding algorithms, such as "base64",
-	// "hex", and many more listed atChilkat Binary Encodings
+	// "hex", and many more listed at Chilkat Binary Encodings
 	// <http://cknotes.com/chilkat-binary-encoding-list/>
 	bool VerifyHash(const char *hashVal, const char *encoding);
 

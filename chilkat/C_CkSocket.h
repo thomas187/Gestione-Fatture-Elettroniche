@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkSocket_H
 #define _C_CkSocket_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -120,6 +120,7 @@ CK_C_VISIBLE_PUBLIC int CkSocket_getMaxSendIdleMs(HCkSocket cHandle);
 CK_C_VISIBLE_PUBLIC void CkSocket_putMaxSendIdleMs(HCkSocket cHandle, int newVal);
 CK_C_VISIBLE_PUBLIC void CkSocket_getMyIpAddress(HCkSocket cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const char *CkSocket_myIpAddress(HCkSocket cHandle);
+CK_C_VISIBLE_PUBLIC int CkSocket_getNumBytesAvailable(HCkSocket cHandle);
 CK_C_VISIBLE_PUBLIC int CkSocket_getNumReceivedClientCerts(HCkSocket cHandle);
 CK_C_VISIBLE_PUBLIC int CkSocket_getNumSocketsInSet(HCkSocket cHandle);
 CK_C_VISIBLE_PUBLIC int CkSocket_getNumSslAcceptableClientCAs(HCkSocket cHandle);

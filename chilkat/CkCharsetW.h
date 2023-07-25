@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkCharsetW_H
 #define _CkCharsetW_H
@@ -85,8 +85,7 @@ class CK_VISIBLE_PUBLIC CkCharsetW  : public CkWideCharBase
 	void put_ErrorAction(int newVal);
 
 	// Tells the charset converter the charset of the input data for a conversion.
-	// Possible values are:
-	// us-ascii
+	// Possible values are:us-ascii
 	// unicode  (also known as UTF16LE or simply UTF16)
 	// unicodefffe  (also known as UTF16BE)
 	// ebcdic
@@ -175,8 +174,7 @@ class CK_VISIBLE_PUBLIC CkCharsetW  : public CkWideCharBase
 	// koi8-u
 	void get_FromCharset(CkString &str);
 	// Tells the charset converter the charset of the input data for a conversion.
-	// Possible values are:
-	// us-ascii
+	// Possible values are:us-ascii
 	// unicode  (also known as UTF16LE or simply UTF16)
 	// unicodefffe  (also known as UTF16BE)
 	// ebcdic
@@ -265,8 +263,7 @@ class CK_VISIBLE_PUBLIC CkCharsetW  : public CkWideCharBase
 	// koi8-u
 	const wchar_t *fromCharset(void);
 	// Tells the charset converter the charset of the input data for a conversion.
-	// Possible values are:
-	// us-ascii
+	// Possible values are:us-ascii
 	// unicode  (also known as UTF16LE or simply UTF16)
 	// unicodefffe  (also known as UTF16BE)
 	// ebcdic
@@ -409,8 +406,7 @@ class CK_VISIBLE_PUBLIC CkCharsetW  : public CkWideCharBase
 	void put_SaveLast(bool newVal);
 
 	// Tells the charset converter the target charset for a conversion. Possible values
-	// are:
-	// us-ascii
+	// are:us-ascii
 	// unicode  (also known as UTF16LE or simply UTF16)
 	// unicodefffe  (also known as UTF16BE)
 	// ebcdic
@@ -499,8 +495,7 @@ class CK_VISIBLE_PUBLIC CkCharsetW  : public CkWideCharBase
 	// koi8-u
 	void get_ToCharset(CkString &str);
 	// Tells the charset converter the target charset for a conversion. Possible values
-	// are:
-	// us-ascii
+	// are:us-ascii
 	// unicode  (also known as UTF16LE or simply UTF16)
 	// unicodefffe  (also known as UTF16BE)
 	// ebcdic
@@ -589,8 +584,7 @@ class CK_VISIBLE_PUBLIC CkCharsetW  : public CkWideCharBase
 	// koi8-u
 	const wchar_t *toCharset(void);
 	// Tells the charset converter the target charset for a conversion. Possible values
-	// are:
-	// us-ascii
+	// are:us-ascii
 	// unicode  (also known as UTF16LE or simply UTF16)
 	// unicodefffe  (also known as UTF16BE)
 	// ebcdic

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkPemW_H
 #define _CkPemW_H
@@ -285,8 +285,7 @@ class CK_VISIBLE_PUBLIC CkPemW  : public CkClassWithCallbacksW
 
 	// Write the PFX to a PEM formatted string. The resultant PEM will contain the
 	// private key, as well as the certs in the chain of authentication (or whatever
-	// certs are available in the PFX). For example:
-	//  -----BEGIN RSA PRIVATE KEY-----
+	// certs are available in the PFX). For example:-----BEGIN RSA PRIVATE KEY-----
 	// ...
 	// ... the private key associated with the main certificate.
 	// ...
@@ -305,12 +304,11 @@ class CK_VISIBLE_PUBLIC CkPemW  : public CkClassWithCallbacksW
 	// ...
 	// ... the root CA certificate
 	// ...
-	// -----END CERTIFICATE----- 
+	// -----END CERTIFICATE-----
 	bool ToPem(CkString &outStr);
 	// Write the PFX to a PEM formatted string. The resultant PEM will contain the
 	// private key, as well as the certs in the chain of authentication (or whatever
-	// certs are available in the PFX). For example:
-	//  -----BEGIN RSA PRIVATE KEY-----
+	// certs are available in the PFX). For example:-----BEGIN RSA PRIVATE KEY-----
 	// ...
 	// ... the private key associated with the main certificate.
 	// ...
@@ -329,7 +327,7 @@ class CK_VISIBLE_PUBLIC CkPemW  : public CkClassWithCallbacksW
 	// ...
 	// ... the root CA certificate
 	// ...
-	// -----END CERTIFICATE----- 
+	// -----END CERTIFICATE-----
 	const wchar_t *toPem(void);
 
 	// Write the PFX to a PEM formatted string. If extendedAttrs is true, then extended
@@ -341,9 +339,8 @@ class CK_VISIBLE_PUBLIC CkPemW  : public CkClassWithCallbacksW
 	// The possible choices for the encryptAlg are "des3", "aes128", "aes192", and "aes256".
 	// (All encryption algorithm choices use CBC mode.) If the private keys are to be
 	// encrypted, then password is the password to be used. Otherwise, password may be left
-	// empty. For example:
-	// Bag Attributes
-	//     Microsoft Local Key set: localKeyID: 01 00 00 00 
+	// empty. For example:Bag Attributes
+	//     Microsoft Local Key set:localKeyID: 01 00 00 00 
 	//     friendlyName: le-2b09a3d2-9037-4a05-95cc-4d44518e8607
 	//     Microsoft CSP Name: Microsoft RSA SChannel Cryptographic Provider
 	// Key Attributes
@@ -377,7 +374,7 @@ class CK_VISIBLE_PUBLIC CkPemW  : public CkClassWithCallbacksW
 	// ...
 	// ... the root CA certificate
 	// ...
-	// -----END CERTIFICATE----- 
+	// -----END CERTIFICATE-----
 	bool ToPemEx(bool extendedAttrs, bool noKeys, bool noCerts, bool noCaCerts, const wchar_t *encryptAlg, const wchar_t *password, CkString &outStr);
 	// Write the PFX to a PEM formatted string. If extendedAttrs is true, then extended
 	// properties (Bag Attributes and Key Attributes) are output. If noKeys is true,
@@ -388,9 +385,8 @@ class CK_VISIBLE_PUBLIC CkPemW  : public CkClassWithCallbacksW
 	// The possible choices for the encryptAlg are "des3", "aes128", "aes192", and "aes256".
 	// (All encryption algorithm choices use CBC mode.) If the private keys are to be
 	// encrypted, then password is the password to be used. Otherwise, password may be left
-	// empty. For example:
-	// Bag Attributes
-	//     Microsoft Local Key set: localKeyID: 01 00 00 00 
+	// empty. For example:Bag Attributes
+	//     Microsoft Local Key set:localKeyID: 01 00 00 00 
 	//     friendlyName: le-2b09a3d2-9037-4a05-95cc-4d44518e8607
 	//     Microsoft CSP Name: Microsoft RSA SChannel Cryptographic Provider
 	// Key Attributes
@@ -424,7 +420,7 @@ class CK_VISIBLE_PUBLIC CkPemW  : public CkClassWithCallbacksW
 	// ...
 	// ... the root CA certificate
 	// ...
-	// -----END CERTIFICATE----- 
+	// -----END CERTIFICATE-----
 	const wchar_t *toPemEx(bool extendedAttrs, bool noKeys, bool noCerts, bool noCaCerts, const wchar_t *encryptAlg, const wchar_t *password);
 
 	// Converts the PEM to PKCS12 and returns the PFX object. The PFX object has method

@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkCert_H
 #define _CkCert_H
@@ -576,7 +576,7 @@ class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
 	// 
 	// On Windows systems, the registry-based certificate stores are automatically
 	// consulted if needed to locate intermediate or root certificates in the chain.
-	// Chilkat searches certificate stores in the following order. SeeSystem Store
+	// Chilkat searches certificate stores in the following order. See System Store
 	// Locations
 	// <https://docs.microsoft.com/en-us/windows/desktop/seccrypto/system-store-location
 	// s> for more information.
@@ -666,6 +666,16 @@ class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
 	// Exports the certificate's private key to a PEM string (if the private key is
 	// available).
 	const char *privateKeyPem(void);
+
+
+	// Loads the bd with the certificate's public key in ASN.1 DER format. If the key
+	// type (such as RSA) supports both PKCS1 and PKCS8 formats, then preferPkcs1 selects
+	// which format to return.
+	bool GetPubKeyDer(bool preferPkcs1, CkBinData &bd);
+
+
+	// Loads the bd with the certificate's signature.
+	bool GetSignature(CkBinData &bd);
 
 
 	// Returns the SPKI Fingerprint suitable for use in pinning. (See RFC 7469.) An
@@ -833,6 +843,9 @@ class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
 	bool LoadFromFile(const char *path);
 
 
+	// Important: It's important to set the SmartCardPin property before calling this
+	// method.
+	// 
 	// Starting in Chilkat v9.5.0.87, the csp can be a string that specifies the
 	// certificate to be loaded by either Subject Common Name (CN) or hex serial
 	// number. For example, instead of passing a CSP name, your application would pass
@@ -877,6 +890,7 @@ class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
 	//     EnterSafe ePass2003 CSP v1.0
 	//     Oberthur Card Systems Cryptographic Provider
 	//     Athena ASECard Crypto CSP"
+	// 
 	bool LoadFromSmartcard(const char *csp);
 
 

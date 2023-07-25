@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkHashtable_H
 #define _CkHashtable_H
@@ -131,6 +131,14 @@ class CK_VISIBLE_PUBLIC CkHashtable  : public CkMultiByteBase
 	// exist.
 	bool Remove(const char *key);
 
+
+	// Serializes the hash table to a query string such as
+	// key1=value1&key2=value2&key3=value3 where each value is URL encoded.
+	bool ToQueryString(CkString &outStr);
+
+	// Serializes the hash table to a query string such as
+	// key1=value1&key2=value2&key3=value3 where each value is URL encoded.
+	const char *toQueryString(void);
 
 	// Serializes the hash table to XML format. The XML is appended to sbXml.
 	bool ToXmlSb(CkStringBuilder &sbXml);

@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkPrivateKey_H
 #define _CkPrivateKey_H
@@ -87,8 +87,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// ----------------------
 	// Gets the private key in JWK (JSON Web Key) format.
 	// 
-	// RSA keys have this JWK format:
-	//          {"kty":"RSA",
+	// RSA keys have this JWK format:{"kty":"RSA",
 	//           "n":"0vx7agoebGcQ ... JzKnqDKgw",
 	//           "e":"AQAB",
 	//           "d":"X4cTteJY_gn4F ... 4jfcKoAC8Q",
@@ -96,17 +95,15 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//           "q":"3dfOR9cuYq-0S ... 4vIcb6yelxk",
 	//           "dp":"G4sPXkc6Ya9 ... 8YeiKkTiBj0",
 	//           "dq":"s9lAH9fggBso ... w494Q_cgk",
-	//           "qi":"GyM_p6JrXySi ... zTKhAVRU"}
+	// "qi":"GyM_p6JrXySi ... zTKhAVRU"} 
 	// 
-	// ECC keys have this JWK format.
-	//          {"kty":"EC",
+	// ECC keys have this JWK format.{"kty":"EC",
 	//           "crv":"P-256",
 	//           "x":"MKBCTNIcKUSDii11ySs3526iDZ8AiTo7Tu6KPAqv7D4",
 	//           "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM",
-	//           "d":"870MB6gfuTJ4HtUnUvYMyJpr5eUZNP4Bk43bVdj3eAE"}
+	// "d":"870MB6gfuTJ4HtUnUvYMyJpr5eUZNP4Bk43bVdj3eAE"} 
 	// 
-	// Ed25519 keys (added in v9.5.0.83) have this JWK format.
-	//          {"kty": "OKP",
+	// Ed25519 keys (added in v9.5.0.83) have this JWK format.{"kty": "OKP",
 	//          "crv": "Ed25519",
 	//          "x": "SE2Kne5xt51z1eciMH2T2ftDQp96Gl6FhY6zSQujiP0",
 	//          "d": "O-eRXewadF0sNyB0U9omcnt8Qg2ZmeK3WSXPYgqe570",
@@ -116,8 +113,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 
 	// Gets the private key in JWK (JSON Web Key) format.
 	// 
-	// RSA keys have this JWK format:
-	//          {"kty":"RSA",
+	// RSA keys have this JWK format:{"kty":"RSA",
 	//           "n":"0vx7agoebGcQ ... JzKnqDKgw",
 	//           "e":"AQAB",
 	//           "d":"X4cTteJY_gn4F ... 4jfcKoAC8Q",
@@ -125,17 +121,15 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//           "q":"3dfOR9cuYq-0S ... 4vIcb6yelxk",
 	//           "dp":"G4sPXkc6Ya9 ... 8YeiKkTiBj0",
 	//           "dq":"s9lAH9fggBso ... w494Q_cgk",
-	//           "qi":"GyM_p6JrXySi ... zTKhAVRU"}
+	// "qi":"GyM_p6JrXySi ... zTKhAVRU"} 
 	// 
-	// ECC keys have this JWK format.
-	//          {"kty":"EC",
+	// ECC keys have this JWK format.{"kty":"EC",
 	//           "crv":"P-256",
 	//           "x":"MKBCTNIcKUSDii11ySs3526iDZ8AiTo7Tu6KPAqv7D4",
 	//           "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM",
-	//           "d":"870MB6gfuTJ4HtUnUvYMyJpr5eUZNP4Bk43bVdj3eAE"}
+	// "d":"870MB6gfuTJ4HtUnUvYMyJpr5eUZNP4Bk43bVdj3eAE"} 
 	// 
-	// Ed25519 keys (added in v9.5.0.83) have this JWK format.
-	//          {"kty": "OKP",
+	// Ed25519 keys (added in v9.5.0.83) have this JWK format.{"kty": "OKP",
 	//          "crv": "Ed25519",
 	//          "x": "SE2Kne5xt51z1eciMH2T2ftDQp96Gl6FhY6zSQujiP0",
 	//          "d": "O-eRXewadF0sNyB0U9omcnt8Qg2ZmeK3WSXPYgqe570",
@@ -144,8 +138,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	const char *getJwk(void);
 	// Gets the private key in JWK (JSON Web Key) format.
 	// 
-	// RSA keys have this JWK format:
-	//          {"kty":"RSA",
+	// RSA keys have this JWK format:{"kty":"RSA",
 	//           "n":"0vx7agoebGcQ ... JzKnqDKgw",
 	//           "e":"AQAB",
 	//           "d":"X4cTteJY_gn4F ... 4jfcKoAC8Q",
@@ -153,17 +146,15 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//           "q":"3dfOR9cuYq-0S ... 4vIcb6yelxk",
 	//           "dp":"G4sPXkc6Ya9 ... 8YeiKkTiBj0",
 	//           "dq":"s9lAH9fggBso ... w494Q_cgk",
-	//           "qi":"GyM_p6JrXySi ... zTKhAVRU"}
+	// "qi":"GyM_p6JrXySi ... zTKhAVRU"} 
 	// 
-	// ECC keys have this JWK format.
-	//          {"kty":"EC",
+	// ECC keys have this JWK format.{"kty":"EC",
 	//           "crv":"P-256",
 	//           "x":"MKBCTNIcKUSDii11ySs3526iDZ8AiTo7Tu6KPAqv7D4",
 	//           "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM",
-	//           "d":"870MB6gfuTJ4HtUnUvYMyJpr5eUZNP4Bk43bVdj3eAE"}
+	// "d":"870MB6gfuTJ4HtUnUvYMyJpr5eUZNP4Bk43bVdj3eAE"} 
 	// 
-	// Ed25519 keys (added in v9.5.0.83) have this JWK format.
-	//          {"kty": "OKP",
+	// Ed25519 keys (added in v9.5.0.83) have this JWK format.{"kty": "OKP",
 	//          "crv": "Ed25519",
 	//          "x": "SE2Kne5xt51z1eciMH2T2ftDQp96Gl6FhY6zSQujiP0",
 	//          "d": "O-eRXewadF0sNyB0U9omcnt8Qg2ZmeK3WSXPYgqe570",
@@ -187,8 +178,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// Gets the private key in unencrypted binary DER format, preferring PKCS1 if
 	// possible.
 	// 
-	// RSA keys are returned in PKCS1 ASN.1 DER format:
-	// RSAPrivateKey ::= SEQUENCE {
+	// RSA keys are returned in PKCS1 ASN.1 DER format:RSAPrivateKey ::= SEQUENCE {
 	//     version           Version,
 	//     modulus           INTEGER,  -- n
 	//     publicExponent    INTEGER,  -- e
@@ -199,19 +189,17 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//     exponent2         INTEGER,  -- d mod (q-1)
 	//     coefficient       INTEGER,  -- (inverse of q) mod p
 	//     otherPrimeInfos   OtherPrimeInfos OPTIONAL
-	// }
+	// } 
 	// 
-	// DSA keys are returned in this ASN.1 DER format:
-	// SEQUENCE(6 elem)
+	// DSA keys are returned in this ASN.1 DER format:SEQUENCE(6 elem)
 	//     INTEGER 0
 	//     INTEGER(2048 bit) (p) 
 	//     INTEGER(160 bit) (q) 
 	//     INTEGER(2044 bit) (g) 
 	//     INTEGER(2040 bit) (y - public key) 
-	//     INTEGER(156 bit) (x - private key) 
+	// INTEGER(156 bit) (x - private key) 
 	// 
-	// ECC keys are returned in this ASN.1 DER format:
-	// (from RFC 5915)
+	// ECC keys are returned in this ASN.1 DER format:(from RFC 5915)
 	// ECPrivateKey ::= SEQUENCE {
 	//     version        INTEGER { ecPrivkeyVer1(1) } (ecPrivkeyVer1),
 	//     privateKey     OCTET STRING,
@@ -224,8 +212,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// Gets the private key in unencrypted binary DER format, preferring PKCS1 if
 	// possible, and returns in an encoded string, as specified by the encoding argument.
 	// 
-	// RSA keys are returned in PKCS1 ASN.1 DER format:
-	// RSAPrivateKey ::= SEQUENCE {
+	// RSA keys are returned in PKCS1 ASN.1 DER format:RSAPrivateKey ::= SEQUENCE {
 	//     version           Version,
 	//     modulus           INTEGER,  -- n
 	//     publicExponent    INTEGER,  -- e
@@ -236,19 +223,17 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//     exponent2         INTEGER,  -- d mod (q-1)
 	//     coefficient       INTEGER,  -- (inverse of q) mod p
 	//     otherPrimeInfos   OtherPrimeInfos OPTIONAL
-	// }
+	// } 
 	// 
-	// DSA keys are returned in this ASN.1 DER format:
-	// SEQUENCE(6 elem)
+	// DSA keys are returned in this ASN.1 DER format:SEQUENCE(6 elem)
 	//     INTEGER 0
 	//     INTEGER(2048 bit) (p) 
 	//     INTEGER(160 bit) (q) 
 	//     INTEGER(2044 bit) (g) 
 	//     INTEGER(2040 bit) (y - public key) 
-	//     INTEGER(156 bit) (x - private key) 
+	// INTEGER(156 bit) (x - private key) 
 	// 
-	// ECC keys are returned in this ASN.1 DER format:
-	// (from RFC 5915)
+	// ECC keys are returned in this ASN.1 DER format:(from RFC 5915)
 	// ECPrivateKey ::= SEQUENCE {
 	//     version        INTEGER { ecPrivkeyVer1(1) } (ecPrivkeyVer1),
 	//     privateKey     OCTET STRING,
@@ -260,8 +245,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// Gets the private key in unencrypted binary DER format, preferring PKCS1 if
 	// possible, and returns in an encoded string, as specified by the encoding argument.
 	// 
-	// RSA keys are returned in PKCS1 ASN.1 DER format:
-	// RSAPrivateKey ::= SEQUENCE {
+	// RSA keys are returned in PKCS1 ASN.1 DER format:RSAPrivateKey ::= SEQUENCE {
 	//     version           Version,
 	//     modulus           INTEGER,  -- n
 	//     publicExponent    INTEGER,  -- e
@@ -272,19 +256,17 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//     exponent2         INTEGER,  -- d mod (q-1)
 	//     coefficient       INTEGER,  -- (inverse of q) mod p
 	//     otherPrimeInfos   OtherPrimeInfos OPTIONAL
-	// }
+	// } 
 	// 
-	// DSA keys are returned in this ASN.1 DER format:
-	// SEQUENCE(6 elem)
+	// DSA keys are returned in this ASN.1 DER format:SEQUENCE(6 elem)
 	//     INTEGER 0
 	//     INTEGER(2048 bit) (p) 
 	//     INTEGER(160 bit) (q) 
 	//     INTEGER(2044 bit) (g) 
 	//     INTEGER(2040 bit) (y - public key) 
-	//     INTEGER(156 bit) (x - private key) 
+	// INTEGER(156 bit) (x - private key) 
 	// 
-	// ECC keys are returned in this ASN.1 DER format:
-	// (from RFC 5915)
+	// ECC keys are returned in this ASN.1 DER format:(from RFC 5915)
 	// ECPrivateKey ::= SEQUENCE {
 	//     version        INTEGER { ecPrivkeyVer1(1) } (ecPrivkeyVer1),
 	//     privateKey     OCTET STRING,
@@ -295,8 +277,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// Gets the private key in unencrypted binary DER format, preferring PKCS1 if
 	// possible, and returns in an encoded string, as specified by the encoding argument.
 	// 
-	// RSA keys are returned in PKCS1 ASN.1 DER format:
-	// RSAPrivateKey ::= SEQUENCE {
+	// RSA keys are returned in PKCS1 ASN.1 DER format:RSAPrivateKey ::= SEQUENCE {
 	//     version           Version,
 	//     modulus           INTEGER,  -- n
 	//     publicExponent    INTEGER,  -- e
@@ -307,19 +288,17 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//     exponent2         INTEGER,  -- d mod (q-1)
 	//     coefficient       INTEGER,  -- (inverse of q) mod p
 	//     otherPrimeInfos   OtherPrimeInfos OPTIONAL
-	// }
+	// } 
 	// 
-	// DSA keys are returned in this ASN.1 DER format:
-	// SEQUENCE(6 elem)
+	// DSA keys are returned in this ASN.1 DER format:SEQUENCE(6 elem)
 	//     INTEGER 0
 	//     INTEGER(2048 bit) (p) 
 	//     INTEGER(160 bit) (q) 
 	//     INTEGER(2044 bit) (g) 
 	//     INTEGER(2040 bit) (y - public key) 
-	//     INTEGER(156 bit) (x - private key) 
+	// INTEGER(156 bit) (x - private key) 
 	// 
-	// ECC keys are returned in this ASN.1 DER format:
-	// (from RFC 5915)
+	// ECC keys are returned in this ASN.1 DER format:(from RFC 5915)
 	// ECPrivateKey ::= SEQUENCE {
 	//     version        INTEGER { ecPrivkeyVer1(1) } (ecPrivkeyVer1),
 	//     privateKey     OCTET STRING,
@@ -343,8 +322,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 
 	// Gets the private key in unencrypted PKCS8 format.
 	// 
-	// RSA keys are returned in PKCS8 ASN.1 DER format:
-	// SEQUENCE                  // PrivateKeyInfo
+	// RSA keys are returned in PKCS8 ASN.1 DER format:SEQUENCE                  // PrivateKeyInfo
 	// +- INTEGER                // Version - 0 (v1998)
 	// +- SEQUENCE               // AlgorithmIdentifier
 	//    +- OID                 // 1.2.840.113549.1.1.1
@@ -359,10 +337,9 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//       +- INTEGER(Q)       // Q
 	//       +- INTEGER(DP)      // d mod p-1
 	//       +- INTEGER(DQ)      // d mod q-1
-	//       +- INTEGER(Inv Q)   // INV(q) mod p
+	// +- INTEGER(Inv Q) // INV(q) mod p 
 	// 
-	// DSA keys are returned in this ASN.1 DER format:
-	// SEQUENCE                 // PrivateKeyInfo
+	// DSA keys are returned in this ASN.1 DER format:SEQUENCE                 // PrivateKeyInfo
 	// +- INTEGER                 // Version
 	// +- SEQUENCE              // AlgorithmIdentifier
 	//     +- OID                       // 1.2.840.10040.4.1
@@ -371,10 +348,9 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// 	+- INTEGER(Q)      // Q
 	// 	+- INTEGER(G)      // G
 	//     +- OCTETSTRING             // PrivateKey
-	// 	+- INTEGER(X)      // DSAPrivateKey X
+	// +- INTEGER(X) // DSAPrivateKey X 
 	// 
-	// ECC keys are returned in this ASN.1 DER format:
-	// (from RFC 5915)
+	// ECC keys are returned in this ASN.1 DER format:(from RFC 5915)
 	// ECPrivateKey ::= SEQUENCE {
 	//     version        INTEGER { ecPrivkeyVer1(1) } (ecPrivkeyVer1),
 	//     privateKey     OCTET STRING,
@@ -449,8 +425,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// 
 	// The length of an EC key depends on the curve. The private key is a single hex
 	// string. The public key is a hex string composed of the "x" and "y" parts of the
-	// public key like this:
-	//     04||HEX(x)||HEX(y)
+	// public key like this:04||HEX(x)||HEX(y) 
 	// 
 	// Note: This method is only applicable to Ed25519 and ECDSA keys. An RSA key
 	// cannot be returned in such as simple raw format because it is composed of
@@ -465,8 +440,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// 
 	// The length of an EC key depends on the curve. The private key is a single hex
 	// string. The public key is a hex string composed of the "x" and "y" parts of the
-	// public key like this:
-	//     04||HEX(x)||HEX(y)
+	// public key like this:04||HEX(x)||HEX(y) 
 	// 
 	// Note: This method is only applicable to Ed25519 and ECDSA keys. An RSA key
 	// cannot be returned in such as simple raw format because it is composed of
@@ -480,8 +454,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// 
 	// The length of an EC key depends on the curve. The private key is a single hex
 	// string. The public key is a hex string composed of the "x" and "y" parts of the
-	// public key like this:
-	//     04||HEX(x)||HEX(y)
+	// public key like this:04||HEX(x)||HEX(y) 
 	// 
 	// Note: This method is only applicable to Ed25519 and ECDSA keys. An RSA key
 	// cannot be returned in such as simple raw format because it is composed of
@@ -514,65 +487,59 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// Returns the private key in XML format. The private key is returned unencrypted
 	// and the parts are base64 encoded.
 	// 
-	// RSA keys have this XML format:
-	//   ...  ...  
+	// RSA keys have this XML format:  ...  ...  
 	// 
 	// ...
 	// 
-	//   ...  ...  ...  ...  ...
+	//   ...  ...  ...  ...  ... 
 	// 
 	// DSA keys have this XML format:
 	// 
 	// ...
 	// 
-	// ............
+	// ............ 
 	// 
 	// ECC keys have this XML format. The CURVE_NAME could be one of secp256r1,
-	// secp384r1, secp521r1, secp256k1 (or others as new curves are supported.)
-	// ...
+	// secp384r1, secp521r1, secp256k1 (or others as new curves are supported.)...
 	// 
 	bool GetXml(CkString &outStr);
 
 	// Returns the private key in XML format. The private key is returned unencrypted
 	// and the parts are base64 encoded.
 	// 
-	// RSA keys have this XML format:
-	//   ...  ...  
+	// RSA keys have this XML format:  ...  ...  
 	// 
 	// ...
 	// 
-	//   ...  ...  ...  ...  ...
+	//   ...  ...  ...  ...  ... 
 	// 
 	// DSA keys have this XML format:
 	// 
 	// ...
 	// 
-	// ............
+	// ............ 
 	// 
 	// ECC keys have this XML format. The CURVE_NAME could be one of secp256r1,
-	// secp384r1, secp521r1, secp256k1 (or others as new curves are supported.)
-	// ...
+	// secp384r1, secp521r1, secp256k1 (or others as new curves are supported.)...
 	// 
 	const char *getXml(void);
 	// Returns the private key in XML format. The private key is returned unencrypted
 	// and the parts are base64 encoded.
 	// 
-	// RSA keys have this XML format:
-	//   ...  ...  
+	// RSA keys have this XML format:  ...  ...  
 	// 
 	// ...
 	// 
-	//   ...  ...  ...  ...  ...
+	//   ...  ...  ...  ...  ... 
 	// 
 	// DSA keys have this XML format:
 	// 
 	// ...
 	// 
-	// ............
+	// ............ 
 	// 
 	// ECC keys have this XML format. The CURVE_NAME could be one of secp256r1,
-	// secp384r1, secp521r1, secp256k1 (or others as new curves are supported.)
-	// ...
+	// secp384r1, secp521r1, secp256k1 (or others as new curves are supported.)...
 	// 
 	const char *xml(void);
 
@@ -597,21 +564,19 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 
 	// Loads the private key from an in-memory encrypted PEM string. An encrypted PEM
 	// contains the private key in encrypted PKCS#8 format, where the data begins and
-	// ends with the following tags:
-	// -----BEGIN ENCRYPTED PRIVATE KEY-----
+	// ends with the following tags:-----BEGIN ENCRYPTED PRIVATE KEY-----
 	// BASE64 ENCODED DATA
 	// -----END ENCRYPTED PRIVATE KEY-----
 	// 
 	// For those requiring a deeper understanding: The base64 data contains ASN.1 DER
-	// with the following structure:
-	// EncryptedPrivateKeyInfo ::= SEQUENCE {
+	// with the following structure:EncryptedPrivateKeyInfo ::= SEQUENCE {
 	//   encryptionAlgorithm  EncryptionAlgorithmIdentifier,
 	//   encryptedData        EncryptedData
 	// }
 	// 
 	// EncryptionAlgorithmIdentifier ::= AlgorithmIdentifier
 	// 
-	// EncryptedData ::= OCTET STRING
+	// EncryptedData ::= OCTET STRING 
 	// 
 	// Note: Each of the private key Load* methods willl auto-recognize the content and
 	// will parse appropriately. The private key should be successfully loaded even
@@ -631,8 +596,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 
 	// Loads a private key from an JWK (JSON Web Key) string.
 	// 
-	// RSA keys have this JWK format:
-	//          {"kty":"RSA",
+	// RSA keys have this JWK format:{"kty":"RSA",
 	//           "n":"0vx7agoebGcQ ... JzKnqDKgw",
 	//           "e":"AQAB",
 	//           "d":"X4cTteJY_gn4F ... 4jfcKoAC8Q",
@@ -640,21 +604,19 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//           "q":"3dfOR9cuYq-0S ... 4vIcb6yelxk",
 	//           "dp":"G4sPXkc6Ya9 ... 8YeiKkTiBj0",
 	//           "dq":"s9lAH9fggBso ... w494Q_cgk",
-	//           "qi":"GyM_p6JrXySi ... zTKhAVRU"}
+	// "qi":"GyM_p6JrXySi ... zTKhAVRU"} 
 	// 
-	// ECC keys have this JWK format.
-	//          {"kty":"EC",
+	// ECC keys have this JWK format.{"kty":"EC",
 	//           "crv":"P-256",
 	//           "x":"MKBCTNIcKUSDii11ySs3526iDZ8AiTo7Tu6KPAqv7D4",
 	//           "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM",
-	//           "d":"870MB6gfuTJ4HtUnUvYMyJpr5eUZNP4Bk43bVdj3eAE"}
+	// "d":"870MB6gfuTJ4HtUnUvYMyJpr5eUZNP4Bk43bVdj3eAE"} 
 	// 
-	// Ed25519 keys (added in v9.5.0.83) have this JWK format.
-	//          {"kty": "OKP",
+	// Ed25519 keys (added in v9.5.0.83) have this JWK format.{"kty": "OKP",
 	//          "crv": "Ed25519",
 	//          "x": "SE2Kne5xt51z1eciMH2T2ftDQp96Gl6FhY6zSQujiP0",
 	//          "d": "O-eRXewadF0sNyB0U9omcnt8Qg2ZmeK3WSXPYgqe570",
-	//          "use": "sig"}
+	// "use": "sig"} 
 	// 
 	// Note: Each of the private key Load* methods willl auto-recognize the content and
 	// will parse appropriately. The private key should be successfully loaded even
@@ -668,14 +630,12 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// called. This method is for loading an unencrypted private key stored in PEM
 	// using PKCS#1 or PKCS#8.
 	// 
-	// A private key stored in PKCS#1 format begins and ends with the tags:
-	// -----BEGIN RSA PRIVATE KEY-----
+	// A private key stored in PKCS#1 format begins and ends with the tags:-----BEGIN RSA PRIVATE KEY-----
 	// BASE64 ENCODED DATA
-	// -----END RSA PRIVATE KEY-----
+	// -----END RSA PRIVATE KEY----- 
 	// 
 	// For those requiring a deeper understanding, the PKCS1 base64 contains ASN.1 in
-	// DER encoding with the following structure:
-	// RSAPrivateKey ::= SEQUENCE {
+	// DER encoding with the following structure:RSAPrivateKey ::= SEQUENCE {
 	//   version           Version,
 	//   modulus           INTEGER,  -- n
 	//   publicExponent    INTEGER,  -- e
@@ -686,16 +646,14 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//   exponent2         INTEGER,  -- d mod (q-1)
 	//   coefficient       INTEGER,  -- (inverse of q) mod p
 	//   otherPrimeInfos   OtherPrimeInfos OPTIONAL
-	// }
+	// } 
 	// 
-	// A private key stored in PKCS#8 format begins and ends with the tags:
-	// -----BEGIN PRIVATE KEY-----
+	// A private key stored in PKCS#8 format begins and ends with the tags:-----BEGIN PRIVATE KEY-----
 	// BASE64 ENCODED DATA
-	// -----END PRIVATE KEY-----
+	// -----END PRIVATE KEY----- 
 	// 
 	// For those requiring a deeper understanding, the PKCS8 base64 contains ASN.1 in
-	// DER encoding with the following structure:
-	// PrivateKeyInfo ::= SEQUENCE {
+	// DER encoding with the following structure:PrivateKeyInfo ::= SEQUENCE {
 	//   version         Version,
 	//   algorithm       AlgorithmIdentifier,
 	//   PrivateKey      BIT STRING
@@ -704,7 +662,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// AlgorithmIdentifier ::= SEQUENCE {
 	//   algorithm       OBJECT IDENTIFIER,
 	//   parameters      ANY DEFINED BY algorithm OPTIONAL
-	// }
+	// } 
 	// 
 	// Note: Each of the private key Load* methods willl auto-recognize the content and
 	// will parse appropriately. The private key should be successfully loaded even
@@ -738,8 +696,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// Loads a private key from in-memory PKCS8 byte data.
 	// 
 	// For those requiring a deeper understanding, the PKCS8 contains ASN.1 in DER
-	// encoding with the following structure:
-	// PrivateKeyInfo ::= SEQUENCE {
+	// encoding with the following structure:PrivateKeyInfo ::= SEQUENCE {
 	//   version         Version,
 	//   algorithm       AlgorithmIdentifier,
 	//   PrivateKey      BIT STRING
@@ -748,7 +705,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// AlgorithmIdentifier ::= SEQUENCE {
 	//   algorithm       OBJECT IDENTIFIER,
 	//   parameters      ANY DEFINED BY algorithm OPTIONAL
-	// }
+	// } 
 	// 
 	// Note: Each of the private key Load* methods willl auto-recognize the content and
 	// will parse appropriately. The private key should be successfully loaded even
@@ -760,15 +717,14 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// Loads a private key from in-memory password-protected PKCS8 byte data.
 	// 
 	// For those requiring a deeper understanding, the encrypted PKCS8 contains ASN.1
-	// in DER encoding with the following structure:
-	// EncryptedPrivateKeyInfo ::= SEQUENCE {
+	// in DER encoding with the following structure:EncryptedPrivateKeyInfo ::= SEQUENCE {
 	//   encryptionAlgorithm  EncryptionAlgorithmIdentifier,
 	//   encryptedData        EncryptedData
 	// }
 	// 
 	// EncryptionAlgorithmIdentifier ::= AlgorithmIdentifier
 	// 
-	// EncryptedData ::= OCTET STRING
+	// EncryptedData ::= OCTET STRING 
 	// 
 	// Note: Each of the private key Load* methods willl auto-recognize the content and
 	// will parse appropriately. The private key should be successfully loaded even
@@ -795,7 +751,6 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	bool LoadPkcs8File(const char *path);
 
 
-#if defined(CK_CRYPTOAPI_INCLUDED)
 	// Loads a private key from in-memory PVK byte data.
 	// 
 	// Note: Each of the private key Load* methods willl auto-recognize the content and
@@ -804,9 +759,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// 
 	bool LoadPvk(CkByteData &data, const char *password);
 
-#endif
 
-#if defined(CK_CRYPTOAPI_INCLUDED)
 	// Loads a private key from a PVK format file.
 	// 
 	// Note: Each of the private key Load* methods willl auto-recognize the content and
@@ -815,7 +768,6 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// 
 	bool LoadPvkFile(const char *path, const char *password);
 
-#endif
 
 	// This method is deprecated. Deprecated methods will be removed at some point in
 	// the future. Applications should instead call LoadPkcs1.
@@ -823,8 +775,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// Loads a private key from in-memory RSA PKCS#1 DER byte data.
 	// 
 	// For those requiring a deeper understanding, the PKCS1 contains ASN.1 in DER
-	// encoding with the following structure:
-	// RSAPrivateKey ::= SEQUENCE {
+	// encoding with the following structure:RSAPrivateKey ::= SEQUENCE {
 	//   version           Version,
 	//   modulus           INTEGER,  -- n
 	//   publicExponent    INTEGER,  -- e
@@ -835,7 +786,7 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	//   exponent2         INTEGER,  -- d mod (q-1)
 	//   coefficient       INTEGER,  -- (inverse of q) mod p
 	//   otherPrimeInfos   OtherPrimeInfos OPTIONAL
-	// }
+	// } 
 	// 
 	// Note: Each of the private key Load* methods willl auto-recognize the content and
 	// will parse appropriately. The private key should be successfully loaded even
@@ -858,22 +809,20 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 
 	// Loads a private key from an XML string.
 	// 
-	// RSA keys have this XML format:
-	//   ...  ...  
+	// RSA keys have this XML format:  ...  ...  
 	// 
 	// ...
 	// 
-	//   ...  ...  ...  ...  ...
+	//   ...  ...  ...  ...  ... 
 	// 
 	// DSA keys have this XML format:
 	// 
 	// ...
 	// 
-	// ............
+	// ............ 
 	// 
 	// ECC keys have this XML format. The CURVE_NAME could be one of secp256r1,
-	// secp384r1, secp521r1, secp256k1 (or others as new curves are supported.)
-	// ...
+	// secp384r1, secp521r1, secp256k1 (or others as new curves are supported.)... 
 	// 
 	// Note: Each of the private key Load* methods willl auto-recognize the content and
 	// will parse appropriately. The private key should be successfully loaded even

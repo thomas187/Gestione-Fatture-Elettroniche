@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkCrypt2_H
 #define _C_CkCrypt2_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -325,9 +325,6 @@ CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_ReadFile(HCkCrypt2 cHandle, const char *filena
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_ReEncode(HCkCrypt2 cHandle, const char *encodedData, const char *fromEncoding, const char *toEncoding, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCrypt2_reEncode(HCkCrypt2 cHandle, const char *encodedData, const char *fromEncoding, const char *toEncoding);
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_SaveLastError(HCkCrypt2 cHandle, const char *path);
-#if defined(CK_CSP_INCLUDED)
-CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_SetCSP(HCkCrypt2 cHandle, HCkCsp csp);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_SetDecryptCert(HCkCrypt2 cHandle, HCkCert cert);
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_SetDecryptCert2(HCkCrypt2 cHandle, HCkCert cert, HCkPrivateKey key);
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_SetEncodedAad(HCkCrypt2 cHandle, const char *aadStr, const char *encoding);

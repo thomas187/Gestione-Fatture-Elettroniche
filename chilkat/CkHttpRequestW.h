@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkHttpRequestW_H
 #define _CkHttpRequestW_H
@@ -98,12 +98,10 @@ class CK_VISIBLE_PUBLIC CkHttpRequestW  : public CkWideCharBase
 	// The ContentType property sets the "Content-Type" header field, and identifies
 	// the content-type of the HTTP request body. Common values are:
 	// 
-	//         
-	// application/x-www-form-urlencoded    
+	//     application/x-www-form-urlencoded    
 	// multipart/form-data    
 	// application/json    
-	// application/xml    
-	//     
+	//     application/xml 
 	// 
 	// If ContentType is set equal to the empty string, then no Content-Type header is
 	// included in the HTTP request.
@@ -111,12 +109,10 @@ class CK_VISIBLE_PUBLIC CkHttpRequestW  : public CkWideCharBase
 	// The ContentType property sets the "Content-Type" header field, and identifies
 	// the content-type of the HTTP request body. Common values are:
 	// 
-	//         
-	// application/x-www-form-urlencoded    
+	//     application/x-www-form-urlencoded    
 	// multipart/form-data    
 	// application/json    
-	// application/xml    
-	//     
+	//     application/xml 
 	// 
 	// If ContentType is set equal to the empty string, then no Content-Type header is
 	// included in the HTTP request.
@@ -124,12 +120,10 @@ class CK_VISIBLE_PUBLIC CkHttpRequestW  : public CkWideCharBase
 	// The ContentType property sets the "Content-Type" header field, and identifies
 	// the content-type of the HTTP request body. Common values are:
 	// 
-	//         
-	// application/x-www-form-urlencoded    
+	//     application/x-www-form-urlencoded    
 	// multipart/form-data    
 	// application/json    
-	// application/xml    
-	//     
+	//     application/xml 
 	// 
 	// If ContentType is set equal to the empty string, then no Content-Type header is
 	// included in the HTTP request.
@@ -182,7 +176,7 @@ class CK_VISIBLE_PUBLIC CkHttpRequestW  : public CkWideCharBase
 	// http://example.com:8042/over/there?name=ferret#nose
 	// \__/   \______________/\_________/ \________/ \__/
 	//  |           |            |            |        |
-	// scheme   domain+port     path        query   fragment
+	// scheme domain+port path query fragment
 	// 
 	// This property should be set to the path part of the URL. You may also include
 	// the query part in this property value. If the Content-Type of the request is NOT
@@ -205,7 +199,7 @@ class CK_VISIBLE_PUBLIC CkHttpRequestW  : public CkWideCharBase
 	// http://example.com:8042/over/there?name=ferret#nose
 	// \__/   \______________/\_________/ \________/ \__/
 	//  |           |            |            |        |
-	// scheme   domain+port     path        query   fragment
+	// scheme domain+port path query fragment
 	// 
 	// This property should be set to the path part of the URL. You may also include
 	// the query part in this property value. If the Content-Type of the request is NOT
@@ -228,7 +222,7 @@ class CK_VISIBLE_PUBLIC CkHttpRequestW  : public CkWideCharBase
 	// http://example.com:8042/over/there?name=ferret#nose
 	// \__/   \______________/\_________/ \________/ \__/
 	//  |           |            |            |        |
-	// scheme   domain+port     path        query   fragment
+	// scheme domain+port path query fragment
 	// 
 	// This property should be set to the path part of the URL. You may also include
 	// the query part in this property value. If the Content-Type of the request is NOT
@@ -433,19 +427,19 @@ class CK_VISIBLE_PUBLIC CkHttpRequestW  : public CkWideCharBase
 	// would be sent if the ContentType property was
 	// application/x-www-form-urlencoded). For example, if a request has two params:
 	// param1="abc 123" and param2="abc-123", then GetUrlEncodedParams would return
-	// "abc+123
+	// "abc+123&param2=abc%2D123"
 	bool GetUrlEncodedParams(CkString &outStr);
 	// Returns the request parameters in URL encoded form (i.e. in the exact form that
 	// would be sent if the ContentType property was
 	// application/x-www-form-urlencoded). For example, if a request has two params:
 	// param1="abc 123" and param2="abc-123", then GetUrlEncodedParams would return
-	// "abc+123
+	// "abc+123&param2=abc%2D123"
 	const wchar_t *getUrlEncodedParams(void);
 	// Returns the request parameters in URL encoded form (i.e. in the exact form that
 	// would be sent if the ContentType property was
 	// application/x-www-form-urlencoded). For example, if a request has two params:
 	// param1="abc 123" and param2="abc-123", then GetUrlEncodedParams would return
-	// "abc+123
+	// "abc+123&param2=abc%2D123"
 	const wchar_t *urlEncodedParams(void);
 
 	// Uses the contents of the requestBody as the HTTP request body.

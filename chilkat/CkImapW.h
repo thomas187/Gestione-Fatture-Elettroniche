@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkImapW_H
 #define _CkImapW_H
@@ -261,7 +261,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// a string property for the chance that HIGHESTMODSEQ is an extremely large
 	// integer.)
 	// 
-	// Not all IMAP servers support HIGHESTMODSEQ. SeeRFC 4551 Section 3.1.1
+	// Not all IMAP servers support HIGHESTMODSEQ. See RFC 4551 Section 3.1.1
 	// HIGHESTMODSEQ Response Code
 	// <https://tools.ietf.org/html/rfc4551#section-3.1.1> for more information.
 	// 
@@ -271,7 +271,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// a string property for the chance that HIGHESTMODSEQ is an extremely large
 	// integer.)
 	// 
-	// Not all IMAP servers support HIGHESTMODSEQ. SeeRFC 4551 Section 3.1.1
+	// Not all IMAP servers support HIGHESTMODSEQ. See RFC 4551 Section 3.1.1
 	// HIGHESTMODSEQ Response Code
 	// <https://tools.ietf.org/html/rfc4551#section-3.1.1> for more information.
 	// 
@@ -685,8 +685,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -718,9 +717,8 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -762,8 +760,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	void get_SslAllowedCiphers(CkString &str);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -795,9 +792,8 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -839,8 +835,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	const wchar_t *sslAllowedCiphers(void);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -872,9 +867,8 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -928,7 +922,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -949,7 +943,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -970,7 +964,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1013,15 +1007,14 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1031,15 +1024,14 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1049,15 +1041,14 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1370,7 +1361,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	//     imap.GetMailNumAttach
 	//     imap.GetMailAttachFilename
 	//     imap.GetMailAttachSize
-	//     
+	//      
 	// 
 	bool FetchAttachment(CkEmailW &emailObject, int attachmentIndex, const wchar_t *saveToPath);
 
@@ -1474,11 +1465,10 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// msgId does not exist in the currently selected mailbox, or it simply has no flags
 	// that are set. To determine the difference, examine the contents of the
 	// LastResponse property. For the case where the message does not exist, the
-	// LastResponse will contain a "NO" and will look something like this:
-	// aaah NO The specified message set is invalid.
-	// For the case where the message exists, but no flags are set, the LastResponse
-	// will contain an "OK" in the last response line. For example:
-	// ...
+	// LastResponse will contain a "NO" and will look something like this:aaah NO The
+	// specified message set is invalid. For the case where the message exists, but no
+	// flags are set, the LastResponse will contain an "OK" in the last response line.
+	// For example:...
 	// aaah OK FETCH completed.
 	// 
 	bool FetchFlags(unsigned long msgId, bool bUid, CkString &outStrFlags);
@@ -1492,11 +1482,10 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// msgId does not exist in the currently selected mailbox, or it simply has no flags
 	// that are set. To determine the difference, examine the contents of the
 	// LastResponse property. For the case where the message does not exist, the
-	// LastResponse will contain a "NO" and will look something like this:
-	// aaah NO The specified message set is invalid.
-	// For the case where the message exists, but no flags are set, the LastResponse
-	// will contain an "OK" in the last response line. For example:
-	// ...
+	// LastResponse will contain a "NO" and will look something like this:aaah NO The
+	// specified message set is invalid. For the case where the message exists, but no
+	// flags are set, the LastResponse will contain an "OK" in the last response line.
+	// For example:...
 	// aaah OK FETCH completed.
 	// 
 	const wchar_t *fetchFlags(unsigned long msgId, bool bUid);
@@ -1524,6 +1513,11 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// selected mailbox is available in the NumMessages property. If the numMessages is too
 	// large, the method will still succeed, but will return a bundle of emails from
 	// startSeqNum to the last email in the mailbox.
+	// 
+	// Important: The startSeqNum is a number between 1 and the number of messages in the
+	// currently selected folder. Sequence numbers can change during your IMAP session
+	// when a message is removed from a folder, either by your session or another one.
+	// 
 	// The caller is responsible for deleting the object returned by this method.
 	CkEmailBundleW *FetchSequence(int startSeqNum, int numMessages);
 
@@ -1534,6 +1528,11 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 
 	// Same as FetchSequence, but instead of returning email objects in a bundle, the
 	// raw MIME of each email is returned.
+	// 
+	// Important: The startSeqNum is a number between 1 and the number of messages in the
+	// currently selected folder. Sequence numbers can change during your IMAP session
+	// when a message is removed from a folder, either by your session or another one.
+	// 
 	// The caller is responsible for deleting the object returned by this method.
 	CkStringArrayW *FetchSequenceAsMime(int startSeqNum, int numMessages);
 
@@ -1550,6 +1549,10 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// NumMessages property will have been set, and the valid range of sequence numbers
 	// is from 1 to NumMessages. An attempt to fetch sequence numbers outside this
 	// range will result in an error.
+	// 
+	// Important: The startSeqNum is a number between 1 and the number of messages in the
+	// currently selected folder. Sequence numbers can change during your IMAP session
+	// when a message is removed from a folder, either by your session or another one.
 	// 
 	// The caller is responsible for deleting the object returned by this method.
 	CkEmailBundleW *FetchSequenceHeaders(int startSeqNum, int numMessages);
@@ -1765,8 +1768,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	//     raw -- reports an unanticipated response line that was not parsed by
 	//     Chilkat. This should be reported to support@chilkatoft.com
 	// 
-	// A sample showing all possible notifications (except for "raw") is shown below.
-	// _LT_idle_GT_
+	// A sample showing all possible notifications (except for "raw") is shown below._LT_idle_GT_
 	//     _LT_flags seqnum="59" uid="11876"_GT_
 	//         _LT_flag_GT_\Deleted_LT_/flag_GT_
 	//         _LT_flag_GT_\Seen_LT_/flag_GT_
@@ -1779,11 +1781,10 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	//     _LT_expunge_GT_67_LT_/expunge_GT_
 	//     _LT_exists_GT_115_LT_/exists_GT_
 	//     _LT_recent_GT_0_LT_/recent_GT_
-	// _LT_/idle_GT_
+	// _LT_/idle_GT_ 
 	// 
 	// If no updates have been received, the returned XML string has the following
-	// format, as shown below. The
-	// _LT_idle_GT__LT_/idle_GT_
+	// format, as shown below. The_LT_idle_GT__LT_/idle_GT_ 
 	// 
 	// NOTE:Once IdleStart has been called, this method can and should be called
 	// frequently to see if any updates have arrived. This is NOT the same as polling
@@ -1809,8 +1810,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	//     raw -- reports an unanticipated response line that was not parsed by
 	//     Chilkat. This should be reported to support@chilkatoft.com
 	// 
-	// A sample showing all possible notifications (except for "raw") is shown below.
-	// _LT_idle_GT_
+	// A sample showing all possible notifications (except for "raw") is shown below._LT_idle_GT_
 	//     _LT_flags seqnum="59" uid="11876"_GT_
 	//         _LT_flag_GT_\Deleted_LT_/flag_GT_
 	//         _LT_flag_GT_\Seen_LT_/flag_GT_
@@ -1823,11 +1823,10 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	//     _LT_expunge_GT_67_LT_/expunge_GT_
 	//     _LT_exists_GT_115_LT_/exists_GT_
 	//     _LT_recent_GT_0_LT_/recent_GT_
-	// _LT_/idle_GT_
+	// _LT_/idle_GT_ 
 	// 
 	// If no updates have been received, the returned XML string has the following
-	// format, as shown below. The
-	// _LT_idle_GT__LT_/idle_GT_
+	// format, as shown below. The_LT_idle_GT__LT_/idle_GT_ 
 	// 
 	// NOTE:Once IdleStart has been called, this method can and should be called
 	// frequently to see if any updates have arrived. This is NOT the same as polling
@@ -1882,8 +1881,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// "mailbox" is used, it has the same meaning as "folder".
 	// 
 	// The reference and wildcardedMailbox parameters are passed unaltered to the IMAP
-	// LIST command:
-	// FROM RFC 3501 (IMAP Protocol)
+	// LIST command:FROM RFC 3501 (IMAP Protocol)
 	// 
 	//       The LIST command returns a subset of names from the complete set
 	//       of all names available to the client.  Zero or more untagged LIST
@@ -2106,8 +2104,7 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// specified.
 	// 
 	// The criteria is passed through to the low-level IMAP protocol unmodified, so the
-	// rules for the IMAP SEARCH command (RFC 3501) apply and are reproduced here:
-	// FROM RFC 3501 (IMAP Protocol)
+	// rules for the IMAP SEARCH command (RFC 3501) apply and are reproduced here:FROM RFC 3501 (IMAP Protocol)
 	// 
 	//       The SEARCH command searches the mailbox for messages that match
 	//       the given searching criteria.  Searching criteria consist of one
@@ -2577,8 +2574,8 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	// Sends the THREAD command to search the already selected mailbox for messages
 	// that match searchCriteria.
 	// 
-	// The following explanation is fromRFC 5256
-	// <https://tools.ietf.org/html/rfc5256>:
+	// The following explanation is from RFC 5256
+	// <https://tools.ietf.org/html/rfc5256> :
 	// 
 	// The THREAD command is a variant of SEARCH with threading semantics 
 	// for the results.  Thread has two arguments before the searching 
@@ -2626,9 +2623,9 @@ class CK_VISIBLE_PUBLIC CkImapW  : public CkClassWithCallbacksW
 	//          reconstructing a message's ancestry using the references
 	//          contained within it; and checking the original (not base)
 	//          subject of a message to see if it is a reply to (or forward of)
-	//          another message.
+	// another message.
 	// 
-	// SeeRFC 5256
+	// See RFC 5256
 	// <https://tools.ietf.org/html/rfc5256> for more details:
 	// 
 	// The searchCriteria is passed through to the low-level IMAP protocol unmodified, and

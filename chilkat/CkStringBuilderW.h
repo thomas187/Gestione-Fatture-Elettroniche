@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkStringBuilderW_H
 #define _CkStringBuilderW_H
@@ -80,7 +80,7 @@ class CK_VISIBLE_PUBLIC CkStringBuilderW  : public CkWideCharBase
 
 	// Appends the contents of binData. The charset specifies the character encoding of the
 	// bytes contained in binData. The charset can be any of the supported encodings listed
-	// atChilkat Supported Character Encodings
+	// at Chilkat Supported Character Encodings
 	// <http://cknotes.com/chilkat-charsets-character-encodings-supported/>. To append
 	// the entire contents of binData, set offset and numBytes equal to zero. To append a range
 	// of binData, set the offset and numBytes to specify the range.
@@ -105,6 +105,11 @@ class CK_VISIBLE_PUBLIC CkStringBuilderW  : public CkWideCharBase
 
 	// Appends the contents of another StringBuilder to this instance.
 	bool AppendSb(CkStringBuilderW &sb);
+
+	// Generates and appends a random GUID/UUID such as
+	// 63c35f38-2b5f-4600-b3da-3ddee86d62b3. If lowerCase is true, then the hex values use
+	// lowercase ("a" - "f"). If lowerCase is false then uppercase is used ("A" - "F").
+	bool AppendUuid(bool lowerCase);
 
 	// Removes all characters from the current StringBuilder instance.
 	void Clear(void);
@@ -166,7 +171,7 @@ class CK_VISIBLE_PUBLIC CkStringBuilderW  : public CkWideCharBase
 	// false.
 	bool EndsWith(const wchar_t *substr, bool caseSensitive);
 
-	// Decodes HTML entities. SeeHTML entities
+	// Decodes HTML entities. See HTML entities
 	// <https://duckduckgo.com/?q=html+entities&bext=wfp&ia=web> for more information
 	// about HTML entities.
 	bool EntityDecode(void);
@@ -298,11 +303,11 @@ class CK_VISIBLE_PUBLIC CkStringBuilderW  : public CkWideCharBase
 	// "sha3-384", "sha3-512", "md2", "md5", "ripemd128", "ripemd160","ripemd256", or
 	// "ripemd320". The encoding can be "base64", "modBase64", "base64Url", "base32",
 	// "base58", "qp" (for quoted-printable), "url" (for url-encoding), "hex",
-	// "hexLower", or any of the encodings found atChilkat Binary Encodings List
+	// "hexLower", or any of the encodings found at Chilkat Binary Encodings List
 	// <https://cknotes.com/chilkat-binary-encoding-list/>.
 	// 
 	// The charset is the character encoding byte representation to hash. It is typically
-	// "utf-8". It can be any of the chacter encodings listed atChilkat Character
+	// "utf-8". It can be any of the chacter encodings listed at Chilkat Character
 	// Encodings List
 	// <https://cknotes.com/chilkat-charsets-character-encodings-supported/>.
 	// 
@@ -312,11 +317,11 @@ class CK_VISIBLE_PUBLIC CkStringBuilderW  : public CkWideCharBase
 	// "sha3-384", "sha3-512", "md2", "md5", "ripemd128", "ripemd160","ripemd256", or
 	// "ripemd320". The encoding can be "base64", "modBase64", "base64Url", "base32",
 	// "base58", "qp" (for quoted-printable), "url" (for url-encoding), "hex",
-	// "hexLower", or any of the encodings found atChilkat Binary Encodings List
+	// "hexLower", or any of the encodings found at Chilkat Binary Encodings List
 	// <https://cknotes.com/chilkat-binary-encoding-list/>.
 	// 
 	// The charset is the character encoding byte representation to hash. It is typically
-	// "utf-8". It can be any of the chacter encodings listed atChilkat Character
+	// "utf-8". It can be any of the chacter encodings listed at Chilkat Character
 	// Encodings List
 	// <https://cknotes.com/chilkat-charsets-character-encodings-supported/>.
 	// 
@@ -326,11 +331,11 @@ class CK_VISIBLE_PUBLIC CkStringBuilderW  : public CkWideCharBase
 	// "sha3-384", "sha3-512", "md2", "md5", "ripemd128", "ripemd160","ripemd256", or
 	// "ripemd320". The encoding can be "base64", "modBase64", "base64Url", "base32",
 	// "base58", "qp" (for quoted-printable), "url" (for url-encoding), "hex",
-	// "hexLower", or any of the encodings found atChilkat Binary Encodings List
+	// "hexLower", or any of the encodings found at Chilkat Binary Encodings List
 	// <https://cknotes.com/chilkat-binary-encoding-list/>.
 	// 
 	// The charset is the character encoding byte representation to hash. It is typically
-	// "utf-8". It can be any of the chacter encodings listed atChilkat Character
+	// "utf-8". It can be any of the chacter encodings listed at Chilkat Character
 	// Encodings List
 	// <https://cknotes.com/chilkat-charsets-character-encodings-supported/>.
 	// 

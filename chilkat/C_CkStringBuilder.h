@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkStringBuilder_H
 #define _C_CkStringBuilder_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -23,6 +23,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendInt(HCkStringBuilder cHandle, int
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendInt64(HCkStringBuilder cHandle, __int64 value);
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendLine(HCkStringBuilder cHandle, const char *value, BOOL crlf);
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendSb(HCkStringBuilder cHandle, HCkStringBuilder sb);
+CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendUuid(HCkStringBuilder cHandle, BOOL lowerCase);
 CK_C_VISIBLE_PUBLIC void CkStringBuilder_Clear(HCkStringBuilder cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_Contains(HCkStringBuilder cHandle, const char *str, BOOL caseSensitive);
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_ContainsWord(HCkStringBuilder cHandle, const char *word, BOOL caseSensitive);

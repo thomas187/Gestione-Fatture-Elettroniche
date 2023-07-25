@@ -106,7 +106,7 @@ typedef uint32_t ckUInt32;
     #define CK_C_VISIBLE_PUBLIC
     #define CK_C_VISIBLE_PRIVATE
 #elif defined(__SUNPRO_CC)
-    Solaris Studio compiler.
+    //Solaris Studio compiler.
     #define CK_C_VISIBLE_PUBLIC __global
     #define CK_C_VISIBLE_PRIVATE  __hidden
 #elif defined(__MINGW32__)

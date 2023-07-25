@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkCertStore_H
 #define _CkCertStore_H
@@ -73,12 +73,10 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	// The number of certificates held in the certificate store.
 	int get_NumCertificates(void);
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This property only available on Microsoft Windows operating systems.)
 	// The number of certificates that can be used for sending secure email within this
 	// store.
 	int get_NumEmailCerts(void);
-#endif
 
 	// Can be set to the PIN value for a certificate / private key stored on a smart
 	// card.
@@ -105,38 +103,35 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	// ----------------------
 	// Methods
 	// ----------------------
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method only available on Microsoft Windows operating systems.)
 	// Adds a certificate to the store. If the certificate is already in the store, it
 	// is updated with the new information.
 	bool AddCertificate(CkCert &cert);
 
-#endif
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
+	// (This method only available on Microsoft Windows operating systems.)
+	// Closes the certificate store previously opened by one of the Open* methods.
+	bool CloseCertStore(void);
+
+
 	// (This method only available on Microsoft Windows operating systems.)
 	// Creates a new file-based certificate store. Certificates may be saved to this
 	// store by calling AddCertificate.
 	bool CreateFileStore(const char *filename);
 
-#endif
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method only available on Microsoft Windows operating systems.)
 	// Creates an in-memory certificate store. Certificates may be added by calling
 	// AddCertificate.
 	bool CreateMemoryStore(void);
 
-#endif
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method only available on Microsoft Windows operating systems.)
 	// Creates a registry-based certificate store. regRoot must be "CurrentUser" or
 	// "LocalMachine". regPath is a registry path such as
 	// "Software/MyApplication/Certificates".
 	bool CreateRegistryStore(const char *regRoot, const char *regPath);
 
-#endif
 
 	// Finds a certificate by it's key container name.
 	// The caller is responsible for deleting the object returned by this method.
@@ -232,7 +227,6 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	CkCert *GetCertificate(int index);
 
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method only available on Microsoft Windows operating systems.)
 	// Returns the Nth email certificate in the store. The first certificate is at
 	// index 0. Use the NumEmailCertificates property to get the number of email
@@ -243,7 +237,6 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	// The caller is responsible for deleting the object returned by this method.
 	CkCert *GetEmailCert(int index);
 
-#endif
 
 	// Loads the certificates contained within a PEM formatted file.
 	bool LoadPemFile(const char *pemPath);
@@ -282,7 +275,6 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	bool LoadPfxFile(const char *pfxFilename, const char *password);
 
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method is only available on Microsoft Windows operating systems.)
 	// Opens the registry-based Current-User\Personal certificate store. Set readOnly =
 	// true if only fetching certificates and not updating the certificate store
@@ -296,9 +288,7 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	// 
 	bool OpenCurrentUserStore(bool readOnly);
 
-#endif
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method only available on Microsoft Windows operating systems.)
 	// Opens a file-based certificate store.
 	// 
@@ -308,9 +298,7 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	// 
 	bool OpenFileStore(const char *filename, bool readOnly);
 
-#endif
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method is only available on Microsoft Windows operating systems.)
 	// Opens the registry-based Local-Computer\Personal certificate store. Set readOnly =
 	// true if only fetching certificates and not updating the certificate store
@@ -324,9 +312,7 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	// 
 	bool OpenLocalSystemStore(bool readOnly);
 
-#endif
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method only available on Microsoft Windows operating systems.)
 	// Opens an arbitrary registry-based certificate store. regRoot must be "CurrentUser"
 	// or "LocalMachine". regPath is a registry path such as
@@ -342,9 +328,7 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	// 
 	bool OpenRegistryStore(const char *regRoot, const char *regPath, bool readOnly);
 
-#endif
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// Opens the certificate store on the smartcard currently in the reader or USB
 	// token.
 	// 
@@ -382,9 +366,7 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	// 
 	bool OpenSmartcard(const char *csp);
 
-#endif
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method only available on Microsoft Windows operating systems.)
 	// Opens a Microsoft Windows certificate store. storeLocation must be "CurrentUser" or
 	// "LocalMachine". storeName is the name of the certificate store to open. It may be any
@@ -409,15 +391,12 @@ class CK_VISIBLE_PUBLIC CkCertStore  : public CkMultiByteBase
 	// 
 	bool OpenWindowsStore(const char *storeLocation, const char *storeName, bool readOnly);
 
-#endif
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// (This method only available on Microsoft Windows operating systems.)
 	// Removes the passed certificate from the store. The certificate object passed as
 	// the argument can no longer be used once removed.
 	bool RemoveCertificate(CkCert &cert);
 
-#endif
 
 
 

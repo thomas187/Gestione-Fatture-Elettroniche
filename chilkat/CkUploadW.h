@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkUploadW_H
 #define _CkUploadW_H
@@ -366,7 +366,7 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	const wchar_t *responseHeader(void);
 
 	// The HTTP response status code of the HTTP response. A list of HTTP status codes
-	// can be found here:HTTP Response Status Codes
+	// can be found here: HTTP Response Status Codes
 	// <http://en.wikipedia.org/wiki/List_of_HTTP_status_codes>.
 	int get_ResponseStatus(void);
 
@@ -381,7 +381,7 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	//     Hostname = "www.myuploadtarget.com"
 	//     Path = "/consumeupload.asp"
 	//     Port = 443
-	//     
+	//      
 	// 
 	bool get_Ssl(void);
 	// Set this to true if the upload is to HTTPS. For example, if the target of the
@@ -395,14 +395,13 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	//     Hostname = "www.myuploadtarget.com"
 	//     Path = "/consumeupload.asp"
 	//     Port = 443
-	//     
+	//      
 	// 
 	void put_Ssl(bool newVal);
 
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -434,9 +433,8 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -478,8 +476,7 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	void get_SslAllowedCiphers(CkString &str);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -511,9 +508,8 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -555,8 +551,7 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	const wchar_t *sslAllowedCiphers(void);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -588,9 +583,8 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -644,7 +638,7 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -665,7 +659,7 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -686,7 +680,7 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -699,15 +693,14 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -717,15 +710,14 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -735,15 +727,14 @@ class CK_VISIBLE_PUBLIC CkUploadW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.

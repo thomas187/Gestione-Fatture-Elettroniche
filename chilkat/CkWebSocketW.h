@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkWebSocketW_H
 #define _CkWebSocketW_H
@@ -123,8 +123,7 @@ class CK_VISIBLE_PUBLIC CkWebSocketW  : public CkClassWithCallbacksW
 	const wchar_t *frameOpcode(void);
 
 	// The integer value of the opcode (type of frame) received in the last call to
-	// ReadFrame. Possible values are:
-	// 0 - Continuation
+	// ReadFrame. Possible values are:0 - Continuation
 	// 1 - Text
 	// 2 - Binary
 	// 8 - Close
@@ -217,8 +216,7 @@ class CK_VISIBLE_PUBLIC CkWebSocketW  : public CkClassWithCallbacksW
 	bool get_PongConsumed(void);
 
 	// If the ReadFrame method returns false, this property holds the fail reason. It
-	// can have one of the following values:
-	// 0 - No failure.
+	// can have one of the following values:0 - No failure.
 	// 1 - Read Timeout.
 	// 2 - Aborted by Application Callback.
 	// 3 - Fatal Socket Error (Lost Connection).
@@ -246,8 +244,7 @@ class CK_VISIBLE_PUBLIC CkWebSocketW  : public CkClassWithCallbacksW
 	// ----------------------
 	// Adds the required WebSocket client-side open handshake headers. The headers
 	// specifically added to the previously specified REST object (in the call to
-	// UseConnection) are:
-	// Upgrade: websocket
+	// UseConnection) are:Upgrade: websocket
 	// Connection: Upgrade
 	// Sec-WebSocket-Key: ...
 	// Sec-WebSocket-Version: 13
@@ -310,7 +307,7 @@ class CK_VISIBLE_PUBLIC CkWebSocketW  : public CkClassWithCallbacksW
 	// reason to 123 bytes if necessary. Also, the status code must be an integer in the
 	// range 0 to 16383.
 	// 
-	// The WebSocket protocol specifies some pre-defined status codes atWebSocket
+	// The WebSocket protocol specifies some pre-defined status codes at WebSocket
 	// Status Codes
 	// <https://tools.ietf.org/html/rfc6455#section-7.4.1>. For a normal closure, a
 	// status code value of 1000 should be used. The reason can be any string, as long

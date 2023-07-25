@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkZipW_H
 #define _CkZipW_H
@@ -102,7 +102,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// AppendFromDir property does not become part of the file path saved in the .zip.)
 	void put_AppendFromDir(const wchar_t *newVal);
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Optional
 	// when creating Windows-based self-extracting EXEs. This is the name of an
 	// executable contained within the to-be-created EXE that will automatically be run
@@ -118,9 +117,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// executable contained within the to-be-created EXE that will automatically be run
 	// after extraction. (This is typically something like "setup.exe")
 	void put_AutoRun(const wchar_t *newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Command
 	// line parameters that get passed to the AutoRun executable.
 	void get_AutoRunParams(CkString &str);
@@ -130,9 +127,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// (Relevant only when running on a Microsoft Windows operating system.) Command
 	// line parameters that get passed to the AutoRun executable.
 	void put_AutoRunParams(const wchar_t *newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) This
 	// option applies to creating Windows-based self-extracting EXEs. If true, the
 	// to-be-created EXE will automatically select and create a temporary directory for
@@ -167,7 +162,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// The default AutoTemp value is false.
 	// 
 	void put_AutoTemp(bool newVal);
-#endif
 
 	// If true then all methods that get or search for zip entries by name will use
 	// case-sensitive filename matching. If false then filename matching will be case
@@ -187,15 +181,25 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	void put_CaseSensitive(bool newVal);
 
 	// Set this to true to clear the FILE_ATTRIBUTE_ARCHIVE file attribute of each
-	// file during a zipping operation.
+	// file (in the local filesystem) during a zipping operation.
 	// 
 	// The default value is false.
+	// 
+	// Note: The archive attribute or bit, is a Windows file attribute that when is
+	// set, it indicates that the file has changed since the last backup operation.
+	// When this property is true, Chilkat Zip will clear the archive attribute of
+	// each local file after it has been successfully added to the zip.
 	// 
 	bool get_ClearArchiveAttribute(void);
 	// Set this to true to clear the FILE_ATTRIBUTE_ARCHIVE file attribute of each
-	// file during a zipping operation.
+	// file (in the local filesystem) during a zipping operation.
 	// 
 	// The default value is false.
+	// 
+	// Note: The archive attribute or bit, is a Windows file attribute that when is
+	// set, it indicates that the file has changed since the last backup operation.
+	// When this property is true, Chilkat Zip will clear the archive attribute of
+	// each local file after it has been successfully added to the zip.
 	// 
 	void put_ClearArchiveAttribute(bool newVal);
 
@@ -338,7 +342,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// 
 	void put_EncryptPassword(const wchar_t *newVal);
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Specifies
 	// the default unzip directory path to appear in the user-interface dialog box when
 	// the Windows-based self-extracting EXE is run.
@@ -351,9 +354,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// the default unzip directory path to appear in the user-interface dialog box when
 	// the Windows-based self-extracting EXE is run.
 	void put_ExeDefaultDir(const wchar_t *newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) If set to
 	// true, a "Finished" dialog box is displayed when the self-extracting EXE is
 	// finished extracting. The caption, title, and button text of the finish notifier
@@ -366,9 +367,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// dialog may be customized by calling SetExeConfigParam. The default value is
 	// false.
 	void put_ExeFinishNotifier(bool newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Applies to
 	// creating self-extracting EXEs. This property can be set to a pre-existing icon
 	// filename (.ico) that will be embedded within the to-be-created EXE and set as
@@ -399,9 +398,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// application if an ExeIconFile is to be used.)
 	// 
 	void put_ExeIconFile(const wchar_t *newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Applies to
 	// creating Windows-based self-extracting EXEs. When set to true, the
 	// to-be-created EXE will run without a user-interface. The default value is
@@ -440,9 +437,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// the command line via the -pwd command-line option.
 	// 
 	void put_ExeNoInterface(bool newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Determines
 	// whether a progress dialog is displayed when the self-extracting EXE is run. If
 	// ExeNoInterface = false (i.e. there is a main dialog with the ability to select
@@ -459,9 +454,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// ExeNoInterface = true, then a progress-only dialog is displayed if
 	// ExeSilentProgress = false. The default value of ExeSilentProgress is true.
 	void put_ExeSilentProgress(bool newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Applies to
 	// creating Windows-based self-extracting EXEs. Sets the title of the main
 	// user-interface dialog that appears when the self-extracting EXE runs.
@@ -474,9 +467,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// creating Windows-based self-extracting EXEs. Sets the title of the main
 	// user-interface dialog that appears when the self-extracting EXE runs.
 	void put_ExeTitle(const wchar_t *newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Applies to
 	// creating MS Windows-based self-extracting EXEs. Sets the unzipping caption of
 	// the main user-interface dialog that appears when the self-extracting EXE runs.
@@ -489,9 +480,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// creating MS Windows-based self-extracting EXEs. Sets the unzipping caption of
 	// the main user-interface dialog that appears when the self-extracting EXE runs.
 	void put_ExeUnzipCaption(const wchar_t *newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Applies to
 	// creating MS Windows self-extracting EXEs. Stores a pre-defined unzip directory
 	// within the self-extracting EXE so that it automatically unzips to this directory
@@ -504,8 +493,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// Note: UNC paths, such as \\servername\path, are not supported.
 	// 
 	// Note: To create a self-extracting EXE with no user-interaction, set the
-	// following properties to these values:
-	// ExeSilentProgress  = false
+	// following properties to these values:ExeSilentProgress  = false
 	// ExeNoInterface = true
 	// ExeFinishNotifier = false
 	// 
@@ -522,8 +510,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// Note: UNC paths, such as \\servername\path, are not supported.
 	// 
 	// Note: To create a self-extracting EXE with no user-interaction, set the
-	// following properties to these values:
-	// ExeSilentProgress  = false
+	// following properties to these values:ExeSilentProgress  = false
 	// ExeNoInterface = true
 	// ExeFinishNotifier = false
 	// 
@@ -540,15 +527,12 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// Note: UNC paths, such as \\servername\path, are not supported.
 	// 
 	// Note: To create a self-extracting EXE with no user-interaction, set the
-	// following properties to these values:
-	// ExeSilentProgress  = false
+	// following properties to these values:ExeSilentProgress  = false
 	// ExeNoInterface = true
 	// ExeFinishNotifier = false
 	// 
 	void put_ExeUnzipDir(const wchar_t *newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) If true,
 	// the self-extracting EXE will wait for the AutoRun EXE to complete before it
 	// exits. If false, the self-extracting EXE dialog (or process if running
@@ -561,16 +545,13 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// silently with no user-interface), is allowed to exit prior to the completion of
 	// the AutoRun EXE. The default value is true.
 	void put_ExeWaitForSetup(bool newVal);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Allows for
 	// an XML config document to be used to specify all possible options for
 	// self-extracting EXEs. This property is a string containing the XML config
 	// document.
 	// 
-	// The XML should have this format:
-	// _LT_SfxConfig_GT_
+	// The XML should have this format:_LT_SfxConfig_GT_
 	// 	_LT_ErrPwdTitle_GT_Title for incorrect password dialog_LT_/ErrPwdTitle_GT_
 	// 	_LT_ErrPwdCaption_GT_Caption for incorrect password dialog_LT_/ErrPwdCaption_GT_
 	// 	_LT_FinOkBtn_GT_Text on finish notifier button_LT_/FinOkBtn_GT_
@@ -606,7 +587,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// 	_LT_ProgressCaption_GT_Caption for the progress dialog._LT_/ProgressCaption_GT_
 	// 	_LT_PwTitle_GT_Title for the password challenge dialog._LT_/PwTitle_GT_
 	// 	_LT_PwCaption_GT_Caption for the password challenge dialog._LT_/PwCaption_GT_
-	// _LT_/SfxConfig_GT_
+	// _LT_/SfxConfig_GT_ 
 	// 
 	// A self-extracting EXE can be run from the command line with the "-log
 	// {logFilePath}" option to create a log with information for debugging.
@@ -617,8 +598,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// self-extracting EXEs. This property is a string containing the XML config
 	// document.
 	// 
-	// The XML should have this format:
-	// _LT_SfxConfig_GT_
+	// The XML should have this format:_LT_SfxConfig_GT_
 	// 	_LT_ErrPwdTitle_GT_Title for incorrect password dialog_LT_/ErrPwdTitle_GT_
 	// 	_LT_ErrPwdCaption_GT_Caption for incorrect password dialog_LT_/ErrPwdCaption_GT_
 	// 	_LT_FinOkBtn_GT_Text on finish notifier button_LT_/FinOkBtn_GT_
@@ -654,7 +634,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// 	_LT_ProgressCaption_GT_Caption for the progress dialog._LT_/ProgressCaption_GT_
 	// 	_LT_PwTitle_GT_Title for the password challenge dialog._LT_/PwTitle_GT_
 	// 	_LT_PwCaption_GT_Caption for the password challenge dialog._LT_/PwCaption_GT_
-	// _LT_/SfxConfig_GT_
+	// _LT_/SfxConfig_GT_ 
 	// 
 	// A self-extracting EXE can be run from the command line with the "-log
 	// {logFilePath}" option to create a log with information for debugging.
@@ -665,8 +645,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// self-extracting EXEs. This property is a string containing the XML config
 	// document.
 	// 
-	// The XML should have this format:
-	// _LT_SfxConfig_GT_
+	// The XML should have this format:_LT_SfxConfig_GT_
 	// 	_LT_ErrPwdTitle_GT_Title for incorrect password dialog_LT_/ErrPwdTitle_GT_
 	// 	_LT_ErrPwdCaption_GT_Caption for incorrect password dialog_LT_/ErrPwdCaption_GT_
 	// 	_LT_FinOkBtn_GT_Text on finish notifier button_LT_/FinOkBtn_GT_
@@ -702,13 +681,12 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// 	_LT_ProgressCaption_GT_Caption for the progress dialog._LT_/ProgressCaption_GT_
 	// 	_LT_PwTitle_GT_Title for the password challenge dialog._LT_/PwTitle_GT_
 	// 	_LT_PwCaption_GT_Caption for the password challenge dialog._LT_/PwCaption_GT_
-	// _LT_/SfxConfig_GT_
+	// _LT_/SfxConfig_GT_ 
 	// 
 	// A self-extracting EXE can be run from the command line with the "-log
 	// {logFilePath}" option to create a log with information for debugging.
 	// 
 	void put_ExeXmlConfig(const wchar_t *newVal);
-#endif
 
 	// The number of files (excluding directories) contained within the Zip.
 	int get_FileCount(void);
@@ -845,17 +823,38 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// pages listed at the link below.
 	void put_PwdProtCharset(const wchar_t *newVal);
 
-	// The temporary directory to use when unzipping files. When running in ASP or
-	// ASP.NET, the default value of TempDir is set to the directory where the .zip is
-	// being written. Set this property to override the default.
+	// The temporary directory to use when unzipping files or writing a .zip (see the
+	// note below). When running in ASP or ASP.NET, the default value of TempDir is set
+	// to the directory where the .zip is being written. Set this property to override
+	// the default.
+	// 
+	// Note: When writing a .zip, a temp file is only used if overwriting an existing
+	// .zip. The reason is to prevent losing the existing .zip if something fails when
+	// writing the new .zip. If the new .zip is successfully written, then the existing
+	// .zip is replaced with the new .zip.
+	// 
 	void get_TempDir(CkString &str);
-	// The temporary directory to use when unzipping files. When running in ASP or
-	// ASP.NET, the default value of TempDir is set to the directory where the .zip is
-	// being written. Set this property to override the default.
+	// The temporary directory to use when unzipping files or writing a .zip (see the
+	// note below). When running in ASP or ASP.NET, the default value of TempDir is set
+	// to the directory where the .zip is being written. Set this property to override
+	// the default.
+	// 
+	// Note: When writing a .zip, a temp file is only used if overwriting an existing
+	// .zip. The reason is to prevent losing the existing .zip if something fails when
+	// writing the new .zip. If the new .zip is successfully written, then the existing
+	// .zip is replaced with the new .zip.
+	// 
 	const wchar_t *tempDir(void);
-	// The temporary directory to use when unzipping files. When running in ASP or
-	// ASP.NET, the default value of TempDir is set to the directory where the .zip is
-	// being written. Set this property to override the default.
+	// The temporary directory to use when unzipping files or writing a .zip (see the
+	// note below). When running in ASP or ASP.NET, the default value of TempDir is set
+	// to the directory where the .zip is being written. Set this property to override
+	// the default.
+	// 
+	// Note: When writing a .zip, a temp file is only used if overwriting an existing
+	// .zip. The reason is to prevent losing the existing .zip if something fails when
+	// writing the new .zip. If the new .zip is successfully written, then the existing
+	// .zip is replaced with the new .zip.
+	// 
 	void put_TempDir(const wchar_t *newVal);
 
 	// If set to true, the component will set the "text flag" for each file having
@@ -947,7 +946,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// ----------------------
 	// Methods
 	// ----------------------
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Embeds a
 	// Zip file into an EXE as a custom resource. This resource can be opened by the
 	// EXE containing it at runtime by using the OpenMyEmbedded method.
@@ -961,7 +959,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// property must be set to "NO".
 	// 
 	bool AddEmbedded(const wchar_t *exeFilename, const wchar_t *resourceName, const wchar_t *zipFilename);
-#endif
 
 	// Attempting to compress already-compressed data is usually a waste of CPU cycles
 	// with little or no benefit. In fact, it is possible that attempting to compress
@@ -1191,20 +1188,16 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkTaskW *ExtractAsync(const wchar_t *dirPath);
 
-#if defined(CK_SFX_INCLUDED)
 	// Extracts files from a Chilkat produced self-extracting EXE into the specified
 	// directory. Subdirectories are automatically created as needed. If the
 	// self-extracting EXE is encrypted, be sure to set the DecryptPassword property
 	// prior to calling this method.
 	bool ExtractExe(const wchar_t *exePath, const wchar_t *dirPath);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// Creates an asynchronous task to call the ExtractExe method with the arguments
 	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
 	// The caller is responsible for deleting the object returned by this method.
 	CkTaskW *ExtractExeAsync(const wchar_t *exePath, const wchar_t *dirPath);
-#endif
 
 	// Unzips all the files in a Zip into a single directory regardless of the path
 	// stored in the Zip
@@ -1252,12 +1245,9 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	CkZipEntryW *GetEntryByIndex(int index);
 
 	// Returns a ZipEntry by filename. If a full or partial path is part of the
-	// filename, this must be included in the filename parameter.
-	// 
-	// Note: A problem with this method exists in v9.5.0.88 and v9.5.0.89. If the
-	// desired entry is not found, then the last entry is returned instead of null. If
-	// your application needs to use this method, Chilkat can provide a hotfix.
-	// 
+	// filename, this must be included in the entryName. Zip archives generally use forward
+	// slashes for directory separators. Use a forward slashes instead of backslash
+	// chars conventionally used in Windows.
 	// The caller is responsible for deleting the object returned by this method.
 	CkZipEntryW *GetEntryByName(const wchar_t *entryName);
 
@@ -1266,7 +1256,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkStringArrayW *GetExclusions(void);
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Gets the
 	// value of an EXE config param as described in the ExeXmlConfig property.
 	bool GetExeConfigParam(const wchar_t *name, CkString &outStr);
@@ -1276,7 +1265,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// (Relevant only when running on a Microsoft Windows operating system.) Gets the
 	// value of an EXE config param as described in the ExeXmlConfig property.
 	const wchar_t *exeConfigParam(const wchar_t *name);
-#endif
 
 	// Inserts a new and empty entry into the Zip object. To insert at the beginning of
 	// the Zip, beforeIndex should be 0. The ZipEntry's FileName property is
@@ -1314,11 +1302,9 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// 
 	bool OpenBd(CkBinDataW &binData);
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Opens a
 	// Zip embedded in an MS Windows EXE
 	bool OpenEmbedded(const wchar_t *exeFilename, const wchar_t *resourceName);
-#endif
 
 	// Same as OpenFromMemory.
 	// 
@@ -1341,11 +1327,9 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// 
 	bool OpenFromMemory(CkByteData &inData);
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Opens a
 	// Zip embedded within the caller's MS Windows EXE.
 	bool OpenMyEmbedded(const wchar_t *resourceName);
-#endif
 
 	// Opens a Zip archive. Encrypted and password-protected zips may be opened without
 	// providing the password, but their contents may not be unzipped unless the
@@ -1375,21 +1359,17 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkTaskW *QuickAppendAsync(const wchar_t *ZipFileName);
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Removes an
 	// embedded Zip from an MS-Windows EXE
 	bool RemoveEmbedded(const wchar_t *exeFilename, const wchar_t *resourceName);
-#endif
 
 	// Removes a file extension from the zip object's internal list of "no compress"
 	// extensions. (For more information, see AddNoCompressExtension.)
 	void RemoveNoCompressExtension(const wchar_t *fileExtension);
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Replace a
 	// Zip embedded in an MS-Windows EXE with another Zip file.
 	bool ReplaceEmbedded(const wchar_t *exeFilename, const wchar_t *resourceName, const wchar_t *zipFilename);
-#endif
 
 	// Sets the compression level for all file and data entries. The compression level
 	// for a mapped entry (i.e. an entry that is contained within an opened .zip,
@@ -1409,7 +1389,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// "*" indicates 0 or more occurrences of any character.
 	void SetExclusions(CkStringArrayW &excludePatterns);
 
-#if defined(CK_SFX_INCLUDED)
 	// Sets a self-extractor property that is embedded in the resultant EXE created by
 	// the WriteExe or WriteExe2 methods. The paramName is one of the XML tags listed in the
 	// ExeXmlConfig property.
@@ -1418,7 +1397,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// button, paramName would be "MainUnzipBtn".
 	// 
 	void SetExeConfigParam(const wchar_t *paramName, const wchar_t *paramValue);
-#endif
 
 	// Set the password for an encrypted or password-protected Zip.
 	// 
@@ -1500,7 +1478,6 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkTaskW *WriteBdAsync(CkBinDataW &binData);
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Writes an
 	// MS-Windows self-extracting executable. There are no limitations on the total
 	// size, individual file size, or number of files that can be added to a
@@ -1529,9 +1506,7 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// (embedded within the EXE).
 	// 
 	bool WriteExe(const wchar_t *exeFilename);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Writes a
 	// self-extracting MS-Windows EXE with no limitations on total file size and no
 	// limitations on the size of any one file contained within. The 1st argument is
@@ -1541,14 +1516,11 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// overwrite. A housing for use with WriteExe2 can be found here:
 	// https://www.chilkatsoft.com/d2/SaExtract.zip
 	bool WriteExe2(const wchar_t *exePath, const wchar_t *destExePath, bool bAesEncrypt, int keyLength, const wchar_t *password);
-#endif
 
-#if defined(CK_SFX_INCLUDED)
 	// (Relevant only when running on a Microsoft Windows operating system.) Same as
 	// WriteExe, but instead of writing a file, the MS-Windows EXE is written to
 	// memory.
 	bool WriteExeToMemory(CkByteData &outBytes);
-#endif
 
 	// Same as WriteZip, but instead of writing the Zip to a file, it writes to memory.
 	// Zips that are written to memory can also be opened from memory by calling

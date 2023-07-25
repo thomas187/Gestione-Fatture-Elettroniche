@@ -1,4 +1,6 @@
 
+// This file is NOT generated.
+
 #ifndef _CHILKAT_C
 #define _CHILKAT_C
 
@@ -20,8 +22,6 @@
 #include "SystemTime.h"              
 #include "FileTime.h"                
 #endif                  
-
-#include "ck_inttypes.h"
 	
 // Use typedefs so we can explicitly see the kind of object pointed
 // to by "void *"

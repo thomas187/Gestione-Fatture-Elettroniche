@@ -1,8 +1,9 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkHashtableWH
 #define _C_CkHashtableWH
 #include "chilkatDefs.h"
 
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -23,5 +24,7 @@ CK_C_VISIBLE_PUBLIC int CkHashtableW_LookupInt(HCkHashtableW cHandle, const wcha
 CK_C_VISIBLE_PUBLIC BOOL CkHashtableW_LookupStr(HCkHashtableW cHandle, const wchar_t *key, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkHashtableW_lookupStr(HCkHashtableW cHandle, const wchar_t *key);
 CK_C_VISIBLE_PUBLIC BOOL CkHashtableW_Remove(HCkHashtableW cHandle, const wchar_t *key);
+CK_C_VISIBLE_PUBLIC BOOL CkHashtableW_ToQueryString(HCkHashtableW cHandle, HCkString outStr);
+CK_C_VISIBLE_PUBLIC const wchar_t *CkHashtableW_toQueryString(HCkHashtableW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkHashtableW_ToXmlSb(HCkHashtableW cHandle, HCkStringBuilderW sbXml);
 #endif

@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkPdf_H
 #define _C_CkPdf_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -47,7 +47,11 @@ CK_C_VISIBLE_PUBLIC void CkPdf_putVerboseLogging(HCkPdf cHandle, BOOL newVal);
 CK_C_VISIBLE_PUBLIC void CkPdf_getVersion(HCkPdf cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const char *CkPdf_version(HCkPdf cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_AddSigningCert(HCkPdf cHandle, HCkCert cert);
+CK_C_VISIBLE_PUBLIC BOOL CkPdf_AddVerificationInfo(HCkPdf cHandle, HCkJsonObject jsonOptions, const char *outFilePath);
+CK_C_VISIBLE_PUBLIC HCkTask CkPdf_AddVerificationInfoAsync(HCkPdf cHandle, HCkJsonObject jsonOptions, const char *outFilePath);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetDss(HCkPdf cHandle, HCkJsonObject json);
+CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetMetadata(HCkPdf cHandle, HCkStringBuilder sb);
+CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetSignatureContent(HCkPdf cHandle, int index, HCkBinData bd);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetSignerCert(HCkPdf cHandle, int index, HCkCert cert);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetUnsignedSigFields(HCkPdf cHandle, HCkJsonObject json);
 CK_C_VISIBLE_PUBLIC HCkJsonObject CkPdf_LastJsonData(HCkPdf cHandle);
@@ -60,5 +64,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkPdf_SetSigningCert(HCkPdf cHandle, HCkCert cert);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_SetSigningCert2(HCkPdf cHandle, HCkCert cert, HCkPrivateKey privateKey);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_SignPdf(HCkPdf cHandle, HCkJsonObject jsonOptions, const char *outFilePath);
 CK_C_VISIBLE_PUBLIC HCkTask CkPdf_SignPdfAsync(HCkPdf cHandle, HCkJsonObject jsonOptions, const char *outFilePath);
+CK_C_VISIBLE_PUBLIC BOOL CkPdf_SignPdfBd(HCkPdf cHandle, HCkJsonObject jsonOptions, HCkBinData bd);
+CK_C_VISIBLE_PUBLIC HCkTask CkPdf_SignPdfBdAsync(HCkPdf cHandle, HCkJsonObject jsonOptions, HCkBinData bd);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_VerifySignature(HCkPdf cHandle, int index, HCkJsonObject sigInfo);
 #endif

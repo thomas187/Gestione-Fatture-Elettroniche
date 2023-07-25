@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkMime_H
 #define _C_CkMime_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -196,9 +196,6 @@ CK_C_VISIBLE_PUBLIC BOOL CkMime_SetBodyFromFile(HCkMime cHandle, const char *fil
 CK_C_VISIBLE_PUBLIC BOOL CkMime_SetBodyFromHtml(HCkMime cHandle, const char *str);
 CK_C_VISIBLE_PUBLIC BOOL CkMime_SetBodyFromPlainText(HCkMime cHandle, const char *str);
 CK_C_VISIBLE_PUBLIC BOOL CkMime_SetBodyFromXml(HCkMime cHandle, const char *str);
-#if defined(CK_CSP_INCLUDED)
-CK_C_VISIBLE_PUBLIC BOOL CkMime_SetCSP(HCkMime cHandle, HCkCsp csp);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkMime_SetHeaderField(HCkMime cHandle, const char *name, const char *value);
 CK_C_VISIBLE_PUBLIC BOOL CkMime_SetVerifyCert(HCkMime cHandle, HCkCert cert);
 CK_C_VISIBLE_PUBLIC BOOL CkMime_UnlockComponent(HCkMime cHandle, const char *unlockCode);

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkScpW_H
 #define _CkScpW_H
@@ -123,24 +123,21 @@ class CK_VISIBLE_PUBLIC CkScpW  : public CkClassWithCallbacksW
 	void put_PercentDoneScale(int newVal);
 
 	// A JSON string specifying environment variables that are to be set for each SCP
-	// upload or download. For example:
-	// {
+	// upload or download. For example:{
 	//     "LCS_PASSWORD": "myPassword",
 	//     "SOME_ENV_VAR": "some_value",
 	// ...
 	// }
 	void get_SendEnv(CkString &str);
 	// A JSON string specifying environment variables that are to be set for each SCP
-	// upload or download. For example:
-	// {
+	// upload or download. For example:{
 	//     "LCS_PASSWORD": "myPassword",
 	//     "SOME_ENV_VAR": "some_value",
 	// ...
 	// }
 	const wchar_t *sendEnv(void);
 	// A JSON string specifying environment variables that are to be set for each SCP
-	// upload or download. For example:
-	// {
+	// upload or download. For example:{
 	//     "LCS_PASSWORD": "myPassword",
 	//     "SOME_ENV_VAR": "some_value",
 	// ...
@@ -356,7 +353,7 @@ class CK_VISIBLE_PUBLIC CkScpW  : public CkClassWithCallbacksW
 	//     local filesystem, it is not downloaded from the server.
 	//     mode=5: Download only missing files or files with size differences.
 	//     mode=6: Same as mode 5, but also download newer files.
-	//     
+	//      
 	// 
 	bool SyncTreeDownload(const wchar_t *remoteRoot, const wchar_t *localRoot, int mode, bool bRecurse);
 

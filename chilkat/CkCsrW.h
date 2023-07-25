@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkCsrW_H
 #define _CkCsrW_H
@@ -327,17 +327,14 @@ class CK_VISIBLE_PUBLIC CkCsrW  : public CkWideCharBase
 	// information is written to the passed-in sans object.
 	bool GetSans(CkStringTableW &sans);
 
-	// Gets a subject field by OID, such as "2.5.4.9".
-	// Seehttp://www.alvestrand.no/objectid/2.5.4.html
-	// <http://www.alvestrand.no/objectid/2.5.4.html> for OID values and meanings.
+	// Gets a subject field by OID, such as "2.5.4.9". See
+	// http://www.alvestrand.no/objectid/2.5.4.html for OID values and meanings.
 	bool GetSubjectField(const wchar_t *oid, CkString &outStr);
-	// Gets a subject field by OID, such as "2.5.4.9".
-	// Seehttp://www.alvestrand.no/objectid/2.5.4.html
-	// <http://www.alvestrand.no/objectid/2.5.4.html> for OID values and meanings.
+	// Gets a subject field by OID, such as "2.5.4.9". See
+	// http://www.alvestrand.no/objectid/2.5.4.html for OID values and meanings.
 	const wchar_t *getSubjectField(const wchar_t *oid);
-	// Gets a subject field by OID, such as "2.5.4.9".
-	// Seehttp://www.alvestrand.no/objectid/2.5.4.html
-	// <http://www.alvestrand.no/objectid/2.5.4.html> for OID values and meanings.
+	// Gets a subject field by OID, such as "2.5.4.9". See
+	// http://www.alvestrand.no/objectid/2.5.4.html for OID values and meanings.
 	const wchar_t *subjectField(const wchar_t *oid);
 
 	// Loads this CSR object with a CSR PEM. All properties are set to the values found
@@ -348,9 +345,8 @@ class CK_VISIBLE_PUBLIC CkCsrW  : public CkWideCharBase
 	// ASN.1 in XML format of the extension request to be added.
 	bool SetExtensionRequest(CkXmlW &extensionReqXml);
 
-	// Sets a subject field by OID, such as "2.5.4.9".
-	// Seehttp://www.alvestrand.no/objectid/2.5.4.html
-	// <http://www.alvestrand.no/objectid/2.5.4.html> for OID values and meanings.
+	// Sets a subject field by OID, such as "2.5.4.9". See
+	// http://www.alvestrand.no/objectid/2.5.4.html for OID values and meanings.
 	// 
 	// The asnType can be "UTF8String", "IA5String", or "PrintableString". If you have no
 	// specific requirement, or don't know, choose "UTF8String".

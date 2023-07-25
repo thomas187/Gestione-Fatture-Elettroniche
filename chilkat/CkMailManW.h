@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkMailManW_H
 #define _CkMailManW_H
@@ -267,8 +267,7 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// This property will be set to the status of the last connection made (or failed
 	// to be made) by any method.
 	// 
-	// Possible values are:
-	// 0 = success
+	// Possible values are:0 = success
 	// 
 	// Normal (non-TLS) sockets:
 	// 1 = empty hostname
@@ -364,8 +363,7 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// methods, only the emails that match the filter's expression are returned in the
 	// email bundle. In the case of TransferMail, only the matching emails are removed
 	// from the mail server. The filter allows any header field, or the body, to be
-	// checked.
-	// Here are some examples of expressions:
+	// checked.Here are some examples of expressions:
 	// 
 	// Body like "mortgage rates*". 
 	// Subject contains "update" and From contains "chilkat" 
@@ -378,15 +376,16 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// The "*" wildcard matches 0 or more occurrences of any character. 
 	// Parentheses can be used to control precedence. 
 	// The logical operators are: AND, OR, NOT (case insensitive) 
-	// Comparison operators are: =, , =, String comparison operators are: CONTAINS, LIKE (case insensitive)
+	// Comparison operators are: =,,=,String comparison operators are: CONTAINS, LIKE (case insensitive)
+	// 
+	// Note: This property only works on text strings, not dates or numbers.
 	void get_Filter(CkString &str);
 	// An expression that is applied to any of the following method calls when present:
 	// LoadXmlFile, LoadXmlString, LoadMbx, CopyMail, and TransferMail. For these
 	// methods, only the emails that match the filter's expression are returned in the
 	// email bundle. In the case of TransferMail, only the matching emails are removed
 	// from the mail server. The filter allows any header field, or the body, to be
-	// checked.
-	// Here are some examples of expressions:
+	// checked.Here are some examples of expressions:
 	// 
 	// Body like "mortgage rates*". 
 	// Subject contains "update" and From contains "chilkat" 
@@ -399,15 +398,16 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// The "*" wildcard matches 0 or more occurrences of any character. 
 	// Parentheses can be used to control precedence. 
 	// The logical operators are: AND, OR, NOT (case insensitive) 
-	// Comparison operators are: =, , =, String comparison operators are: CONTAINS, LIKE (case insensitive)
+	// Comparison operators are: =,,=,String comparison operators are: CONTAINS, LIKE (case insensitive)
+	// 
+	// Note: This property only works on text strings, not dates or numbers.
 	const wchar_t *filter(void);
 	// An expression that is applied to any of the following method calls when present:
 	// LoadXmlFile, LoadXmlString, LoadMbx, CopyMail, and TransferMail. For these
 	// methods, only the emails that match the filter's expression are returned in the
 	// email bundle. In the case of TransferMail, only the matching emails are removed
 	// from the mail server. The filter allows any header field, or the body, to be
-	// checked.
-	// Here are some examples of expressions:
+	// checked.Here are some examples of expressions:
 	// 
 	// Body like "mortgage rates*". 
 	// Subject contains "update" and From contains "chilkat" 
@@ -420,7 +420,9 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// The "*" wildcard matches 0 or more occurrences of any character. 
 	// Parentheses can be used to control precedence. 
 	// The logical operators are: AND, OR, NOT (case insensitive) 
-	// Comparison operators are: =, , =, String comparison operators are: CONTAINS, LIKE (case insensitive)
+	// Comparison operators are: =,,=,String comparison operators are: CONTAINS, LIKE (case insensitive)
+	// 
+	// Note: This property only works on text strings, not dates or numbers.
 	void put_Filter(const wchar_t *newVal);
 
 	// The time interval, in milliseconds, between AbortCheck event callbacks. The
@@ -565,14 +567,12 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// 
 	bool get_IsSmtpConnected(void);
 
-#if defined(CK_SMTPQ_INCLUDED)
 	// The name of the file created in the SMTPQ's queue directory for the last email
 	// sent via SendQ, SendQ2, or SendMimeQ.
 	void get_LastSendQFilename(CkString &str);
 	// The name of the file created in the SMTPQ's queue directory for the last email
 	// sent via SendQ, SendQ2, or SendMimeQ.
 	const wchar_t *lastSendQFilename(void);
-#endif
 
 	// Returns the last SMTP diagnostic status code. This can be checked after sending
 	// an email. SMTP reply codes are defined by RFC 821 - Simple Mail Transfer
@@ -667,11 +667,41 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// 
 	void put_OAuth2AccessToken(const wchar_t *newVal);
 
-	// When set to true, signed emails are sent using opaque signing. The default is
-	// to send clear-text (multipart/signed) emails.
+	// When false, a signed email is generated as multipart/signed. For example:Content-Type: multipart/signed; charset=utf-8; boundary="------------010909020906040709090605";
+	//  protocol="application/pkcs7-signature";
+	// micalg=sha256
+	// 
+	// When true, a signed email is generated as signed-data. For example:
+	// 
+	// Content-Type: application/pkcs7-mime; name="smime.p7m"; micalg=sha256;
+	// smime-type="signed-data"
+	// 
+	// A multipart/signed email is such that the signature is contained in a separate
+	// MIME body part and the original content of the email is not encapsulated within
+	// the signature. A signed-data email is such that it's non-multipart MIME (content
+	// type is "application/pkcs7-signature") and the original email is encapsulated
+	// within the signature. This is historically known as an opaque signature.
+	// 
+	// The default value is true.
+	// 
 	bool get_OpaqueSigning(void);
-	// When set to true, signed emails are sent using opaque signing. The default is
-	// to send clear-text (multipart/signed) emails.
+	// When false, a signed email is generated as multipart/signed. For example:Content-Type: multipart/signed; charset=utf-8; boundary="------------010909020906040709090605";
+	//  protocol="application/pkcs7-signature";
+	// micalg=sha256
+	// 
+	// When true, a signed email is generated as signed-data. For example:
+	// 
+	// Content-Type: application/pkcs7-mime; name="smime.p7m"; micalg=sha256;
+	// smime-type="signed-data"
+	// 
+	// A multipart/signed email is such that the signature is contained in a separate
+	// MIME body part and the original content of the email is not encapsulated within
+	// the signature. A signed-data email is such that it's non-multipart MIME (content
+	// type is "application/pkcs7-signature") and the original email is encapsulated
+	// within the signature. This is historically known as an opaque signature.
+	// 
+	// The default value is true.
+	// 
 	void put_OpaqueSigning(bool newVal);
 
 	// The filename attribute to be used in the Content-Disposition header field when
@@ -773,22 +803,45 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 
 	// If true, then an unencrypted connection (typically on port 110) is
 	// automatically converted to a secure TLS connection via the STLS command (see RFC
-	// 2595) when connecting. This should only be used with POP3 servers that support
-	// the STLS capability. If this property is set to true, then the PopSsl property
-	// should be set to false. (The PopSsl property controls whether the connection
-	// is SSL/TLS from the beginning. Setting the Pop3Stls property = true indicates
-	// that the POP3 client will initially connect unencrypted and then convert to
-	// TLS.)
+	// 2595) when connecting. This should only be used with POP3 servers that are known
+	// to support the STLS capability. If this property is set to true, then the
+	// PopSsl property should be set to false. (The PopSsl property controls whether
+	// the connection is SSL/TLS from the beginning. Setting the Pop3Stls property =
+	// true indicates that the POP3 client will initially connect unencrypted and
+	// then convert to TLS.)
+	// 
+	// The default value of this property is false.
+	// 
 	bool get_Pop3Stls(void);
 	// If true, then an unencrypted connection (typically on port 110) is
 	// automatically converted to a secure TLS connection via the STLS command (see RFC
-	// 2595) when connecting. This should only be used with POP3 servers that support
-	// the STLS capability. If this property is set to true, then the PopSsl property
-	// should be set to false. (The PopSsl property controls whether the connection
-	// is SSL/TLS from the beginning. Setting the Pop3Stls property = true indicates
-	// that the POP3 client will initially connect unencrypted and then convert to
-	// TLS.)
+	// 2595) when connecting. This should only be used with POP3 servers that are known
+	// to support the STLS capability. If this property is set to true, then the
+	// PopSsl property should be set to false. (The PopSsl property controls whether
+	// the connection is SSL/TLS from the beginning. Setting the Pop3Stls property =
+	// true indicates that the POP3 client will initially connect unencrypted and
+	// then convert to TLS.)
+	// 
+	// The default value of this property is false.
+	// 
 	void put_Pop3Stls(bool newVal);
+
+	// If true, then an unencrypted connection (typically on port 110) is
+	// automatically converted to a secure TLS connection via the STLS command if the
+	// mail server supports the STLS command. If the mail server does not support STLS,
+	// then the connection will remain unencrypted.
+	// 
+	// The default value of this property is false.
+	// 
+	bool get_Pop3StlsIfPossible(void);
+	// If true, then an unencrypted connection (typically on port 110) is
+	// automatically converted to a secure TLS connection via the STLS command if the
+	// mail server supports the STLS command. If the mail server does not support STLS,
+	// then the connection will remain unencrypted.
+	// 
+	// The default value of this property is false.
+	// 
+	void put_Pop3StlsIfPossible(bool newVal);
 
 	// The POP3 password.
 	// 
@@ -823,11 +876,17 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// Check first to determine if your POP3 server can accept TLS/SSL connections.
 	// Also, be sure to set the MailPort property to the TLS/SSL POP3 port number,
 	// which is typically 995.
+	// 
+	// The default value of this property is false.
+	// 
 	bool get_PopSsl(void);
 	// Controls whether TLS/SSL is used when reading email from a POP3 server. Note:
 	// Check first to determine if your POP3 server can accept TLS/SSL connections.
 	// Also, be sure to set the MailPort property to the TLS/SSL POP3 port number,
 	// which is typically 995.
+	// 
+	// The default value of this property is false.
+	// 
 	void put_PopSsl(bool newVal);
 
 	// The POP3 login name.
@@ -1290,8 +1349,7 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1323,9 +1381,8 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1367,8 +1424,7 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	void get_SslAllowedCiphers(CkString &str);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1400,9 +1456,8 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1444,8 +1499,7 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	const wchar_t *sslAllowedCiphers(void);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1477,9 +1531,8 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1533,7 +1586,7 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1554,7 +1607,7 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1575,7 +1628,7 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1587,30 +1640,40 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// When set to true, causes the mailman to issue a STARTTLS command to switch
 	// over to a secure SSL/TLS connection prior to authenticating and sending email.
 	// The default value is false.
+	// 
+	// Note: This property applies to SMTP, not to POP3.
+	// 
 	bool get_StartTLS(void);
 	// When set to true, causes the mailman to issue a STARTTLS command to switch
 	// over to a secure SSL/TLS connection prior to authenticating and sending email.
 	// The default value is false.
+	// 
+	// Note: This property applies to SMTP, not to POP3.
+	// 
 	void put_StartTLS(bool newVal);
 
 	// When set to true, causes the mailman to do STARTTLS (if possible and supported
-	// by the server) to convert to a secure SSL/TLS connection prior to authenticating
-	// and sending email. The default value is true.
+	// by the server) to convert to a secure SMTP SSL/TLS connection prior to
+	// authenticating and sending email. The default value is true.
 	// 
 	// Note: Setting the StartTLS property = true causes STARTTLS to always be used,
 	// even if the SMTP server does not support it. This property allows for a
 	// non-encrypted connection, whereas the StartTLS property disallows non-encrypted
 	// connections.
+	// 
+	// Note: This property applies to SMTP, not to POP3.
 	// 
 	bool get_StartTLSifPossible(void);
 	// When set to true, causes the mailman to do STARTTLS (if possible and supported
-	// by the server) to convert to a secure SSL/TLS connection prior to authenticating
-	// and sending email. The default value is true.
+	// by the server) to convert to a secure SMTP SSL/TLS connection prior to
+	// authenticating and sending email. The default value is true.
 	// 
 	// Note: Setting the StartTLS property = true causes STARTTLS to always be used,
 	// even if the SMTP server does not support it. This property allows for a
 	// non-encrypted connection, whereas the StartTLS property disallows non-encrypted
 	// connections.
+	// 
+	// Note: This property applies to SMTP, not to POP3.
 	// 
 	void put_StartTLSifPossible(bool newVal);
 
@@ -1629,15 +1692,14 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1647,15 +1709,14 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1665,15 +1726,14 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -2233,7 +2293,6 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkEmailW *LoadMime(const wchar_t *mimeText);
 
-#if defined(CK_SMTPQ_INCLUDED)
 	// Loads an email previously written to a Chilkat SMTPQ file via the SendQ/SendQ2
 	// methods. When SendQ or SendQ2 writes an email to a queue directory, the .eml
 	// created contains special MIME header fields used by the SMTPQ process. These
@@ -2249,7 +2308,6 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// 
 	// The caller is responsible for deleting the object returned by this method.
 	CkEmailW *LoadQueuedEmail(const wchar_t *path);
-#endif
 
 	// Loads the caller of the task's async method.
 	bool LoadTaskCaller(CkTaskW &task);
@@ -2275,22 +2333,18 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkEmailBundleW *LoadXmlString(const wchar_t *xmlString);
 
-#if defined(CK_MX_INCLUDED)
 	// Performs a DNS MX lookup to return the mail server hostname based on an email
 	// address.
 	bool MxLookup(const wchar_t *emailAddress, CkString &outStrHostname);
 	// Performs a DNS MX lookup to return the mail server hostname based on an email
 	// address.
 	const wchar_t *mxLookup(const wchar_t *emailAddress);
-#endif
 
-#if defined(CK_MX_INCLUDED)
 	// Performs a DNS MX lookup to return the list of mail server hostnames based on an
 	// email address. The primary server is at index 0. In most cases, there is only
 	// one mail server for a given email address.
 	// The caller is responsible for deleting the object returned by this method.
 	CkStringArrayW *MxLookupAll(const wchar_t *emailAddress);
-#endif
 
 	// Explicitly opens a connection to the SMTP server and authenticates (if a
 	// username/password was specified). Calling this method is optional because the
@@ -2349,6 +2403,9 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// greeting. This method stops short of authenticating. The Pop3Authenticate method
 	// should be called after a successful call to this method.
 	// 
+	// When finished transacting with a POP3 mail server you can disconnect by calling
+	// Pop3EndSession or Pop3EndSessionNoQuit.
+	// 
 	// Note 1: The Pop3BeginSession method both connects and authenticates. It is the
 	// equivalent of calling Pop3Connect followed by Pop3Authenticate.
 	// 
@@ -2371,7 +2428,8 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkTaskW *Pop3ConnectAsync(void);
 
-	// Call to explicitly end a POP3 session. If the ImmediateDelete property is set to
+	// Call to explicitly end a POP3 session (sends the QUIT command and then closes
+	// the connection with the POP3 server). If the ImmediateDelete property is set to
 	// false, and emails marked for deletion will be deleted at this time.
 	bool Pop3EndSession(void);
 
@@ -2569,13 +2627,10 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkTaskW *SendMimeBytesAsync(const wchar_t *fromAddr, const wchar_t *recipients, CkByteData &mimeSource);
 
-#if defined(CK_SMTPQ_INCLUDED)
 	// This method is the samem as SendMimeQ, except the MIME is passed in a byte array
 	// argument instead of a string argument.
 	bool SendMimeBytesQ(const wchar_t *from, const wchar_t *recipients, CkByteData &mimeData);
-#endif
 
-#if defined(CK_SMTPQ_INCLUDED)
 	// Same as SendMime, except the email is written to the Chilkat SMTPQ's queue
 	// directory for background sending from the SMTPQ service.
 	// 
@@ -2585,7 +2640,6 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// does not provide pre-built binaries for the SMTPQ Windows Service.
 	// 
 	bool SendMimeQ(const wchar_t *fromAddr, const wchar_t *recipients, const wchar_t *mimeSource);
-#endif
 
 	// Same as SendMime, but the recipient list is read from a text file (distListFilename)
 	// containing one email address per line.
@@ -2596,7 +2650,6 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkTaskW *SendMimeToListAsync(const wchar_t *fromAddr, const wchar_t *distListFilename, const wchar_t *mimeSource);
 
-#if defined(CK_SMTPQ_INCLUDED)
 	// Queues an email to be sent using the Chilkat SMTP queue service. This is the
 	// same as SendEmail, except the email is written to the SMTPQ's queue directory.
 	// 
@@ -2623,9 +2676,7 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// does not provide pre-built binaries for the SMTPQ Windows Service.
 	// 
 	bool SendQ(CkEmailW &email);
-#endif
 
-#if defined(CK_SMTPQ_INCLUDED)
 	// Same as SendQ, but the queue directory can be explicitly specified in a method
 	// argument.
 	// 
@@ -2639,7 +2690,6 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// does not provide pre-built binaries for the SMTPQ Windows Service.
 	// 
 	bool SendQ2(CkEmailW &email, const wchar_t *queueDir);
-#endif
 
 	// Send the same email to a list of email addresses.
 	bool SendToDistributionList(CkEmailW &emailObj, CkStringArrayW &recipientList);
@@ -2920,9 +2970,8 @@ class CK_VISIBLE_PUBLIC CkMailManW  : public CkClassWithCallbacksW
 	// CC, BCC) to the SMTP server. This allows your program to collect email addresses
 	// flagged as invalid by the SMTP server.
 	// 
-	// Important: Please read this blog post before using this
-	// method:http://www.cknotes.com/?p=249
-	// <http://www.cknotes.com/?p=249>
+	// Important: Please read this blog post before using this method:
+	// http://www.cknotes.com/?p=249
 	// 
 	bool VerifyRecips(CkEmailW &email, CkStringArrayW &badAddrs);
 

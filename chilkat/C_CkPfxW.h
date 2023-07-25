@@ -1,8 +1,9 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkPfxWH
 #define _C_CkPfxWH
 #include "chilkatDefs.h"
 
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -44,9 +45,7 @@ CK_C_VISIBLE_PUBLIC HCkCertW CkPfxW_GetCert(HCkPfxW cHandle, int index);
 CK_C_VISIBLE_PUBLIC HCkPrivateKeyW CkPfxW_GetPrivateKey(HCkPfxW cHandle, int index);
 CK_C_VISIBLE_PUBLIC BOOL CkPfxW_GetSafeBagAttr(HCkPfxW cHandle, BOOL forPrivateKey, int index, const wchar_t *attrName, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkPfxW_getSafeBagAttr(HCkPfxW cHandle, BOOL forPrivateKey, int index, const wchar_t *attrName);
-#if defined(CK_WINCERTSTORE_INCLUDED)
 CK_C_VISIBLE_PUBLIC BOOL CkPfxW_ImportToWindows(HCkPfxW cHandle, BOOL exportable, BOOL userProtected, BOOL machineKeyset, BOOL allowOverwriteKey, BOOL allowExport, const wchar_t *leafStore, const wchar_t *intermediateStore, const wchar_t *rootStore, const wchar_t *extraOptions);
-#endif
 CK_C_VISIBLE_PUBLIC HCkJsonObjectW CkPfxW_LastJsonData(HCkPfxW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkPfxW_LoadPem(HCkPfxW cHandle, const wchar_t *pemStr, const wchar_t *password);
 CK_C_VISIBLE_PUBLIC BOOL CkPfxW_LoadPfxBytes(HCkPfxW cHandle, HCkByteData pfxData, const wchar_t *password);

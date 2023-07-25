@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkSFtpW_H
 #define _CkSFtpW_H
@@ -181,8 +181,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	void put_ConnectTimeoutMs(int newVal);
 
 	// If the SSH/SFTP server sent a DISCONNECT message when closing the connection,
-	// this property contains the "reason code" as specified in RFC 4253:
-	//            Symbolic name                                reason code
+	// this property contains the "reason code" as specified in RFC 4253:Symbolic name                                reason code
 	//            -------------                                -----------
 	//       SSH_DISCONNECT_HOST_NOT_ALLOWED_TO_CONNECT             1
 	//       SSH_DISCONNECT_PROTOCOL_ERROR                          2
@@ -352,11 +351,27 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// Chilkat recommends not changing this unless a problem warrants the change.
 	void put_HostKeyAlg(const wchar_t *newVal);
 
-	// Set after connecting to an SSH/SFTP server. The format of the fingerprint looks
-	// like this: "ssh-rsa 1024 68:ff:d1:4e:6c:ff:d7:b0:d6:58:73:85:07:bc:2e:d5"
+	// Returns the MD5 host key fingerprint of the server, which is automatically set
+	// after connecting to an SSH/SFTP server. Depending on the host key type, the
+	// format of the MD5 fingerprint looks like this:ssh-rsa 2048 68:ff:d1:4e:6c:ff:d7:b0:d6:58:73:85:07:bc:2e:d5
+	// ssh-dss 2048 68:ff:d1:4e:6c:ff:d7:b0:d6:58:73:85:07:bc:2e:d5
+	// ssh-ed25519 68:ff:d1:4e:6c:ff:d7:b0:d6:58:73:85:07:bc:2e:d5
+	// ecdsa-sha2-nistp256 256 a3:09:05:b5:81:79:5d:33:e1:1a:82:c7:cb:ba:93:ea
+	// 
+	// Note: To get the SHA256 host key fingerprint, use the GetHostKeyFP method (added
+	// in v9.5.0.92)
+	// 
 	void get_HostKeyFingerprint(CkString &str);
-	// Set after connecting to an SSH/SFTP server. The format of the fingerprint looks
-	// like this: "ssh-rsa 1024 68:ff:d1:4e:6c:ff:d7:b0:d6:58:73:85:07:bc:2e:d5"
+	// Returns the MD5 host key fingerprint of the server, which is automatically set
+	// after connecting to an SSH/SFTP server. Depending on the host key type, the
+	// format of the MD5 fingerprint looks like this:ssh-rsa 2048 68:ff:d1:4e:6c:ff:d7:b0:d6:58:73:85:07:bc:2e:d5
+	// ssh-dss 2048 68:ff:d1:4e:6c:ff:d7:b0:d6:58:73:85:07:bc:2e:d5
+	// ssh-ed25519 68:ff:d1:4e:6c:ff:d7:b0:d6:58:73:85:07:bc:2e:d5
+	// ecdsa-sha2-nistp256 256 a3:09:05:b5:81:79:5d:33:e1:1a:82:c7:cb:ba:93:ea
+	// 
+	// Note: To get the SHA256 host key fingerprint, use the GetHostKeyFP method (added
+	// in v9.5.0.92)
+	// 
 	const wchar_t *hostKeyFingerprint(void);
 
 	// If an HTTP proxy requiring authentication is to be used, set this property to
@@ -437,8 +452,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// The InitializeSftp method call opens a channel for the SFTP session. If the
 	// request to open a channel fails, this property contains a code that identifies
 	// the reason for failure. The reason codes are defined in RFC 4254 and are
-	// reproduced here:
-	//              Symbolic name                           reason code
+	// reproduced here:Symbolic name                           reason code
 	//              -------------                           -----------
 	//             SSH_OPEN_ADMINISTRATIVELY_PROHIBITED          1
 	//             SSH_OPEN_CONNECT_FAILED                       2
@@ -510,8 +524,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// received from the SFTP server. Status codes are defined in the SFTP protocol
 	// specification as follows:
 	// 
-	// (Seehttps://tools.ietf.org/id/draft-ietf-secsh-filexfer-13.txt)
-	// SSH_FX_OK                            0
+	// (See https://tools.ietf.org/id/draft-ietf-secsh-filexfer-13.txt )SSH_FX_OK                            0
 	// SSH_FX_EOF                           1
 	// SSH_FX_NO_SUCH_FILE                  2
 	// SSH_FX_PERMISSION_DENIED             3
@@ -821,34 +834,34 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// 
 	void put_SyncDirectives(const wchar_t *newVal);
 
-	// The paths of the files uploaded or downloaded in the last call to SyncUploadTree
-	// or SyncDownloadTree. The paths are listed one per line. In both cases (for
+	// The paths of the files uploaded or downloaded in the last call to SyncTreeUpload
+	// or SyncTreeDownload. The paths are listed one per line. In both cases (for
 	// upload and download) each line contains the paths relative to the root synced
 	// directory.
 	// 
 	// Note: For SyncTreeDownload, some of entires can be the paths of local
-	// directories that were created. Starting in v9.5.0.77, local directory paths will
-	// be terminated with a "/" char (to disinguish a directory from an actual file).
+	// directories that were created. Local directory paths will be terminated with a
+	// "/" char to disinguish a directory from an actual file.
 	// 
 	void get_SyncedFiles(CkString &str);
-	// The paths of the files uploaded or downloaded in the last call to SyncUploadTree
-	// or SyncDownloadTree. The paths are listed one per line. In both cases (for
+	// The paths of the files uploaded or downloaded in the last call to SyncTreeUpload
+	// or SyncTreeDownload. The paths are listed one per line. In both cases (for
 	// upload and download) each line contains the paths relative to the root synced
 	// directory.
 	// 
 	// Note: For SyncTreeDownload, some of entires can be the paths of local
-	// directories that were created. Starting in v9.5.0.77, local directory paths will
-	// be terminated with a "/" char (to disinguish a directory from an actual file).
+	// directories that were created. Local directory paths will be terminated with a
+	// "/" char to disinguish a directory from an actual file.
 	// 
 	const wchar_t *syncedFiles(void);
-	// The paths of the files uploaded or downloaded in the last call to SyncUploadTree
-	// or SyncDownloadTree. The paths are listed one per line. In both cases (for
+	// The paths of the files uploaded or downloaded in the last call to SyncTreeUpload
+	// or SyncTreeDownload. The paths are listed one per line. In both cases (for
 	// upload and download) each line contains the paths relative to the root synced
 	// directory.
 	// 
 	// Note: For SyncTreeDownload, some of entires can be the paths of local
-	// directories that were created. Starting in v9.5.0.77, local directory paths will
-	// be terminated with a "/" char (to disinguish a directory from an actual file).
+	// directories that were created. Local directory paths will be terminated with a
+	// "/" char to disinguish a directory from an actual file.
 	// 
 	void put_SyncedFiles(const wchar_t *newVal);
 
@@ -1152,6 +1165,60 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// block the connection. If the connection fails, make sure to check all potential
 	// external causes of blockage.
 	// 
+	// The following algorithms are supported by Chilkat SSH/SFTP:Key Exchange:
+	// curve25519-sha256@libssh.org
+	// ecdh-sha2-nistp256
+	// ecdh-sha2-nistp384
+	// ecdh-sha2-nistp521
+	// diffie-hellman-group14-sha256
+	// diffie-hellman-group1-sha1
+	// diffie-hellman-group14-sha1
+	// diffie-hellman-group16-sha512
+	// diffie-hellman-group18-sha512
+	// diffie-hellman-group-exchange-sha256
+	// diffie-hellman-group-exchange-sha1
+	// 
+	// Host Key:
+	// ssh-rsa
+	// ssh-dss
+	// ecdsa-sha2-nistp256
+	// rsa-sha2-256
+	// rsa-sha2-512
+	// ssh-ed25519
+	// ecdsa-sha2-nistp384
+	// ecdsa-sha2-nistp521
+	// 
+	// Cipher:
+	// chacha20-poly1305@openssh.com
+	// aes128-ctr
+	// aes256-ctr
+	// aes192-ctr
+	// aes128-cbc
+	// aes256-cbc
+	// aes192-cbc
+	// twofish256-cbc
+	// twofish128-cbc
+	// blowfish-cbc
+	// 3des-cbc
+	// arcfour128
+	// arcfour256
+	// 
+	// Mac:
+	// hmac-sha2-256-etm@openssh.com
+	// hmac-sha2-512-etm@openssh.com
+	// hmac-sha1-etm@openssh.com
+	// hmac-sha1
+	// hmac-sha2-256
+	// hmac-sha2-512
+	// hmac-ripemd160
+	// hmac-sha1-96
+	// hmac-md5
+	// 
+	// Compression:
+	// zlib
+	// zlib@openssh.com
+	// none
+	// 
 	bool Connect(const wchar_t *domainName, int port);
 
 	// Creates an asynchronous task to call the Connect method with the arguments
@@ -1178,8 +1245,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// typically the password. If multiple responses are required (because there were
 	// multiple prompts in the infoRequest XML returned by StartKeyboardAuth), then the
 	// response should be formatted as XML (as shown below) otherwise the response simply
-	// contains the single response string.
-	// _LT_response_GT_
+	// contains the single response string._LT_response_GT_
 	//     _LT_response1_GT_response to first prompt_LT_/response1_GT_
 	//     _LT_response2_GT_response to second prompt_LT_/response2_GT_
 	//     ...
@@ -1187,16 +1253,13 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// _LT_/response_GT_
 	// 
 	// If the interactive authentication completed with success or failure, the XML
-	// response will be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// response will be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
-	// _LT_error_GT_error_message_LT_/error_GT_
-	// If additional steps are required to complete the interactive authentication,
-	// then an XML string that provides the name, instruction, and prompts is returned.
-	// The XML has the following format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// _LT_error_GT_error_message_LT_/error_GT_ If additional steps are required to
+	// complete the interactive authentication, then an XML string that provides the
+	// name, instruction, and prompts is returned. The XML has the following format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
@@ -1209,8 +1272,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// typically the password. If multiple responses are required (because there were
 	// multiple prompts in the infoRequest XML returned by StartKeyboardAuth), then the
 	// response should be formatted as XML (as shown below) otherwise the response simply
-	// contains the single response string.
-	// _LT_response_GT_
+	// contains the single response string._LT_response_GT_
 	//     _LT_response1_GT_response to first prompt_LT_/response1_GT_
 	//     _LT_response2_GT_response to second prompt_LT_/response2_GT_
 	//     ...
@@ -1218,16 +1280,13 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// _LT_/response_GT_
 	// 
 	// If the interactive authentication completed with success or failure, the XML
-	// response will be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// response will be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
-	// _LT_error_GT_error_message_LT_/error_GT_
-	// If additional steps are required to complete the interactive authentication,
-	// then an XML string that provides the name, instruction, and prompts is returned.
-	// The XML has the following format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// _LT_error_GT_error_message_LT_/error_GT_ If additional steps are required to
+	// complete the interactive authentication, then an XML string that provides the
+	// name, instruction, and prompts is returned. The XML has the following format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
@@ -1245,8 +1304,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// Sets the date/time and other attributes of a remote file to be equal to that of
 	// a local file.
 	// 
-	// The attributes copied depend on the SFTP version of the server:
-	// SFTP v3 (and below)
+	// The attributes copied depend on the SFTP version of the server:SFTP v3 (and below)
 	//     Last-Modified Date/Time
 	//     Last-Access Date/Time
 	// 
@@ -1263,9 +1321,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	//     Hidden Flag
 	//     Archive Flag
 	//     Compressed Flag
-	//     Encrypted Flag
-	// 
-	// Notes:
+	// Encrypted Flag Notes:
 	// (1) The Last-Access date/time may or may not be set. Chilkat has found that the
 	// Last-Access time is set to the current date/time, which is probably a result of
 	// the operating system setting it based on when the SFTP server is touching the
@@ -1616,6 +1672,55 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// such as ReadFileBytes64s allow for 64-bit values to be passed as strings.
 	// 
 	const wchar_t *fileSizeStr(const wchar_t *pathOrHandle, bool bFollowLinks, bool bIsHandle);
+
+	// Returns the host key fingerprint of the server, which is automatically set after
+	// connecting to an SSH/SFTP server. The hashAlg can be any hash algorithm supported
+	// by Chilkat, such as "SHA256", "SHA384", "SHA512", "SHA1", "MD5", "SHA3-224",
+	// "SHA3-256", "SHA3-384", "SHA3-512", etc.
+	// 
+	// If both includeKeyType and includeHashName are true, then the fingerprint string is formatted like
+	// this:ssh-rsa SHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is
+	// true and includeHashName is false:ssh-rsa L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK...
+	// If includeKeyType is false and includeHashName is
+	// true:SHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is false
+	// and includeHashName is false:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... 
+	// 
+	// SSH host key types can be: ssh-rsa, ecdsa-*-* (such as ecdsa-sha2-nistp256),
+	// ssh-ed25519, and ssh-dss.
+	// 
+	bool GetHostKeyFP(const wchar_t *hashAlg, bool includeKeyType, bool includeHashName, CkString &outStr);
+	// Returns the host key fingerprint of the server, which is automatically set after
+	// connecting to an SSH/SFTP server. The hashAlg can be any hash algorithm supported
+	// by Chilkat, such as "SHA256", "SHA384", "SHA512", "SHA1", "MD5", "SHA3-224",
+	// "SHA3-256", "SHA3-384", "SHA3-512", etc.
+	// 
+	// If both includeKeyType and includeHashName are true, then the fingerprint string is formatted like
+	// this:ssh-rsa SHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is
+	// true and includeHashName is false:ssh-rsa L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK...
+	// If includeKeyType is false and includeHashName is
+	// true:SHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is false
+	// and includeHashName is false:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... 
+	// 
+	// SSH host key types can be: ssh-rsa, ecdsa-*-* (such as ecdsa-sha2-nistp256),
+	// ssh-ed25519, and ssh-dss.
+	// 
+	const wchar_t *getHostKeyFP(const wchar_t *hashAlg, bool includeKeyType, bool includeHashName);
+	// Returns the host key fingerprint of the server, which is automatically set after
+	// connecting to an SSH/SFTP server. The hashAlg can be any hash algorithm supported
+	// by Chilkat, such as "SHA256", "SHA384", "SHA512", "SHA1", "MD5", "SHA3-224",
+	// "SHA3-256", "SHA3-384", "SHA3-512", etc.
+	// 
+	// If both includeKeyType and includeHashName are true, then the fingerprint string is formatted like
+	// this:ssh-rsa SHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is
+	// true and includeHashName is false:ssh-rsa L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK...
+	// If includeKeyType is false and includeHashName is
+	// true:SHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is false
+	// and includeHashName is false:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... 
+	// 
+	// SSH host key types can be: ssh-rsa, ecdsa-*-* (such as ecdsa-sha2-nistp256),
+	// ssh-ed25519, and ssh-dss.
+	// 
+	const wchar_t *hostKeyFP(const wchar_t *hashAlg, bool includeKeyType, bool includeHashName);
 
 	// Creates a hard link on the server using the hardlink@openssh.com extension. This
 	// only works for SFTP servers that support the hardlink@openssh.com extension.
@@ -2061,7 +2166,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// This method is identical to ReadFileBytes except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
 	// Note: If the charset is an encoding where a single character might be represented
@@ -2078,7 +2183,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// This method is identical to ReadFileBytes except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
 	// Note: If the charset is an encoding where a single character might be represented
@@ -2101,7 +2206,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// This method is identical to ReadFileBytes32 except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
 	// Note: If the charset is an encoding where a single character might be represented
@@ -2115,7 +2220,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// This method is identical to ReadFileBytes32 except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
 	// Note: If the charset is an encoding where a single character might be represented
@@ -2130,7 +2235,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// This method is identical to ReadFileBytes64 except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
 	// Note: If the charset is an encoding where a single character might be represented
@@ -2144,7 +2249,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// This method is identical to ReadFileBytes64 except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
 	// Note: If the charset is an encoding where a single character might be represented
@@ -2159,7 +2264,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// This method is identical to ReadFileBytes64s except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
 	// Note: If the charset is an encoding where a single character might be represented
@@ -2173,7 +2278,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// This method is identical to ReadFileBytes64s except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
 	// Note: If the charset is an encoding where a single character might be represented
@@ -2413,18 +2518,16 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 
 	// Begins keyboard-interactive authentication with the SSH server. Returns an XML
 	// string providing the name, instruction, and prompts. The XML has the following
-	// format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
 	// 	    ...
 	// 	    _LT_promptN echo="1_or_0"_GT_prompt_string_LT_/promptN_GT_
-	// 	_LT_/infoRequest_GT_
+	// _LT_/infoRequest_GT_
 	// 
 	// If the authentication immediately succeeds because no password is required, or
-	// immediately fails, the XML response can be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// immediately fails, the XML response can be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
@@ -2433,18 +2536,16 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	bool StartKeyboardAuth(const wchar_t *login, CkString &outStr);
 	// Begins keyboard-interactive authentication with the SSH server. Returns an XML
 	// string providing the name, instruction, and prompts. The XML has the following
-	// format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
 	// 	    ...
 	// 	    _LT_promptN echo="1_or_0"_GT_prompt_string_LT_/promptN_GT_
-	// 	_LT_/infoRequest_GT_
+	// _LT_/infoRequest_GT_
 	// 
 	// If the authentication immediately succeeds because no password is required, or
-	// immediately fails, the XML response can be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// immediately fails, the XML response can be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
@@ -2477,7 +2578,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	//     mode=6: Same as mode 5, but also download newer files.
 	//     mode=99: Do not download files, but instead delete remote files that do not
 	//     exist locally.
-	//     
+	//      
 	// 
 	// If recurse is false, then the remotel directory tree is not recursively
 	// descended.
@@ -2486,6 +2587,9 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// the server's filesystem. For example, "/home/joe/sourceDir". Use a relative path
 	// to specify a directory relative to the $HOME directory of the SSH user account.
 	// For example, "./sourceDir".
+	// 
+	// Note: After this method returns, the paths of the downloaded files are available
+	// in the SyncedFiles property.
 	// 
 	bool SyncTreeDownload(const wchar_t *remoteRoot, const wchar_t *localRoot, int mode, bool recurse);
 
@@ -2511,6 +2615,9 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// the server's filesystem. For example, "/home/joe/targetDir". Use a relative path
 	// to specify a directory relative to the $HOME directory of the SSH user account.
 	// For example, "./targetDir".
+	// 
+	// Note: After this method returns, the paths of the downloaded files are available
+	// in the SyncedFiles property.
 	// 
 	bool SyncTreeUpload(const wchar_t *localBaseDir, const wchar_t *remoteBaseDir, int mode, bool bRecurse);
 
@@ -2613,7 +2720,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// Appends character data to an open file. The handle is a file handle returned by
 	// the OpenFile method. charset is a character encoding and is typically set to values
 	// such as "ansi", "utf-8", "windows-1252", etc. A list of supported character
-	// encodings is found on this page:Supported Charsets
+	// encodings is found on this page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
 	// Note: It is necessary to specify the character encoding because in many
@@ -2632,7 +2739,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// the file. The handle is a file handle returned by the OpenFile method. charset is a
 	// character encoding and is typically set to values such as "ansi", "utf-8",
 	// "windows-1252", etc. A list of supported character encodings is found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteFileText32(const wchar_t *handle, int offset32, const wchar_t *charset, const wchar_t *textData);
 
@@ -2640,7 +2747,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// the file. The handle is a file handle returned by the OpenFile method. charset is a
 	// character encoding and is typically set to values such as "ansi", "utf-8",
 	// "windows-1252", etc. A list of supported character encodings is found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteFileText64(const wchar_t *handle, __int64 offset64, const wchar_t *charset, const wchar_t *textData);
 
@@ -2649,7 +2756,7 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// an offset (in decimal string format) from the beginning of the file. charset is a
 	// character encoding and is typically set to values such as "ansi", "utf-8",
 	// "windows-1252", etc. A list of supported character encodings is found on this
-	// page:Supported Charsets
+	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteFileText64s(const wchar_t *handle, const wchar_t *offset64, const wchar_t *charset, const wchar_t *textData);
 

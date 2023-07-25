@@ -18,6 +18,7 @@
 
 class CkDtObjW;
 class CkTaskW;
+class CkStringBuilderW;
 
 #if !defined(__sun__) && !defined(__sun)
 #pragma pack (push, 8)
@@ -309,6 +310,19 @@ class CkDateTimeW  : public CkWideCharBase
 
 	// Sets the date/time from an RFC 3339 date/time formatted string.
 	bool SetFromTimestamp(const wchar_t *rfc3339Str);
+
+
+	// ----------------------
+	// Ulid members added in v9.5.0.94
+	// ----------------------
+	bool UlidIncrement(CkStringBuilderW &sb);
+
+	bool UlidGenerate(bool bLocal, CkString &outStr);
+	const wchar_t *ulidGenerate(bool bLocal);
+
+	bool SetFromUlid(bool bLocal, const wchar_t *ulid);
+	bool UlidValidate(const wchar_t *ulid);
+
 
 	// Sets the date/time from a Windows SYSTEMTIME structure.
 	// 

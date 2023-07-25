@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkCrypt2W_H
 #define _CkCrypt2W_H
@@ -132,56 +132,50 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 
 	// This is the base64 hash of the policy document located at the CadesSigPolicyUri.
 	// You can use either the SHA256 or SHA1 hash. You may use this online tool to
-	// compute the base64 hash:Compute Base64 Hash for CaDES Signature Policy URL
+	// compute the base64 hash: Compute Base64 Hash for CaDES Signature Policy URL
 	// <http://tools.chilkat.io/hashFileAtUrl.cshtml>
 	// 
 	// Note: This property applies to all methods that create PKCS7 signatures. To
 	// create a CAdES-EPES signature, set the CadesEnabled property = true, and also
 	// provide values for each of the following properties: CadesSigPolicyHash,
-	// CadesSigPolicyId, and CadesSigPolicyUri. For example (in pseudo-code):
-	// cryptObj.CadesSigPolicyId = "2.16.76.1.7.1.1.1"
+	// CadesSigPolicyId, and CadesSigPolicyUri. For example (in pseudo-code):cryptObj.CadesSigPolicyId = "2.16.76.1.7.1.1.1"
 	// cryptObj.CadesSigPolicyUri = "http://politicas.icpbrasil.gov.br/PA_AD_RB.der"
-	// cryptObj.CadesSigPolicyHash = "rySugyKaMhiMR8Y/o5yuU2A2bF0="
-	// Note: Do NOT use the values above. They are only provided as an example to show
-	// valid values. For example, the Policy ID is an OID. The Policy URI is a
-	// typically a URL to a DER encoded policy file, and the Policy Hash is a base64
-	// encoded hash.
+	// cryptObj.CadesSigPolicyHash = "rySugyKaMhiMR8Y/o5yuU2A2bF0=" Note: Do NOT use
+	// the values above. They are only provided as an example to show valid values. For
+	// example, the Policy ID is an OID. The Policy URI is a typically a URL to a DER
+	// encoded policy file, and the Policy Hash is a base64 encoded hash.
 	// 
 	void get_CadesSigPolicyHash(CkString &str);
 	// This is the base64 hash of the policy document located at the CadesSigPolicyUri.
 	// You can use either the SHA256 or SHA1 hash. You may use this online tool to
-	// compute the base64 hash:Compute Base64 Hash for CaDES Signature Policy URL
+	// compute the base64 hash: Compute Base64 Hash for CaDES Signature Policy URL
 	// <http://tools.chilkat.io/hashFileAtUrl.cshtml>
 	// 
 	// Note: This property applies to all methods that create PKCS7 signatures. To
 	// create a CAdES-EPES signature, set the CadesEnabled property = true, and also
 	// provide values for each of the following properties: CadesSigPolicyHash,
-	// CadesSigPolicyId, and CadesSigPolicyUri. For example (in pseudo-code):
-	// cryptObj.CadesSigPolicyId = "2.16.76.1.7.1.1.1"
+	// CadesSigPolicyId, and CadesSigPolicyUri. For example (in pseudo-code):cryptObj.CadesSigPolicyId = "2.16.76.1.7.1.1.1"
 	// cryptObj.CadesSigPolicyUri = "http://politicas.icpbrasil.gov.br/PA_AD_RB.der"
-	// cryptObj.CadesSigPolicyHash = "rySugyKaMhiMR8Y/o5yuU2A2bF0="
-	// Note: Do NOT use the values above. They are only provided as an example to show
-	// valid values. For example, the Policy ID is an OID. The Policy URI is a
-	// typically a URL to a DER encoded policy file, and the Policy Hash is a base64
-	// encoded hash.
+	// cryptObj.CadesSigPolicyHash = "rySugyKaMhiMR8Y/o5yuU2A2bF0=" Note: Do NOT use
+	// the values above. They are only provided as an example to show valid values. For
+	// example, the Policy ID is an OID. The Policy URI is a typically a URL to a DER
+	// encoded policy file, and the Policy Hash is a base64 encoded hash.
 	// 
 	const wchar_t *cadesSigPolicyHash(void);
 	// This is the base64 hash of the policy document located at the CadesSigPolicyUri.
 	// You can use either the SHA256 or SHA1 hash. You may use this online tool to
-	// compute the base64 hash:Compute Base64 Hash for CaDES Signature Policy URL
+	// compute the base64 hash: Compute Base64 Hash for CaDES Signature Policy URL
 	// <http://tools.chilkat.io/hashFileAtUrl.cshtml>
 	// 
 	// Note: This property applies to all methods that create PKCS7 signatures. To
 	// create a CAdES-EPES signature, set the CadesEnabled property = true, and also
 	// provide values for each of the following properties: CadesSigPolicyHash,
-	// CadesSigPolicyId, and CadesSigPolicyUri. For example (in pseudo-code):
-	// cryptObj.CadesSigPolicyId = "2.16.76.1.7.1.1.1"
+	// CadesSigPolicyId, and CadesSigPolicyUri. For example (in pseudo-code):cryptObj.CadesSigPolicyId = "2.16.76.1.7.1.1.1"
 	// cryptObj.CadesSigPolicyUri = "http://politicas.icpbrasil.gov.br/PA_AD_RB.der"
-	// cryptObj.CadesSigPolicyHash = "rySugyKaMhiMR8Y/o5yuU2A2bF0="
-	// Note: Do NOT use the values above. They are only provided as an example to show
-	// valid values. For example, the Policy ID is an OID. The Policy URI is a
-	// typically a URL to a DER encoded policy file, and the Policy Hash is a base64
-	// encoded hash.
+	// cryptObj.CadesSigPolicyHash = "rySugyKaMhiMR8Y/o5yuU2A2bF0=" Note: Do NOT use
+	// the values above. They are only provided as an example to show valid values. For
+	// example, the Policy ID is an OID. The Policy URI is a typically a URL to a DER
+	// encoded policy file, and the Policy Hash is a base64 encoded hash.
 	// 
 	void put_CadesSigPolicyHash(const wchar_t *newVal);
 
@@ -218,8 +212,7 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	// strings. In such a case, setting the Charset property to "iso-8859-1" causes the
 	// character data to be automatically converted to the Charset before being
 	// encrypted (or compressed, or hashed, or signed). The set of valid charsets is
-	// listed below:
-	// hex
+	// listed below:hex
 	// base64
 	//     * "hex" and "base64" are special values that allow for binary (non-text) encoded data to be passed to any method where the input data is a string.
 	//        Rather than converting to an actual charset (such as utf-8, iso-8859-1), the binary data is decoded, and the decoded bytes are passed
@@ -322,8 +315,7 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	// strings. In such a case, setting the Charset property to "iso-8859-1" causes the
 	// character data to be automatically converted to the Charset before being
 	// encrypted (or compressed, or hashed, or signed). The set of valid charsets is
-	// listed below:
-	// hex
+	// listed below:hex
 	// base64
 	//     * "hex" and "base64" are special values that allow for binary (non-text) encoded data to be passed to any method where the input data is a string.
 	//        Rather than converting to an actual charset (such as utf-8, iso-8859-1), the binary data is decoded, and the decoded bytes are passed
@@ -426,8 +418,7 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	// strings. In such a case, setting the Charset property to "iso-8859-1" causes the
 	// character data to be automatically converted to the Charset before being
 	// encrypted (or compressed, or hashed, or signed). The set of valid charsets is
-	// listed below:
-	// hex
+	// listed below:hex
 	// base64
 	//     * "hex" and "base64" are special values that allow for binary (non-text) encoded data to be passed to any method where the input data is a string.
 	//        Rather than converting to an actual charset (such as utf-8, iso-8859-1), the binary data is decoded, and the decoded bytes are passed
@@ -1209,8 +1200,7 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 
 	// Contains JSON to specify the authenticated (signed) attributes or
 	// unauthenticated (unsigned) attributes that are to be included in CMS signatures.
-	// The default value is:
-	// {
+	// The default value is:{
 	//     "contentType": 1,
 	//     "signingTime": 1,
 	//     "messageDigest": 1
@@ -1229,8 +1219,7 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	void get_SigningAttributes(CkString &str);
 	// Contains JSON to specify the authenticated (signed) attributes or
 	// unauthenticated (unsigned) attributes that are to be included in CMS signatures.
-	// The default value is:
-	// {
+	// The default value is:{
 	//     "contentType": 1,
 	//     "signingTime": 1,
 	//     "messageDigest": 1
@@ -1249,8 +1238,7 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	const wchar_t *signingAttributes(void);
 	// Contains JSON to specify the authenticated (signed) attributes or
 	// unauthenticated (unsigned) attributes that are to be included in CMS signatures.
-	// The default value is:
-	// {
+	// The default value is:{
 	//     "contentType": 1,
 	//     "signingTime": 1,
 	//     "messageDigest": 1
@@ -1857,8 +1845,7 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	// "Unicode". To implicitly convert the string to another charset before the
 	// encryption is applied, set the Charset property to something else, such as
 	// "iso-8859-1", "Shift_JIS", "big5", "windows-1252", etc. The complete list of
-	// possible charsets is listed here:
-	// us-ascii
+	// possible charsets is listed here:us-ascii
 	// unicode
 	// unicodefffe
 	// iso-8859-1
@@ -2004,8 +1991,8 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	// IMPORTANT: If you are trying to decrypt something encrypted by another party
 	// such that the other party provided you with the secret key, DO NOT use this
 	// method. This method is for transforming an arbitrary-length password into a
-	// binary secret key of the proper length. Please see this Chilkat blog
-	// post:Getting Started with AES Decryption
+	// binary secret key of the proper length. Please see this Chilkat blog post:
+	// Getting Started with AES Decryption
 	// <http://www.cknotes.com/?p=290>
 	// 
 	bool GenerateSecretKey(const wchar_t *password, CkByteData &outData);
@@ -2166,8 +2153,7 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	// The binary PKCS7 is passed in pkcs7Der. On success, the sbJson will contain the signed
 	// attributes in JSON format.
 	// 
-	// Sample JSON output:
-	// {
+	// Sample JSON output:{
 	//   "signedAttributes": [
 	//     {
 	//       "oid": "1.2.840.113549.1.9.3",
@@ -2902,6 +2888,10 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	// The authenticated tag plays a role when the CipherMode is "gcm" (Galois/Counter
 	// Mode), which is a mode valid for symmetric block ciphers that have a block size
 	// of 16 bytes, such as AES or Twofish.
+	// 
+	// Note: You can set the authenticated tag to the special value
+	// "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" (16 0xFF bytes) to prevent Chilkat from
+	// checking the auth tag after decrypting.
 	// 
 	bool SetEncodedAuthTag(const wchar_t *authTagStr, const wchar_t *encoding);
 

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkHashtableW_H
 #define _CkHashtableW_H
@@ -120,6 +120,13 @@ class CK_VISIBLE_PUBLIC CkHashtableW  : public CkWideCharBase
 	// the key existed and was removed. Returns false if the key did not already
 	// exist.
 	bool Remove(const wchar_t *key);
+
+	// Serializes the hash table to a query string such as
+	// key1=value1&key2=value2&key3=value3 where each value is URL encoded.
+	bool ToQueryString(CkString &outStr);
+	// Serializes the hash table to a query string such as
+	// key1=value1&key2=value2&key3=value3 where each value is URL encoded.
+	const wchar_t *toQueryString(void);
 
 	// Serializes the hash table to XML format. The XML is appended to sbXml.
 	bool ToXmlSb(CkStringBuilderW &sbXml);

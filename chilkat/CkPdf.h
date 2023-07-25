@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkPdf_H
 #define _CkPdf_H
@@ -15,11 +15,12 @@
 #include "CkClassWithCallbacks.h"
 
 class CkCert;
+class CkTask;
 class CkJsonObject;
+class CkStringBuilder;
 class CkBinData;
 class CkHttp;
 class CkPrivateKey;
-class CkTask;
 class CkBaseProgress;
 
 
@@ -145,10 +146,40 @@ class CK_VISIBLE_PUBLIC CkPdf  : public CkClassWithCallbacks
 	bool AddSigningCert(CkCert &cert);
 
 
+	// Adds LTV verification information to the PDF, and saves the updated PDF to outFilePath.
+	// This create or update a DSS (Document Security Store) in the PDF with the needed
+	// certificates, OCSP responses, and CRL information.
+	// 
+	// Pass an empty jsonOptions. The jsonOptions exists as a placeholder for adding options if
+	// needed.
+	// 
+	bool AddVerificationInfo(CkJsonObject &jsonOptions, const char *outFilePath);
+
+	// Adds LTV verification information to the PDF, and saves the updated PDF to outFilePath.
+	// This create or update a DSS (Document Security Store) in the PDF with the needed
+	// certificates, OCSP responses, and CRL information.
+	// 
+	// Pass an empty jsonOptions. The jsonOptions exists as a placeholder for adding options if
+	// needed.
+	// 
+	CkTask *AddVerificationInfoAsync(CkJsonObject &jsonOptions, const char *outFilePath);
+
+
 	// Gets the contents of the PDF's Document Security Store (/DSS) if it exists.
 	// Returns the information in JSON format (in json). If there is no /DSS then an
 	// empty JSON document "{}" is returned in json.
 	bool GetDss(CkJsonObject &json);
+
+
+	// If the PDF contains Metadata, then loads the Metadata XML into sb and returns
+	// true. If the PDF does not contain Metadata, then clears sb and returns
+	// false.
+	bool GetMetadata(CkStringBuilder &sb);
+
+
+	// Returns the CMS signature for the Nth signature contained in the PDF. The 1st
+	// signature is at index 0.
+	bool GetSignatureContent(int index, CkBinData &bd);
 
 
 	// This method can be used to get the signer certificate after calling
@@ -375,6 +406,8 @@ class CK_VISIBLE_PUBLIC CkPdf  : public CkClassWithCallbacks
 	//     included with or without the addition of time-stamping.
 	//     sigTextLabel - Set to provide free-form text for the signatures annotation
 	//     text label.
+	//     subFilter - Set to "/ETSI.CAdES.detached", "/adbe.pkcs7.detached", or
+	//     something else.
 	//     timestampToken.enabled - Set to true to tell Chilkat to request a timestamp
 	//     from a TSA server and include the timestamp token in the signature's
 	//     authentication attributes
@@ -550,6 +583,8 @@ class CK_VISIBLE_PUBLIC CkPdf  : public CkClassWithCallbacks
 	//     included with or without the addition of time-stamping.
 	//     sigTextLabel - Set to provide free-form text for the signatures annotation
 	//     text label.
+	//     subFilter - Set to "/ETSI.CAdES.detached", "/adbe.pkcs7.detached", or
+	//     something else.
 	//     timestampToken.enabled - Set to true to tell Chilkat to request a timestamp
 	//     from a TSA server and include the timestamp token in the signature's
 	//     authentication attributes
@@ -562,6 +597,17 @@ class CK_VISIBLE_PUBLIC CkPdf  : public CkClassWithCallbacks
 	//     the name of the unsigned signature field that is to be signed.
 	// 
 	CkTask *SignPdfAsync(CkJsonObject &jsonOptions, const char *outFilePath);
+
+
+	// Signs the open PDF and if successful writes the signed PDF to the bd. The jsonOptions
+	// contains information and instructions about the signature. See the reference
+	// documentation for the SignPdf method for details about jsonOptions.
+	bool SignPdfBd(CkJsonObject &jsonOptions, CkBinData &bd);
+
+	// Signs the open PDF and if successful writes the signed PDF to the bd. The jsonOptions
+	// contains information and instructions about the signature. See the reference
+	// documentation for the SignPdf method for details about jsonOptions.
+	CkTask *SignPdfBdAsync(CkJsonObject &jsonOptions, CkBinData &bd);
 
 
 	// Verifies the Nth signature contained in the PDF, where the 1st signature is

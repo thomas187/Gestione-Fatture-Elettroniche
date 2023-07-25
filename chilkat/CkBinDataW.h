@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkBinDataW_H
 #define _CkBinDataW_H
@@ -92,7 +92,7 @@ class CK_VISIBLE_PUBLIC CkBinDataW  : public CkWideCharBase
 
 	// Appends encoded binary data to the current data. The encoding may be "Base64",
 	// "modBase64", "base64Url", "Base32", "Base58", "QP" (for quoted-printable), "URL"
-	// (for url-encoding), "Hex", or any of the encodings found atChilkat Binary
+	// (for url-encoding), "Hex", or any of the encodings found at Chilkat Binary
 	// Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	bool AppendEncoded(const wchar_t *encData, const wchar_t *encoding);
@@ -100,7 +100,7 @@ class CK_VISIBLE_PUBLIC CkBinDataW  : public CkWideCharBase
 	// Decodes the contents of sb and appends the decoded bytes to this object. The
 	// encoding may be "Base64", "modBase64", "base64Url", "Base32", "Base58", "QP" (for
 	// quoted-printable), "URL" (for url-encoding), "Hex", or any of the encodings
-	// found atChilkat Binary Encodings List
+	// found at Chilkat Binary Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	bool AppendEncodedSb(CkStringBuilderW &sb, const wchar_t *encoding);
 
@@ -150,6 +150,10 @@ class CK_VISIBLE_PUBLIC CkBinDataW  : public CkWideCharBase
 	// Retrieves a chunk of the binary data contained within the object.
 	bool GetBinaryChunk(int offset, int numBytes, CkByteData &outBytes);
 
+	// Returns the value of the byte at the given index. The returned value is an
+	// integer from 0 to 255.
+	int GetByte(int index);
+
 	// Returns a pointer to the internal buffer. Be careful with this method because if
 	// additional data is appended, the data within the object may be relocated and the
 	// pointer may cease to be valid.
@@ -157,19 +161,19 @@ class CK_VISIBLE_PUBLIC CkBinDataW  : public CkWideCharBase
 
 	// Retrieves the binary data as an encoded string. The encoding may be "Base64",
 	// "modBase64", "base64Url", "Base32", "Base58", "QP" (for quoted-printable), "URL"
-	// (for url-encoding), "Hex", or any of the encodings found atChilkat Binary
+	// (for url-encoding), "Hex", or any of the encodings found at Chilkat Binary
 	// Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	bool GetEncoded(const wchar_t *encoding, CkString &outStr);
 	// Retrieves the binary data as an encoded string. The encoding may be "Base64",
 	// "modBase64", "base64Url", "Base32", "Base58", "QP" (for quoted-printable), "URL"
-	// (for url-encoding), "Hex", or any of the encodings found atChilkat Binary
+	// (for url-encoding), "Hex", or any of the encodings found at Chilkat Binary
 	// Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	const wchar_t *getEncoded(const wchar_t *encoding);
 	// Retrieves the binary data as an encoded string. The encoding may be "Base64",
 	// "modBase64", "base64Url", "Base32", "Base58", "QP" (for quoted-printable), "URL"
-	// (for url-encoding), "Hex", or any of the encodings found atChilkat Binary
+	// (for url-encoding), "Hex", or any of the encodings found at Chilkat Binary
 	// Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	const wchar_t *encoded(const wchar_t *encoding);
@@ -177,25 +181,25 @@ class CK_VISIBLE_PUBLIC CkBinDataW  : public CkWideCharBase
 	// Retrieves a chunk of the binary data and returns it in encoded form. The encoding
 	// may be "Base64", "modBase64", "base64Url", "Base32", "Base58", "QP" (for
 	// quoted-printable), "URL" (for url-encoding), "Hex", or any of the encodings
-	// found atChilkat Binary Encodings List
+	// found at Chilkat Binary Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	bool GetEncodedChunk(int offset, int numBytes, const wchar_t *encoding, CkString &outStr);
 	// Retrieves a chunk of the binary data and returns it in encoded form. The encoding
 	// may be "Base64", "modBase64", "base64Url", "Base32", "Base58", "QP" (for
 	// quoted-printable), "URL" (for url-encoding), "Hex", or any of the encodings
-	// found atChilkat Binary Encodings List
+	// found at Chilkat Binary Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	const wchar_t *getEncodedChunk(int offset, int numBytes, const wchar_t *encoding);
 	// Retrieves a chunk of the binary data and returns it in encoded form. The encoding
 	// may be "Base64", "modBase64", "base64Url", "Base32", "Base58", "QP" (for
 	// quoted-printable), "URL" (for url-encoding), "Hex", or any of the encodings
-	// found atChilkat Binary Encodings List
+	// found at Chilkat Binary Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	const wchar_t *encodedChunk(int offset, int numBytes, const wchar_t *encoding);
 
 	// Writes the encoded data to a StringBuilder. The encoding may be "Base64",
 	// "modBase64", "base64Url", "Base32", "Base58", "QP" (for quoted-printable), "URL"
-	// (for url-encoding), "Hex", or any of the encodings found atChilkat Binary
+	// (for url-encoding), "Hex", or any of the encodings found at Chilkat Binary
 	// Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	bool GetEncodedSb(const wchar_t *encoding, CkStringBuilderW &sb);
@@ -205,7 +209,7 @@ class CK_VISIBLE_PUBLIC CkBinDataW  : public CkWideCharBase
 	// "sha3-384", "sha3-512", "md2", "md5", "ripemd128", "ripemd160","ripemd256", or
 	// "ripemd320". The encoding can be "base64", "modBase64", "base64Url", "base32",
 	// "base58", "qp" (for quoted-printable), "url" (for url-encoding), "hex",
-	// "hexLower", or any of the encodings found atChilkat Binary Encodings List
+	// "hexLower", or any of the encodings found at Chilkat Binary Encodings List
 	// <https://cknotes.com/chilkat-binary-encoding-list/>.
 	bool GetHash(const wchar_t *algorithm, const wchar_t *encoding, CkString &outStr);
 	// Returns the hash of the contents of this object. The algorithm is the hash algorithm,
@@ -213,7 +217,7 @@ class CK_VISIBLE_PUBLIC CkBinDataW  : public CkWideCharBase
 	// "sha3-384", "sha3-512", "md2", "md5", "ripemd128", "ripemd160","ripemd256", or
 	// "ripemd320". The encoding can be "base64", "modBase64", "base64Url", "base32",
 	// "base58", "qp" (for quoted-printable), "url" (for url-encoding), "hex",
-	// "hexLower", or any of the encodings found atChilkat Binary Encodings List
+	// "hexLower", or any of the encodings found at Chilkat Binary Encodings List
 	// <https://cknotes.com/chilkat-binary-encoding-list/>.
 	const wchar_t *getHash(const wchar_t *algorithm, const wchar_t *encoding);
 	// Returns the hash of the contents of this object. The algorithm is the hash algorithm,
@@ -221,7 +225,7 @@ class CK_VISIBLE_PUBLIC CkBinDataW  : public CkWideCharBase
 	// "sha3-384", "sha3-512", "md2", "md5", "ripemd128", "ripemd160","ripemd256", or
 	// "ripemd320". The encoding can be "base64", "modBase64", "base64Url", "base32",
 	// "base58", "qp" (for quoted-printable), "url" (for url-encoding), "hex",
-	// "hexLower", or any of the encodings found atChilkat Binary Encodings List
+	// "hexLower", or any of the encodings found at Chilkat Binary Encodings List
 	// <https://cknotes.com/chilkat-binary-encoding-list/>.
 	const wchar_t *hash(const wchar_t *algorithm, const wchar_t *encoding);
 
@@ -273,7 +277,7 @@ class CK_VISIBLE_PUBLIC CkBinDataW  : public CkWideCharBase
 	// Loads binary data from an encoded string, replacing the current contents, if
 	// any. The encoding may be "Base64", "modBase64", "base64Url", "Base32", "Base58",
 	// "QP" (for quoted-printable), "URL" (for url-encoding), "Hex", or any of the
-	// encodings found atChilkat Binary Encodings List
+	// encodings found at Chilkat Binary Encodings List
 	// <http://cknotes.com/chilkat-binary-encoding-list/>.
 	bool LoadEncoded(const wchar_t *encData, const wchar_t *encoding);
 

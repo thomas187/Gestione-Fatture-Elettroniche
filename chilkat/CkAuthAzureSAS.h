@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkAuthAzureSAS_H
 #define _CkAuthAzureSAS_H
@@ -73,10 +73,10 @@ class CK_VISIBLE_PUBLIC CkAuthAzureSAS  : public CkMultiByteBase
 	// 
 	// The format is specified as a comma-separated list of names. For example:
 	// 
-	// signedpermissions,signedstart,signedexpiry,canonicalizedresource,signedidentifier,signedIP,signedProtocol,signedversion,rscc,rscd,rsce,rscl,rsct
-	// This will result in an actual string-to-sign that is composed of the values for
-	// each name separated by newline (LF) chars. For example:
-	// signedpermissions + "\n" +  
+	// signedpermissions,signedstart,signedexpiry,canonicalizedresource,signedidentifier
+	// ,signedIP,signedProtocol,signedversion,rscc,rscd,rsce,rscl,rsct This will result
+	// in an actual string-to-sign that is composed of the values for each name
+	// separated by newline (LF) chars. For example:signedpermissions + "\n" +  
 	// signedstart + "\n" +  
 	// signedexpiry + "\n" +  
 	// canonicalizedresource + "\n" +  
@@ -94,10 +94,10 @@ class CK_VISIBLE_PUBLIC CkAuthAzureSAS  : public CkMultiByteBase
 	// 
 	// The format is specified as a comma-separated list of names. For example:
 	// 
-	// signedpermissions,signedstart,signedexpiry,canonicalizedresource,signedidentifier,signedIP,signedProtocol,signedversion,rscc,rscd,rsce,rscl,rsct
-	// This will result in an actual string-to-sign that is composed of the values for
-	// each name separated by newline (LF) chars. For example:
-	// signedpermissions + "\n" +  
+	// signedpermissions,signedstart,signedexpiry,canonicalizedresource,signedidentifier
+	// ,signedIP,signedProtocol,signedversion,rscc,rscd,rsce,rscl,rsct This will result
+	// in an actual string-to-sign that is composed of the values for each name
+	// separated by newline (LF) chars. For example:signedpermissions + "\n" +  
 	// signedstart + "\n" +  
 	// signedexpiry + "\n" +  
 	// canonicalizedresource + "\n" +  
@@ -115,10 +115,10 @@ class CK_VISIBLE_PUBLIC CkAuthAzureSAS  : public CkMultiByteBase
 	// 
 	// The format is specified as a comma-separated list of names. For example:
 	// 
-	// signedpermissions,signedstart,signedexpiry,canonicalizedresource,signedidentifier,signedIP,signedProtocol,signedversion,rscc,rscd,rsce,rscl,rsct
-	// This will result in an actual string-to-sign that is composed of the values for
-	// each name separated by newline (LF) chars. For example:
-	// signedpermissions + "\n" +  
+	// signedpermissions,signedstart,signedexpiry,canonicalizedresource,signedidentifier
+	// ,signedIP,signedProtocol,signedversion,rscc,rscd,rsce,rscl,rsct This will result
+	// in an actual string-to-sign that is composed of the values for each name
+	// separated by newline (LF) chars. For example:signedpermissions + "\n" +  
 	// signedstart + "\n" +  
 	// signedexpiry + "\n" +  
 	// canonicalizedresource + "\n" +  

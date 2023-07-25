@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkSshW_H
 #define _CkSshW_H
@@ -101,8 +101,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// Controls whether the caret character '^' is interpreted as indicating a control
 	// character. The default value of this property is false. If set to true, then
 	// the following sequences are interpreted as control characters in any string
-	// passed to SendReqExec or ChannelSendString.
-	// ^@ 	00 	00 	NUL  	Null
+	// passed to SendReqExec or ChannelSendString.^@ 	00 	00 	NUL  	Null
 	// ^A 	01 	01 	SOH  	Start of Heading
 	// ^B 	02 	02 	STX  	Start of Text
 	// ^C 	03 	03 	ETX  	End of Text
@@ -139,8 +138,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// Controls whether the caret character '^' is interpreted as indicating a control
 	// character. The default value of this property is false. If set to true, then
 	// the following sequences are interpreted as control characters in any string
-	// passed to SendReqExec or ChannelSendString.
-	// ^@ 	00 	00 	NUL  	Null
+	// passed to SendReqExec or ChannelSendString.^@ 	00 	00 	NUL  	Null
 	// ^A 	01 	01 	SOH  	Start of Heading
 	// ^B 	02 	02 	STX  	Start of Text
 	// ^C 	03 	03 	ETX  	End of Text
@@ -177,8 +175,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 
 	// If a request to open a channel fails, this property contains a code that
 	// identifies the reason for failure. The reason codes are defined in RFC 4254 and
-	// are reproduced here:
-	//              Symbolic name                           reason code
+	// are reproduced here:Symbolic name                           reason code
 	//              -------------                           -----------
 	//             SSH_OPEN_ADMINISTRATIVELY_PROHIBITED          1
 	//             SSH_OPEN_CONNECT_FAILED                       2
@@ -260,8 +257,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	void put_ConnectTimeoutMs(int newVal);
 
 	// If the SSH server sent a DISCONNECT message when closing the connection, this
-	// property contains the "reason code" as specified in RFC 4253:
-	//            Symbolic name                                reason code
+	// property contains the "reason code" as specified in RFC 4253:Symbolic name                                reason code
 	//            -------------                                -----------
 	//       SSH_DISCONNECT_HOST_NOT_ALLOWED_TO_CONNECT             1
 	//       SSH_DISCONNECT_PROTOCOL_ERROR                          2
@@ -1029,7 +1025,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 
 	// Sends character data on the channel indicated by channelNum. The text is converted to
 	// the charset indicated by charset prior to being sent. A list of supported charset
-	// values may be found on this page:Supported Charsets
+	// values may be found on this page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool ChannelSendString(int channelNum, const wchar_t *textData, const wchar_t *charset);
 
@@ -1096,8 +1092,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// typically the password. If multiple responses are required (because there were
 	// multiple prompts in the infoRequest XML returned by StartKeyboardAuth), then the
 	// response should be formatted as XML (as shown below) otherwise the response simply
-	// contains the single response string.
-	// _LT_response_GT_
+	// contains the single response string._LT_response_GT_
 	//     _LT_response1_GT_response to first prompt_LT_/response1_GT_
 	//     _LT_response2_GT_response to second prompt_LT_/response2_GT_
 	//     ...
@@ -1105,16 +1100,13 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// _LT_/response_GT_
 	// 
 	// If the interactive authentication completed with success or failure, the XML
-	// response will be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// response will be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
-	// _LT_error_GT_error_message_LT_/error_GT_
-	// If additional steps are required to complete the interactive authentication,
-	// then an XML string that provides the name, instruction, and prompts is returned.
-	// The XML has the following format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// _LT_error_GT_error_message_LT_/error_GT_ If additional steps are required to
+	// complete the interactive authentication, then an XML string that provides the
+	// name, instruction, and prompts is returned. The XML has the following format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
@@ -1127,8 +1119,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// typically the password. If multiple responses are required (because there were
 	// multiple prompts in the infoRequest XML returned by StartKeyboardAuth), then the
 	// response should be formatted as XML (as shown below) otherwise the response simply
-	// contains the single response string.
-	// _LT_response_GT_
+	// contains the single response string._LT_response_GT_
 	//     _LT_response1_GT_response to first prompt_LT_/response1_GT_
 	//     _LT_response2_GT_response to second prompt_LT_/response2_GT_
 	//     ...
@@ -1136,16 +1127,13 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// _LT_/response_GT_
 	// 
 	// If the interactive authentication completed with success or failure, the XML
-	// response will be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// response will be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
-	// _LT_error_GT_error_message_LT_/error_GT_
-	// If additional steps are required to complete the interactive authentication,
-	// then an XML string that provides the name, instruction, and prompts is returned.
-	// The XML has the following format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// _LT_error_GT_error_message_LT_/error_GT_ If additional steps are required to
+	// complete the interactive authentication, then an XML string that provides the
+	// name, instruction, and prompts is returned. The XML has the following format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
@@ -1219,6 +1207,55 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// types are: "session", "x11", "forwarded-tcpip", and "direct-tcpip".
 	const wchar_t *channelType(int index);
 
+	// Returns the host key fingerprint of the server, which is automatically set after
+	// connecting to an SSH/SFTP server. The hashAlg can be any hash algorithm supported
+	// by Chilkat, such as "SHA256", "SHA384", "SHA512", "SHA1", "MD5", "SHA3-224",
+	// "SHA3-256", "SHA3-384", "SHA3-512", etc.
+	// 
+	// If both includeKeyType and includeHashName are true, then the fingerprint string is formatted like
+	// this:ssh-rsa SHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is
+	// true and includeHashName is false:ssh-rsa L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK...
+	// If includeKeyType is false:and includeHashName is
+	// trueSHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is false:and
+	// includeHashName is false:andL7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... 
+	// 
+	// SSH host key types can be: ssh-rsa, ecdsa-*-* (such as ecdsa-sha2-nistp256),
+	// ssh-ed25519, and ssh-dss.
+	// 
+	bool GetHostKeyFP(const wchar_t *hashAlg, bool includeKeyType, bool includeHashName, CkString &outStr);
+	// Returns the host key fingerprint of the server, which is automatically set after
+	// connecting to an SSH/SFTP server. The hashAlg can be any hash algorithm supported
+	// by Chilkat, such as "SHA256", "SHA384", "SHA512", "SHA1", "MD5", "SHA3-224",
+	// "SHA3-256", "SHA3-384", "SHA3-512", etc.
+	// 
+	// If both includeKeyType and includeHashName are true, then the fingerprint string is formatted like
+	// this:ssh-rsa SHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is
+	// true and includeHashName is false:ssh-rsa L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK...
+	// If includeKeyType is false:and includeHashName is
+	// trueSHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is false:and
+	// includeHashName is false:andL7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... 
+	// 
+	// SSH host key types can be: ssh-rsa, ecdsa-*-* (such as ecdsa-sha2-nistp256),
+	// ssh-ed25519, and ssh-dss.
+	// 
+	const wchar_t *getHostKeyFP(const wchar_t *hashAlg, bool includeKeyType, bool includeHashName);
+	// Returns the host key fingerprint of the server, which is automatically set after
+	// connecting to an SSH/SFTP server. The hashAlg can be any hash algorithm supported
+	// by Chilkat, such as "SHA256", "SHA384", "SHA512", "SHA1", "MD5", "SHA3-224",
+	// "SHA3-256", "SHA3-384", "SHA3-512", etc.
+	// 
+	// If both includeKeyType and includeHashName are true, then the fingerprint string is formatted like
+	// this:ssh-rsa SHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is
+	// true and includeHashName is false:ssh-rsa L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK...
+	// If includeKeyType is false:and includeHashName is
+	// trueSHA256:L7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... If includeKeyType is false:and
+	// includeHashName is false:andL7sQgnpnoBwRoyIYXAFBs8SdSnwtyYmhXs1p/mQDK... 
+	// 
+	// SSH host key types can be: ssh-rsa, ecdsa-*-* (such as ecdsa-sha2-nistp256),
+	// ssh-ed25519, and ssh-dss.
+	// 
+	const wchar_t *hostKeyFP(const wchar_t *hashAlg, bool includeKeyType, bool includeHashName);
+
 	// Returns the accumulated data received on the channel indicated by channelNum and
 	// clears the channel's internal receive buffer.
 	bool GetReceivedData(int channelNum, CkByteData &outBytes);
@@ -1244,38 +1281,38 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// Returns the accumulated stderr text received on the channel indicated by channelNum
 	// and clears the channel's internal receive buffer. The charset indicates the charset
 	// of the character data in the internal receive buffer. A list of supported
-	// charset values may be found on this page:Supported Charsets
+	// charset values may be found on this page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool GetReceivedStderrText(int channelNum, const wchar_t *charset, CkString &outStr);
 	// Returns the accumulated stderr text received on the channel indicated by channelNum
 	// and clears the channel's internal receive buffer. The charset indicates the charset
 	// of the character data in the internal receive buffer. A list of supported
-	// charset values may be found on this page:Supported Charsets
+	// charset values may be found on this page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	const wchar_t *getReceivedStderrText(int channelNum, const wchar_t *charset);
 	// Returns the accumulated stderr text received on the channel indicated by channelNum
 	// and clears the channel's internal receive buffer. The charset indicates the charset
 	// of the character data in the internal receive buffer. A list of supported
-	// charset values may be found on this page:Supported Charsets
+	// charset values may be found on this page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	const wchar_t *receivedStderrText(int channelNum, const wchar_t *charset);
 
 	// Returns the accumulated text received on the channel indicated by channelNum and
 	// clears the channel's internal receive buffer. The charset indicates the charset of
 	// the character data in the internal receive buffer. A list of supported charset
-	// values may be found on this page:Supported Charsets
+	// values may be found on this page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool GetReceivedText(int channelNum, const wchar_t *charset, CkString &outStr);
 	// Returns the accumulated text received on the channel indicated by channelNum and
 	// clears the channel's internal receive buffer. The charset indicates the charset of
 	// the character data in the internal receive buffer. A list of supported charset
-	// values may be found on this page:Supported Charsets
+	// values may be found on this page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	const wchar_t *getReceivedText(int channelNum, const wchar_t *charset);
 	// Returns the accumulated text received on the channel indicated by channelNum and
 	// clears the channel's internal receive buffer. The charset indicates the charset of
 	// the character data in the internal receive buffer. A list of supported charset
-	// values may be found on this page:Supported Charsets
+	// values may be found on this page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	const wchar_t *receivedText(int channelNum, const wchar_t *charset);
 
@@ -1393,7 +1430,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// SendReqExec, then ChannelReceiveToClose, and finally GetReceivedText.
 	// 
 	// The charset indicates the charset of the command's output (such as "utf-8" or
-	// "ansi"). A list of supported charset values may be found on this page:Supported
+	// "ansi"). A list of supported charset values may be found on this page: Supported
 	// Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
@@ -1409,7 +1446,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// SendReqExec, then ChannelReceiveToClose, and finally GetReceivedText.
 	// 
 	// The charset indicates the charset of the command's output (such as "utf-8" or
-	// "ansi"). A list of supported charset values may be found on this page:Supported
+	// "ansi"). A list of supported charset values may be found on this page: Supported
 	// Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	// 
@@ -1481,7 +1518,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// you would type the command at a shell prompt).
 	// 
 	// This is the equivalent of running a command on a remote server via the "rexec"
-	// command. Seerexec command
+	// command. See rexec command
 	// <https://linux.die.net/man/1/rexec>. It is not a shell session.
 	// 
 	// Important: A channel only exists for a single request. You may not call
@@ -1514,8 +1551,7 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// 
 	// Some SSH servers allow a shell to be started (via the SendReqShell method)
 	// without the need to first request a pseudo-terminal. The normal sequence for
-	// starting a remote shell is as follows:
-	// 1) Connect
+	// starting a remote shell is as follows:1) Connect
 	// 2) Authenticate
 	// 3) OpenSessionChannel
 	// 4) Request a PTY via this method if necessary.
@@ -1617,18 +1653,16 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 
 	// Begins keyboard-interactive authentication with the SSH server. Returns an XML
 	// string providing the name, instruction, and prompts. The XML has the following
-	// format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
 	// 	    ...
 	// 	    _LT_promptN echo="1_or_0"_GT_prompt_string_LT_/promptN_GT_
-	// 	_LT_/infoRequest_GT_
+	// _LT_/infoRequest_GT_
 	// 
 	// If the authentication immediately succeeds because no password is required, or
-	// immediately fails, the XML response can be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// immediately fails, the XML response can be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
@@ -1637,18 +1671,16 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	bool StartKeyboardAuth(const wchar_t *login, CkString &outStr);
 	// Begins keyboard-interactive authentication with the SSH server. Returns an XML
 	// string providing the name, instruction, and prompts. The XML has the following
-	// format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
 	// 	    ...
 	// 	    _LT_promptN echo="1_or_0"_GT_prompt_string_LT_/promptN_GT_
-	// 	_LT_/infoRequest_GT_
+	// _LT_/infoRequest_GT_
 	// 
 	// If the authentication immediately succeeds because no password is required, or
-	// immediately fails, the XML response can be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// immediately fails, the XML response can be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 

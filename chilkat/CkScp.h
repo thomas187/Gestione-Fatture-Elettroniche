@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkScp_H
 #define _CkScp_H
@@ -118,24 +118,21 @@ class CK_VISIBLE_PUBLIC CkScp  : public CkClassWithCallbacks
 	void put_PercentDoneScale(int newVal);
 
 	// A JSON string specifying environment variables that are to be set for each SCP
-	// upload or download. For example:
-	// {
+	// upload or download. For example:{
 	//     "LCS_PASSWORD": "myPassword",
 	//     "SOME_ENV_VAR": "some_value",
 	// ...
 	// }
 	void get_SendEnv(CkString &str);
 	// A JSON string specifying environment variables that are to be set for each SCP
-	// upload or download. For example:
-	// {
+	// upload or download. For example:{
 	//     "LCS_PASSWORD": "myPassword",
 	//     "SOME_ENV_VAR": "some_value",
 	// ...
 	// }
 	const char *sendEnv(void);
 	// A JSON string specifying environment variables that are to be set for each SCP
-	// upload or download. For example:
-	// {
+	// upload or download. For example:{
 	//     "LCS_PASSWORD": "myPassword",
 	//     "SOME_ENV_VAR": "some_value",
 	// ...
@@ -348,7 +345,7 @@ class CK_VISIBLE_PUBLIC CkScp  : public CkClassWithCallbacks
 	//     local filesystem, it is not downloaded from the server.
 	//     mode=5: Download only missing files or files with size differences.
 	//     mode=6: Same as mode 5, but also download newer files.
-	//     
+	//      
 	// 
 	bool SyncTreeDownload(const char *remoteRoot, const char *localRoot, int mode, bool bRecurse);
 
@@ -362,7 +359,7 @@ class CK_VISIBLE_PUBLIC CkScp  : public CkClassWithCallbacks
 	//     local filesystem, it is not downloaded from the server.
 	//     mode=5: Download only missing files or files with size differences.
 	//     mode=6: Same as mode 5, but also download newer files.
-	//     
+	//      
 	// 
 	CkTask *SyncTreeDownloadAsync(const char *remoteRoot, const char *localRoot, int mode, bool bRecurse);
 

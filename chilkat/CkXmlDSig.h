@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkXmlDSig_H
 #define _CkXmlDSig_H
@@ -108,8 +108,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSig  : public CkMultiByteBase
 	int get_NumReferences(void);
 
 	// The number of digital signatures found within the loaded XML. Each digital
-	// signature is composed of XML having the following structure:
-	//   _LT_Signature ID?_GT_ 
+	// signature is composed of XML having the following structure:_LT_Signature ID?_GT_ 
 	//      _LT_SignedInfo_GT_
 	//        _LT_CanonicalizationMethod/_GT_
 	//        _LT_SignatureMethod/_GT_
@@ -122,8 +121,8 @@ class CK_VISIBLE_PUBLIC CkXmlDSig  : public CkMultiByteBase
 	//      _LT_SignatureValue_GT_ 
 	//     (_LT_KeyInfo_GT_)?
 	//     (_LT_Object ID?_GT_)*
-	//  _LT_/Signature_GT_
-	// Note: The "Signature" and other XML tags may be namespace prefixed.
+	// _LT_/Signature_GT_ Note: The "Signature" and other XML tags may be namespace
+	// prefixed.
 	// 
 	// The Selector property is used to select which XML signature is in effect when
 	// validating or calling other methods or properties.

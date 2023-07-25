@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkAsnW_H
 #define _CkAsnW_H
@@ -89,8 +89,7 @@ class CK_VISIBLE_PUBLIC CkAsnW  : public CkWideCharBase
 	// OIDs, octet strings, integers, etc. will never contain sub-items.
 	int get_NumSubItems(void);
 
-	// The ASN.1 item's tag as a descriptive string. Possible values are:
-	// boolean
+	// The ASN.1 item's tag as a descriptive string. Possible values are:boolean
 	// integer
 	// bitString
 	// octets
@@ -107,8 +106,7 @@ class CK_VISIBLE_PUBLIC CkAsnW  : public CkWideCharBase
 	// utcTime
 	// bmpString
 	void get_Tag(CkString &str);
-	// The ASN.1 item's tag as a descriptive string. Possible values are:
-	// boolean
+	// The ASN.1 item's tag as a descriptive string. Possible values are:boolean
 	// integer
 	// bitString
 	// octets
@@ -127,8 +125,7 @@ class CK_VISIBLE_PUBLIC CkAsnW  : public CkWideCharBase
 	const wchar_t *tag(void);
 
 	// The ASN.1 item's tag as a integer value. The integer values for possible tags
-	// are as follows:
-	// boolean (1)
+	// are as follows:boolean (1)
 	// integer (2)
 	// bitString (3)
 	// octets (4)

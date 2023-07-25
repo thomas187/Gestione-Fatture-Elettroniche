@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkMime_H
 #define _CkMime_H
@@ -65,10 +65,9 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// The boundary string for a multipart MIME message.
 	// 
 	// It is the value of the boundary attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/mixed; boundary="------------080707010302060306060800"
-	// then the value of the Boundary property is
-	// "------------080707010302060306060800".
+	// example, if the Content-Type header is this:Content-Type: multipart/mixed;
+	// boundary="------------080707010302060306060800" then the value of the Boundary
+	// property is "------------080707010302060306060800".
 	// 
 	// When building multipart MIME messages, the boundary is automatically generated
 	// by methods such as NewMultipartMixed, to be a unique and random string, so
@@ -78,10 +77,9 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// The boundary string for a multipart MIME message.
 	// 
 	// It is the value of the boundary attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/mixed; boundary="------------080707010302060306060800"
-	// then the value of the Boundary property is
-	// "------------080707010302060306060800".
+	// example, if the Content-Type header is this:Content-Type: multipart/mixed;
+	// boundary="------------080707010302060306060800" then the value of the Boundary
+	// property is "------------080707010302060306060800".
 	// 
 	// When building multipart MIME messages, the boundary is automatically generated
 	// by methods such as NewMultipartMixed, to be a unique and random string, so
@@ -91,10 +89,9 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// The boundary string for a multipart MIME message.
 	// 
 	// It is the value of the boundary attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/mixed; boundary="------------080707010302060306060800"
-	// then the value of the Boundary property is
-	// "------------080707010302060306060800".
+	// example, if the Content-Type header is this:Content-Type: multipart/mixed;
+	// boundary="------------080707010302060306060800" then the value of the Boundary
+	// property is "------------080707010302060306060800".
 	// 
 	// When building multipart MIME messages, the boundary is automatically generated
 	// by methods such as NewMultipartMixed, to be a unique and random string, so
@@ -103,19 +100,16 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	void put_Boundary(const char *newVal);
 
 	// The value of the "charset" attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: text/plain; charset="iso-8859-1"
-	// then the value of the Charset property is "iso-8859-1".
+	// example, if the Content-Type header is this:Content-Type: text/plain;
+	// charset="iso-8859-1" then the value of the Charset property is "iso-8859-1".
 	void get_Charset(CkString &str);
 	// The value of the "charset" attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: text/plain; charset="iso-8859-1"
-	// then the value of the Charset property is "iso-8859-1".
+	// example, if the Content-Type header is this:Content-Type: text/plain;
+	// charset="iso-8859-1" then the value of the Charset property is "iso-8859-1".
 	const char *charset(void);
 	// The value of the "charset" attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: text/plain; charset="iso-8859-1"
-	// then the value of the Charset property is "iso-8859-1".
+	// example, if the Content-Type header is this:Content-Type: text/plain;
+	// charset="iso-8859-1" then the value of the Charset property is "iso-8859-1".
 	void put_Charset(const char *newVal);
 
 	// A JSON string for controlling extra CMS (PKCS7) signature and validation
@@ -132,27 +126,27 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// "multipart/alternative", "multipart/mixed", etc.
 	// 
 	// It is the value of the Content-Type header field, excluding any attributes. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/mixed; boundary="------------080707010302060306060800"
-	// then the value of the ContentType property is "multipart/mixed".
+	// example, if the Content-Type header is this:Content-Type: multipart/mixed;
+	// boundary="------------080707010302060306060800" then the value of the
+	// ContentType property is "multipart/mixed".
 	// 
 	void get_ContentType(CkString &str);
 	// The MIME content type, such as "text/plain", "text/html", "image/gif",
 	// "multipart/alternative", "multipart/mixed", etc.
 	// 
 	// It is the value of the Content-Type header field, excluding any attributes. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/mixed; boundary="------------080707010302060306060800"
-	// then the value of the ContentType property is "multipart/mixed".
+	// example, if the Content-Type header is this:Content-Type: multipart/mixed;
+	// boundary="------------080707010302060306060800" then the value of the
+	// ContentType property is "multipart/mixed".
 	// 
 	const char *contentType(void);
 	// The MIME content type, such as "text/plain", "text/html", "image/gif",
 	// "multipart/alternative", "multipart/mixed", etc.
 	// 
 	// It is the value of the Content-Type header field, excluding any attributes. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/mixed; boundary="------------080707010302060306060800"
-	// then the value of the ContentType property is "multipart/mixed".
+	// example, if the Content-Type header is this:Content-Type: multipart/mixed;
+	// boundary="------------080707010302060306060800" then the value of the
+	// ContentType property is "multipart/mixed".
 	// 
 	void put_ContentType(const char *newVal);
 
@@ -162,61 +156,57 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	const char *currentDateTime(void);
 
 	// The value of the Content-Disposition header field, excluding any attributes. For
-	// example, if the Content-Disposition header is this:
-	// Content-Disposition: attachment; filename="starfish.gif"
-	// then the value of the Disposition property is "attachment".
+	// example, if the Content-Disposition header is this:Content-Disposition:
+	// attachment; filename="starfish.gif" then the value of the Disposition property
+	// is "attachment".
 	void get_Disposition(CkString &str);
 	// The value of the Content-Disposition header field, excluding any attributes. For
-	// example, if the Content-Disposition header is this:
-	// Content-Disposition: attachment; filename="starfish.gif"
-	// then the value of the Disposition property is "attachment".
+	// example, if the Content-Disposition header is this:Content-Disposition:
+	// attachment; filename="starfish.gif" then the value of the Disposition property
+	// is "attachment".
 	const char *disposition(void);
 	// The value of the Content-Disposition header field, excluding any attributes. For
-	// example, if the Content-Disposition header is this:
-	// Content-Disposition: attachment; filename="starfish.gif"
-	// then the value of the Disposition property is "attachment".
+	// example, if the Content-Disposition header is this:Content-Disposition:
+	// attachment; filename="starfish.gif" then the value of the Disposition property
+	// is "attachment".
 	void put_Disposition(const char *newVal);
 
 	// The value of the Content-Transfer-Encoding header field. Typical values are
 	// "base64", "quoted-printable", "7bit", "8bit", "binary", etc. For example, if the
-	// Content-Transfer-Encoding header is this:
-	// Content-Transfer-Encoding: base64
-	// then the value of the Encoding property is "base64".
+	// Content-Transfer-Encoding header is this:Content-Transfer-Encoding: base64 then
+	// the value of the Encoding property is "base64".
 	void get_Encoding(CkString &str);
 	// The value of the Content-Transfer-Encoding header field. Typical values are
 	// "base64", "quoted-printable", "7bit", "8bit", "binary", etc. For example, if the
-	// Content-Transfer-Encoding header is this:
-	// Content-Transfer-Encoding: base64
-	// then the value of the Encoding property is "base64".
+	// Content-Transfer-Encoding header is this:Content-Transfer-Encoding: base64 then
+	// the value of the Encoding property is "base64".
 	const char *encoding(void);
 	// The value of the Content-Transfer-Encoding header field. Typical values are
 	// "base64", "quoted-printable", "7bit", "8bit", "binary", etc. For example, if the
-	// Content-Transfer-Encoding header is this:
-	// Content-Transfer-Encoding: base64
-	// then the value of the Encoding property is "base64".
+	// Content-Transfer-Encoding header is this:Content-Transfer-Encoding: base64 then
+	// the value of the Encoding property is "base64".
 	void put_Encoding(const char *newVal);
 
 	// The value of the "filename" attribute of the Content-Disposition header field.
-	// For example, if the Content-Disposition header is this:
-	// Content-Disposition: attachment; filename="starfish.gif"
-	// then the value of the Filename property is "starfish.gif".
+	// For example, if the Content-Disposition header is this:Content-Disposition:
+	// attachment; filename="starfish.gif" then the value of the Filename property is
+	// "starfish.gif".
 	void get_Filename(CkString &str);
 	// The value of the "filename" attribute of the Content-Disposition header field.
-	// For example, if the Content-Disposition header is this:
-	// Content-Disposition: attachment; filename="starfish.gif"
-	// then the value of the Filename property is "starfish.gif".
+	// For example, if the Content-Disposition header is this:Content-Disposition:
+	// attachment; filename="starfish.gif" then the value of the Filename property is
+	// "starfish.gif".
 	const char *filename(void);
 	// The value of the "filename" attribute of the Content-Disposition header field.
-	// For example, if the Content-Disposition header is this:
-	// Content-Disposition: attachment; filename="starfish.gif"
-	// then the value of the Filename property is "starfish.gif".
+	// For example, if the Content-Disposition header is this:Content-Disposition:
+	// attachment; filename="starfish.gif" then the value of the Filename property is
+	// "starfish.gif".
 	void put_Filename(const char *newVal);
 
 	// The value of the "micalg" attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
-	//   boundary="------------ms000908010507020408060303"
-	// then the value of the Micalg property is "sha".
+	// example, if the Content-Type header is this:Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
+	// boundary="------------ms000908010507020408060303" then the value of the Micalg
+	// property is "sha".
 	// 
 	// Note: The micalg attribute is only present in PKCS7 signed MIME. Setting the
 	// Micalg property has the effect of choosing the hash algorithm used w/ signing.
@@ -226,10 +216,9 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// 
 	void get_Micalg(CkString &str);
 	// The value of the "micalg" attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
-	//   boundary="------------ms000908010507020408060303"
-	// then the value of the Micalg property is "sha".
+	// example, if the Content-Type header is this:Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
+	// boundary="------------ms000908010507020408060303" then the value of the Micalg
+	// property is "sha".
 	// 
 	// Note: The micalg attribute is only present in PKCS7 signed MIME. Setting the
 	// Micalg property has the effect of choosing the hash algorithm used w/ signing.
@@ -239,10 +228,9 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// 
 	const char *micalg(void);
 	// The value of the "micalg" attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
-	//   boundary="------------ms000908010507020408060303"
-	// then the value of the Micalg property is "sha".
+	// example, if the Content-Type header is this:Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
+	// boundary="------------ms000908010507020408060303" then the value of the Micalg
+	// property is "sha".
 	// 
 	// Note: The micalg attribute is only present in PKCS7 signed MIME. Setting the
 	// Micalg property has the effect of choosing the hash algorithm used w/ signing.
@@ -253,18 +241,15 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	void put_Micalg(const char *newVal);
 
 	// The value of the "name" attribute of the Content-Type header field. For example,
-	// if the Content-Type header is this:
-	// Content-Type: image/gif; name="starfish.gif"
+	// if the Content-Type header is this:Content-Type: image/gif; name="starfish.gif"
 	// then the value of the Name property is "starfish.gif".
 	void get_Name(CkString &str);
 	// The value of the "name" attribute of the Content-Type header field. For example,
-	// if the Content-Type header is this:
-	// Content-Type: image/gif; name="starfish.gif"
+	// if the Content-Type header is this:Content-Type: image/gif; name="starfish.gif"
 	// then the value of the Name property is "starfish.gif".
 	const char *name(void);
 	// The value of the "name" attribute of the Content-Type header field. For example,
-	// if the Content-Type header is this:
-	// Content-Type: image/gif; name="starfish.gif"
+	// if the Content-Type header is this:Content-Type: image/gif; name="starfish.gif"
 	// then the value of the Name property is "starfish.gif".
 	void put_Name(const char *newVal);
 
@@ -346,22 +331,19 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	void put_Pkcs7KeyLength(int newVal);
 
 	// The value of the "protocol" attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
-	//   boundary="------------ms000908010507020408060303"
-	// then the value of the Protocol property is "application/x-pkcs7-signature".
+	// example, if the Content-Type header is this:Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
+	// boundary="------------ms000908010507020408060303" then the value of the Protocol
+	// property is "application/x-pkcs7-signature".
 	void get_Protocol(CkString &str);
 	// The value of the "protocol" attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
-	//   boundary="------------ms000908010507020408060303"
-	// then the value of the Protocol property is "application/x-pkcs7-signature".
+	// example, if the Content-Type header is this:Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
+	// boundary="------------ms000908010507020408060303" then the value of the Protocol
+	// property is "application/x-pkcs7-signature".
 	const char *protocol(void);
 	// The value of the "protocol" attribute of the Content-Type header field. For
-	// example, if the Content-Type header is this:
-	// Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
-	//   boundary="------------ms000908010507020408060303"
-	// then the value of the Protocol property is "application/x-pkcs7-signature".
+	// example, if the Content-Type header is this:Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg=sha1; 
+	// boundary="------------ms000908010507020408060303" then the value of the Protocol
+	// property is "application/x-pkcs7-signature".
 	void put_Protocol(const char *newVal);
 
 	// Selects the signature algorithm to be used when creating signed (PKCS7/CMS)
@@ -451,44 +433,38 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	void put_UseMmDescription(bool newVal);
 
 	// If true, then the Content-Type header fields created by Chilkat will use
-	// "x-pkcs7" instead of simply "pkcs7" . For example:
-	// Content-Type: multipart/signed;
+	// "x-pkcs7" instead of simply "pkcs7" . For example:Content-Type: multipart/signed;
 	// 	boundary="----=_NextPart_af8_0422_dbec3a60.7178e470";
 	// 	protocol="application/x-pkcs7-signature"; micalg=sha1
 	// 
 	// or
 	// 
-	// Content-Type: application/x-pkcs7-mime; name="smime.p7m"
-	// If false, then the "pcks7" is used. For example:
-	// Content-Type: multipart/signed;
+	// Content-Type: application/x-pkcs7-mime; name="smime.p7m" If false, then the
+	// "pcks7" is used. For example:Content-Type: multipart/signed;
 	// 	boundary="----=_NextPart_af8_0422_dbec3a60.7178e470";
 	// 	protocol="application/pkcs7-signature"; micalg=sha1
 	// 
 	// or
 	// 
-	// Content-Type: application/pkcs7-mime; name="smime.p7m"
-	// The default value of this property is true, meaning that "x-" is used by
-	// default.
+	// Content-Type: application/pkcs7-mime; name="smime.p7m" The default value of this
+	// property is true, meaning that "x-" is used by default.
 	bool get_UseXPkcs7(void);
 	// If true, then the Content-Type header fields created by Chilkat will use
-	// "x-pkcs7" instead of simply "pkcs7" . For example:
-	// Content-Type: multipart/signed;
+	// "x-pkcs7" instead of simply "pkcs7" . For example:Content-Type: multipart/signed;
 	// 	boundary="----=_NextPart_af8_0422_dbec3a60.7178e470";
 	// 	protocol="application/x-pkcs7-signature"; micalg=sha1
 	// 
 	// or
 	// 
-	// Content-Type: application/x-pkcs7-mime; name="smime.p7m"
-	// If false, then the "pcks7" is used. For example:
-	// Content-Type: multipart/signed;
+	// Content-Type: application/x-pkcs7-mime; name="smime.p7m" If false, then the
+	// "pcks7" is used. For example:Content-Type: multipart/signed;
 	// 	boundary="----=_NextPart_af8_0422_dbec3a60.7178e470";
 	// 	protocol="application/pkcs7-signature"; micalg=sha1
 	// 
 	// or
 	// 
-	// Content-Type: application/pkcs7-mime; name="smime.p7m"
-	// The default value of this property is true, meaning that "x-" is used by
-	// default.
+	// Content-Type: application/pkcs7-mime; name="smime.p7m" The default value of this
+	// property is true, meaning that "x-" is used by default.
 	void put_UseXPkcs7(bool newVal);
 
 
@@ -589,8 +565,7 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 
 	// When the body of a MIME part contains PKCS7 (ASN.1 in DER format,
 	// base64-encoded), this method can be used to convert the ASN.1 to an XML format
-	// for inspection. Here is an example of how an ASN.1 body might look:
-	// Content-Type: application/x-pkcs7-mime;
+	// for inspection. Here is an example of how an ASN.1 body might look:Content-Type: application/x-pkcs7-mime;
 	// 	name="smime.p7m"; smime-type="signed-data"
 	// Content-Transfer-Encoding: base64
 	// Content-Disposition: attachment; filename="smime.p7m"
@@ -598,9 +573,7 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// MIIXXAYJKoZIhvcNAQcCoIIXTTCCF0kCAQExCzAJBgUrDgMCGgUAMFoGCSqGSIb3DQEHAaBNBEtD
 	// b250ZW50LVR5cGU6IHRleHQvcGxhaW4NCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IDdiaXQN
 	// Cg0KdGhpcyBpcyBhIHRlc3SgghI/MIIE3jCCA8agAwIBAgICAwEwDQYJKoZIhvcNAQEFBQAwYzEL
-	// ...
-	// The XML produced would look something like this:
-	// _LT_?xml version="1.0" encoding="utf-8" ?>
+	// ... The XML produced would look something like this:_LT_?xml version="1.0" encoding="utf-8" ?>
 	// _LT_sequence>
 	//     _LT_oid>1.2.840.113549.1.7.2_LT_/oid>
 	//     _LT_contextSpecific tag="0" constructed="1">
@@ -620,8 +593,7 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 
 	// When the body of a MIME part contains PKCS7 (ASN.1 in DER format,
 	// base64-encoded), this method can be used to convert the ASN.1 to an XML format
-	// for inspection. Here is an example of how an ASN.1 body might look:
-	// Content-Type: application/x-pkcs7-mime;
+	// for inspection. Here is an example of how an ASN.1 body might look:Content-Type: application/x-pkcs7-mime;
 	// 	name="smime.p7m"; smime-type="signed-data"
 	// Content-Transfer-Encoding: base64
 	// Content-Disposition: attachment; filename="smime.p7m"
@@ -629,9 +601,7 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// MIIXXAYJKoZIhvcNAQcCoIIXTTCCF0kCAQExCzAJBgUrDgMCGgUAMFoGCSqGSIb3DQEHAaBNBEtD
 	// b250ZW50LVR5cGU6IHRleHQvcGxhaW4NCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IDdiaXQN
 	// Cg0KdGhpcyBpcyBhIHRlc3SgghI/MIIE3jCCA8agAwIBAgICAwEwDQYJKoZIhvcNAQEFBQAwYzEL
-	// ...
-	// The XML produced would look something like this:
-	// _LT_?xml version="1.0" encoding="utf-8" ?>
+	// ... The XML produced would look something like this:_LT_?xml version="1.0" encoding="utf-8" ?>
 	// _LT_sequence>
 	//     _LT_oid>1.2.840.113549.1.7.2_LT_/oid>
 	//     _LT_contextSpecific tag="0" constructed="1">
@@ -702,23 +672,21 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// Content-Transfer-Encoding, and Content-Disposition. For example, the following
 	// simple plain-text MIME is converted as follows:
 	// 
-	// Original:
-	// MIME-Version: 1.0
+	// Original:MIME-Version: 1.0
 	// Date: Sun, 11 Aug 2013 11:18:44 -0500
-	// Message-ID: Content-Type: text/plain
+	// Message-ID:Content-Type: text/plain
 	// Content-Transfer-Encoding: quoted-printable
 	// X-Priority: 3 (Normal)
 	// Subject: this is the subject.
 	// From: "Chilkat Software" 
-	// To: "Chilkat Sales" This is the plain-text body.
+	// To: "Chilkat Sales"This is the plain-text body.
 	// 
-	// After Converting:
-	// MIME-Version: 1.0
+	// After Converting:MIME-Version: 1.0
 	// Date: Sun, 11 Aug 2013 11:18:44 -0500
-	// Message-ID: X-Priority: 3 (Normal)
+	// Message-ID:X-Priority: 3 (Normal)
 	// Subject: this is the subject.
 	// From: "Chilkat Software" 
-	// To: "Chilkat Sales" Content-Type: multipart/alternative;
+	// To: "Chilkat Sales"Content-Type: multipart/alternative;
 	// 	boundary="------------040101040804050401050400_.ALT"
 	// 
 	// --------------040101040804050401050400_.ALT
@@ -739,23 +707,21 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 	// Content-Disposition. For example, the following simple plain-text MIME is
 	// converted as follows:
 	// 
-	// Original:
-	// MIME-Version: 1.0
+	// Original:MIME-Version: 1.0
 	// Date: Sun, 11 Aug 2013 11:27:04 -0500
-	// Message-ID: Content-Type: text/plain
+	// Message-ID:Content-Type: text/plain
 	// Content-Transfer-Encoding: quoted-printable
 	// X-Priority: 3 (Normal)
 	// Subject: this is the subject.
 	// From: "Chilkat Software" 
-	// To: "Chilkat Sales" This is the plain-text body.
+	// To: "Chilkat Sales"This is the plain-text body.
 	// 
-	// After Converting:
-	// MIME-Version: 1.0
+	// After Converting:MIME-Version: 1.0
 	// Date: Sun, 11 Aug 2013 11:27:04 -0500
-	// Message-ID: X-Priority: 3 (Normal)
+	// Message-ID:X-Priority: 3 (Normal)
 	// Subject: this is the subject.
 	// From: "Chilkat Software" 
-	// To: "Chilkat Sales" Content-Type: multipart/mixed;
+	// To: "Chilkat Sales"Content-Type: multipart/mixed;
 	// 	boundary="------------050508060709030908040207"
 	// 
 	// --------------050508060709030908040207
@@ -924,40 +890,37 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 
 
 	// Parses a MIME header field and returns the value of an attribute. MIME header
-	// fields w/ attributes are formatted like this:
-	// Header-Name:  value;  attrName1="value1"; attrName2="value2"; ....  attrNameN="valueN"
-	// Semi-colons separate attribute name=value pairs. The Content-Type header field
-	// often contains attributes. Here is an example:
-	// Content-Type: multipart/signed;
+	// fields w/ attributes are formatted like this:Header-Name: value;
+	// attrName1="value1"; attrName2="value2"; .... attrNameN="valueN" Semi-colons
+	// separate attribute name=value pairs. The Content-Type header field often
+	// contains attributes. Here is an example:Content-Type: multipart/signed;
 	// 	protocol="application/x-pkcs7-signature";
 	// 	micalg=SHA1;
-	// 	boundary="----=_NextPart_000_0000_01CB03E4.D0BAF010"
-	// In the above example, to access the value of the "protocol" attribute, call
+	// boundary="----=_NextPart_000_0000_01CB03E4.D0BAF010" In the above example, to
+	// access the value of the "protocol" attribute, call
 	// GetHeaderFieldAttribute("Content-Type", "protocol");
 	bool GetHeaderFieldAttribute(const char *name, const char *attrName, CkString &outStr);
 
 	// Parses a MIME header field and returns the value of an attribute. MIME header
-	// fields w/ attributes are formatted like this:
-	// Header-Name:  value;  attrName1="value1"; attrName2="value2"; ....  attrNameN="valueN"
-	// Semi-colons separate attribute name=value pairs. The Content-Type header field
-	// often contains attributes. Here is an example:
-	// Content-Type: multipart/signed;
+	// fields w/ attributes are formatted like this:Header-Name: value;
+	// attrName1="value1"; attrName2="value2"; .... attrNameN="valueN" Semi-colons
+	// separate attribute name=value pairs. The Content-Type header field often
+	// contains attributes. Here is an example:Content-Type: multipart/signed;
 	// 	protocol="application/x-pkcs7-signature";
 	// 	micalg=SHA1;
-	// 	boundary="----=_NextPart_000_0000_01CB03E4.D0BAF010"
-	// In the above example, to access the value of the "protocol" attribute, call
+	// boundary="----=_NextPart_000_0000_01CB03E4.D0BAF010" In the above example, to
+	// access the value of the "protocol" attribute, call
 	// GetHeaderFieldAttribute("Content-Type", "protocol");
 	const char *getHeaderFieldAttribute(const char *name, const char *attrName);
 	// Parses a MIME header field and returns the value of an attribute. MIME header
-	// fields w/ attributes are formatted like this:
-	// Header-Name:  value;  attrName1="value1"; attrName2="value2"; ....  attrNameN="valueN"
-	// Semi-colons separate attribute name=value pairs. The Content-Type header field
-	// often contains attributes. Here is an example:
-	// Content-Type: multipart/signed;
+	// fields w/ attributes are formatted like this:Header-Name: value;
+	// attrName1="value1"; attrName2="value2"; .... attrNameN="valueN" Semi-colons
+	// separate attribute name=value pairs. The Content-Type header field often
+	// contains attributes. Here is an example:Content-Type: multipart/signed;
 	// 	protocol="application/x-pkcs7-signature";
 	// 	micalg=SHA1;
-	// 	boundary="----=_NextPart_000_0000_01CB03E4.D0BAF010"
-	// In the above example, to access the value of the "protocol" attribute, call
+	// boundary="----=_NextPart_000_0000_01CB03E4.D0BAF010" In the above example, to
+	// access the value of the "protocol" attribute, call
 	// GetHeaderFieldAttribute("Content-Type", "protocol");
 	const char *headerFieldAttribute(const char *name, const char *attrName);
 
@@ -1349,18 +1312,14 @@ class CK_VISIBLE_PUBLIC CkMime  : public CkMultiByteBase
 
 
 	// URL encodes the MIME body. The charset is important. For example, consider this
-	// MIME:
-	// Content-Type: text/plain
+	// MIME:Content-Type: text/plain
 	// Content-Transfer-Encoding: 8bit
 	// 
-	// Société
-	// If the charset is set to "utf-8", then the following is produced:
-	// Content-Type: text/plain
+	// Société If the charset is set to "utf-8", then the following is produced:Content-Type: text/plain
 	// Content-Transfer-Encoding: 8bit
 	// 
-	// Soci%C3%A9t%C3%A9
-	// However, if the charset is set to "ansi", then the following is the result:
-	// Content-Type: text/plain
+	// Soci%C3%A9t%C3%A9 However, if the charset is set to "ansi", then the following is
+	// the result:Content-Type: text/plain
 	// Content-Transfer-Encoding: 8bit
 	// 
 	// Soci%E9t%E9

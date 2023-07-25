@@ -1,8 +1,9 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkCertWH
 #define _C_CkCertWH
 #include "chilkatDefs.h"
 
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -135,6 +136,8 @@ CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetExtensionAsXml(HCkCertW cHandle, const wchar
 CK_C_VISIBLE_PUBLIC const wchar_t *CkCertW_getExtensionAsXml(HCkCertW cHandle, const wchar_t *oid);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetPrivateKeyPem(HCkCertW cHandle, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkCertW_getPrivateKeyPem(HCkCertW cHandle);
+CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetPubKeyDer(HCkCertW cHandle, BOOL preferPkcs1, HCkBinDataW bd);
+CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetSignature(HCkCertW cHandle, HCkBinDataW bd);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetSpkiFingerprint(HCkCertW cHandle, const wchar_t *hashAlg, const wchar_t *encoding, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkCertW_getSpkiFingerprint(HCkCertW cHandle, const wchar_t *hashAlg, const wchar_t *encoding);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetSubjectPart(HCkCertW cHandle, const wchar_t *partNameOrOid, HCkString outStr);

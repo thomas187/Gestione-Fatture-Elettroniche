@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkKeyContainer_H
 #define _CkKeyContainer_H
@@ -193,8 +193,7 @@ class CK_VISIBLE_PUBLIC CkKeyContainer  : public CkMultiByteBase
 
 	// Loads json with a list of storage providers on the Windows system.
 	// 
-	// The json will contain JSON such as this:
-	// {
+	// The json will contain JSON such as this:{
 	//   "cng": [
 	//     "Microsoft Software Key Storage Provider",
 	//     "Microsoft Passport Key Storage Provider",

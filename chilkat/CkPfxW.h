@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkPfxW_H
 #define _CkPfxW_H
@@ -274,10 +274,8 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	//     bag of attributes within the PFX.)
 	//     "keyContainerName" : Returns the key container name (or key name) of the
 	//     private key. For more information about the directories where the Windows OS
-	//     stores private keys,
-	//     seehttps://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieva
-	//     l
-	//     <https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval>
+	//     stores private keys, see
+	//     https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval
 	//     "storageProvider" : Returns the name of the Cryptographic Storage Provider
 	//     to be used for the key.
 	// 
@@ -296,10 +294,8 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	//     bag of attributes within the PFX.)
 	//     "keyContainerName" : Returns the key container name (or key name) of the
 	//     private key. For more information about the directories where the Windows OS
-	//     stores private keys,
-	//     seehttps://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieva
-	//     l
-	//     <https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval>
+	//     stores private keys, see
+	//     https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval
 	//     "storageProvider" : Returns the name of the Cryptographic Storage Provider
 	//     to be used for the key.
 	// 
@@ -318,10 +314,8 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	//     bag of attributes within the PFX.)
 	//     "keyContainerName" : Returns the key container name (or key name) of the
 	//     private key. For more information about the directories where the Windows OS
-	//     stores private keys,
-	//     seehttps://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieva
-	//     l
-	//     <https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval>
+	//     stores private keys, see
+	//     https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval
 	//     "storageProvider" : Returns the name of the Cryptographic Storage Provider
 	//     to be used for the key.
 	// 
@@ -330,7 +324,6 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// 
 	const wchar_t *safeBagAttr(bool forPrivateKey, int index, const wchar_t *attrName);
 
-#if defined(CK_WINCERTSTORE_INCLUDED)
 	// Imports the certificates and private keys contained in the PFX to Windows
 	// certificate store(s).
 	// 
@@ -379,7 +372,6 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// pass an empty string.
 	// 
 	bool ImportToWindows(bool exportable, bool userProtected, bool machineKeyset, bool allowOverwriteKey, bool allowExport, const wchar_t *leafStore, const wchar_t *intermediateStore, const wchar_t *rootStore, const wchar_t *extraOptions);
-#endif
 
 	// Provides information about what transpired in the last method called.
 	// The caller is responsible for deleting the object returned by this method.
@@ -387,8 +379,7 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 
 	// Loads a PFX from a PEM formatted string. The PEM can contain the private key,
 	// the certificate, and certificates in the chain of authentication up to the CA
-	// root. For example:
-	//  -----BEGIN RSA PRIVATE KEY-----
+	// root. For example:-----BEGIN RSA PRIVATE KEY-----
 	// ...
 	// ... the private key associated with the main certificate.
 	// ...
@@ -407,7 +398,7 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// ...
 	// ... the root CA certificate
 	// ...
-	// -----END CERTIFICATE----- 
+	// -----END CERTIFICATE-----
 	bool LoadPem(const wchar_t *pemStr, const wchar_t *password);
 
 	// Loads a PFX from in-memory bytes.
@@ -432,14 +423,11 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// Loads a PFX from a file.
 	// 
 	// Starting in v9.5.0.75, a .pfx/.p12 file with different passwords for integrity
-	// and private keys can be loaded by passing the following JSON for the password.
-	//     {
+	// and private keys can be loaded by passing the following JSON for the password.{
 	//       "integrity": "password1",
 	//       "privKeys": "password2",
-	//      }
-	// If it is desired to open the .pfx/.p12 without access to the private keys, then
-	// add "skipPrivateKeys" like this:
-	//     {
+	// } If it is desired to open the .pfx/.p12 without access to the private keys,
+	// then add "skipPrivateKeys" like this:{
 	//       "integrity": "password1",
 	//       "privKeys": "not used",
 	//        "skipPrivateKeys": true
@@ -495,8 +483,7 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 
 	// Write the PFX to a PEM formatted string. The resultant PEM will contain the
 	// private key, as well as the certs in the chain of authentication (or whatever
-	// certs are available in the PFX). For example:
-	//  -----BEGIN RSA PRIVATE KEY-----
+	// certs are available in the PFX). For example:-----BEGIN RSA PRIVATE KEY-----
 	// ...
 	// ... the private key associated with the main certificate.
 	// ...
@@ -515,12 +502,11 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// ...
 	// ... the root CA certificate
 	// ...
-	// -----END CERTIFICATE----- 
+	// -----END CERTIFICATE-----
 	bool ToPem(CkString &outStr);
 	// Write the PFX to a PEM formatted string. The resultant PEM will contain the
 	// private key, as well as the certs in the chain of authentication (or whatever
-	// certs are available in the PFX). For example:
-	//  -----BEGIN RSA PRIVATE KEY-----
+	// certs are available in the PFX). For example:-----BEGIN RSA PRIVATE KEY-----
 	// ...
 	// ... the private key associated with the main certificate.
 	// ...
@@ -539,7 +525,7 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// ...
 	// ... the root CA certificate
 	// ...
-	// -----END CERTIFICATE----- 
+	// -----END CERTIFICATE-----
 	const wchar_t *toPem(void);
 
 	// Write the PFX to a PEM formatted string. If extendedAttrs is true, then extended
@@ -551,9 +537,8 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// The possible choices for the encryptAlg are "des3", "aes128", "aes192", and "aes256".
 	// (All encryption algorithm choices use CBC mode.) If the private keys are to be
 	// encrypted, then password is the password to be used. Otherwise, password may be left
-	// empty. For example:
-	// Bag Attributes
-	//     Microsoft Local Key set: localKeyID: 01 00 00 00 
+	// empty. For example:Bag Attributes
+	//     Microsoft Local Key set:localKeyID: 01 00 00 00 
 	//     friendlyName: le-2b09a3d2-9037-4a05-95cc-4d44518e8607
 	//     Microsoft CSP Name: Microsoft RSA SChannel Cryptographic Provider
 	// Key Attributes
@@ -587,7 +572,7 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// ...
 	// ... the root CA certificate
 	// ...
-	// -----END CERTIFICATE----- 
+	// -----END CERTIFICATE-----
 	bool ToPemEx(bool extendedAttrs, bool noKeys, bool noCerts, bool noCaCerts, const wchar_t *encryptAlg, const wchar_t *password, CkString &outStr);
 	// Write the PFX to a PEM formatted string. If extendedAttrs is true, then extended
 	// properties (Bag Attributes and Key Attributes) are output. If noKeys is true,
@@ -598,9 +583,8 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// The possible choices for the encryptAlg are "des3", "aes128", "aes192", and "aes256".
 	// (All encryption algorithm choices use CBC mode.) If the private keys are to be
 	// encrypted, then password is the password to be used. Otherwise, password may be left
-	// empty. For example:
-	// Bag Attributes
-	//     Microsoft Local Key set: localKeyID: 01 00 00 00 
+	// empty. For example:Bag Attributes
+	//     Microsoft Local Key set:localKeyID: 01 00 00 00 
 	//     friendlyName: le-2b09a3d2-9037-4a05-95cc-4d44518e8607
 	//     Microsoft CSP Name: Microsoft RSA SChannel Cryptographic Provider
 	// Key Attributes
@@ -634,7 +618,7 @@ class CK_VISIBLE_PUBLIC CkPfxW  : public CkWideCharBase
 	// ...
 	// ... the root CA certificate
 	// ...
-	// -----END CERTIFICATE----- 
+	// -----END CERTIFICATE-----
 	const wchar_t *toPemEx(bool extendedAttrs, bool noKeys, bool noCerts, bool noCaCerts, const wchar_t *encryptAlg, const wchar_t *password);
 
 	// Adds an XML certificate vault to the object's internal list of sources to be

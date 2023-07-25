@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkGlobalW_H
 #define _CkGlobalW_H
@@ -256,7 +256,8 @@ class CK_VISIBLE_PUBLIC CkGlobalW  : public CkWideCharBase
 	//     are running.
 	// 
 	// It is a good idea to call this method at the very end of a program, just before
-	// it exits. This is especially true for programs written in VBScript and VB6.
+	// it exits. This is especially true for programs written in VBScript, VB6, FoxPro,
+	// and PowerBuilder.
 	// 
 	bool FinalizeThreadPool(void);
 

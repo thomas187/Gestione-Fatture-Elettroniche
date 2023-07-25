@@ -1,8 +1,9 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkMailManWH
 #define _C_CkMailManWH
 #include "chilkatDefs.h"
 
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -84,10 +85,8 @@ CK_C_VISIBLE_PUBLIC void CkMailManW_getLastErrorXml(HCkMailManW cHandle, HCkStri
 CK_C_VISIBLE_PUBLIC const wchar_t *CkMailManW_lastErrorXml(HCkMailManW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_getLastMethodSuccess(HCkMailManW cHandle);
 CK_C_VISIBLE_PUBLIC void  CkMailManW_putLastMethodSuccess(HCkMailManW cHandle, BOOL newVal);
-#if defined(CK_SMTPQ_INCLUDED)
 CK_C_VISIBLE_PUBLIC void CkMailManW_getLastSendQFilename(HCkMailManW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkMailManW_lastSendQFilename(HCkMailManW cHandle);
-#endif
 CK_C_VISIBLE_PUBLIC int CkMailManW_getLastSmtpStatus(HCkMailManW cHandle);
 CK_C_VISIBLE_PUBLIC void CkMailManW_getLastSmtpStatusMsg(HCkMailManW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkMailManW_lastSmtpStatusMsg(HCkMailManW cHandle);
@@ -128,6 +127,8 @@ CK_C_VISIBLE_PUBLIC void  CkMailManW_putPop3SPA(HCkMailManW cHandle, BOOL newVal
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_getPop3SslServerCertVerified(HCkMailManW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_getPop3Stls(HCkMailManW cHandle);
 CK_C_VISIBLE_PUBLIC void  CkMailManW_putPop3Stls(HCkMailManW cHandle, BOOL newVal);
+CK_C_VISIBLE_PUBLIC BOOL CkMailManW_getPop3StlsIfPossible(HCkMailManW cHandle);
+CK_C_VISIBLE_PUBLIC void  CkMailManW_putPop3StlsIfPossible(HCkMailManW cHandle, BOOL newVal);
 CK_C_VISIBLE_PUBLIC void CkMailManW_getPopPassword(HCkMailManW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void  CkMailManW_putPopPassword(HCkMailManW cHandle, const wchar_t *newVal);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkMailManW_popPassword(HCkMailManW cHandle);
@@ -291,21 +292,15 @@ CK_C_VISIBLE_PUBLIC HCkJsonObjectW CkMailManW_LastJsonData(HCkMailManW cHandle);
 CK_C_VISIBLE_PUBLIC HCkEmailW CkMailManW_LoadEml(HCkMailManW cHandle, const wchar_t *emlFilename);
 CK_C_VISIBLE_PUBLIC HCkEmailBundleW CkMailManW_LoadMbx(HCkMailManW cHandle, const wchar_t *mbxFileName);
 CK_C_VISIBLE_PUBLIC HCkEmailW CkMailManW_LoadMime(HCkMailManW cHandle, const wchar_t *mimeText);
-#if defined(CK_SMTPQ_INCLUDED)
 CK_C_VISIBLE_PUBLIC HCkEmailW CkMailManW_LoadQueuedEmail(HCkMailManW cHandle, const wchar_t *path);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_LoadTaskCaller(HCkMailManW cHandle, HCkTaskW task);
 CK_C_VISIBLE_PUBLIC HCkEmailW CkMailManW_LoadXmlEmail(HCkMailManW cHandle, const wchar_t *filename);
 CK_C_VISIBLE_PUBLIC HCkEmailW CkMailManW_LoadXmlEmailString(HCkMailManW cHandle, const wchar_t *xmlString);
 CK_C_VISIBLE_PUBLIC HCkEmailBundleW CkMailManW_LoadXmlFile(HCkMailManW cHandle, const wchar_t *filename);
 CK_C_VISIBLE_PUBLIC HCkEmailBundleW CkMailManW_LoadXmlString(HCkMailManW cHandle, const wchar_t *xmlString);
-#if defined(CK_MX_INCLUDED)
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_MxLookup(HCkMailManW cHandle, const wchar_t *emailAddress, HCkString outStrHostname);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkMailManW_mxLookup(HCkMailManW cHandle, const wchar_t *emailAddress);
-#endif
-#if defined(CK_MX_INCLUDED)
 CK_C_VISIBLE_PUBLIC HCkStringArrayW CkMailManW_MxLookupAll(HCkMailManW cHandle, const wchar_t *emailAddress);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_OpenSmtpConnection(HCkMailManW cHandle);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkMailManW_OpenSmtpConnectionAsync(HCkMailManW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_Pop3Authenticate(HCkMailManW cHandle);
@@ -343,20 +338,12 @@ CK_C_VISIBLE_PUBLIC BOOL CkMailManW_SendMimeBd(HCkMailManW cHandle, const wchar_
 CK_C_VISIBLE_PUBLIC HCkTaskW CkMailManW_SendMimeBdAsync(HCkMailManW cHandle, const wchar_t *fromAddr, const wchar_t *recipients, HCkBinDataW mimeData);
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_SendMimeBytes(HCkMailManW cHandle, const wchar_t *fromAddr, const wchar_t *recipients, HCkByteData mimeSource);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkMailManW_SendMimeBytesAsync(HCkMailManW cHandle, const wchar_t *fromAddr, const wchar_t *recipients, HCkByteData mimeSource);
-#if defined(CK_SMTPQ_INCLUDED)
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_SendMimeBytesQ(HCkMailManW cHandle, const wchar_t *from, const wchar_t *recipients, HCkByteData mimeData);
-#endif
-#if defined(CK_SMTPQ_INCLUDED)
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_SendMimeQ(HCkMailManW cHandle, const wchar_t *fromAddr, const wchar_t *recipients, const wchar_t *mimeSource);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_SendMimeToList(HCkMailManW cHandle, const wchar_t *fromAddr, const wchar_t *distListFilename, const wchar_t *mimeSource);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkMailManW_SendMimeToListAsync(HCkMailManW cHandle, const wchar_t *fromAddr, const wchar_t *distListFilename, const wchar_t *mimeSource);
-#if defined(CK_SMTPQ_INCLUDED)
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_SendQ(HCkMailManW cHandle, HCkEmailW email);
-#endif
-#if defined(CK_SMTPQ_INCLUDED)
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_SendQ2(HCkMailManW cHandle, HCkEmailW email, const wchar_t *queueDir);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_SendToDistributionList(HCkMailManW cHandle, HCkEmailW emailObj, HCkStringArrayW recipientList);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkMailManW_SendToDistributionListAsync(HCkMailManW cHandle, HCkEmailW emailObj, HCkStringArrayW recipientList);
 CK_C_VISIBLE_PUBLIC BOOL CkMailManW_SetDecryptCert(HCkMailManW cHandle, HCkCertW cert);

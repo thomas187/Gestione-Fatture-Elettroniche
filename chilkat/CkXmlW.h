@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkXmlW_H
 #define _CkXmlW_H
@@ -63,28 +63,25 @@ class CK_VISIBLE_PUBLIC CkXmlW  : public CkWideCharBase
 	void put_Cdata(bool newVal);
 
 	// The content of the XML node. It is the text between the open and close tags, not
-	// including child nodes. For example:
-	// _LT_tag1_GT_This is the content_LT_/tag1_GT_
+	// including child nodes. For example:_LT_tag1_GT_This is the content_LT_/tag1_GT_
 	// 
-	// _LT_tag2_GT__LT_child1_GT_abc_LT_/child1_GT__LT_child2_GT_abc_LT_/child2_GT_This is the content_LT_/tag2_GT_
-	// Because the child nodes are not included, the content of "tag1" and "tag2" are
-	// both equal to "This is the content".
+	// _LT_tag2_GT__LT_child1_GT_abc_LT_/child1_GT__LT_child2_GT_abc_LT_/child2_GT_This
+	// is the content_LT_/tag2_GT_ Because the child nodes are not included, the
+	// content of "tag1" and "tag2" are both equal to "This is the content".
 	void get_Content(CkString &str);
 	// The content of the XML node. It is the text between the open and close tags, not
-	// including child nodes. For example:
-	// _LT_tag1_GT_This is the content_LT_/tag1_GT_
+	// including child nodes. For example:_LT_tag1_GT_This is the content_LT_/tag1_GT_
 	// 
-	// _LT_tag2_GT__LT_child1_GT_abc_LT_/child1_GT__LT_child2_GT_abc_LT_/child2_GT_This is the content_LT_/tag2_GT_
-	// Because the child nodes are not included, the content of "tag1" and "tag2" are
-	// both equal to "This is the content".
+	// _LT_tag2_GT__LT_child1_GT_abc_LT_/child1_GT__LT_child2_GT_abc_LT_/child2_GT_This
+	// is the content_LT_/tag2_GT_ Because the child nodes are not included, the
+	// content of "tag1" and "tag2" are both equal to "This is the content".
 	const wchar_t *content(void);
 	// The content of the XML node. It is the text between the open and close tags, not
-	// including child nodes. For example:
-	// _LT_tag1_GT_This is the content_LT_/tag1_GT_
+	// including child nodes. For example:_LT_tag1_GT_This is the content_LT_/tag1_GT_
 	// 
-	// _LT_tag2_GT__LT_child1_GT_abc_LT_/child1_GT__LT_child2_GT_abc_LT_/child2_GT_This is the content_LT_/tag2_GT_
-	// Because the child nodes are not included, the content of "tag1" and "tag2" are
-	// both equal to "This is the content".
+	// _LT_tag2_GT__LT_child1_GT_abc_LT_/child1_GT__LT_child2_GT_abc_LT_/child2_GT_This
+	// is the content_LT_/tag2_GT_ Because the child nodes are not included, the
+	// content of "tag1" and "tag2" are both equal to "This is the content".
 	void put_Content(const wchar_t *newVal);
 
 	// Set/get the content as an integer.
@@ -194,8 +191,7 @@ class CK_VISIBLE_PUBLIC CkXmlW  : public CkWideCharBase
 	// for "k" in "[k]". See the example below..
 	void put_K(int newVal);
 
-	// The number of attributes. For example, the following node has 2 attributes:
-	// _LT_tag attr1="value1" attr2="value2"> This is the content_LT_/tag>
+	// The number of attributes. For example, the following node has 2 attributes:_LT_tag attr1="value1" attr2="value2"> This is the content_LT_/tag>
 	int get_NumAttributes(void);
 
 	// The number of direct child nodes contained under this XML node.
@@ -208,13 +204,11 @@ class CK_VISIBLE_PUBLIC CkXmlW  : public CkWideCharBase
 
 	// This is the standalone attribute in the XML declaration. This property can be
 	// set from any node in the XML document. A value of true adds a standalone="yes"
-	// to the XML declaration:
-	// _LT_?xml ... standalone="yes">
+	// to the XML declaration:_LT_?xml ... standalone="yes">
 	bool get_Standalone(void);
 	// This is the standalone attribute in the XML declaration. This property can be
 	// set from any node in the XML document. A value of true adds a standalone="yes"
-	// to the XML declaration:
-	// _LT_?xml ... standalone="yes">
+	// to the XML declaration:_LT_?xml ... standalone="yes">
 	void put_Standalone(bool newVal);
 
 	// The XML node's tag, including the namespace prefix.
@@ -304,8 +298,7 @@ class CK_VISIBLE_PUBLIC CkXmlW  : public CkWideCharBase
 	void AddOrUpdateAttributeI(const wchar_t *name, int value);
 
 	// Adds a style sheet declaration to the XML document. The styleSheet should be a string
-	// such as:
-	// _LT_?xml-stylesheet href="mystyle.css" title="Compact" type="text/css"?>
+	// such as:_LT_?xml-stylesheet href="mystyle.css" title="Compact" type="text/css"?>
 	void AddStyleSheet(const wchar_t *styleSheet);
 
 	// Adds an integer amount to an integer attribute's value. If the attribute does
@@ -345,8 +338,8 @@ class CK_VISIBLE_PUBLIC CkXmlW  : public CkWideCharBase
 	// Note: This method not related to the XPath (XML Path) standard in any way.
 	// 
 	// The pathCmd is formatted as a series of commands separated by vertical bar
-	// characters, and terminated with a return-command:
-	//     command|command|command|...|returnCommand
+	// characters, and terminated with a
+	// return-command:command|command|command|...|returnCommand 
 	// 
 	// A command can be any of the following:
 	//     TagName -- Navigate to the 1st direct child with the given tag.
@@ -385,8 +378,8 @@ class CK_VISIBLE_PUBLIC CkXmlW  : public CkWideCharBase
 	// Note: This method not related to the XPath (XML Path) standard in any way.
 	// 
 	// The pathCmd is formatted as a series of commands separated by vertical bar
-	// characters, and terminated with a return-command:
-	//     command|command|command|...|returnCommand
+	// characters, and terminated with a
+	// return-command:command|command|command|...|returnCommand 
 	// 
 	// A command can be any of the following:
 	//     TagName -- Navigate to the 1st direct child with the given tag.

@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkSFtpFile_H
 #define _CkSFtpFile_H
@@ -70,8 +70,7 @@ class CK_VISIBLE_PUBLIC CkSFtpFile  : public CkMultiByteBase
 	// The filename (or directory name, symbolic link name, etc.)
 	const char *filename(void);
 
-	// One of the following values:
-	//   regular
+	// One of the following values:regular
 	//   directory
 	//   symLink
 	//   special
@@ -81,8 +80,7 @@ class CK_VISIBLE_PUBLIC CkSFtpFile  : public CkMultiByteBase
 	//   blockDevice
 	//   fifo
 	void get_FileType(CkString &str);
-	// One of the following values:
-	//   regular
+	// One of the following values:regular
 	//   directory
 	//   symLink
 	//   special
@@ -190,10 +188,14 @@ class CK_VISIBLE_PUBLIC CkSFtpFile  : public CkMultiByteBase
 	void get_LastModifiedTime(SYSTEMTIME &outSysTime);
 
 	// The same as the LastModifiedTime property, but returns the date/time as an
-	// RFC822 formatted string.
+	// RFC822 formatted string. Other date/time formats can be obtained by calling the
+	// GetLastModifiedDt method to return a CkDateTime object, and then use CkDateTime
+	// to get the desired format.
 	void get_LastModifiedTimeStr(CkString &str);
 	// The same as the LastModifiedTime property, but returns the date/time as an
-	// RFC822 formatted string.
+	// RFC822 formatted string. Other date/time formats can be obtained by calling the
+	// GetLastModifiedDt method to return a CkDateTime object, and then use CkDateTime
+	// to get the desired format.
 	const char *lastModifiedTimeStr(void);
 
 	// The owner of the file. This property is only supported by servers running SFTP
@@ -208,8 +210,7 @@ class CK_VISIBLE_PUBLIC CkSFtpFile  : public CkMultiByteBase
 	// POSIX [IEEE.1003-1.1996].
 	// 
 	// This protocol uses the following values for the symbols declared in the POSIX
-	// standard.
-	//        S_IRUSR  0000400 (octal)
+	// standard.S_IRUSR  0000400 (octal)
 	//        S_IWUSR  0000200
 	//        S_IXUSR  0000100
 	//        S_IRGRP  0000040

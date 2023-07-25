@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkPrng_H
 #define _CkPrng_H
@@ -145,11 +145,11 @@ class CK_VISIBLE_PUBLIC CkPrng  : public CkMultiByteBase
 	// 
 	const char *exportEntropy(void);
 
-	// Generates a random Firebase Push ID. SeeFirebase Unique Identifiers
+	// Generates a random Firebase Push ID. See Firebase Unique Identifiers
 	// <https://www.firebase.com/blog/2015-02-11-firebase-unique-identifiers.html>.
 	bool FirebasePushId(CkString &outStr);
 
-	// Generates a random Firebase Push ID. SeeFirebase Unique Identifiers
+	// Generates a random Firebase Push ID. See Firebase Unique Identifiers
 	// <https://www.firebase.com/blog/2015-02-11-firebase-unique-identifiers.html>.
 	const char *firebasePushId(void);
 

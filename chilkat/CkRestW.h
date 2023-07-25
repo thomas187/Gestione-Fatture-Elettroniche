@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkRestW_H
 #define _CkRestW_H
@@ -121,8 +121,7 @@ class CK_VISIBLE_PUBLIC CkRestW  : public CkClassWithCallbacksW
 	// If the Connect method fails, this property can be checked to determine the
 	// reason for failure.
 	// 
-	// Possible values are:
-	// 0 = success
+	// Possible values are:0 = success
 	// 
 	// Normal (non-SSL) sockets:
 	// 1 = empty hostname
@@ -1070,8 +1069,7 @@ class CK_VISIBLE_PUBLIC CkRestW  : public CkClassWithCallbacksW
 
 	// Causes the "Authorization: Bearer _LT_access_token_GT_" header to be added to
 	// each request. The authProvider should have been loaded with an OAuth2 access token,
-	// which is JSON that looks similar to this:
-	// {
+	// which is JSON that looks similar to this:{
 	//   "access_token": "...",
 	//   "refresh_token": "...",
 	//   "expires_in": 14400,

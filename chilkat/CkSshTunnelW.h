@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkSshTunnelW_H
 #define _CkSshTunnelW_H
@@ -743,8 +743,7 @@ class CK_VISIBLE_PUBLIC CkSshTunnelW  : public CkClassWithCallbacksW
 	// typically the password. If multiple responses are required (because there were
 	// multiple prompts in the infoRequest XML returned by StartKeyboardAuth), then the
 	// response should be formatted as XML (as shown below) otherwise the response simply
-	// contains the single response string.
-	// _LT_response_GT_
+	// contains the single response string._LT_response_GT_
 	//     _LT_response1_GT_response to first prompt_LT_/response1_GT_
 	//     _LT_response2_GT_response to second prompt_LT_/response2_GT_
 	//     ...
@@ -752,16 +751,13 @@ class CK_VISIBLE_PUBLIC CkSshTunnelW  : public CkClassWithCallbacksW
 	// _LT_/response_GT_
 	// 
 	// If the interactive authentication completed with success or failure, the XML
-	// response will be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// response will be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
-	// _LT_error_GT_error_message_LT_/error_GT_
-	// If additional steps are required to complete the interactive authentication,
-	// then an XML string that provides the name, instruction, and prompts is returned.
-	// The XML has the following format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// _LT_error_GT_error_message_LT_/error_GT_ If additional steps are required to
+	// complete the interactive authentication, then an XML string that provides the
+	// name, instruction, and prompts is returned. The XML has the following format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
@@ -774,8 +770,7 @@ class CK_VISIBLE_PUBLIC CkSshTunnelW  : public CkClassWithCallbacksW
 	// typically the password. If multiple responses are required (because there were
 	// multiple prompts in the infoRequest XML returned by StartKeyboardAuth), then the
 	// response should be formatted as XML (as shown below) otherwise the response simply
-	// contains the single response string.
-	// _LT_response_GT_
+	// contains the single response string._LT_response_GT_
 	//     _LT_response1_GT_response to first prompt_LT_/response1_GT_
 	//     _LT_response2_GT_response to second prompt_LT_/response2_GT_
 	//     ...
@@ -783,16 +778,13 @@ class CK_VISIBLE_PUBLIC CkSshTunnelW  : public CkClassWithCallbacksW
 	// _LT_/response_GT_
 	// 
 	// If the interactive authentication completed with success or failure, the XML
-	// response will be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// response will be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
-	// _LT_error_GT_error_message_LT_/error_GT_
-	// If additional steps are required to complete the interactive authentication,
-	// then an XML string that provides the name, instruction, and prompts is returned.
-	// The XML has the following format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// _LT_error_GT_error_message_LT_/error_GT_ If additional steps are required to
+	// complete the interactive authentication, then an XML string that provides the
+	// name, instruction, and prompts is returned. The XML has the following format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
@@ -827,18 +819,16 @@ class CK_VISIBLE_PUBLIC CkSshTunnelW  : public CkClassWithCallbacksW
 
 	// Begins keyboard-interactive authentication with the SSH server. Returns an XML
 	// string providing the name, instruction, and prompts. The XML has the following
-	// format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
 	// 	    ...
 	// 	    _LT_promptN echo="1_or_0"_GT_prompt_string_LT_/promptN_GT_
-	// 	_LT_/infoRequest_GT_
+	// _LT_/infoRequest_GT_
 	// 
 	// If the authentication immediately succeeds because no password is required, or
-	// immediately fails, the XML response can be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// immediately fails, the XML response can be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 
@@ -847,18 +837,16 @@ class CK_VISIBLE_PUBLIC CkSshTunnelW  : public CkClassWithCallbacksW
 	bool StartKeyboardAuth(const wchar_t *login, CkString &outStr);
 	// Begins keyboard-interactive authentication with the SSH server. Returns an XML
 	// string providing the name, instruction, and prompts. The XML has the following
-	// format:
-	//  	_LT_infoRequest numPrompts="N"_GT_
+	// format:_LT_infoRequest numPrompts="N"_GT_
 	// 	    _LT_name_GT_name_string_LT_/name_GT_
 	// 	    _LT_instruction_GT_instruction_string_LT_/instruction_GT_
 	// 	    _LT_prompt1 echo="1_or_0"_GT_prompt_string_LT_/prompt1_GT_
 	// 	    ...
 	// 	    _LT_promptN echo="1_or_0"_GT_prompt_string_LT_/promptN_GT_
-	// 	_LT_/infoRequest_GT_
+	// _LT_/infoRequest_GT_
 	// 
 	// If the authentication immediately succeeds because no password is required, or
-	// immediately fails, the XML response can be:
-	// _LT_success_GT_success_message_LT_/success_GT_
+	// immediately fails, the XML response can be:_LT_success_GT_success_message_LT_/success_GT_
 	// 
 	// or
 	// 

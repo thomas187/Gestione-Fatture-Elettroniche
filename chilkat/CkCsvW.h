@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkCsvW_H
 #define _CkCsvW_H
@@ -12,6 +12,7 @@
 #include "CkString.h"
 #include "CkWideCharBase.h"
 
+class CkStringBuilderW;
 
 
 
@@ -196,8 +197,8 @@ class CK_VISIBLE_PUBLIC CkCsvW  : public CkWideCharBase
 	bool LoadFile(const wchar_t *path);
 
 	// Loads a CSV from a file. The charset specifies the character encoding of the CSV
-	// file. A list of supported character encodings may be found on this
-	// page:Supported Charsets
+	// file. A list of supported character encodings may be found on this page:
+	// Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool LoadFile2(const wchar_t *filename, const wchar_t *charset);
 
@@ -216,9 +217,12 @@ class CK_VISIBLE_PUBLIC CkCsvW  : public CkWideCharBase
 
 	// Saves a CSV to a file. The charset specifies the character encoding to use for the
 	// CSV file. The text data is converted to this charset when saving. A list of
-	// supported character encodings may be found on this page:Supported Charsets
+	// supported character encodings may be found on this page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool SaveFile2(const wchar_t *filename, const wchar_t *charset);
+
+	// Clears the contents of sb and writes the entire CSV into sb.
+	bool SaveToSb(CkStringBuilderW &sb);
 
 	// Returns the entire CSV as a string.
 	bool SaveToString(CkString &outStr);

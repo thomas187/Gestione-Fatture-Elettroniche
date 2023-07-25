@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkDkim_H
 #define _CkDkim_H
@@ -213,8 +213,7 @@ class CK_VISIBLE_PUBLIC CkDkim  : public CkClassWithCallbacks
 	void put_HeartbeatMs(int newVal);
 
 	// Contains JSON with information about the last DKIM or DomainKey signature
-	// verified (or verification failure). The JSON will contain information like this:
-	// {
+	// verified (or verification failure). The JSON will contain information like this:{
 	//   "domain": "amazonses.com",
 	//   "selector": "7v7vs6w47njt4pimodk5mmttbegzsi6n",
 	//   "publicKey": "MIGfMA0GCSq...z6uqeQIDAQAB",
@@ -225,8 +224,7 @@ class CK_VISIBLE_PUBLIC CkDkim  : public CkClassWithCallbacks
 	// }
 	void get_VerifyInfo(CkString &str);
 	// Contains JSON with information about the last DKIM or DomainKey signature
-	// verified (or verification failure). The JSON will contain information like this:
-	// {
+	// verified (or verification failure). The JSON will contain information like this:{
 	//   "domain": "amazonses.com",
 	//   "selector": "7v7vs6w47njt4pimodk5mmttbegzsi6n",
 	//   "publicKey": "MIGfMA0GCSq...z6uqeQIDAQAB",

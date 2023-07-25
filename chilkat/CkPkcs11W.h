@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkPkcs11W_H
 #define _CkPkcs11W_H
@@ -65,12 +65,11 @@ class CK_VISIBLE_PUBLIC CkPkcs11W  : public CkWideCharBase
 	// 
 	// On Linux, MacOSX, or other non-Windows systems, this can also be either the full
 	// path to the .so or .dylib, or just the .so or .dylib filename. On these systems,
-	// Chilkat calls thedlopen system function
+	// Chilkat calls the dlopen system function
 	// <https://man7.org/linux/man-pages/man3/dlopen.3.html> to load the shared
 	// library. If just the filename is passed in, the directories searched are those
-	// indicated in the dlopen function description
-	// athttps://man7.org/linux/man-pages/man3/dlopen.3.html
-	// <https://man7.org/linux/man-pages/man3/dlopen.3.html>
+	// indicated in the dlopen function description at
+	// https://man7.org/linux/man-pages/man3/dlopen.3.html
 	// 
 	void get_SharedLibPath(CkString &str);
 	// On Windows systems, then should be set to the name of the DLL file (if the DLL
@@ -78,12 +77,11 @@ class CK_VISIBLE_PUBLIC CkPkcs11W  : public CkWideCharBase
 	// 
 	// On Linux, MacOSX, or other non-Windows systems, this can also be either the full
 	// path to the .so or .dylib, or just the .so or .dylib filename. On these systems,
-	// Chilkat calls thedlopen system function
+	// Chilkat calls the dlopen system function
 	// <https://man7.org/linux/man-pages/man3/dlopen.3.html> to load the shared
 	// library. If just the filename is passed in, the directories searched are those
-	// indicated in the dlopen function description
-	// athttps://man7.org/linux/man-pages/man3/dlopen.3.html
-	// <https://man7.org/linux/man-pages/man3/dlopen.3.html>
+	// indicated in the dlopen function description at
+	// https://man7.org/linux/man-pages/man3/dlopen.3.html
 	// 
 	const wchar_t *sharedLibPath(void);
 	// On Windows systems, then should be set to the name of the DLL file (if the DLL
@@ -91,12 +89,11 @@ class CK_VISIBLE_PUBLIC CkPkcs11W  : public CkWideCharBase
 	// 
 	// On Linux, MacOSX, or other non-Windows systems, this can also be either the full
 	// path to the .so or .dylib, or just the .so or .dylib filename. On these systems,
-	// Chilkat calls thedlopen system function
+	// Chilkat calls the dlopen system function
 	// <https://man7.org/linux/man-pages/man3/dlopen.3.html> to load the shared
 	// library. If just the filename is passed in, the directories searched are those
-	// indicated in the dlopen function description
-	// athttps://man7.org/linux/man-pages/man3/dlopen.3.html
-	// <https://man7.org/linux/man-pages/man3/dlopen.3.html>
+	// indicated in the dlopen function description at
+	// https://man7.org/linux/man-pages/man3/dlopen.3.html
 	// 
 	void put_SharedLibPath(const wchar_t *newVal);
 

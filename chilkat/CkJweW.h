@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkJweW_H
 #define _CkJweW_H
@@ -251,25 +251,23 @@ class CK_VISIBLE_PUBLIC CkJweW  : public CkWideCharBase
 	// Sets the PBES2 password for key encryption or decryption. This is for the case
 	// where the content encryption key (CEK) is encrypted using PBES2. An PBES2
 	// password should be used in the cases where the "alg" header parameter value is
-	// equal to one of the following:
-	// PBES2-HS256+A128KW
+	// equal to one of the following:PBES2-HS256+A128KW
 	// PBES2-HS384+A192KW
-	// PBES2-HS512+A256KW
-	// The index is the index of the recipient, where the 1st recipient is at index 0.
-	// (The typical use case for JWEs is for a single recipient.)
+	// PBES2-HS512+A256KW The index is the index of the recipient, where the 1st
+	// recipient is at index 0. (The typical use case for JWEs is for a single
+	// recipient.)
 	bool SetPassword(int index, const wchar_t *password);
 
 	// Sets a private key for RSA key unwrapping/decryption. This is for the case where
 	// the content encryption key (CEK) is encrypted using RSA. An RSA private key
 	// should be used for decrypting in the cases where the "alg" header parameter
-	// value is equal to one of the following:
-	// RSA1_5
+	// value is equal to one of the following:RSA1_5
 	// RSA-OAEP
 	// RSA-OAEP-256
 	// RSA-OAEP-384  (added in Chilkat v9.5.0.71)
-	// RSA-OAEP-512  (added in Chilkat v9.5.0.71)
-	// The index is the index of the recipient, where the 1st recipient is at index 0.
-	// (The typical use case for JWEs is for a single recipient.)
+	// RSA-OAEP-512 (added in Chilkat v9.5.0.71) The index is the index of the
+	// recipient, where the 1st recipient is at index 0. (The typical use case for JWEs
+	// is for a single recipient.)
 	bool SetPrivateKey(int index, CkPrivateKeyW &privKey);
 
 	// Sets the JWE Protected Header.
@@ -278,12 +276,10 @@ class CK_VISIBLE_PUBLIC CkJweW  : public CkWideCharBase
 	// Sets a public key for RSA key wrapping encryption. This is for the case where
 	// the content encryption key (CEK) is encrypted using RSA. An RSA public key
 	// should be used when encrypting for the cases where the "alg" header parameter
-	// value is equal to one of the following:
-	// RSA1_5
+	// value is equal to one of the following:RSA1_5
 	// RSA-OAEP
-	// RSA-OAEP-256
-	// The index is the index of the recipient, where the 1st recipient is at index 0.
-	// (The typical use case for JWEs is for a single recipient.)
+	// RSA-OAEP-256 The index is the index of the recipient, where the 1st recipient is
+	// at index 0. (The typical use case for JWEs is for a single recipient.)
 	bool SetPublicKey(int index, CkPublicKeyW &pubKey);
 
 	// Sets a per-recipient unprotected header. This method would only be called if the
@@ -296,16 +292,14 @@ class CK_VISIBLE_PUBLIC CkJweW  : public CkWideCharBase
 	// Sets the AES wrapping key for encryption or decryption. This is for the case
 	// where the content encryption key (CEK) is encrypted using AES Key Wrap or AES
 	// GCM. An AES key should be used in the cases where the "alg" header parameter
-	// value is equal to one of the following:
-	// A128KW
+	// value is equal to one of the following:A128KW
 	// A192KW
 	// A256KW
 	// A128GCMKW
 	// A192GCMKW
 	// A256GCMKW
-	// dir
-	// The index is the index of the recipient, where the 1st recipient is at index 0.
-	// (The typical use case for JWEs is for a single recipient.)
+	// dir The index is the index of the recipient, where the 1st recipient is at index
+	// 0. (The typical use case for JWEs is for a single recipient.)
 	// 
 	// Note: This method also sets the shared direct symmetric key for the case when
 	// the "alg" is equal to "dir". In this case, the key specified is not actualy a

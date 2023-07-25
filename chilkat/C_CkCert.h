@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkCert_H
 #define _C_CkCert_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -137,6 +137,8 @@ CK_C_VISIBLE_PUBLIC BOOL CkCert_GetExtensionAsXml(HCkCert cHandle, const char *o
 CK_C_VISIBLE_PUBLIC const char *CkCert_getExtensionAsXml(HCkCert cHandle, const char *oid);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_GetPrivateKeyPem(HCkCert cHandle, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCert_getPrivateKeyPem(HCkCert cHandle);
+CK_C_VISIBLE_PUBLIC BOOL CkCert_GetPubKeyDer(HCkCert cHandle, BOOL preferPkcs1, HCkBinData bd);
+CK_C_VISIBLE_PUBLIC BOOL CkCert_GetSignature(HCkCert cHandle, HCkBinData bd);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_GetSpkiFingerprint(HCkCert cHandle, const char *hashAlg, const char *encoding, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCert_getSpkiFingerprint(HCkCert cHandle, const char *hashAlg, const char *encoding);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_GetSubjectPart(HCkCert cHandle, const char *partNameOrOid, HCkString outStr);
@@ -146,9 +148,7 @@ CK_C_VISIBLE_PUBLIC HCkDateTime CkCert_GetValidToDt(HCkCert cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_HashOf(HCkCert cHandle, const char *part, const char *hashAlg, const char *encoding, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCert_hashOf(HCkCert cHandle, const char *part, const char *hashAlg, const char *encoding);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_HasPrivateKey(HCkCert cHandle);
-#if defined(CK_CRYPTOAPI_INCLUDED)
 CK_C_VISIBLE_PUBLIC BOOL CkCert_LinkPrivateKey(HCkCert cHandle, const char *keyContainerName, BOOL bMachineKeyset, BOOL bForSigning);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkCert_LoadByCommonName(HCkCert cHandle, const char *cn);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_LoadByEmailAddress(HCkCert cHandle, const char *emailAddress);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_LoadByIssuerAndSerialNumber(HCkCert cHandle, const char *issuerCN, const char *serialNumber);

@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkEmail_H
 #define _C_CkEmail_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -348,9 +348,6 @@ CK_C_VISIBLE_PUBLIC BOOL CkEmail_SetAttachmentCharset(HCkEmail cHandle, int inde
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_SetAttachmentDisposition(HCkEmail cHandle, int index, const char *disposition);
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_SetAttachmentFilename(HCkEmail cHandle, int index, const char *filename);
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_SetBinaryBody(HCkEmail cHandle, HCkByteData byteData, const char *contentType, const char *disposition, const char *filename);
-#if defined(CK_CSP_INCLUDED)
-CK_C_VISIBLE_PUBLIC BOOL CkEmail_SetCSP(HCkEmail cHandle, HCkCsp csp);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_SetDecryptCert(HCkEmail cHandle, HCkCert cert);
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_SetDecryptCert2(HCkEmail cHandle, HCkCert cert, HCkPrivateKey key);
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_SetDt(HCkEmail cHandle, HCkDateTime dt);

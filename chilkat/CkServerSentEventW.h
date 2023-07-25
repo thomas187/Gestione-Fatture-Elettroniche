@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkServerSentEventW_H
 #define _CkServerSentEventW_H
@@ -82,8 +82,7 @@ class CK_VISIBLE_PUBLIC CkServerSentEventW  : public CkWideCharBase
 	// Methods
 	// ----------------------
 	// Loads the multi-line event text into this object. For example, the eventText for a
-	// Firebase event might look like this:
-	// event: put
+	// Firebase event might look like this:event: put
 	// data: {"path": "/c", "data": {"foo": true, "bar": false}}
 	bool LoadEvent(const wchar_t *eventText);
 

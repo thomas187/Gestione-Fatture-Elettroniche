@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkPublicKeyW_H
 #define _CkPublicKeyW_H
@@ -95,57 +95,48 @@ class CK_VISIBLE_PUBLIC CkPublicKeyW  : public CkWideCharBase
 
 	// Gets the public key in JWK (JSON Web Key) format.
 	// 
-	// RSA public keys have this JWK format:
-	//          {"kty":"RSA",
+	// RSA public keys have this JWK format:{"kty":"RSA",
 	//           "n": "0vx7agoebGcQSuuPiLJXZptN9 ... U8awapJzKnqDKgw",
-	//           "e":"AQAB"}
+	// "e":"AQAB"} 
 	// 
-	// ECC public keys have this JWK format:
-	//          {"kty":"EC",
+	// ECC public keys have this JWK format:{"kty":"EC",
 	//           "crv":"P-256",
 	//           "x":"MKBCTNIcKUSDii11ySs3526iDZ8AiTo7Tu6KPAqv7D4",
-	//           "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM"}
+	// "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM"} 
 	// 
-	// Ed25519 public keys (added in v9.5.0.83) have this JWK format:
-	//          {"kty":"OKP",
+	// Ed25519 public keys (added in v9.5.0.83) have this JWK format:{"kty":"OKP",
 	//           "crv":"Ed25519",
 	//           "x": "SE2Kne5xt51z1eciMH2T2ftDQp96Gl6FhY6zSQujiP0"}
 	// 
 	bool GetJwk(CkString &outStr);
 	// Gets the public key in JWK (JSON Web Key) format.
 	// 
-	// RSA public keys have this JWK format:
-	//          {"kty":"RSA",
+	// RSA public keys have this JWK format:{"kty":"RSA",
 	//           "n": "0vx7agoebGcQSuuPiLJXZptN9 ... U8awapJzKnqDKgw",
-	//           "e":"AQAB"}
+	// "e":"AQAB"} 
 	// 
-	// ECC public keys have this JWK format:
-	//          {"kty":"EC",
+	// ECC public keys have this JWK format:{"kty":"EC",
 	//           "crv":"P-256",
 	//           "x":"MKBCTNIcKUSDii11ySs3526iDZ8AiTo7Tu6KPAqv7D4",
-	//           "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM"}
+	// "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM"} 
 	// 
-	// Ed25519 public keys (added in v9.5.0.83) have this JWK format:
-	//          {"kty":"OKP",
+	// Ed25519 public keys (added in v9.5.0.83) have this JWK format:{"kty":"OKP",
 	//           "crv":"Ed25519",
 	//           "x": "SE2Kne5xt51z1eciMH2T2ftDQp96Gl6FhY6zSQujiP0"}
 	// 
 	const wchar_t *getJwk(void);
 	// Gets the public key in JWK (JSON Web Key) format.
 	// 
-	// RSA public keys have this JWK format:
-	//          {"kty":"RSA",
+	// RSA public keys have this JWK format:{"kty":"RSA",
 	//           "n": "0vx7agoebGcQSuuPiLJXZptN9 ... U8awapJzKnqDKgw",
-	//           "e":"AQAB"}
+	// "e":"AQAB"} 
 	// 
-	// ECC public keys have this JWK format:
-	//          {"kty":"EC",
+	// ECC public keys have this JWK format:{"kty":"EC",
 	//           "crv":"P-256",
 	//           "x":"MKBCTNIcKUSDii11ySs3526iDZ8AiTo7Tu6KPAqv7D4",
-	//           "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM"}
+	// "y":"4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM"} 
 	// 
-	// Ed25519 public keys (added in v9.5.0.83) have this JWK format:
-	//          {"kty":"OKP",
+	// Ed25519 public keys (added in v9.5.0.83) have this JWK format:{"kty":"OKP",
 	//           "crv":"Ed25519",
 	//           "x": "SE2Kne5xt51z1eciMH2T2ftDQp96Gl6FhY6zSQujiP0"}
 	// 
@@ -251,49 +242,43 @@ class CK_VISIBLE_PUBLIC CkPublicKeyW  : public CkWideCharBase
 	// Gets the public key in XML format. The format depends on the key type. The key
 	// parts indicated by "..." are base64 encoded.
 	// 
-	// RSA public keys have this XML format:
-	//   ...  ...
+	// RSA public keys have this XML format:  ...  ... 
 	// 
 	// DSA public keys have this XML format:
 	// 
 	// ...
 	// 
-	// .........
+	// ......... 
 	// 
-	// ECC public keys have this XML format:
-	// ...
+	// ECC public keys have this XML format:...
 	// 
 	bool GetXml(CkString &outStr);
 	// Gets the public key in XML format. The format depends on the key type. The key
 	// parts indicated by "..." are base64 encoded.
 	// 
-	// RSA public keys have this XML format:
-	//   ...  ...
+	// RSA public keys have this XML format:  ...  ... 
 	// 
 	// DSA public keys have this XML format:
 	// 
 	// ...
 	// 
-	// .........
+	// ......... 
 	// 
-	// ECC public keys have this XML format:
-	// ...
+	// ECC public keys have this XML format:...
 	// 
 	const wchar_t *getXml(void);
 	// Gets the public key in XML format. The format depends on the key type. The key
 	// parts indicated by "..." are base64 encoded.
 	// 
-	// RSA public keys have this XML format:
-	//   ...  ...
+	// RSA public keys have this XML format:  ...  ... 
 	// 
 	// DSA public keys have this XML format:
 	// 
 	// ...
 	// 
-	// .........
+	// ......... 
 	// 
-	// ECC public keys have this XML format:
-	// ...
+	// ECC public keys have this XML format:...
 	// 
 	const wchar_t *xml(void);
 

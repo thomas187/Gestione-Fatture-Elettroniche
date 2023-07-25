@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkHtmlToText_H
 #define _CkHtmlToText_H
@@ -76,11 +76,9 @@ class CK_VISIBLE_PUBLIC CkHtmlToText  : public CkMultiByteBase
 	// 
 	// _LT_p>Test _LT_a href="https://www.chilkatsoft.com/">chilkat_LT_/a>_LT_/p>
 	// 
-	// converts to:
-	// Test chilkat _LT_https://www.chilkatsoft.com/>
-	// If this property is true, the above HTML would convert to:
-	// Test chilkat
-	// The default value of this property is true.
+	// converts to:Test chilkat _LT_https://www.chilkatsoft.com/> If this property is
+	// true, the above HTML would convert to:Test chilkat The default value of this
+	// property is true.
 	// 
 	bool get_SuppressLinks(void);
 	// If false, then link URL's are preserved inline. For example, the following
@@ -88,11 +86,9 @@ class CK_VISIBLE_PUBLIC CkHtmlToText  : public CkMultiByteBase
 	// 
 	// _LT_p>Test _LT_a href="https://www.chilkatsoft.com/">chilkat_LT_/a>_LT_/p>
 	// 
-	// converts to:
-	// Test chilkat _LT_https://www.chilkatsoft.com/>
-	// If this property is true, the above HTML would convert to:
-	// Test chilkat
-	// The default value of this property is true.
+	// converts to:Test chilkat _LT_https://www.chilkatsoft.com/> If this property is
+	// true, the above HTML would convert to:Test chilkat The default value of this
+	// property is true.
 	// 
 	void put_SuppressLinks(bool newVal);
 
@@ -103,13 +99,13 @@ class CK_VISIBLE_PUBLIC CkHtmlToText  : public CkMultiByteBase
 	// ----------------------
 	// Convenience method for reading a text file into a string. The character encoding
 	// of the text file is specified by srcCharset. Valid values, such as "iso-8895-1" or
-	// "utf-8" are listed at:List of Charsets
+	// "utf-8" are listed at: List of Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool ReadFileToString(const char *filename, const char *srcCharset, CkString &outStr);
 
 	// Convenience method for reading a text file into a string. The character encoding
 	// of the text file is specified by srcCharset. Valid values, such as "iso-8895-1" or
-	// "utf-8" are listed at:List of Charsets
+	// "utf-8" are listed at: List of Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	const char *readFileToString(const char *filename, const char *srcCharset);
 
@@ -130,7 +126,7 @@ class CK_VISIBLE_PUBLIC CkHtmlToText  : public CkMultiByteBase
 
 	// Convenience method for saving a string to a file. The character encoding of the
 	// output text file is specified by charset (the string is converted to this charset
-	// when writing). Valid values, such as "iso-8895-1" or "utf-8" are listed at:List
+	// when writing). Valid values, such as "iso-8895-1" or "utf-8" are listed at: List
 	// of Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteStringToFile(const char *stringToWrite, const char *filename, const char *charset);

@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkCsv_H
 #define _C_CkCsv_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -62,6 +62,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkCsv_RowMatches(HCkCsv cHandle, int rowIndex, const ch
 CK_C_VISIBLE_PUBLIC BOOL CkCsv_SaveFile(HCkCsv cHandle, const char *path);
 CK_C_VISIBLE_PUBLIC BOOL CkCsv_SaveFile2(HCkCsv cHandle, const char *filename, const char *charset);
 CK_C_VISIBLE_PUBLIC BOOL CkCsv_SaveLastError(HCkCsv cHandle, const char *path);
+CK_C_VISIBLE_PUBLIC BOOL CkCsv_SaveToSb(HCkCsv cHandle, HCkStringBuilder sb);
 CK_C_VISIBLE_PUBLIC BOOL CkCsv_SaveToString(HCkCsv cHandle, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCsv_saveToString(HCkCsv cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkCsv_SetCell(HCkCsv cHandle, int row, int col, const char *content);

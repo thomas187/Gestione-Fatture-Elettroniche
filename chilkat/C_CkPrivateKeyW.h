@@ -1,8 +1,9 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkPrivateKeyWH
 #define _C_CkPrivateKeyWH
 #include "chilkatDefs.h"
 
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -70,12 +71,8 @@ CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_LoadPkcs8(HCkPrivateKeyW cHandle, HCkByte
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_LoadPkcs8Encrypted(HCkPrivateKeyW cHandle, HCkByteData data, const wchar_t *password);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_LoadPkcs8EncryptedFile(HCkPrivateKeyW cHandle, const wchar_t *path, const wchar_t *password);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_LoadPkcs8File(HCkPrivateKeyW cHandle, const wchar_t *path);
-#if defined(CK_CRYPTOAPI_INCLUDED)
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_LoadPvk(HCkPrivateKeyW cHandle, HCkByteData data, const wchar_t *password);
-#endif
-#if defined(CK_CRYPTOAPI_INCLUDED)
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_LoadPvkFile(HCkPrivateKeyW cHandle, const wchar_t *path, const wchar_t *password);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_LoadRsaDer(HCkPrivateKeyW cHandle, HCkByteData data);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_LoadRsaDerFile(HCkPrivateKeyW cHandle, const wchar_t *path);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_LoadXml(HCkPrivateKeyW cHandle, const wchar_t *xml);

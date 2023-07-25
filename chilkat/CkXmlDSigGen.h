@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkXmlDSigGen_H
 #define _CkXmlDSigGen_H
@@ -69,9 +69,32 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     signature that duplicates a common XML canonicalization attribute sorting bug
 	//     found in some XML signature implementations (such as JPK VAT signed XML
 	//     documents for Polish government, i.e. mf.gov.pl, csioz.gov.pl, crd.gov.pl, etc).
-	//     SeeXML Signature Canonicalization Bug
+	//     See XML Signature Canonicalization Bug
 	//     <http://cknotes.com/xml-signature-canonicalization-bug-in-widely-used-softwar
 	//     e/> for details.
+	//     Base64CrEntity Produce multi-line base64 for XML elements such as
+	//     SignatureValue and X509Certificate, with each line ending in a CR hex entity,
+	//     except for the last line. For example:<ds:X509Certificate>MIIFNTCCBB2gAwIBAgIQHozVnBl1lTsusAh26u6WZTANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE    
+	// BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG    
+	// A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl    
+	// ...    
+	// sp3FRlACVeb1Qlytr4vgc5FlCqn0rMtjlF4=    
+	//     </ds:X509Certificate> 
+	//     Base64Cr13Entity Produce multi-line base64 for XML elements such as
+	//     SignatureValue and X509Certificate, with each line ending in a CR decimal
+	//     entity, except for the last line. For example:<ds:X509Certificate>MIIFNTCCBB2gAwIBAgIQHozVnBl1lTsusAh26u6WZTANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE    
+	// BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG    
+	// A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl    
+	// ...    
+	// sp3FRlACVeb1Qlytr4vgc5FlCqn0rMtjlF4=    
+	//     </ds:X509Certificate> 
+	//     Base64Multiline Produce multi-line base64 for XML elements such as
+	//     SignatureValue and X509Certificate. For example:<ds:X509Certificate>MIIFNTCCBB2gAwIBAgIQHozVnBl1lTsusAh26u6WZTANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE    
+	// BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG    
+	// A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl    
+	// ...    
+	// sp3FRlACVeb1Qlytr4vgc5FlCqn0rMtjlF4=    
+	//     </ds:X509Certificate> 
 	//     ForceAddEnvelopedSignatureTransform The "_LT_Transform
 	//     Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /> " is
 	//     normally only added when the Signature is contained within the XML fragment that
@@ -89,16 +112,14 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     http://www.w3.org/2000/09/xmldsig#enveloped-signature to be listed first when
 	//     there are multiple transforms for a reference.
 	//     ebXmlTransform (introduced in v9.5.0.73) Causes the following tranform to be
-	//     added for ebXml messages:    
-	// _LT_Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">    
+	//     added for ebXml messages:_LT_Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">    
 	//     _LT_XPath xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">not(ancestor-or-self::node()[@SOAP-ENV:actor="urn:oasis:names:tc:ebxml-msg:actor:nextMSH"]    
 	//          | ancestor-or-self::node()[@SOAP-ENV:actor="http://schemas.xmlsoap.org/soap/actor/next"])_LT_/XPath>    
-	// _LT_/Transform>    
+	// _LT_/Transform>
 	//     TransformSignatureXPath (introduced in v9.5.0.75) Causes the following
-	//     tranform to be added:    
-	// _LT_ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"_GT_    
+	//     tranform to be added:_LT_ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"_GT_    
 	//    _LT_ds:XPath_GT_not(ancestor-or-self::ds:Signature)_LT_/ds:XPath_GT_    
-	// _LT_/ds:Transform_GT_    
+	// _LT_/ds:Transform_GT_
 	//     CompactSignedXml (introduced in v9.5.0.73) The passed-in XML to be signed is
 	//     first reformatted to a compact representation by removing all CR's, LF's, and
 	//     unnecessary whitespace so that the XML to be signed is on a single line. The
@@ -136,7 +157,8 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     numSeconds in the future. For example: "SigningTimeAdjust+60" will generate a
 	//     signing time 60 seconds past the current time.
 	//     UBLDocumentSignatures Causes an XPath "ancestor-or-self" Transform to be
-	//     added for the 1st reference. See the example atUBL XAdES Enveloped Signature
+	//     added for the 1st reference. See the example at UBL XAdES Enveloped
+	//     Signature
 	//     <https://www.example-code.com/csharp/ubl_xades_enveloped_signature.asp>
 	//     SignExistingSignatures This keyword can be used when applying a 2nd or
 	//     greater signature and the new signature will encompass one or more existing
@@ -153,9 +175,32 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     signature that duplicates a common XML canonicalization attribute sorting bug
 	//     found in some XML signature implementations (such as JPK VAT signed XML
 	//     documents for Polish government, i.e. mf.gov.pl, csioz.gov.pl, crd.gov.pl, etc).
-	//     SeeXML Signature Canonicalization Bug
+	//     See XML Signature Canonicalization Bug
 	//     <http://cknotes.com/xml-signature-canonicalization-bug-in-widely-used-softwar
 	//     e/> for details.
+	//     Base64CrEntity Produce multi-line base64 for XML elements such as
+	//     SignatureValue and X509Certificate, with each line ending in a CR hex entity,
+	//     except for the last line. For example:<ds:X509Certificate>MIIFNTCCBB2gAwIBAgIQHozVnBl1lTsusAh26u6WZTANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE    
+	// BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG    
+	// A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl    
+	// ...    
+	// sp3FRlACVeb1Qlytr4vgc5FlCqn0rMtjlF4=    
+	//     </ds:X509Certificate> 
+	//     Base64Cr13Entity Produce multi-line base64 for XML elements such as
+	//     SignatureValue and X509Certificate, with each line ending in a CR decimal
+	//     entity, except for the last line. For example:<ds:X509Certificate>MIIFNTCCBB2gAwIBAgIQHozVnBl1lTsusAh26u6WZTANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE    
+	// BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG    
+	// A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl    
+	// ...    
+	// sp3FRlACVeb1Qlytr4vgc5FlCqn0rMtjlF4=    
+	//     </ds:X509Certificate> 
+	//     Base64Multiline Produce multi-line base64 for XML elements such as
+	//     SignatureValue and X509Certificate. For example:<ds:X509Certificate>MIIFNTCCBB2gAwIBAgIQHozVnBl1lTsusAh26u6WZTANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE    
+	// BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG    
+	// A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl    
+	// ...    
+	// sp3FRlACVeb1Qlytr4vgc5FlCqn0rMtjlF4=    
+	//     </ds:X509Certificate> 
 	//     ForceAddEnvelopedSignatureTransform The "_LT_Transform
 	//     Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /> " is
 	//     normally only added when the Signature is contained within the XML fragment that
@@ -173,16 +218,14 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     http://www.w3.org/2000/09/xmldsig#enveloped-signature to be listed first when
 	//     there are multiple transforms for a reference.
 	//     ebXmlTransform (introduced in v9.5.0.73) Causes the following tranform to be
-	//     added for ebXml messages:    
-	// _LT_Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">    
+	//     added for ebXml messages:_LT_Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">    
 	//     _LT_XPath xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">not(ancestor-or-self::node()[@SOAP-ENV:actor="urn:oasis:names:tc:ebxml-msg:actor:nextMSH"]    
 	//          | ancestor-or-self::node()[@SOAP-ENV:actor="http://schemas.xmlsoap.org/soap/actor/next"])_LT_/XPath>    
-	// _LT_/Transform>    
+	// _LT_/Transform>
 	//     TransformSignatureXPath (introduced in v9.5.0.75) Causes the following
-	//     tranform to be added:    
-	// _LT_ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"_GT_    
+	//     tranform to be added:_LT_ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"_GT_    
 	//    _LT_ds:XPath_GT_not(ancestor-or-self::ds:Signature)_LT_/ds:XPath_GT_    
-	// _LT_/ds:Transform_GT_    
+	// _LT_/ds:Transform_GT_
 	//     CompactSignedXml (introduced in v9.5.0.73) The passed-in XML to be signed is
 	//     first reformatted to a compact representation by removing all CR's, LF's, and
 	//     unnecessary whitespace so that the XML to be signed is on a single line. The
@@ -220,7 +263,8 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     numSeconds in the future. For example: "SigningTimeAdjust+60" will generate a
 	//     signing time 60 seconds past the current time.
 	//     UBLDocumentSignatures Causes an XPath "ancestor-or-self" Transform to be
-	//     added for the 1st reference. See the example atUBL XAdES Enveloped Signature
+	//     added for the 1st reference. See the example at UBL XAdES Enveloped
+	//     Signature
 	//     <https://www.example-code.com/csharp/ubl_xades_enveloped_signature.asp>
 	//     SignExistingSignatures This keyword can be used when applying a 2nd or
 	//     greater signature and the new signature will encompass one or more existing
@@ -237,9 +281,32 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     signature that duplicates a common XML canonicalization attribute sorting bug
 	//     found in some XML signature implementations (such as JPK VAT signed XML
 	//     documents for Polish government, i.e. mf.gov.pl, csioz.gov.pl, crd.gov.pl, etc).
-	//     SeeXML Signature Canonicalization Bug
+	//     See XML Signature Canonicalization Bug
 	//     <http://cknotes.com/xml-signature-canonicalization-bug-in-widely-used-softwar
 	//     e/> for details.
+	//     Base64CrEntity Produce multi-line base64 for XML elements such as
+	//     SignatureValue and X509Certificate, with each line ending in a CR hex entity,
+	//     except for the last line. For example:<ds:X509Certificate>MIIFNTCCBB2gAwIBAgIQHozVnBl1lTsusAh26u6WZTANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE    
+	// BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG    
+	// A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl    
+	// ...    
+	// sp3FRlACVeb1Qlytr4vgc5FlCqn0rMtjlF4=    
+	//     </ds:X509Certificate> 
+	//     Base64Cr13Entity Produce multi-line base64 for XML elements such as
+	//     SignatureValue and X509Certificate, with each line ending in a CR decimal
+	//     entity, except for the last line. For example:<ds:X509Certificate>MIIFNTCCBB2gAwIBAgIQHozVnBl1lTsusAh26u6WZTANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE    
+	// BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG    
+	// A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl    
+	// ...    
+	// sp3FRlACVeb1Qlytr4vgc5FlCqn0rMtjlF4=    
+	//     </ds:X509Certificate> 
+	//     Base64Multiline Produce multi-line base64 for XML elements such as
+	//     SignatureValue and X509Certificate. For example:<ds:X509Certificate>MIIFNTCCBB2gAwIBAgIQHozVnBl1lTsusAh26u6WZTANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE    
+	// BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG    
+	// A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl    
+	// ...    
+	// sp3FRlACVeb1Qlytr4vgc5FlCqn0rMtjlF4=    
+	//     </ds:X509Certificate> 
 	//     ForceAddEnvelopedSignatureTransform The "_LT_Transform
 	//     Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /> " is
 	//     normally only added when the Signature is contained within the XML fragment that
@@ -257,16 +324,14 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     http://www.w3.org/2000/09/xmldsig#enveloped-signature to be listed first when
 	//     there are multiple transforms for a reference.
 	//     ebXmlTransform (introduced in v9.5.0.73) Causes the following tranform to be
-	//     added for ebXml messages:    
-	// _LT_Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">    
+	//     added for ebXml messages:_LT_Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">    
 	//     _LT_XPath xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">not(ancestor-or-self::node()[@SOAP-ENV:actor="urn:oasis:names:tc:ebxml-msg:actor:nextMSH"]    
 	//          | ancestor-or-self::node()[@SOAP-ENV:actor="http://schemas.xmlsoap.org/soap/actor/next"])_LT_/XPath>    
-	// _LT_/Transform>    
+	// _LT_/Transform>
 	//     TransformSignatureXPath (introduced in v9.5.0.75) Causes the following
-	//     tranform to be added:    
-	// _LT_ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"_GT_    
+	//     tranform to be added:_LT_ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"_GT_    
 	//    _LT_ds:XPath_GT_not(ancestor-or-self::ds:Signature)_LT_/ds:XPath_GT_    
-	// _LT_/ds:Transform_GT_    
+	// _LT_/ds:Transform_GT_
 	//     CompactSignedXml (introduced in v9.5.0.73) The passed-in XML to be signed is
 	//     first reformatted to a compact representation by removing all CR's, LF's, and
 	//     unnecessary whitespace so that the XML to be signed is on a single line. The
@@ -304,7 +369,8 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     numSeconds in the future. For example: "SigningTimeAdjust+60" will generate a
 	//     signing time 60 seconds past the current time.
 	//     UBLDocumentSignatures Causes an XPath "ancestor-or-self" Transform to be
-	//     added for the 1st reference. See the example atUBL XAdES Enveloped Signature
+	//     added for the 1st reference. See the example at UBL XAdES Enveloped
+	//     Signature
 	//     <https://www.example-code.com/csharp/ubl_xades_enveloped_signature.asp>
 	//     SignExistingSignatures This keyword can be used when applying a 2nd or
 	//     greater signature and the new signature will encompass one or more existing
@@ -327,46 +393,39 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// is "ec". Set this property to the empty string to omit an InclusiveNamespaces
 	// prefix. For example, given the default values of IncNamespaceUri and
 	// IncNamespacePrefix, generated InclusiveNamespaces elements will appear like
-	// this:
-	// ... 
+	// this:...
 	void get_IncNamespacePrefix(CkString &str);
 	// The namespace prefix to use for InclusiveNamespaces elements. The default value
 	// is "ec". Set this property to the empty string to omit an InclusiveNamespaces
 	// prefix. For example, given the default values of IncNamespaceUri and
 	// IncNamespacePrefix, generated InclusiveNamespaces elements will appear like
-	// this:
-	// ... 
+	// this:...
 	const char *incNamespacePrefix(void);
 	// The namespace prefix to use for InclusiveNamespaces elements. The default value
 	// is "ec". Set this property to the empty string to omit an InclusiveNamespaces
 	// prefix. For example, given the default values of IncNamespaceUri and
 	// IncNamespacePrefix, generated InclusiveNamespaces elements will appear like
-	// this:
-	// ... 
+	// this:...
 	void put_IncNamespacePrefix(const char *newVal);
 
 	// The namespace URI for any InclusiveNamespaces elements that are created. The
 	// default value is "http://www.w3.org/2001/10/xml-exc-c14n#". For example, if the
 	// IncNamespacePrefix equals "ec" and this property remains at the default value,
-	// then the generated Signature element will be:
-	// ... 
+	// then the generated Signature element will be:...
 	void get_IncNamespaceUri(CkString &str);
 	// The namespace URI for any InclusiveNamespaces elements that are created. The
 	// default value is "http://www.w3.org/2001/10/xml-exc-c14n#". For example, if the
 	// IncNamespacePrefix equals "ec" and this property remains at the default value,
-	// then the generated Signature element will be:
-	// ... 
+	// then the generated Signature element will be:...
 	const char *incNamespaceUri(void);
 	// The namespace URI for any InclusiveNamespaces elements that are created. The
 	// default value is "http://www.w3.org/2001/10/xml-exc-c14n#". For example, if the
 	// IncNamespacePrefix equals "ec" and this property remains at the default value,
-	// then the generated Signature element will be:
-	// ... 
+	// then the generated Signature element will be:...
 	void put_IncNamespaceUri(const char *newVal);
 
 	// If set, causes the generated KeyInfo element to include an Id attribute with
-	// this value. For example:
-	// ...
+	// this value. For example:...
 	//    _LT_ds:KeyInfo Id="KeyInfo"_GT_
 	//       _LT_ds:X509Data_GT_
 	//          _LT_ds:X509SubjectName_GT_CERTIFICADO DE ABC_LT_/ds:X509SubjectName_GT_
@@ -376,8 +435,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// ...
 	void get_KeyInfoId(CkString &str);
 	// If set, causes the generated KeyInfo element to include an Id attribute with
-	// this value. For example:
-	// ...
+	// this value. For example:...
 	//    _LT_ds:KeyInfo Id="KeyInfo"_GT_
 	//       _LT_ds:X509Data_GT_
 	//          _LT_ds:X509SubjectName_GT_CERTIFICADO DE ABC_LT_/ds:X509SubjectName_GT_
@@ -387,8 +445,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// ...
 	const char *keyInfoId(void);
 	// If set, causes the generated KeyInfo element to include an Id attribute with
-	// this value. For example:
-	// ...
+	// this value. For example:...
 	//    _LT_ds:KeyInfo Id="KeyInfo"_GT_
 	//       _LT_ds:X509Data_GT_
 	//          _LT_ds:X509SubjectName_GT_CERTIFICADO DE ABC_LT_/ds:X509SubjectName_GT_
@@ -480,18 +537,15 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 
 	// An option Id attribute value for the Signature element. The default value is the
 	// empty string, which generates a Signature element with no Id attribute. For
-	// example:
-	// If this property is set to "abc123", then the Signature element would be generated like this:
+	// example:If this property is set to "abc123", then the Signature element would be generated like this:
 	void get_SigId(CkString &str);
 	// An option Id attribute value for the Signature element. The default value is the
 	// empty string, which generates a Signature element with no Id attribute. For
-	// example:
-	// If this property is set to "abc123", then the Signature element would be generated like this:
+	// example:If this property is set to "abc123", then the Signature element would be generated like this:
 	const char *sigId(void);
 	// An option Id attribute value for the Signature element. The default value is the
 	// empty string, which generates a Signature element with no Id attribute. For
-	// example:
-	// If this property is set to "abc123", then the Signature element would be generated like this:
+	// example:If this property is set to "abc123", then the Signature element would be generated like this:
 	void put_SigId(const char *newVal);
 
 	// Indicates where the Signature is to be located within the XML that is signed.
@@ -502,9 +556,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// 
 	// For example, if we have the following SOAP XML and wish to insert the Signature
 	// at the indicated location, then the SigLocation property should be set to
-	// "SOAP-ENV:Envelope|SOAP-ENV:Header|wsse:Security".
-	// ** The XML Signature is to be inserted here **
-	// 	...
+	// "SOAP-ENV:Envelope|SOAP-ENV:Header|wsse:Security".** The XML Signature is to be inserted here **...
 	// 
 	void get_SigLocation(CkString &str);
 	// Indicates where the Signature is to be located within the XML that is signed.
@@ -515,9 +567,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// 
 	// For example, if we have the following SOAP XML and wish to insert the Signature
 	// at the indicated location, then the SigLocation property should be set to
-	// "SOAP-ENV:Envelope|SOAP-ENV:Header|wsse:Security".
-	// ** The XML Signature is to be inserted here **
-	// 	...
+	// "SOAP-ENV:Envelope|SOAP-ENV:Header|wsse:Security".** The XML Signature is to be inserted here **...
 	// 
 	const char *sigLocation(void);
 	// Indicates where the Signature is to be located within the XML that is signed.
@@ -528,9 +578,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// 
 	// For example, if we have the following SOAP XML and wish to insert the Signature
 	// at the indicated location, then the SigLocation property should be set to
-	// "SOAP-ENV:Envelope|SOAP-ENV:Header|wsse:Security".
-	// ** The XML Signature is to be inserted here **
-	// 	...
+	// "SOAP-ENV:Envelope|SOAP-ENV:Header|wsse:Security".** The XML Signature is to be inserted here **...
 	// 
 	void put_SigLocation(const char *newVal);
 
@@ -556,39 +604,33 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// The namespace prefix of the Signature that is to be created. The default value
 	// is "ds". Set this property to the empty string to omit a Signature namespace URI
 	// and prefix. For example, given the default values of SigNamespaceUri and
-	// SigNamespacePrefix, the generated Signature element will be:
-	// ... 
+	// SigNamespacePrefix, the generated Signature element will be:...
 	void get_SigNamespacePrefix(CkString &str);
 	// The namespace prefix of the Signature that is to be created. The default value
 	// is "ds". Set this property to the empty string to omit a Signature namespace URI
 	// and prefix. For example, given the default values of SigNamespaceUri and
-	// SigNamespacePrefix, the generated Signature element will be:
-	// ... 
+	// SigNamespacePrefix, the generated Signature element will be:...
 	const char *sigNamespacePrefix(void);
 	// The namespace prefix of the Signature that is to be created. The default value
 	// is "ds". Set this property to the empty string to omit a Signature namespace URI
 	// and prefix. For example, given the default values of SigNamespaceUri and
-	// SigNamespacePrefix, the generated Signature element will be:
-	// ... 
+	// SigNamespacePrefix, the generated Signature element will be:...
 	void put_SigNamespacePrefix(const char *newVal);
 
 	// The namespace URI of the Signature that is to be created. The default value is
 	// "http://www.w3.org/2000/09/xmldsig#". For example, if the SigNamespacePrefix
 	// equals "ds" and this property remains at the default value, then the generated
-	// Signature element will be:
-	// ... 
+	// Signature element will be:...
 	void get_SigNamespaceUri(CkString &str);
 	// The namespace URI of the Signature that is to be created. The default value is
 	// "http://www.w3.org/2000/09/xmldsig#". For example, if the SigNamespacePrefix
 	// equals "ds" and this property remains at the default value, then the generated
-	// Signature element will be:
-	// ... 
+	// Signature element will be:...
 	const char *sigNamespaceUri(void);
 	// The namespace URI of the Signature that is to be created. The default value is
 	// "http://www.w3.org/2000/09/xmldsig#". For example, if the SigNamespacePrefix
 	// equals "ds" and this property remains at the default value, then the generated
-	// Signature element will be:
-	// ... 
+	// Signature element will be:...
 	void put_SigNamespaceUri(const char *newVal);
 
 	// The canonicalization method to be used for the SignedInfo when creating the XML
@@ -663,8 +705,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// 
 	// If, for example, this property is set to "wsse SOAP-ENV", then the
 	// CanonicalizationMethod part of the SignedInfo that is generated would look like
-	// this:
-	// ...
+	// this:...
 	// 
 	void get_SignedInfoPrefixList(CkString &str);
 	// The inclusive namespace prefix list to be added, if any, when the
@@ -673,8 +714,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// 
 	// If, for example, this property is set to "wsse SOAP-ENV", then the
 	// CanonicalizationMethod part of the SignedInfo that is generated would look like
-	// this:
-	// ...
+	// this:...
 	// 
 	const char *signedInfoPrefixList(void);
 	// The inclusive namespace prefix list to be added, if any, when the
@@ -683,8 +723,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// 
 	// If, for example, this property is set to "wsse SOAP-ENV", then the
 	// CanonicalizationMethod part of the SignedInfo that is generated would look like
-	// this:
-	// ...
+	// this:...
 	// 
 	void put_SignedInfoPrefixList(const char *newVal);
 
@@ -715,27 +754,18 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 
 	// An option Id attribute value for the SignatureValue element. The default value
 	// is the empty string, which generates a SignatureValue element with no Id
-	// attribute. For example:
-	// _LT_ds:SignatureValue_GT_
-	// If this property is set to "value-id-7d4a", then the Signature element would be
-	// generated like this:
-	// _LT_ds:SignatureValue  Id="value-id-7d4a"_GT_
+	// attribute. For example:_LT_ds:SignatureValue_GT_ If this property is set to
+	// "value-id-7d4a", then the Signature element would be generated like this:_LT_ds:SignatureValue  Id="value-id-7d4a"_GT_
 	void get_SigValueId(CkString &str);
 	// An option Id attribute value for the SignatureValue element. The default value
 	// is the empty string, which generates a SignatureValue element with no Id
-	// attribute. For example:
-	// _LT_ds:SignatureValue_GT_
-	// If this property is set to "value-id-7d4a", then the Signature element would be
-	// generated like this:
-	// _LT_ds:SignatureValue  Id="value-id-7d4a"_GT_
+	// attribute. For example:_LT_ds:SignatureValue_GT_ If this property is set to
+	// "value-id-7d4a", then the Signature element would be generated like this:_LT_ds:SignatureValue  Id="value-id-7d4a"_GT_
 	const char *sigValueId(void);
 	// An option Id attribute value for the SignatureValue element. The default value
 	// is the empty string, which generates a SignatureValue element with no Id
-	// attribute. For example:
-	// _LT_ds:SignatureValue_GT_
-	// If this property is set to "value-id-7d4a", then the Signature element would be
-	// generated like this:
-	// _LT_ds:SignatureValue  Id="value-id-7d4a"_GT_
+	// attribute. For example:_LT_ds:SignatureValue_GT_ If this property is set to
+	// "value-id-7d4a", then the Signature element would be generated like this:_LT_ds:SignatureValue  Id="value-id-7d4a"_GT_
 	void put_SigValueId(const char *newVal);
 
 	// This is a catch-all property to be used for uncommon needs. This property
@@ -1017,7 +1047,7 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// as inclusive when EXCL_C14N is used.
 	// 
 	// Starting in Chilkat v9.5.0.70, the prefixList can be set to the keyword "_EMPTY_" to
-	// force the generation of an empty PrefixList under the Transform. For example:
+	// force the generation of an empty PrefixList under the Transform. For example: 
 	// 
 	// The refType is optional and is usually not needed. Set this to the empty string
 	// unless it is desired to add a Type attribute to the Reference that is advisory

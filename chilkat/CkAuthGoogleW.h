@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkAuthGoogleW_H
 #define _CkAuthGoogleW_H
@@ -65,18 +65,15 @@ class CK_VISIBLE_PUBLIC CkAuthGoogleW  : public CkClassWithCallbacksW
 	// Properties
 	// ----------------------
 	// The access token to be used in Google API requests. This property is set on a
-	// successful call to ObtainAccessToken.
-	// Important: This class is used for authenticating calls to the Google Cloud Platform API and Google Apps API using a service account.. 
+	// successful call to ObtainAccessToken.Important: This class is used for authenticating calls to the Google Cloud Platform API and Google Apps API using a service account.. 
 	// For 3-legged OAuth2, where a browser must be used to interactively get permission from the Google account owner, use the Chilkat OAuth2 class/object.
 	void get_AccessToken(CkString &str);
 	// The access token to be used in Google API requests. This property is set on a
-	// successful call to ObtainAccessToken.
-	// Important: This class is used for authenticating calls to the Google Cloud Platform API and Google Apps API using a service account.. 
+	// successful call to ObtainAccessToken.Important: This class is used for authenticating calls to the Google Cloud Platform API and Google Apps API using a service account.. 
 	// For 3-legged OAuth2, where a browser must be used to interactively get permission from the Google account owner, use the Chilkat OAuth2 class/object.
 	const wchar_t *accessToken(void);
 	// The access token to be used in Google API requests. This property is set on a
-	// successful call to ObtainAccessToken.
-	// Important: This class is used for authenticating calls to the Google Cloud Platform API and Google Apps API using a service account.. 
+	// successful call to ObtainAccessToken.Important: This class is used for authenticating calls to the Google Cloud Platform API and Google Apps API using a service account.. 
 	// For 3-legged OAuth2, where a browser must be used to interactively get permission from the Google account owner, use the Chilkat OAuth2 class/object.
 	void put_AccessToken(const wchar_t *newVal);
 

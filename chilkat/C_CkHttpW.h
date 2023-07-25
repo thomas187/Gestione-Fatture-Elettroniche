@@ -1,8 +1,9 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkHttpWH
 #define _C_CkHttpWH
 #include "chilkatDefs.h"
 
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -201,6 +202,7 @@ CK_C_VISIBLE_PUBLIC int CkHttpW_getProxyPort(HCkHttpW cHandle);
 CK_C_VISIBLE_PUBLIC void  CkHttpW_putProxyPort(HCkHttpW cHandle, int newVal);
 CK_C_VISIBLE_PUBLIC int CkHttpW_getReadTimeout(HCkHttpW cHandle);
 CK_C_VISIBLE_PUBLIC void  CkHttpW_putReadTimeout(HCkHttpW cHandle, int newVal);
+CK_C_VISIBLE_PUBLIC BOOL CkHttpW_getReceivedCertReq(HCkHttpW cHandle);
 CK_C_VISIBLE_PUBLIC void CkHttpW_getRedirectVerb(HCkHttpW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void  CkHttpW_putRedirectVerb(HCkHttpW cHandle, const wchar_t *newVal);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkHttpW_redirectVerb(HCkHttpW cHandle);

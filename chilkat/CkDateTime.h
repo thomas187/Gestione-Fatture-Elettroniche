@@ -22,6 +22,7 @@
 
 class CkDtObj;
 class CkTask;
+class CkStringBuilder;
 
 #if !defined(__sun__) && !defined(__sun)
 #pragma pack (push, 8)
@@ -196,6 +197,17 @@ class CK_VISIBLE_PUBLIC CkDateTime  : public CkMultiByteBase
 	// Returns 1, 0, or -1
 	int get_IsDst(void);
 
+
+	// ----------------------
+	// Ulid members added in v9.5.0.94
+	// ----------------------
+	bool UlidIncrement(CkStringBuilder &sb);
+
+	bool UlidGenerate(bool bLocal, CkString &outStr);
+	const char *ulidGenerate(bool bLocal);
+
+	bool SetFromUlid(bool bLocal, const char *ulid);
+	bool UlidValidate(const char *ulid);
 
 	// ----------------------
 	// String formats.

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkEmailW_H
 #define _CkEmailW_H
@@ -536,6 +536,7 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// Korean: ks_c_5601-1987
 	// Thai: windows-874
 	// All others: iso-8859-*
+	//  
 	// 
 	// This allows for charsets such as iso-2022-jp to be chosen instead of the
 	// default. If the preferred charset does not apply to the situation, it is not
@@ -554,6 +555,7 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// Korean: ks_c_5601-1987
 	// Thai: windows-874
 	// All others: iso-8859-*
+	//  
 	// 
 	// This allows for charsets such as iso-2022-jp to be chosen instead of the
 	// default. If the preferred charset does not apply to the situation, it is not
@@ -572,6 +574,7 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// Korean: ks_c_5601-1987
 	// Thai: windows-874
 	// All others: iso-8859-*
+	//  
 	// 
 	// This allows for charsets such as iso-2022-jp to be chosen instead of the
 	// default. If the preferred charset does not apply to the situation, it is not
@@ -905,8 +908,7 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	bool AddHtmlAlternativeBody(const wchar_t *body);
 
 	// Adds an iCalendar (text/calendar) alternative body to the email. The icalContent
-	// contains the content of the iCalendar data. A sample is shown here:
-	// BEGIN:VCALENDAR
+	// contains the content of the iCalendar data. A sample is shown here:BEGIN:VCALENDAR
 	// VERSION:2.0
 	// PRODID:-//hacksw/handcal//NONSGML v1.0//EN
 	// BEGIN:VEVENT
@@ -917,11 +919,9 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// DTEND:19970715T035959Z
 	// SUMMARY:Bastille Day Party
 	// END:VEVENT
-	// END:VCALENDAR
-	// The methodName is the "method" attribute used in the Content-Type header field in the
-	// alternative body. For example, if set to "REQUEST", then the alternative body's
-	// header would look like this:
-	// Content-Type: text/calendar; method=REQUEST
+	// END:VCALENDAR The methodName is the "method" attribute used in the Content-Type header
+	// field in the alternative body. For example, if set to "REQUEST", then the
+	// alternative body's header would look like this:Content-Type: text/calendar; method=REQUEST
 	// Content-Transfer-Encoding: base64
 	bool AddiCalendarAlternativeBody(const wchar_t *icalContent, const wchar_t *methodName);
 
@@ -1201,8 +1201,7 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	const wchar_t *computeGlobalKey(const wchar_t *encoding, bool bFold);
 
 	// Computes a global unique key for the email. The key is created by a digest-MD5
-	// hash of the concatenation of the following:
-	// messageID + CRLF + subject + CRLF + from + CRLF + date + CRLF + recipientAddrs
+	// hash of the concatenation of the following:messageID + CRLF + subject + CRLF + from + CRLF + date + CRLF + recipientAddrs
 	// 
 	// messageID contains the contents of the Message-ID header field.
 	// subject contains the contents of the Subject header field, trimmed of whitespace from both ends, 
@@ -1213,14 +1212,14 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// toAddrs contains lowercase TO and CC recipient email addresses, comma separated, with duplicates removed, and sorted 
 	//     in ascending order.  The BCC addresses are NOT included.
 	// 
-	// (After calling this method, the LastErrorText property can be examined to see the string that was hashed.)
-	// The 16-byte MD5 hash is returned as an encoded string. The encoding determines the
-	// encoding: base64, hex, url, etc. If bFold is true, then the 16-byte MD5 hash is
-	// folded to 8 bytes with an XOR to produce a shorter key.
+	// (After calling this method, the LastErrorText property can be examined to see
+	// the string that was hashed.) The 16-byte MD5 hash is returned as an encoded
+	// string. The encoding determines the encoding: base64, hex, url, etc. If bFold is
+	// true, then the 16-byte MD5 hash is folded to 8 bytes with an XOR to produce a
+	// shorter key.
 	bool ComputeGlobalKey2(const wchar_t *encoding, bool bFold, CkString &outStr);
 	// Computes a global unique key for the email. The key is created by a digest-MD5
-	// hash of the concatenation of the following:
-	// messageID + CRLF + subject + CRLF + from + CRLF + date + CRLF + recipientAddrs
+	// hash of the concatenation of the following:messageID + CRLF + subject + CRLF + from + CRLF + date + CRLF + recipientAddrs
 	// 
 	// messageID contains the contents of the Message-ID header field.
 	// subject contains the contents of the Subject header field, trimmed of whitespace from both ends, 
@@ -1231,10 +1230,11 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// toAddrs contains lowercase TO and CC recipient email addresses, comma separated, with duplicates removed, and sorted 
 	//     in ascending order.  The BCC addresses are NOT included.
 	// 
-	// (After calling this method, the LastErrorText property can be examined to see the string that was hashed.)
-	// The 16-byte MD5 hash is returned as an encoded string. The encoding determines the
-	// encoding: base64, hex, url, etc. If bFold is true, then the 16-byte MD5 hash is
-	// folded to 8 bytes with an XOR to produce a shorter key.
+	// (After calling this method, the LastErrorText property can be examined to see
+	// the string that was hashed.) The 16-byte MD5 hash is returned as an encoded
+	// string. The encoding determines the encoding: base64, hex, url, etc. If bFold is
+	// true, then the 16-byte MD5 hash is folded to 8 bytes with an XOR to produce a
+	// shorter key.
 	const wchar_t *computeGlobalKey2(const wchar_t *encoding, bool bFold);
 
 	// Converts images embedded inline within HTML to multipart/related MIME parts
@@ -1392,21 +1392,21 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 
 	// Returns a header field attribute value for the Nth attached (embedded) email.
 	// For example, to get the value of the "name" attribute in the Content-Type header
-	// for the 1st attached message:
-	// Content-Type: message/rfc822; name="md75000024149.eml"
-	// then the method arguments should contain the values 0, "Content-Type", "name".
+	// for the 1st attached message:Content-Type: message/rfc822;
+	// name="md75000024149.eml" then the method arguments should contain the values 0,
+	// "Content-Type", "name".
 	bool GetAttachedMessageAttr(int index, const wchar_t *fieldName, const wchar_t *attrName, CkString &outStr);
 	// Returns a header field attribute value for the Nth attached (embedded) email.
 	// For example, to get the value of the "name" attribute in the Content-Type header
-	// for the 1st attached message:
-	// Content-Type: message/rfc822; name="md75000024149.eml"
-	// then the method arguments should contain the values 0, "Content-Type", "name".
+	// for the 1st attached message:Content-Type: message/rfc822;
+	// name="md75000024149.eml" then the method arguments should contain the values 0,
+	// "Content-Type", "name".
 	const wchar_t *getAttachedMessageAttr(int index, const wchar_t *fieldName, const wchar_t *attrName);
 	// Returns a header field attribute value for the Nth attached (embedded) email.
 	// For example, to get the value of the "name" attribute in the Content-Type header
-	// for the 1st attached message:
-	// Content-Type: message/rfc822; name="md75000024149.eml"
-	// then the method arguments should contain the values 0, "Content-Type", "name".
+	// for the 1st attached message:Content-Type: message/rfc822;
+	// name="md75000024149.eml" then the method arguments should contain the values 0,
+	// "Content-Type", "name".
 	const wchar_t *attachedMessageAttr(int index, const wchar_t *fieldName, const wchar_t *attrName);
 
 	// Returns the filename of the Nth attached (embedded) email. The filename is the
@@ -1417,12 +1417,10 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// Content-Disposition header exists AND contains a "filename" attribute. If
 	// questions arise, one could open the email in a text editor to examine the MIME
 	// sub-header for the attached message (where the Content-Type = "message/rfc822").
-	// For example, here is a sub-header that has a filename:
-	// Content-Type: message/rfc822; name="GetAttachedMessageAttr.eml"
+	// For example, here is a sub-header that has a filename:Content-Type: message/rfc822; name="GetAttachedMessageAttr.eml"
 	// Content-Transfer-Encoding: 7bit
-	// Content-Disposition: attachment; filename="GetAttachedMessageAttr.eml"
-	// Here is an attached message sub-header that does NOT have a filename:
-	// Content-Type: message/rfc822
+	// Content-Disposition: attachment; filename="GetAttachedMessageAttr.eml" Here is
+	// an attached message sub-header that does NOT have a filename:Content-Type: message/rfc822
 	// Content-Transfer-Encoding: 7bit
 	// Content-Disposition: attachment
 	// 
@@ -1435,12 +1433,10 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// Content-Disposition header exists AND contains a "filename" attribute. If
 	// questions arise, one could open the email in a text editor to examine the MIME
 	// sub-header for the attached message (where the Content-Type = "message/rfc822").
-	// For example, here is a sub-header that has a filename:
-	// Content-Type: message/rfc822; name="GetAttachedMessageAttr.eml"
+	// For example, here is a sub-header that has a filename:Content-Type: message/rfc822; name="GetAttachedMessageAttr.eml"
 	// Content-Transfer-Encoding: 7bit
-	// Content-Disposition: attachment; filename="GetAttachedMessageAttr.eml"
-	// Here is an attached message sub-header that does NOT have a filename:
-	// Content-Type: message/rfc822
+	// Content-Disposition: attachment; filename="GetAttachedMessageAttr.eml" Here is
+	// an attached message sub-header that does NOT have a filename:Content-Type: message/rfc822
 	// Content-Transfer-Encoding: 7bit
 	// Content-Disposition: attachment
 	// 
@@ -1453,12 +1449,10 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// Content-Disposition header exists AND contains a "filename" attribute. If
 	// questions arise, one could open the email in a text editor to examine the MIME
 	// sub-header for the attached message (where the Content-Type = "message/rfc822").
-	// For example, here is a sub-header that has a filename:
-	// Content-Type: message/rfc822; name="GetAttachedMessageAttr.eml"
+	// For example, here is a sub-header that has a filename:Content-Type: message/rfc822; name="GetAttachedMessageAttr.eml"
 	// Content-Transfer-Encoding: 7bit
-	// Content-Disposition: attachment; filename="GetAttachedMessageAttr.eml"
-	// Here is an attached message sub-header that does NOT have a filename:
-	// Content-Type: message/rfc822
+	// Content-Disposition: attachment; filename="GetAttachedMessageAttr.eml" Here is
+	// an attached message sub-header that does NOT have a filename:Content-Type: message/rfc822
 	// Content-Transfer-Encoding: 7bit
 	// Content-Disposition: attachment
 	// 
@@ -1593,13 +1587,12 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// the IsMultipartReport method returns true.
 	// 
 	// The fieldName should be set a string such as "Final-Recipient", "Status", "Action",
-	// "Reporting-MTA", etc.
-	// Reporting-MTA: dns; XYZ.abc.nl
+	// "Reporting-MTA", etc.Reporting-MTA: dns; XYZ.abc.nl
 	// 
 	// Final-recipient: RFC822; someEmailAddr@doesnotexist123.nl
 	// Action: failed
 	// Status: 5.4.4
-	// X-Supplementary-Info: 
+	// X-Supplementary-Info:
 	// 
 	bool GetDeliveryStatusInfo(const wchar_t *fieldName, CkString &outFieldValue);
 	// If the email is a multipart/report, then it is a delivery status notification.
@@ -1608,13 +1601,12 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// the IsMultipartReport method returns true.
 	// 
 	// The fieldName should be set a string such as "Final-Recipient", "Status", "Action",
-	// "Reporting-MTA", etc.
-	// Reporting-MTA: dns; XYZ.abc.nl
+	// "Reporting-MTA", etc.Reporting-MTA: dns; XYZ.abc.nl
 	// 
 	// Final-recipient: RFC822; someEmailAddr@doesnotexist123.nl
 	// Action: failed
 	// Status: 5.4.4
-	// X-Supplementary-Info: 
+	// X-Supplementary-Info:
 	// 
 	const wchar_t *getDeliveryStatusInfo(const wchar_t *fieldName);
 	// If the email is a multipart/report, then it is a delivery status notification.
@@ -1623,13 +1615,12 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// the IsMultipartReport method returns true.
 	// 
 	// The fieldName should be set a string such as "Final-Recipient", "Status", "Action",
-	// "Reporting-MTA", etc.
-	// Reporting-MTA: dns; XYZ.abc.nl
+	// "Reporting-MTA", etc.Reporting-MTA: dns; XYZ.abc.nl
 	// 
 	// Final-recipient: RFC822; someEmailAddr@doesnotexist123.nl
 	// Action: failed
 	// Status: 5.4.4
-	// X-Supplementary-Info: 
+	// X-Supplementary-Info:
 	// 
 	const wchar_t *deliveryStatusInfo(const wchar_t *fieldName);
 
@@ -2310,6 +2301,15 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// Unpacks an HTML email into an HTML file and related files (images and style
 	// sheets). The links within the HTML are updated to point to the files unpacked
 	// and saved to disk.
+	// 
+	// The unpackDir is the absolute or relative directory path where the HTML file should
+	// be written. The partsSubdir is the subdirectory beneath unpackDir where images and style
+	// sheets should be written. If partsSubdir does not already exist, it is automatically
+	// created.
+	// 
+	// For example, if unpackDir = "C:/test", htmlFilename = "myEmail.html", and partsSubdir = "images",
+	// then C:/test/myEmail.html is created, and the related files are written into
+	// C:/test/images.
 	// 
 	// Note: The UnpackHtml method extracts images that are actually contained within
 	// the email itself. If the HTML contains an "IMG" tag that just links to an image

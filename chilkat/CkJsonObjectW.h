@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkJsonObjectW_H
 #define _CkJsonObjectW_H
@@ -382,9 +382,8 @@ const wchar_t *emit(void);
 	const wchar_t *findRecordString(const wchar_t *arrayPath, const wchar_t *relPath, const wchar_t *value, bool caseSensitive, const wchar_t *retRelPath);
 
 	// Applies a Firebase event to the JSON. The data contains JSON having a format
-	// such as
-	// {"path": "/", "data": {"a": 1, "b": 2}}
-	// The name should be "put" or "patch".
+	// such as{"path": "/", "data": {"a": 1, "b": 2}} The name should be "put" or
+	// "patch".
 	bool FirebaseApplyEvent(const wchar_t *name, const wchar_t *data);
 
 	// For each key in the jsonData, update (or add) the corresponding key in the JSON at

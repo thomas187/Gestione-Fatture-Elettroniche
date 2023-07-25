@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkSsh_H
 #define _C_CkSsh_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -192,6 +192,8 @@ CK_C_VISIBLE_PUBLIC int CkSsh_GetChannelExitStatus(HCkSsh cHandle, int channelNu
 CK_C_VISIBLE_PUBLIC int CkSsh_GetChannelNumber(HCkSsh cHandle, int index);
 CK_C_VISIBLE_PUBLIC BOOL CkSsh_GetChannelType(HCkSsh cHandle, int index, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSsh_getChannelType(HCkSsh cHandle, int index);
+CK_C_VISIBLE_PUBLIC BOOL CkSsh_GetHostKeyFP(HCkSsh cHandle, const char *hashAlg, BOOL includeKeyType, BOOL includeHashName, HCkString outStr);
+CK_C_VISIBLE_PUBLIC const char *CkSsh_getHostKeyFP(HCkSsh cHandle, const char *hashAlg, BOOL includeKeyType, BOOL includeHashName);
 CK_C_VISIBLE_PUBLIC BOOL CkSsh_GetReceivedData(HCkSsh cHandle, int channelNum, HCkByteData outBytes);
 CK_C_VISIBLE_PUBLIC BOOL CkSsh_GetReceivedDataN(HCkSsh cHandle, int channelNum, int maxNumBytes, HCkByteData outBytes);
 CK_C_VISIBLE_PUBLIC int CkSsh_GetReceivedNumBytes(HCkSsh cHandle, int channelNum);

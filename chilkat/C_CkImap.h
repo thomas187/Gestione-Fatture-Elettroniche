@@ -1,8 +1,8 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkImap_H
 #define _C_CkImap_H
 #include "chilkatDefs.h"
-
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -308,9 +308,6 @@ CK_C_VISIBLE_PUBLIC BOOL CkImap_SendRawCommandB(HCkImap cHandle, const char *cmd
 CK_C_VISIBLE_PUBLIC HCkTask CkImap_SendRawCommandBAsync(HCkImap cHandle, const char *cmd);
 CK_C_VISIBLE_PUBLIC BOOL CkImap_SendRawCommandC(HCkImap cHandle, HCkByteData cmd, HCkByteData outBytes);
 CK_C_VISIBLE_PUBLIC HCkTask CkImap_SendRawCommandCAsync(HCkImap cHandle, HCkByteData cmd);
-#if defined(CK_CSP_INCLUDED)
-CK_C_VISIBLE_PUBLIC BOOL CkImap_SetCSP(HCkImap cHandle, HCkCsp csp);
-#endif
 CK_C_VISIBLE_PUBLIC BOOL CkImap_SetDecryptCert(HCkImap cHandle, HCkCert cert);
 CK_C_VISIBLE_PUBLIC BOOL CkImap_SetDecryptCert2(HCkImap cHandle, HCkCert cert, HCkPrivateKey key);
 CK_C_VISIBLE_PUBLIC BOOL CkImap_SetFlag(HCkImap cHandle, unsigned long msgId, BOOL bUid, const char *flagName, int value);

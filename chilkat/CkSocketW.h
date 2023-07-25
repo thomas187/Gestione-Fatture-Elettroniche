@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkSocketW_H
 #define _CkSocketW_H
@@ -208,8 +208,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// If the Connect method fails, this property can be checked to determine the
 	// reason for failure.
 	// 
-	// Possible values are:
-	// 0 = success
+	// Possible values are:0 = success
 	// 
 	// Normal (non-SSL) sockets:
 	// 1 = empty hostname
@@ -434,6 +433,11 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// 
 	const wchar_t *myIpAddress(void);
 
+	// Returns the number of bytes that are immediately available for reading on a
+	// connected socket. For TLS connections, this includes the overhead for TLS
+	// protocol records.
+	int get_NumBytesAvailable(void);
+
 	// If the socket is the server-side of an SSL/TLS connection, the property
 	// represents the number of client-side certificates received during the SSL/TLS
 	// handshake (i.e. connection process). Each client-side cert may be retrieved by
@@ -555,8 +559,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// If a Receive method fails, this property can be checked to determine the reason
 	// for failure.
 	// 
-	// Possible values are:
-	// 0 = Success
+	// Possible values are:0 = Success
 	// 1 = An async receive operation is already in progress.
 	// 2 = The socket is not connected, such as if it was never connected, or if the connection was previously lost.
 	// 3 = An unspecified internal failure, perhaps out-of-memory, caused the failure.
@@ -639,8 +642,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// If a Send method fails, this property can be checked to determine the reason for
 	// failure.
 	// 
-	// Possible values are:
-	// 0 = Success
+	// Possible values are:0 = Success
 	// 1 = An async receive operation is already in progress.
 	// 2 = The socket is not connected, such as if it was never connected, or if the connection was previously lost.
 	// 3 = An unspecified internal failure, perhaps out-of-memory, caused the failure.
@@ -854,8 +856,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -871,6 +872,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_AES_256_CBC_SHA256
 	// TLS_RSA_WITH_AES_256_GCM_SHA384
 	// TLS_RSA_WITH_AES_256_CBC_SHA
+	// TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
@@ -887,9 +889,8 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -931,8 +932,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	void get_SslAllowedCiphers(CkString &str);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -948,6 +948,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_AES_256_CBC_SHA256
 	// TLS_RSA_WITH_AES_256_GCM_SHA384
 	// TLS_RSA_WITH_AES_256_CBC_SHA
+	// TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
@@ -964,9 +965,8 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1008,8 +1008,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	const wchar_t *sslAllowedCiphers(void);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1025,6 +1024,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_AES_256_CBC_SHA256
 	// TLS_RSA_WITH_AES_256_GCM_SHA384
 	// TLS_RSA_WITH_AES_256_CBC_SHA
+	// TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	// TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
@@ -1041,9 +1041,8 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1097,7 +1096,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1118,7 +1117,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1139,7 +1138,7 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1196,15 +1195,14 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1214,15 +1212,14 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1232,15 +1229,14 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1372,9 +1368,9 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 
 	// Binds a TCP socket to an unused port within a port range (beginPort to endPort) and
 	// configures it to listen for incoming connections. The size of the backlog is
-	// passed in endPort. The endPort is necessary when multiple connections arrive at the
+	// passed in backLog. The backLog is necessary when multiple connections arrive at the
 	// same time, or close enough in time such that they cannot be serviced
-	// immediately. (A typical value to use for endPort is 5.) This method should be
+	// immediately. (A typical value to use for backLog is 5.) This method should be
 	// called once prior to receiving incoming connection requests via the
 	// AcceptNextConnection method.
 	// 
@@ -1436,12 +1432,22 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// Establishes a secure SSL/TLS or a plain non-secure TCP connection with a remote
 	// host:port. This is a blocking call. The maximum wait time (in milliseconds) is
 	// passed in maxWaitMs. This is the amount of time the app is willing to wait for the
-	// TCP connection to be accepted.
+	// TCP connection to be accepted (see additional notes below).
+	// 
+	// The hostname can be a domain name (i.e. example.com), an IPv4 dotted address string
+	// such as "3.101.18.47", or an IPv6 address string such as
+	// "2345:0425:2CA1:0000:0000:0567:5673:23b5", or "2345:0425:2CA1::0567:5673:23b5",
+	// etc.
 	// 
 	// To establish an SSL/TLS connection, set ssl = true, otherwise set ssl =
 	// false for a normal TCP connection. Note: The timeouts that apply to the
 	// internal SSL/TLS handshaking messages are the MaxReadIdleMs and MaxSendIdleMs
 	// properties.
+	// 
+	// Note: The maxWaitMs only applies to the actual TCP connect, i.e. the max time to wait
+	// for the TCP connect to be accepted. The MaxReadIdleMs property applies to DNS
+	// (if hostname is a domain name), to any SOCKS or HTTP proxy communications, and to
+	// SSL/TLS handshake communications.
 	// 
 	// Note: Connections do not automatically close because of inactivity. A connection
 	// will remain open indefinitely even if there is no activity.
@@ -1567,10 +1573,11 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkCertW *GetSslServerCert(void);
 
-	// SSL Server applications should call this method with the SSL server certificate
-	// to be used for SSL connections. It should be called prior to accepting
-	// connections. This method has an intended side-effect: If not already connected,
-	// then the Ssl property is set to true.
+	// SSL/TLS Server applications should call this method with the SSL server
+	// certificate to be used for SSL/TLS connections. It should be called prior to
+	// accepting connections. This method has an intended side-effect: If not already
+	// connected, then the Ssl property is set to true.
+	// 
 	bool InitSslServer(CkCertW &cert);
 
 	// Returns true if the component is unlocked.
@@ -1829,12 +1836,24 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// an example, to one might read the header of an HTTP request or a MIME message by
 	// reading up to the first double CRLF ("\r\n\r\n"). The incoming bytes are
 	// interpreted according to the charset specified by the StringCharset property.
+	// 
+	// Remember: All Receive* methods will stop trying to receive if incoming data
+	// stops arriving for more than the number of milliseconds indicated by the
+	// MaxReadIdleMs property. If this happens, the method return value indicates
+	// failure and the ReceiveFailReason property would have the value 5 (for Timeout).
+	// 
 	bool ReceiveUntilMatch(const wchar_t *matchStr, CkString &outStr);
 	// Reads text from the connected TCP/IP or SSL socket until a matching string
 	// (matchStr) is received. Returns the text up to and including the matching string. As
 	// an example, to one might read the header of an HTTP request or a MIME message by
 	// reading up to the first double CRLF ("\r\n\r\n"). The incoming bytes are
 	// interpreted according to the charset specified by the StringCharset property.
+	// 
+	// Remember: All Receive* methods will stop trying to receive if incoming data
+	// stops arriving for more than the number of milliseconds indicated by the
+	// MaxReadIdleMs property. If this happens, the method return value indicates
+	// failure and the ReceiveFailReason property would have the value 5 (for Timeout).
+	// 
 	const wchar_t *receiveUntilMatch(const wchar_t *matchStr);
 
 	// Creates an asynchronous task to call the ReceiveUntilMatch method with the
@@ -1934,6 +1953,11 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// specified by encodingAlg. The encodingAlg can be "Base64", "modBase64", "Base32", "Base58",
 	// "UU", "QP" (for quoted-printable), "URL" (for url-encoding), "Hex", "Q", "B",
 	// "url_oauth", "url_rfc1738", "url_rfc2396", and "url_rfc3986".
+	// 
+	// For example, you can call this method with the following arguments:
+	// "00010203040506","hex" to send 7 binary bytes with values 00, 01, 02, 03, 04,
+	// 05, 06.
+	// 
 	bool SendBytesENC(const wchar_t *encodedBytes, const wchar_t *encodingAlg);
 
 	// Creates an asynchronous task to call the SendBytesENC method with the arguments

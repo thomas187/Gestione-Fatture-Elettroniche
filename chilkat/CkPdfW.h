@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkPdfW_H
 #define _CkPdfW_H
@@ -14,10 +14,11 @@
 
 class CkCertW;
 class CkJsonObjectW;
+class CkTaskW;
+class CkStringBuilderW;
 class CkBinDataW;
 class CkHttpW;
 class CkPrivateKeyW;
-class CkTaskW;
 class CkBaseProgressW;
 
 
@@ -149,10 +150,33 @@ class CK_VISIBLE_PUBLIC CkPdfW  : public CkClassWithCallbacksW
 	// 
 	bool AddSigningCert(CkCertW &cert);
 
+	// Adds LTV verification information to the PDF, and saves the updated PDF to outFilePath.
+	// This create or update a DSS (Document Security Store) in the PDF with the needed
+	// certificates, OCSP responses, and CRL information.
+	// 
+	// Pass an empty jsonOptions. The jsonOptions exists as a placeholder for adding options if
+	// needed.
+	// 
+	bool AddVerificationInfo(CkJsonObjectW &jsonOptions, const wchar_t *outFilePath);
+
+	// Creates an asynchronous task to call the AddVerificationInfo method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *AddVerificationInfoAsync(CkJsonObjectW &jsonOptions, const wchar_t *outFilePath);
+
 	// Gets the contents of the PDF's Document Security Store (/DSS) if it exists.
 	// Returns the information in JSON format (in json). If there is no /DSS then an
 	// empty JSON document "{}" is returned in json.
 	bool GetDss(CkJsonObjectW &json);
+
+	// If the PDF contains Metadata, then loads the Metadata XML into sb and returns
+	// true. If the PDF does not contain Metadata, then clears sb and returns
+	// false.
+	bool GetMetadata(CkStringBuilderW &sb);
+
+	// Returns the CMS signature for the Nth signature contained in the PDF. The 1st
+	// signature is at index 0.
+	bool GetSignatureContent(int index, CkBinDataW &bd);
 
 	// This method can be used to get the signer certificate after calling
 	// VerifySignature. The index should be the same value as the index passed to
@@ -369,6 +393,8 @@ class CK_VISIBLE_PUBLIC CkPdfW  : public CkClassWithCallbacksW
 	//     included with or without the addition of time-stamping.
 	//     sigTextLabel - Set to provide free-form text for the signatures annotation
 	//     text label.
+	//     subFilter - Set to "/ETSI.CAdES.detached", "/adbe.pkcs7.detached", or
+	//     something else.
 	//     timestampToken.enabled - Set to true to tell Chilkat to request a timestamp
 	//     from a TSA server and include the timestamp token in the signature's
 	//     authentication attributes
@@ -386,6 +412,16 @@ class CK_VISIBLE_PUBLIC CkPdfW  : public CkClassWithCallbacksW
 	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
 	// The caller is responsible for deleting the object returned by this method.
 	CkTaskW *SignPdfAsync(CkJsonObjectW &jsonOptions, const wchar_t *outFilePath);
+
+	// Signs the open PDF and if successful writes the signed PDF to the bd. The jsonOptions
+	// contains information and instructions about the signature. See the reference
+	// documentation for the SignPdf method for details about jsonOptions.
+	bool SignPdfBd(CkJsonObjectW &jsonOptions, CkBinDataW &bd);
+
+	// Creates an asynchronous task to call the SignPdfBd method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *SignPdfBdAsync(CkJsonObjectW &jsonOptions, CkBinDataW &bd);
 
 	// Verifies the Nth signature contained in the PDF, where the 1st signature is
 	// indicated by an index of 0. Returns true if the signature valid, otherwise

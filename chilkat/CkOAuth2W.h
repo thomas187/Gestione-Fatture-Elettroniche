@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkOAuth2W_H
 #define _CkOAuth2W_H
@@ -66,8 +66,7 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// When the OAuth2 three-legged authorization has successfully completed in the
 	// background thread, this property contains the access_token.
 	// 
-	// For example, a successful Google API JSON response looks like this:
-	//  {
+	// For example, a successful Google API JSON response looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
@@ -80,8 +79,7 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// When the OAuth2 three-legged authorization has successfully completed in the
 	// background thread, this property contains the access_token.
 	// 
-	// For example, a successful Google API JSON response looks like this:
-	//  {
+	// For example, a successful Google API JSON response looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
@@ -94,8 +92,7 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// When the OAuth2 three-legged authorization has successfully completed in the
 	// background thread, this property contains the access_token.
 	// 
-	// For example, a successful Google API JSON response looks like this:
-	//  {
+	// For example, a successful Google API JSON response looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
@@ -112,19 +109,17 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// response. If the authorization was denied, then this contains the error
 	// response.
 	// 
-	// For example, a successful JSON response for a Google API looks like this:
-	//  {
+	// For example, a successful JSON response for a Google API looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
 	//             "expires_in": 3600,
 	// 
 	//             "refresh_token": "1/fYjEVR-3Oq9xxxxxxxxxxxxxxLzPtlNOeQ"
-	// }
+	// } 
 	// 
 	// Note: Not all responses are JSON. A successful Facebook response is plain text
-	// and looks like this:
-	// access_token=EAAZALuOC1wAwBAKH6FKnxOkjfEP ... UBZBhYD5hSVBETBx6AZD&expires=5134653
+	// and looks like this:access_token=EAAZALuOC1wAwBAKH6FKnxOkjfEP ... UBZBhYD5hSVBETBx6AZD&expires=5134653
 	// 
 	void get_AccessTokenResponse(CkString &str);
 	// When the OAuth2 three-legged authorization has completed in the background
@@ -133,19 +128,17 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// response. If the authorization was denied, then this contains the error
 	// response.
 	// 
-	// For example, a successful JSON response for a Google API looks like this:
-	//  {
+	// For example, a successful JSON response for a Google API looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
 	//             "expires_in": 3600,
 	// 
 	//             "refresh_token": "1/fYjEVR-3Oq9xxxxxxxxxxxxxxLzPtlNOeQ"
-	// }
+	// } 
 	// 
 	// Note: Not all responses are JSON. A successful Facebook response is plain text
-	// and looks like this:
-	// access_token=EAAZALuOC1wAwBAKH6FKnxOkjfEP ... UBZBhYD5hSVBETBx6AZD&expires=5134653
+	// and looks like this:access_token=EAAZALuOC1wAwBAKH6FKnxOkjfEP ... UBZBhYD5hSVBETBx6AZD&expires=5134653
 	// 
 	const wchar_t *accessTokenResponse(void);
 
@@ -494,6 +487,12 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// 
 	void put_ListenPortRangeEnd(int newVal);
 
+	// If a listen port range was specified by setting both the ListenPort and
+	// ListenPortRangeEnd properties, then the StartAuth method will select and listen
+	// at an unused port in the range. After StartAuth is called, this property will
+	// contain the chosen port number.
+	int get_ListenPortSelected(void);
+
 	// Defaults to "localhost". This should typically remain at the default value. It
 	// is the loopback domain or IP address used for the redirect_uri. For example,
 	// "http://localhost:2012/". (assuming 2012 was used or randomly chosen as the
@@ -632,11 +631,17 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// 
 	void put_RedirectDenyHtml(const wchar_t *newVal);
 
+	// Contains the HTTP redirect request received from the local web browser. This is
+	// used for debugging.
+	void get_RedirectReqReceived(CkString &str);
+	// Contains the HTTP redirect request received from the local web browser. This is
+	// used for debugging.
+	const wchar_t *redirectReqReceived(void);
+
 	// When the OAuth2 three-legged authorization has successfully completed in the
 	// background thread, this property contains the refresh_token, if present.
 	// 
-	// For example, a successful Google API JSON response looks like this:
-	//  {
+	// For example, a successful Google API JSON response looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
@@ -649,8 +654,7 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// When the OAuth2 three-legged authorization has successfully completed in the
 	// background thread, this property contains the refresh_token, if present.
 	// 
-	// For example, a successful Google API JSON response looks like this:
-	//  {
+	// For example, a successful Google API JSON response looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
@@ -663,8 +667,7 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// When the OAuth2 three-legged authorization has successfully completed in the
 	// background thread, this property contains the refresh_token, if present.
 	// 
-	// For example, a successful Google API JSON response looks like this:
-	//  {
+	// For example, a successful Google API JSON response looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
@@ -739,6 +742,43 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// 
 	void put_Scope(const wchar_t *newVal);
 
+	// Allows the application to explicitly set the state parameter to a value.
+	// Typically this property should remain unset, and Chilkat will automatically
+	// generate a random state. (The generated random state is not reflected in this
+	// property. In other words, you can't get the random state that was generated by
+	// reading this property.)
+	// 
+	// Note: The special string "{listenPort}" can be included in the value of this
+	// property. Chilkat will replace "{listenPort}" with the actual listen port used.
+	// This can be useful if your application is listening on range of ports and you
+	// want the state param to include the chosen port.
+	// 
+	void get_StateParam(CkString &str);
+	// Allows the application to explicitly set the state parameter to a value.
+	// Typically this property should remain unset, and Chilkat will automatically
+	// generate a random state. (The generated random state is not reflected in this
+	// property. In other words, you can't get the random state that was generated by
+	// reading this property.)
+	// 
+	// Note: The special string "{listenPort}" can be included in the value of this
+	// property. Chilkat will replace "{listenPort}" with the actual listen port used.
+	// This can be useful if your application is listening on range of ports and you
+	// want the state param to include the chosen port.
+	// 
+	const wchar_t *stateParam(void);
+	// Allows the application to explicitly set the state parameter to a value.
+	// Typically this property should remain unset, and Chilkat will automatically
+	// generate a random state. (The generated random state is not reflected in this
+	// property. In other words, you can't get the random state that was generated by
+	// reading this property.)
+	// 
+	// Note: The special string "{listenPort}" can be included in the value of this
+	// property. Chilkat will replace "{listenPort}" with the actual listen port used.
+	// This can be useful if your application is listening on range of ports and you
+	// want the state param to include the chosen port.
+	// 
+	void put_StateParam(const wchar_t *newVal);
+
 	// The URL for exchanging an authorization grant for an access token. For example,
 	// the Google APIs token endpoint is "https://www.googleapis.com/oauth2/v4/token".
 	// (In three-legged OAuth2, this is the very last point of contact that ends the
@@ -758,15 +798,14 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// When the OAuth2 three-legged authorization has successfully completed in the
 	// background thread, this property contains the token_type, if present.
 	// 
-	// A successful Google API JSON response looks like this:
-	//  {
+	// A successful Google API JSON response looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
 	//             "expires_in": 3600,
 	// 
 	//             "refresh_token": "1/fYjEVR-3Oq9xxxxxxxxxxxxxxLzPtlNOeQ"
-	// }
+	// } 
 	// 
 	// Note: Some responses may not included a "token_type" param. In that case, this
 	// property will remain empty.
@@ -775,15 +814,14 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// When the OAuth2 three-legged authorization has successfully completed in the
 	// background thread, this property contains the token_type, if present.
 	// 
-	// A successful Google API JSON response looks like this:
-	//  {
+	// A successful Google API JSON response looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
 	//             "expires_in": 3600,
 	// 
 	//             "refresh_token": "1/fYjEVR-3Oq9xxxxxxxxxxxxxxLzPtlNOeQ"
-	// }
+	// } 
 	// 
 	// Note: Some responses may not included a "token_type" param. In that case, this
 	// property will remain empty.
@@ -792,15 +830,14 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// When the OAuth2 three-legged authorization has successfully completed in the
 	// background thread, this property contains the token_type, if present.
 	// 
-	// A successful Google API JSON response looks like this:
-	//  {
+	// A successful Google API JSON response looks like this:{
 	//              "access_token": "ya29.Ci9ZA-Z0Q7vtnch8xxxxxxxxxxxxxxgDVOOV97-IBvTt958xxxxxx1sasw",
 	//              "token_type": "Bearer",
 	// 
 	//             "expires_in": 3600,
 	// 
 	//             "refresh_token": "1/fYjEVR-3Oq9xxxxxxxxxxxxxxLzPtlNOeQ"
-	// }
+	// } 
 	// 
 	// Note: Some responses may not included a "token_type" param. In that case, this
 	// property will remain empty.
@@ -880,8 +917,9 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 
 	// Some OAuth2 providers can provide additional parameters in the redirect request
 	// sent to the local listener (i.e. the Chilkat background thread). One such case
-	// is for QuickBooks, It contains a realmId parameter such as the following:
-	// http://localhost:55568/?state=xxxxxxxxxxxx&code=xxxxxxxxxxxx&realmId=1234567890
+	// is for QuickBooks, It contains a realmId parameter such as the
+	// following:http://localhost:55568/?state=xxxxxxxxxxxx&code=xxxxxxxxxxxx&realmId=12
+	// 34567890
 	// 
 	// After the OAuth2 authentication is completed, an application can call this
 	// method to get any of the parameter values. For example, to get the realmId
@@ -890,8 +928,9 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	bool GetRedirectRequestParam(const wchar_t *paramName, CkString &outStr);
 	// Some OAuth2 providers can provide additional parameters in the redirect request
 	// sent to the local listener (i.e. the Chilkat background thread). One such case
-	// is for QuickBooks, It contains a realmId parameter such as the following:
-	// http://localhost:55568/?state=xxxxxxxxxxxx&code=xxxxxxxxxxxx&realmId=1234567890
+	// is for QuickBooks, It contains a realmId parameter such as the
+	// following:http://localhost:55568/?state=xxxxxxxxxxxx&code=xxxxxxxxxxxx&realmId=12
+	// 34567890
 	// 
 	// After the OAuth2 authentication is completed, an application can call this
 	// method to get any of the parameter values. For example, to get the realmId
@@ -900,8 +939,9 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	const wchar_t *getRedirectRequestParam(const wchar_t *paramName);
 	// Some OAuth2 providers can provide additional parameters in the redirect request
 	// sent to the local listener (i.e. the Chilkat background thread). One such case
-	// is for QuickBooks, It contains a realmId parameter such as the following:
-	// http://localhost:55568/?state=xxxxxxxxxxxx&code=xxxxxxxxxxxx&realmId=1234567890
+	// is for QuickBooks, It contains a realmId parameter such as the
+	// following:http://localhost:55568/?state=xxxxxxxxxxxx&code=xxxxxxxxxxxx&realmId=12
+	// 34567890
 	// 
 	// After the OAuth2 authentication is completed, an application can call this
 	// method to get any of the parameter values. For example, to get the realmId

@@ -1,8 +1,9 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkDateTimeWH
 #define _C_CkDateTimeWH
 #include "chilkatDefs.h"
 
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -80,7 +81,12 @@ CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromTimestamp(HCkDateTimeW cHandle, cons
 #if !defined(CK_GO_LANG) && !defined(CK_LUA_LANG)
 CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromTmStruct(HCkDateTimeW cHandle, BOOL bLocal, struct tm * tmbuf);
 #endif
+CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromUlid(HCkDateTimeW cHandle, BOOL bLocal, const wchar_t *ulid);
 CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromUnixTime(HCkDateTimeW cHandle, BOOL bLocal, unsigned long t);
 CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromUnixTime64(HCkDateTimeW cHandle, BOOL bLocal, __int64 t);
 CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromUnixTimeDbl(HCkDateTimeW cHandle, BOOL bLocal, double d);
+CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_UlidGenerate(HCkDateTimeW cHandle, BOOL bLocal, HCkString outStr);
+CK_C_VISIBLE_PUBLIC const wchar_t *CkDateTimeW_ulidGenerate(HCkDateTimeW cHandle, BOOL bLocal);
+CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_UlidIncrement(HCkDateTimeW cHandle, HCkStringBuilderW ulid);
+CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_UlidValidate(HCkDateTimeW cHandle, const wchar_t *ulid);
 #endif

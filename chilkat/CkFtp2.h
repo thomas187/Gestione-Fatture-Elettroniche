@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkFtp2_H
 #define _CkFtp2_H
@@ -486,8 +486,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// If the Connect method fails, this property can be checked to determine the
 	// reason for failure.
 	// 
-	// Possible values are:
-	// 0 = success
+	// Possible values are:0 = success
 	// 
 	// Normal (non-TLS) sockets:
 	// 1 = empty hostname
@@ -539,8 +538,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// Used to control CRLF line endings when downloading text files in ASCII mode. The
 	// default value is 0.
 	// 
-	// Possible values are:
-	// 0 = Do nothing.  The line-endings are not modified as received from the FTP server.
+	// Possible values are:0 = Do nothing.  The line-endings are not modified as received from the FTP server.
 	// 1 = Convert all line-endings to CR+LF
 	// 2 = Convert all line-endings to bare LF's
 	// 3 = Convert all line-endings to bare CR's
@@ -549,8 +547,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// Used to control CRLF line endings when downloading text files in ASCII mode. The
 	// default value is 0.
 	// 
-	// Possible values are:
-	// 0 = Do nothing.  The line-endings are not modified as received from the FTP server.
+	// Possible values are:0 = Do nothing.  The line-endings are not modified as received from the FTP server.
 	// 1 = Convert all line-endings to CR+LF
 	// 2 = Convert all line-endings to bare LF's
 	// 3 = Convert all line-endings to bare CR's
@@ -753,15 +750,25 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// the HTTP proxy login name.
 	void put_HttpProxyUsername(const char *newVal);
 
-	// Forces a timeout when a response is expected on the control channel, but no
-	// response arrives for this number of milliseconds. Setting IdleTimeoutMs = 0
-	// allows the application to wait indefinitely. The default value is 60000 (i.e. 60
-	// seconds).
+	// The maximum amount of time, in milliseconds, to wait for a response on the
+	// control channel. A value of 0 means to wait indefinitely. The default value is
+	// 60000 (i.e. 60 seconds).
+	// 
+	// This is also the maximum amount of time to wait while paused during an upload
+	// because outgoing system socket buffers are full. If an upload hangs with no
+	// additional data sent for this amount of time (because the server is not
+	// consuming data on its end), then the upload will fail with a timeout.
+	// 
 	int get_IdleTimeoutMs(void);
-	// Forces a timeout when a response is expected on the control channel, but no
-	// response arrives for this number of milliseconds. Setting IdleTimeoutMs = 0
-	// allows the application to wait indefinitely. The default value is 60000 (i.e. 60
-	// seconds).
+	// The maximum amount of time, in milliseconds, to wait for a response on the
+	// control channel. A value of 0 means to wait indefinitely. The default value is
+	// 60000 (i.e. 60 seconds).
+	// 
+	// This is also the maximum amount of time to wait while paused during an upload
+	// because outgoing system socket buffers are full. If an upload hangs with no
+	// additional data sent for this amount of time (because the server is not
+	// consuming data on its end), then the upload will fail with a timeout.
+	// 
 	void put_IdleTimeoutMs(int newVal);
 
 	// Important: This property is deprecated. Applications should instead call the
@@ -865,7 +872,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// common solution is to switch to using Passive mode by setting the Passive
 	// property = true. If this does not help, examine the contents of the
 	// LastErrorText property after NumFilesAndDirs finally returns (after timing out).
-	// Also, seethis Chilkat blog post about FTP connection settings
+	// Also, see this Chilkat blog post about FTP connection settings
 	// <http://www.cknotes.com/?p=282>.
 	// 
 	int get_NumFilesAndDirs(void);
@@ -1313,8 +1320,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1346,9 +1352,8 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1390,8 +1395,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	void get_SslAllowedCiphers(CkString &str);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1423,9 +1427,8 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1467,8 +1470,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	const char *sslAllowedCiphers(void);
 	// Provides a means for setting a list of ciphers that are allowed for SSL/TLS
 	// connections. The default (empty string) indicates that all implemented ciphers
-	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:
-	// TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	// are possible. The TLS ciphers supported in Chilkat v9.5.0.55 and later are:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	// TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -1500,9 +1502,8 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// TLS_RSA_WITH_RC4_128_SHA
 	// TLS_RSA_WITH_RC4_128_MD5
 	// TLS_DHE_RSA_WITH_DES_CBC_SHA
-	// TLS_RSA_WITH_DES_CBC_SHA
-	// To restrict SSL/TLS connections to one or more specific ciphers, set this
-	// property to a comma-separated list of ciphers such as
+	// TLS_RSA_WITH_DES_CBC_SHA To restrict SSL/TLS connections to one or more specific
+	// ciphers, set this property to a comma-separated list of ciphers such as
 	// "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384".
 	// The order should be in terms of preference, with the preferred algorithms listed
 	// first. (Note that the client cannot specifically choose the algorithm is picked
@@ -1556,7 +1557,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1577,7 +1578,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1598,7 +1599,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//     TLS 1.2 or higher
 	//     TLS 1.1 or higher
 	//     TLS 1.0 or higher
-	//     
+	//      
 	// 
 	// The default value is "default" which will choose the, which allows for the
 	// protocol to be selected dynamically at runtime based on the requirements of the
@@ -1758,15 +1759,14 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1776,15 +1776,14 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -1794,15 +1793,14 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// property lists the expected SPKI fingerprints for the server certificates. If
 	// the server's certificate (sent during the TLS handshake) does not match any of
 	// the SPKI fingerprints, then the TLS handshake is aborted and the connection
-	// fails. The format of this string property is as follows:
-	// hash_algorithm, encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ...
-	// For example, the following string specifies a single sha256 base64-encoded SPKI
-	// fingerprint:
-	// "sha256, base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE="
-	// This example specifies two SPKI fingerprints:
-	// "sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=, 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs="
-	// Any of the following hash algorithms are allowed:.sha1, sha256, sha384, sha512,
-	// md2, md5, haval, ripemd128, ripemd160,ripemd256, or ripemd320.
+	// fails. The format of this string property is as follows:hash_algorithm,
+	// encoding, SPKI_fingerprint_1, SPKI_fingerprint_2, ... For example, the following
+	// string specifies a single sha256 base64-encoded SPKI fingerprint:"sha256,
+	// base64, lKg1SIqyhPSK19tlPbjl8s02yChsVTDklQpkMCHvsTE=" This example specifies two
+	// SPKI fingerprints:"sha256, base64, 4t37LpnGmrMEAG8HEz9yIrnvJV2euVRwCLb9EH5WZyI=,
+	// 68b0G5iqMvWVWvUCjMuhLEyekM5729PadtnU5tdXZKs=" Any of the following hash
+	// algorithms are allowed:.sha1, sha256, sha384, sha512, md2, md5, haval,
+	// ripemd128, ripemd160,ripemd256, or ripemd320.
 	// 
 	// The following encodings are allowed: base64, hex, and any of the encodings
 	// indicated in the link below.
@@ -2241,59 +2239,53 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// Discovers which combinations of FTP2 property settings result in successful data
 	// transfers.
 	// 
-	// DetermineSettings tries 13 different combinations of these properties:
-	// Ssl
+	// DetermineSettings tries 13 different combinations of these properties:Ssl
 	// AuthTls
 	// AuthSsl
 	// Port
 	// Passive
-	// PassiveUseHostAddr
-	// Within the FTP protocol, the process of fetching a directory listing is also
-	// considered a "data transfer". The DetermineSettings method works by checking to
-	// see which combinations result in a successful directory listing download. The
-	// method takes no arguments and returns a string containing an XML report of the
-	// results. It is a blocking call that may take approximately a minute to run. If
-	// you are unsure about how to interpret the results, cut-and-paste it into an
-	// email and send it to support@chilkatsoft.com.
+	// PassiveUseHostAddr Within the FTP protocol, the process of fetching a directory
+	// listing is also considered a "data transfer". The DetermineSettings method works
+	// by checking to see which combinations result in a successful directory listing
+	// download. The method takes no arguments and returns a string containing an XML
+	// report of the results. It is a blocking call that may take approximately a
+	// minute to run. If you are unsure about how to interpret the results,
+	// cut-and-paste it into an email and send it to support@chilkatsoft.com.
 	// 
 	bool DetermineSettings(CkString &outXmlReport);
 
 	// Discovers which combinations of FTP2 property settings result in successful data
 	// transfers.
 	// 
-	// DetermineSettings tries 13 different combinations of these properties:
-	// Ssl
+	// DetermineSettings tries 13 different combinations of these properties:Ssl
 	// AuthTls
 	// AuthSsl
 	// Port
 	// Passive
-	// PassiveUseHostAddr
-	// Within the FTP protocol, the process of fetching a directory listing is also
-	// considered a "data transfer". The DetermineSettings method works by checking to
-	// see which combinations result in a successful directory listing download. The
-	// method takes no arguments and returns a string containing an XML report of the
-	// results. It is a blocking call that may take approximately a minute to run. If
-	// you are unsure about how to interpret the results, cut-and-paste it into an
-	// email and send it to support@chilkatsoft.com.
+	// PassiveUseHostAddr Within the FTP protocol, the process of fetching a directory
+	// listing is also considered a "data transfer". The DetermineSettings method works
+	// by checking to see which combinations result in a successful directory listing
+	// download. The method takes no arguments and returns a string containing an XML
+	// report of the results. It is a blocking call that may take approximately a
+	// minute to run. If you are unsure about how to interpret the results,
+	// cut-and-paste it into an email and send it to support@chilkatsoft.com.
 	// 
 	const char *determineSettings(void);
 	// Discovers which combinations of FTP2 property settings result in successful data
 	// transfers.
 	// 
-	// DetermineSettings tries 13 different combinations of these properties:
-	// Ssl
+	// DetermineSettings tries 13 different combinations of these properties:Ssl
 	// AuthTls
 	// AuthSsl
 	// Port
 	// Passive
-	// PassiveUseHostAddr
-	// Within the FTP protocol, the process of fetching a directory listing is also
-	// considered a "data transfer". The DetermineSettings method works by checking to
-	// see which combinations result in a successful directory listing download. The
-	// method takes no arguments and returns a string containing an XML report of the
-	// results. It is a blocking call that may take approximately a minute to run. If
-	// you are unsure about how to interpret the results, cut-and-paste it into an
-	// email and send it to support@chilkatsoft.com.
+	// PassiveUseHostAddr Within the FTP protocol, the process of fetching a directory
+	// listing is also considered a "data transfer". The DetermineSettings method works
+	// by checking to see which combinations result in a successful directory listing
+	// download. The method takes no arguments and returns a string containing an XML
+	// report of the results. It is a blocking call that may take approximately a
+	// minute to run. If you are unsure about how to interpret the results,
+	// cut-and-paste it into an email and send it to support@chilkatsoft.com.
 	// 
 	CkTask *DetermineSettingsAsync(void);
 
@@ -2355,8 +2347,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 
 
 	// Sends a FEAT command to the FTP server and returns the response. Returns a
-	// zero-length string to indicate failure. Here is a typical response:
-	// 211-Features:
+	// zero-length string to indicate failure. Here is a typical response:211-Features:
 	//  MDTM
 	//  REST STREAM
 	//  SIZE
@@ -2371,8 +2362,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	bool Feat(CkString &outStr);
 
 	// Sends a FEAT command to the FTP server and returns the response. Returns a
-	// zero-length string to indicate failure. Here is a typical response:
-	// 211-Features:
+	// zero-length string to indicate failure. Here is a typical response:211-Features:
 	//  MDTM
 	//  REST STREAM
 	//  SIZE
@@ -2386,8 +2376,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// 211 End
 	const char *feat(void);
 	// Sends a FEAT command to the FTP server and returns the response. Returns a
-	// zero-length string to indicate failure. Here is a typical response:
-	// 211-Features:
+	// zero-length string to indicate failure. Here is a typical response:211-Features:
 	//  MDTM
 	//  REST STREAM
 	//  SIZE
@@ -2597,8 +2586,8 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// using Passive mode by setting the Passive property = true, with the
 	// PassiveUseHostAddr property also set equal to true. If this does not help,
 	// examine the contents of the LastErrorText property after this method finally
-	// returns (after timing out). Also, seethis Chilkat blog post about FTP connection
-	// settings
+	// returns (after timing out). Also, see this Chilkat blog post about FTP
+	// connection settings
 	// <http://www.cknotes.com/?p=282>.
 	// 
 	int GetDirCount(void);
@@ -2615,8 +2604,8 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// using Passive mode by setting the Passive property = true, with the
 	// PassiveUseHostAddr property also set equal to true. If this does not help,
 	// examine the contents of the LastErrorText property after this method finally
-	// returns (after timing out). Also, seethis Chilkat blog post about FTP connection
-	// settings
+	// returns (after timing out). Also, see this Chilkat blog post about FTP
+	// connection settings
 	// <http://www.cknotes.com/?p=282>.
 	// 
 	CkTask *GetDirCountAsync(void);
@@ -2973,8 +2962,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// PermType: mlsd:
 	// 
 	// A "perm fact" is returned. The format of the perm fact is defined in RFC 3659 as
-	// follows:
-	//   The perm fact is used to indicate access rights the current FTP user
+	// follows:The perm fact is used to indicate access rights the current FTP user
 	//    has over the object listed.  Its value is always an unordered
 	//    sequence of alphabetic characters.
 	// 
@@ -3057,14 +3045,13 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//       they are able.  Other systems may have only more broad access
 	//       controls.  They will generally have just a few possible
 	//       permutations of permission flags, however they should attempt to
-	//       correctly represent what is permitted.
+	// correctly represent what is permitted. 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: unix:
 	// 
 	// A Unix/Linux permissions string is returned ( such as "drwxr-xr-x" or
-	// "-rw-r--r--")
-	//     The UNIX permissions string is 10 characters. Each character has a specific meaning. If the first character is:
+	// "-rw-r--r--")The UNIX permissions string is 10 characters. Each character has a specific meaning. If the first character is:
 	//     d 	the entry is a directory.
 	//     b 	the entry is a block special file.
 	//     c 	the entry is a character special file.
@@ -3082,14 +3069,13 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//     r 	read
 	//     w 	write (edit)
 	//     x 	execute (search)
-	//     - 	corresponding permission not granted 
+	// - corresponding permission not granted 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: netware:
 	// 
 	// Contains the NetWare rights string from a NetWare FTP server directory listing
-	// format. For example "-WCE---S" or "RWCEAFMS".
-	// Directory Rights	Description
+	// format. For example "-WCE---S" or "RWCEAFMS".Directory Rights	Description
 	// ----------------	-------------------------------
 	// Read (R)		Read data from an existing file.
 	// Write (W)		Write data to an existing file.
@@ -3098,7 +3084,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// Modify (M)	Rename and change attributes of a file.
 	// File Scan (F)	List the contents of a directory.
 	// Access Control (A)	Control the rights of other users to access files or directories.
-	// Supervisor (S)	Automatically allowed all rights.
+	// Supervisor (S) Automatically allowed all rights. 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: openvms:
@@ -3110,8 +3096,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// PermType: batchStatusFlags:
 	// 
 	// Contains the batch status flags from a Connect:Enterprise Server. Such as
-	// "-CR--M----" or "-ART------".
-	// The Batch Status Flags  is a 10-character string where each character describes an attribute of the batch. 
+	// "-CR--M----" or "-ART------".The Batch Status Flags  is a 10-character string where each character describes an attribute of the batch. 
 	// A dash indicates that flag is turned off and therefore has no meaning to the 
 	// batch in question. The flags are always displayed in the same order: 
 	// 
@@ -3138,8 +3123,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// PermType: mlsd:
 	// 
 	// A "perm fact" is returned. The format of the perm fact is defined in RFC 3659 as
-	// follows:
-	//   The perm fact is used to indicate access rights the current FTP user
+	// follows:The perm fact is used to indicate access rights the current FTP user
 	//    has over the object listed.  Its value is always an unordered
 	//    sequence of alphabetic characters.
 	// 
@@ -3222,14 +3206,13 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//       they are able.  Other systems may have only more broad access
 	//       controls.  They will generally have just a few possible
 	//       permutations of permission flags, however they should attempt to
-	//       correctly represent what is permitted.
+	// correctly represent what is permitted. 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: unix:
 	// 
 	// A Unix/Linux permissions string is returned ( such as "drwxr-xr-x" or
-	// "-rw-r--r--")
-	//     The UNIX permissions string is 10 characters. Each character has a specific meaning. If the first character is:
+	// "-rw-r--r--")The UNIX permissions string is 10 characters. Each character has a specific meaning. If the first character is:
 	//     d 	the entry is a directory.
 	//     b 	the entry is a block special file.
 	//     c 	the entry is a character special file.
@@ -3247,14 +3230,13 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//     r 	read
 	//     w 	write (edit)
 	//     x 	execute (search)
-	//     - 	corresponding permission not granted 
+	// - corresponding permission not granted 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: netware:
 	// 
 	// Contains the NetWare rights string from a NetWare FTP server directory listing
-	// format. For example "-WCE---S" or "RWCEAFMS".
-	// Directory Rights	Description
+	// format. For example "-WCE---S" or "RWCEAFMS".Directory Rights	Description
 	// ----------------	-------------------------------
 	// Read (R)		Read data from an existing file.
 	// Write (W)		Write data to an existing file.
@@ -3263,7 +3245,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// Modify (M)	Rename and change attributes of a file.
 	// File Scan (F)	List the contents of a directory.
 	// Access Control (A)	Control the rights of other users to access files or directories.
-	// Supervisor (S)	Automatically allowed all rights.
+	// Supervisor (S) Automatically allowed all rights. 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: openvms:
@@ -3275,8 +3257,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// PermType: batchStatusFlags:
 	// 
 	// Contains the batch status flags from a Connect:Enterprise Server. Such as
-	// "-CR--M----" or "-ART------".
-	// The Batch Status Flags  is a 10-character string where each character describes an attribute of the batch. 
+	// "-CR--M----" or "-ART------".The Batch Status Flags  is a 10-character string where each character describes an attribute of the batch. 
 	// A dash indicates that flag is turned off and therefore has no meaning to the 
 	// batch in question. The flags are always displayed in the same order: 
 	// 
@@ -3302,8 +3283,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// PermType: mlsd:
 	// 
 	// A "perm fact" is returned. The format of the perm fact is defined in RFC 3659 as
-	// follows:
-	//   The perm fact is used to indicate access rights the current FTP user
+	// follows:The perm fact is used to indicate access rights the current FTP user
 	//    has over the object listed.  Its value is always an unordered
 	//    sequence of alphabetic characters.
 	// 
@@ -3386,14 +3366,13 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//       they are able.  Other systems may have only more broad access
 	//       controls.  They will generally have just a few possible
 	//       permutations of permission flags, however they should attempt to
-	//       correctly represent what is permitted.
+	// correctly represent what is permitted. 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: unix:
 	// 
 	// A Unix/Linux permissions string is returned ( such as "drwxr-xr-x" or
-	// "-rw-r--r--")
-	//     The UNIX permissions string is 10 characters. Each character has a specific meaning. If the first character is:
+	// "-rw-r--r--")The UNIX permissions string is 10 characters. Each character has a specific meaning. If the first character is:
 	//     d 	the entry is a directory.
 	//     b 	the entry is a block special file.
 	//     c 	the entry is a character special file.
@@ -3411,14 +3390,13 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//     r 	read
 	//     w 	write (edit)
 	//     x 	execute (search)
-	//     - 	corresponding permission not granted 
+	// - corresponding permission not granted 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: netware:
 	// 
 	// Contains the NetWare rights string from a NetWare FTP server directory listing
-	// format. For example "-WCE---S" or "RWCEAFMS".
-	// Directory Rights	Description
+	// format. For example "-WCE---S" or "RWCEAFMS".Directory Rights	Description
 	// ----------------	-------------------------------
 	// Read (R)		Read data from an existing file.
 	// Write (W)		Write data to an existing file.
@@ -3427,7 +3405,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// Modify (M)	Rename and change attributes of a file.
 	// File Scan (F)	List the contents of a directory.
 	// Access Control (A)	Control the rights of other users to access files or directories.
-	// Supervisor (S)	Automatically allowed all rights.
+	// Supervisor (S) Automatically allowed all rights. 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: openvms:
@@ -3439,8 +3417,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// PermType: batchStatusFlags:
 	// 
 	// Contains the batch status flags from a Connect:Enterprise Server. Such as
-	// "-CR--M----" or "-ART------".
-	// The Batch Status Flags  is a 10-character string where each character describes an attribute of the batch. 
+	// "-CR--M----" or "-ART------".The Batch Status Flags  is a 10-character string where each character describes an attribute of the batch. 
 	// A dash indicates that flag is turned off and therefore has no meaning to the 
 	// batch in question. The flags are always displayed in the same order: 
 	// 
@@ -3467,8 +3444,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// PermType: mlsd:
 	// 
 	// A "perm fact" is returned. The format of the perm fact is defined in RFC 3659 as
-	// follows:
-	//   The perm fact is used to indicate access rights the current FTP user
+	// follows:The perm fact is used to indicate access rights the current FTP user
 	//    has over the object listed.  Its value is always an unordered
 	//    sequence of alphabetic characters.
 	// 
@@ -3551,14 +3527,13 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//       they are able.  Other systems may have only more broad access
 	//       controls.  They will generally have just a few possible
 	//       permutations of permission flags, however they should attempt to
-	//       correctly represent what is permitted.
+	// correctly represent what is permitted. 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: unix:
 	// 
 	// A Unix/Linux permissions string is returned ( such as "drwxr-xr-x" or
-	// "-rw-r--r--")
-	//     The UNIX permissions string is 10 characters. Each character has a specific meaning. If the first character is:
+	// "-rw-r--r--")The UNIX permissions string is 10 characters. Each character has a specific meaning. If the first character is:
 	//     d 	the entry is a directory.
 	//     b 	the entry is a block special file.
 	//     c 	the entry is a character special file.
@@ -3576,14 +3551,13 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//     r 	read
 	//     w 	write (edit)
 	//     x 	execute (search)
-	//     - 	corresponding permission not granted 
+	// - corresponding permission not granted 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: netware:
 	// 
 	// Contains the NetWare rights string from a NetWare FTP server directory listing
-	// format. For example "-WCE---S" or "RWCEAFMS".
-	// Directory Rights	Description
+	// format. For example "-WCE---S" or "RWCEAFMS".Directory Rights	Description
 	// ----------------	-------------------------------
 	// Read (R)		Read data from an existing file.
 	// Write (W)		Write data to an existing file.
@@ -3592,7 +3566,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// Modify (M)	Rename and change attributes of a file.
 	// File Scan (F)	List the contents of a directory.
 	// Access Control (A)	Control the rights of other users to access files or directories.
-	// Supervisor (S)	Automatically allowed all rights.
+	// Supervisor (S) Automatically allowed all rights. 
 	// --------------------------------------------------------------------------------
 	// 
 	// PermType: openvms:
@@ -3604,8 +3578,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// PermType: batchStatusFlags:
 	// 
 	// Contains the batch status flags from a Connect:Enterprise Server. Such as
-	// "-CR--M----" or "-ART------".
-	// The Batch Status Flags  is a 10-character string where each character describes an attribute of the batch. 
+	// "-CR--M----" or "-ART------".The Batch Status Flags  is a 10-character string where each character describes an attribute of the batch. 
 	// A dash indicates that flag is turned off and therefore has no meaning to the 
 	// batch in question. The flags are always displayed in the same order: 
 	// 
@@ -4076,8 +4049,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// the pattern). The remoteDirPattern should be a pattern such as "*", "*.*", "*.txt",
 	// "subDir/*.xml", etc.
 	// 
-	// The format of the XML returned is:
-	// filename_or_dir_1filename_or_dir_2filename_or_dir_3filename_or_dir_4...
+	// The format of the XML returned is:filename_or_dir_1filename_or_dir_2filename_or_dir_3filename_or_dir_4...
 	// 
 	bool NlstXml(const char *remoteDirPattern, CkString &outStr);
 
@@ -4086,8 +4058,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// the pattern). The remoteDirPattern should be a pattern such as "*", "*.*", "*.txt",
 	// "subDir/*.xml", etc.
 	// 
-	// The format of the XML returned is:
-	// filename_or_dir_1filename_or_dir_2filename_or_dir_3filename_or_dir_4...
+	// The format of the XML returned is:filename_or_dir_1filename_or_dir_2filename_or_dir_3filename_or_dir_4...
 	// 
 	const char *nlstXml(const char *remoteDirPattern);
 	// Sends an NLST command to the FTP server and returns the results in XML format.
@@ -4095,8 +4066,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// the pattern). The remoteDirPattern should be a pattern such as "*", "*.*", "*.txt",
 	// "subDir/*.xml", etc.
 	// 
-	// The format of the XML returned is:
-	// filename_or_dir_1filename_or_dir_2filename_or_dir_3filename_or_dir_4...
+	// The format of the XML returned is:filename_or_dir_1filename_or_dir_2filename_or_dir_3filename_or_dir_4...
 	// 
 	CkTask *NlstXmlAsync(const char *remoteDirPattern);
 
@@ -4114,6 +4084,12 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// DirListingCharset property equal to "utf-8". Please refer to the documentation
 	// for the DirListingCharset property.
 	// 
+	// Note: The IdleTimeoutMs property sets the maximum amount of time to wait while
+	// paused during an upload because outgoing system socket buffers are full. If an
+	// upload hangs with no additional data sent for this amount of time (because the
+	// server is not consuming data on its end), then the upload will fail with a
+	// timeout.
+	// 
 	bool PutFile(const char *localFilePath, const char *remoteFilePath);
 
 	// Uploads a local file to the current directory on the FTP server.
@@ -4121,6 +4097,12 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// If the remoteFilePath contains non-English characters, it may be necessary to set the
 	// DirListingCharset property equal to "utf-8". Please refer to the documentation
 	// for the DirListingCharset property.
+	// 
+	// Note: The IdleTimeoutMs property sets the maximum amount of time to wait while
+	// paused during an upload because outgoing system socket buffers are full. If an
+	// upload hangs with no additional data sent for this amount of time (because the
+	// server is not consuming data on its end), then the upload will fail with a
+	// timeout.
 	// 
 	CkTask *PutFileAsync(const char *localFilePath, const char *remoteFilePath);
 
@@ -4473,7 +4455,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//     exist locally.
 	//     * There is no mode #4. It is a mode used internally by the DirTreeXml
 	//     method.
-	//     
+	//      
 	// 
 	// Note: In v9.5.0.51 and higher, the list of downloaded (or deleted) files is
 	// available in the SyncedFiles property.
@@ -4494,7 +4476,7 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	//     exist locally.
 	//     * There is no mode #4. It is a mode used internally by the DirTreeXml
 	//     method.
-	//     
+	//      
 	// 
 	// Note: In v9.5.0.51 and higher, the list of downloaded (or deleted) files is
 	// available in the SyncedFiles property.

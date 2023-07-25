@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkAuthAws_H
 #define _CkAuthAws_H
@@ -62,19 +62,19 @@ class CK_VISIBLE_PUBLIC CkAuthAws  : public CkMultiByteBase
 
 	// If AWS Signature Version V2 is used, then this property must be set. The rules
 	// for setting the canonicalized resource for the V2 signature method is described
-	// here:Constructing the CanonicalizedResource Element
+	// here: Constructing the CanonicalizedResource Element
 	// <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html#Construct
 	// ingTheCanonicalizedResourceElement>.
 	void get_CanonicalizedResourceV2(CkString &str);
 	// If AWS Signature Version V2 is used, then this property must be set. The rules
 	// for setting the canonicalized resource for the V2 signature method is described
-	// here:Constructing the CanonicalizedResource Element
+	// here: Constructing the CanonicalizedResource Element
 	// <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html#Construct
 	// ingTheCanonicalizedResourceElement>.
 	const char *canonicalizedResourceV2(void);
 	// If AWS Signature Version V2 is used, then this property must be set. The rules
 	// for setting the canonicalized resource for the V2 signature method is described
-	// here:Constructing the CanonicalizedResource Element
+	// here: Constructing the CanonicalizedResource Element
 	// <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html#Construct
 	// ingTheCanonicalizedResourceElement>.
 	void put_CanonicalizedResourceV2(const char *newVal);
@@ -205,8 +205,7 @@ class CK_VISIBLE_PUBLIC CkAuthAws  : public CkMultiByteBase
 	// Signature V4. Requires that the SecretKey, AccessKey, and Region properties be
 	// set to valid values prior to calling this method.
 	// 
-	// The URL that is generated has this format:
-	// https:///?X-Amz-Algorithm=AWS4-HMAC-SHA256
+	// The URL that is generated has this format:https:///?X-Amz-Algorithm=AWS4-HMAC-SHA256
 	// &X-Amz-Credential=////aws4_request
 	// &X-Amz-Date=&X-Amz-Expires=&X-Amz-SignedHeaders=host
 	// &X-Amz-Signature=
@@ -219,8 +218,7 @@ class CK_VISIBLE_PUBLIC CkAuthAws  : public CkMultiByteBase
 	// Signature V4. Requires that the SecretKey, AccessKey, and Region properties be
 	// set to valid values prior to calling this method.
 	// 
-	// The URL that is generated has this format:
-	// https:///?X-Amz-Algorithm=AWS4-HMAC-SHA256
+	// The URL that is generated has this format:https:///?X-Amz-Algorithm=AWS4-HMAC-SHA256
 	// &X-Amz-Credential=////aws4_request
 	// &X-Amz-Date=&X-Amz-Expires=&X-Amz-SignedHeaders=host
 	// &X-Amz-Signature=

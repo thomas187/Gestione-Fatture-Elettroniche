@@ -1,8 +1,9 @@
-// This is a generated source file for Chilkat version 9.5.0.91
+// This is a generated source file for Chilkat version 9.5.0.94
 #ifndef _C_CkBinDataWH
 #define _C_CkBinDataWH
 #include "chilkatDefs.h"
 
+#include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
 
@@ -30,6 +31,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkBinDataW_ContentsEqual(HCkBinDataW cHandle, HCkBinDat
 CK_C_VISIBLE_PUBLIC int CkBinDataW_FindString(HCkBinDataW cHandle, const wchar_t *str, int startIdx, const wchar_t *charset);
 CK_C_VISIBLE_PUBLIC BOOL CkBinDataW_GetBinary(HCkBinDataW cHandle, HCkByteData outBytes);
 CK_C_VISIBLE_PUBLIC BOOL CkBinDataW_GetBinaryChunk(HCkBinDataW cHandle, int offset, int numBytes, HCkByteData outBytes);
+CK_C_VISIBLE_PUBLIC int CkBinDataW_GetByte(HCkBinDataW cHandle, int index);
 CK_C_VISIBLE_PUBLIC const void * CkBinDataW_GetBytesPtr(HCkBinDataW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkBinDataW_GetEncoded(HCkBinDataW cHandle, const wchar_t *encoding, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkBinDataW_getEncoded(HCkBinDataW cHandle, const wchar_t *encoding);

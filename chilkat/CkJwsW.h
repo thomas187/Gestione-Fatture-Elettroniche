@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
 #ifndef _CkJwsW_H
 #define _CkJwsW_H
@@ -172,8 +172,7 @@ class CK_VISIBLE_PUBLIC CkJwsW  : public CkWideCharBase
 	bool SetPayloadSb(CkStringBuilderW &sbPayload, const wchar_t *charset, bool includeBom);
 
 	// Sets the private key (ECC or RSA) to be used in creating a signature for the
-	// following algorithms:
-	// RS256
+	// following algorithms:RS256
 	// RS384
 	// RS512
 	// ES256
@@ -181,9 +180,8 @@ class CK_VISIBLE_PUBLIC CkJwsW  : public CkWideCharBase
 	// ES512
 	// PS256
 	// PS384
-	// PS512
-	// The JWS algorithms are described in RFC 7518, section 3.1. Here is a summary:
-	//    +--------------+-------------------------------+--------------------+
+	// PS512 The JWS algorithms are described in RFC 7518, section 3.1. Here is a
+	// summary:+--------------+-------------------------------+--------------------+
 	//    | "alg" Param  | Digital Signature or MAC      | Implementation     |
 	//    | Value        | Algorithm                     | Requirements       |
 	//    +--------------+-------------------------------+--------------------+
@@ -216,8 +214,7 @@ class CK_VISIBLE_PUBLIC CkJwsW  : public CkWideCharBase
 	bool SetProtectedHeader(int index, CkJsonObjectW &json);
 
 	// Sets the public key (ECC or RSA) to be used in validating a signature for the
-	// following algorithms:
-	// RS256
+	// following algorithms:RS256
 	// RS384
 	// RS512
 	// ES256

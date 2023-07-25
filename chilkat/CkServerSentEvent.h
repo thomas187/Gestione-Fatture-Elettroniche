@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.91
+// This header is generated for Chilkat 9.5.0.94
 
-#define _CkVersion 9.5.0.91
+#define _CkVersion 9.5.0.94
 
 #ifndef _CkServerSentEvent_H
 #define _CkServerSentEvent_H
@@ -81,8 +81,7 @@ class CK_VISIBLE_PUBLIC CkServerSentEvent  : public CkMultiByteBase
 	// Methods
 	// ----------------------
 	// Loads the multi-line event text into this object. For example, the eventText for a
-	// Firebase event might look like this:
-	// event: put
+	// Firebase event might look like this:event: put
 	// data: {"path": "/c", "data": {"foo": true, "bar": false}}
 	bool LoadEvent(const char *eventText);
 
