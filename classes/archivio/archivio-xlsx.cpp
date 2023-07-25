@@ -80,6 +80,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         IVA_22,
         ALIQUOTA_SPESE_22,
         IVA_SPESE_22,
+        ALTRO
     };
 
     auto inserisciValoreDocumento = [=](XmlFile *item, int row, int column, double value, Format format) {
@@ -151,6 +152,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
             document->write(nRows+rowMin, IVA_22,            formula.arg(QChar((short)64+IVA_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
             document->write(nRows+rowMin, ALIQUOTA_SPESE_22, formula.arg(QChar((short)64+ALIQUOTA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
             document->write(nRows+rowMin, IVA_SPESE_22,      formula.arg(QChar((short)64+IVA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
+            document->write(nRows+rowMin, ALTRO,             formula.arg(QChar((short)64+ALTRO).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
         }
 
         auto boldFormat = bold;
@@ -172,7 +174,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         document->write(row, PIVA, item->partIva(), format);
 
         auto iLength = item->intestazione().length();
-        auto intestazione = iLength > 60 ? item->intestazione().left(58)+"…" : item->intestazione();
+        auto intestazione = iLength > 30 ? item->intestazione().left(28)+"…" : item->intestazione();
         auto intestazione_format = format;
         intestazione_format.setHorizontalAlignment(Format::HorizontalAlignment::AlignLeft);
         normal.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
@@ -193,6 +195,11 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         inserisciValoreDocumento(item, row, IVA_SPESE_22, item->tipo()==XmlFile::SPESE ? item->imposta_22() : 0, format);
         inserisciValoreDocumento(item, row, ALIQUOTA_22, item->tipo()==XmlFile::SPESE ? 0 : item->imponibile_22(), format);
         inserisciValoreDocumento(item, row, IVA_22, item->tipo()==XmlFile::SPESE ? 0 : item->imposta_22(), format);
+
+        auto altro_format = format;
+        altro_format.setHorizontalAlignment(Format::HorizontalAlignment::AlignLeft);
+        normal.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+        document->write(row, ALTRO, QString(), altro_format);
 
     }
 
@@ -222,6 +229,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         document->write(row, IVA_SPESE_22, "", format);
         document->write(row, ALIQUOTA_22, "", format);
         document->write(row, IVA_22, "", format);
+        document->write(row, ALTRO, "", format);
 
     }
 
@@ -232,8 +240,9 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         document->setColumnWidth(N_OPERAZ,15);
         document->setColumnWidth(DATA,18);
         document->setColumnWidth(PIVA,22);
-        document->setColumnWidth(INTESTAZIONE,80);
+        document->setColumnWidth(INTESTAZIONE,43);
         document->setColumnWidth(TIPO_DOCUMENTO,20);
+        document->setColumnWidth(ALTRO,43);
         for(int c=IMPORTI; c<=IVA_SPESE_22; c++)
             document->setColumnWidth(c,18);
     }
