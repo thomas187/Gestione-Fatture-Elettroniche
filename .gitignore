@@ -11,3 +11,5 @@ chilkat/*
 
 # Eccezione per il file load.pri nella cartella chilkat
 !chilkat/chilkat.pri
+
+.user
