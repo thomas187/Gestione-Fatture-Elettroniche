@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkSshKeyW_H
 #define _CkSshKeyW_H
@@ -12,6 +12,7 @@
 #include "CkString.h"
 #include "CkWideCharBase.h"
 
+class CkPkcs11W;
 
 
 
@@ -1169,6 +1170,11 @@ class CK_VISIBLE_PUBLIC CkSshKeyW  : public CkWideCharBase
 	// _LT_/RSAKeyValue>
 	// 
 	const wchar_t *toXml(void);
+
+	// Use a private key in a PKCS11 session for public-key authentication, where your
+	// private key is on an HSM, such as a smart card or hardware token. Both the
+	// public and private key handles must be provided. The keyType can be "RSA" or "EC".
+	bool UsePkcs11(CkPkcs11W &session, unsigned long privKeyHandle, unsigned long pubKeyHandle, const wchar_t *keyType);
 
 
 

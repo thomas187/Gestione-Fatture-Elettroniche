@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkXmlDSigGen_H
 #define _CkXmlDSigGen_H
@@ -12,15 +12,17 @@
 #include "chilkatDefs.h"
 
 #include "CkString.h"
-#include "CkMultiByteBase.h"
+#include "CkClassWithCallbacks.h"
 
 class CkStringBuilder;
 class CkBinData;
 class CkXml;
+class CkTask;
 class CkHttp;
 class CkPrivateKey;
 class CkJsonObject;
 class CkCert;
+class CkBaseProgress;
 
 
 
@@ -32,7 +34,7 @@ class CkCert;
 #undef Copy
 
 // CLASS: CkXmlDSigGen
-class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
+class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkClassWithCallbacks
 {
     private:
 
@@ -53,7 +55,9 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 
 	
 		
-	
+	CkBaseProgress *get_EventCallbackObject(void) const;
+	void put_EventCallbackObject(CkBaseProgress *progress);
+
 
 	// BEGIN PUBLIC INTERFACE
 
@@ -134,6 +138,10 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     LocalSigningTime (introduced in v9.5.0.76) Causes the signing time to be
 	//     formatted using a local time (with a timezone offset such as "+01:00" rather
 	//     than "Z" to signify GMT).
+	//     NoReplaceSigningTime Don't replace the <SigningTime> content with a
+	//     timestamp of the current date/time. Instead keep the current value provided by
+	//     the application.
+	//     NoTimestampBias Exclude the timestamp bias from the generated <SigningTime>
 	//     DnReverseOrder (introduced in v9.5.0.77) Causes DN's (certificate
 	//     Distinguished Names) to be written in reverse order. Reverse order leads with
 	//     "CN", such as "CN=..., O=..., OU=..., C=...", whereas normal order ends with
@@ -240,6 +248,10 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     LocalSigningTime (introduced in v9.5.0.76) Causes the signing time to be
 	//     formatted using a local time (with a timezone offset such as "+01:00" rather
 	//     than "Z" to signify GMT).
+	//     NoReplaceSigningTime Don't replace the <SigningTime> content with a
+	//     timestamp of the current date/time. Instead keep the current value provided by
+	//     the application.
+	//     NoTimestampBias Exclude the timestamp bias from the generated <SigningTime>
 	//     DnReverseOrder (introduced in v9.5.0.77) Causes DN's (certificate
 	//     Distinguished Names) to be written in reverse order. Reverse order leads with
 	//     "CN", such as "CN=..., O=..., OU=..., C=...", whereas normal order ends with
@@ -346,6 +358,10 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     LocalSigningTime (introduced in v9.5.0.76) Causes the signing time to be
 	//     formatted using a local time (with a timezone offset such as "+01:00" rather
 	//     than "Z" to signify GMT).
+	//     NoReplaceSigningTime Don't replace the <SigningTime> content with a
+	//     timestamp of the current date/time. Instead keep the current value provided by
+	//     the application.
+	//     NoTimestampBias Exclude the timestamp bias from the generated <SigningTime>
 	//     DnReverseOrder (introduced in v9.5.0.77) Causes DN's (certificate
 	//     Distinguished Names) to be written in reverse order. Reverse order leads with
 	//     "CN", such as "CN=..., O=..., OU=..., C=...", whereas normal order ends with
@@ -1109,6 +1125,15 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	//     www.csioz.gov.pl
 	// 
 	const char *createXmlDSig(const char *inXml);
+	// Creates an XML Digital Signature. The application passes in the XML to be
+	// signed, and the signed XML is returned. If creating an enveloping signature
+	// where the Signature element is the root, then the inXml may be the empty string.
+	// 
+	//     Chilkat v9.5.0.76 or greater is required for XML signatures for
+	//     www.csioz.gov.pl
+	// 
+	CkTask *CreateXmlDSigAsync(const char *inXml);
+
 
 	// Creates an XML Digital Signature. The application passes the XML to be signed in
 	// sbXml, and it is replaced with the signed XML if successful. (Thus, sbXml is both
@@ -1116,6 +1141,13 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGen  : public CkMultiByteBase
 	// the Signature element is to be the root element, then the passed-in sbXml may be
 	// empty.
 	bool CreateXmlDSigSb(CkStringBuilder &sbXml);
+
+	// Creates an XML Digital Signature. The application passes the XML to be signed in
+	// sbXml, and it is replaced with the signed XML if successful. (Thus, sbXml is both
+	// an input and output argument.) Note: If creating an enveloping signature where
+	// the Signature element is to be the root element, then the passed-in sbXml may be
+	// empty.
+	CkTask *CreateXmlDSigSbAsync(CkStringBuilder &sbXml);
 
 
 	// Sets the HMAC key to be used if the Signature is to use an HMAC signing

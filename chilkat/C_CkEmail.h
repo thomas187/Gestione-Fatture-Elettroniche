@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkEmail_H
 #define _C_CkEmail_H
 #include "chilkatDefs.h"
@@ -281,6 +281,9 @@ CK_C_VISIBLE_PUBLIC BOOL CkEmail_GetMimeBd(HCkEmail cHandle, HCkBinData bindat);
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_GetMimeBinary(HCkEmail cHandle, HCkByteData outBytes);
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_GetMimeSb(HCkEmail cHandle, HCkStringBuilder sb);
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_GetNthBinaryPartOfType(HCkEmail cHandle, int index, const char *contentType, BOOL inlineOnly, BOOL excludeAttachments, HCkByteData outBytes);
+CK_C_VISIBLE_PUBLIC BOOL CkEmail_GetNthBinaryPartOfTypeBd(HCkEmail cHandle, int index, const char *contentType, BOOL inlineOnly, BOOL excludeAttachments, HCkBinData bd);
+CK_C_VISIBLE_PUBLIC BOOL CkEmail_GetNthContentType(HCkEmail cHandle, int index, const char *contentType, BOOL inlineOnly, BOOL excludeAttachments, HCkString outStr);
+CK_C_VISIBLE_PUBLIC const char *CkEmail_getNthContentType(HCkEmail cHandle, int index, const char *contentType, BOOL inlineOnly, BOOL excludeAttachments);
 CK_C_VISIBLE_PUBLIC BOOL CkEmail_GetNthTextPartOfType(HCkEmail cHandle, int index, const char *contentType, BOOL inlineOnly, BOOL excludeAttachments, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkEmail_getNthTextPartOfType(HCkEmail cHandle, int index, const char *contentType, BOOL inlineOnly, BOOL excludeAttachments);
 CK_C_VISIBLE_PUBLIC int CkEmail_GetNumPartsOfType(HCkEmail cHandle, const char *contentType, BOOL inlineOnly, BOOL excludeAttachments);

@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkAuthAzureAD_H
 #define _C_CkAuthAzureAD_H
 #include "chilkatDefs.h"

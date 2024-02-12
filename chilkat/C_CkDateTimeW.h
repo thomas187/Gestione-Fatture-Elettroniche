@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkDateTimeWH
 #define _C_CkDateTimeWH
 #include "chilkatDefs.h"
@@ -73,6 +73,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromDosDate(HCkDateTimeW cHandle, BOOL b
 CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromDosDate2(HCkDateTimeW cHandle, BOOL bLocal, unsigned short datePart, unsigned short timePart);
 #endif
 CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromDtObj(HCkDateTimeW cHandle, HCkDtObjW dt);
+CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromNtpServer(HCkDateTimeW cHandle, const wchar_t *jsonStr);
 CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromNtpTime(HCkDateTimeW cHandle, int ntpSeconds);
 CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromOleDate(HCkDateTimeW cHandle, BOOL bLocal, double dt);
 CK_C_VISIBLE_PUBLIC BOOL CkDateTimeW_SetFromRfc822(HCkDateTimeW cHandle, const wchar_t *rfc822Str);

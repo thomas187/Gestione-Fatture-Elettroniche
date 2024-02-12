@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkRsaWH
 #define _C_CkRsaWH
 #include "chilkatDefs.h"
@@ -34,6 +34,9 @@ CK_C_VISIBLE_PUBLIC int CkRsaW_getNumBits(HCkRsaW cHandle);
 CK_C_VISIBLE_PUBLIC void CkRsaW_getOaepHash(HCkRsaW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void  CkRsaW_putOaepHash(HCkRsaW cHandle, const wchar_t *newVal);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkRsaW_oaepHash(HCkRsaW cHandle);
+CK_C_VISIBLE_PUBLIC void CkRsaW_getOaepLabel(HCkRsaW cHandle, HCkString retval);
+CK_C_VISIBLE_PUBLIC void  CkRsaW_putOaepLabel(HCkRsaW cHandle, const wchar_t *newVal);
+CK_C_VISIBLE_PUBLIC const wchar_t *CkRsaW_oaepLabel(HCkRsaW cHandle);
 CK_C_VISIBLE_PUBLIC void CkRsaW_getOaepMgfHash(HCkRsaW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void  CkRsaW_putOaepMgfHash(HCkRsaW cHandle, const wchar_t *newVal);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkRsaW_oaepMgfHash(HCkRsaW cHandle);

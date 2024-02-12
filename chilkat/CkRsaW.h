@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkRsaW_H
 #define _CkRsaW_H
@@ -202,6 +202,22 @@ class CK_VISIBLE_PUBLIC CkRsaW  : public CkWideCharBase
 	// "sha1", "sha256", "sha384", "sha512", "md2", "md5", "haval", "ripemd128",
 	// "ripemd160","ripemd256", or "ripemd320". The default is "sha1".
 	void put_OaepHash(const wchar_t *newVal);
+
+	// The optional RSA encryption OAEP label. This property is the hex representation
+	// of the OAEP label bytes to be used when encrypting with OAEP padding. In
+	// virtually all cases, it is left empty (the label is 0 bytes in length). Only set
+	// this property if you have a specific need. Otherwise, leave it empty.
+	void get_OaepLabel(CkString &str);
+	// The optional RSA encryption OAEP label. This property is the hex representation
+	// of the OAEP label bytes to be used when encrypting with OAEP padding. In
+	// virtually all cases, it is left empty (the label is 0 bytes in length). Only set
+	// this property if you have a specific need. Otherwise, leave it empty.
+	const wchar_t *oaepLabel(void);
+	// The optional RSA encryption OAEP label. This property is the hex representation
+	// of the OAEP label bytes to be used when encrypting with OAEP padding. In
+	// virtually all cases, it is left empty (the label is 0 bytes in length). Only set
+	// this property if you have a specific need. Otherwise, leave it empty.
+	void put_OaepLabel(const wchar_t *newVal);
 
 	// Selects the MGF (mask generation) hash algorithm for use within OAEP padding.
 	// The valid choices are "sha1", "sha256", "sha384", "sha512", "md2", "md5",

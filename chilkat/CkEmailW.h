@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkEmailW_H
 #define _CkEmailW_H
@@ -132,41 +132,35 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// 
 	void put_BounceAddress(const wchar_t *newVal);
 
-	// Sets the charset for the entire email. The header fields and plain-text/HTML
-	// bodies will be converted and sent in this charset. (This includes parsing and
-	// updating the HTML with the appropriate META tag specifying the charset.) All
-	// formatting and encoding of the email MIME is handled automatically by the
-	// Chilkat Mail component. If your application wants to send a Shift_JIS email, you
-	// simply set the Charset property to "Shift_JIS". Note: If a charset property is
-	// not explicitly set, the Chilkat component automatically detects the charset and
-	// chooses the appropriate charset. If all characters are 7bit (i.e. us-ascii) the
-	// charset is left blank. If the email contain a mix of languages such that no one
-	// charset can be chosen, or if the language cannot be determined without
-	// ambiguity, then the "utf-8" charset will be chosen.
+	// Represents the main charset of the email, such as "utf-8", "iso-8859-1",
+	// "Shift_JIS", "us-ascii", etc. This property can be empty if there is no explicit
+	// charset, such as for emails with only us-ascii.
+	// 
+	// Setting this property causes Chilkat to use the new charset in HTML and
+	// plain-text bodies, where possible. This can include updating the HTML META tag
+	// in HTML bodies to agree with the charset specified in the email header and also
+	// the byte representation of the HTML body in the email.
+	// 
 	void get_Charset(CkString &str);
-	// Sets the charset for the entire email. The header fields and plain-text/HTML
-	// bodies will be converted and sent in this charset. (This includes parsing and
-	// updating the HTML with the appropriate META tag specifying the charset.) All
-	// formatting and encoding of the email MIME is handled automatically by the
-	// Chilkat Mail component. If your application wants to send a Shift_JIS email, you
-	// simply set the Charset property to "Shift_JIS". Note: If a charset property is
-	// not explicitly set, the Chilkat component automatically detects the charset and
-	// chooses the appropriate charset. If all characters are 7bit (i.e. us-ascii) the
-	// charset is left blank. If the email contain a mix of languages such that no one
-	// charset can be chosen, or if the language cannot be determined without
-	// ambiguity, then the "utf-8" charset will be chosen.
+	// Represents the main charset of the email, such as "utf-8", "iso-8859-1",
+	// "Shift_JIS", "us-ascii", etc. This property can be empty if there is no explicit
+	// charset, such as for emails with only us-ascii.
+	// 
+	// Setting this property causes Chilkat to use the new charset in HTML and
+	// plain-text bodies, where possible. This can include updating the HTML META tag
+	// in HTML bodies to agree with the charset specified in the email header and also
+	// the byte representation of the HTML body in the email.
+	// 
 	const wchar_t *charset(void);
-	// Sets the charset for the entire email. The header fields and plain-text/HTML
-	// bodies will be converted and sent in this charset. (This includes parsing and
-	// updating the HTML with the appropriate META tag specifying the charset.) All
-	// formatting and encoding of the email MIME is handled automatically by the
-	// Chilkat Mail component. If your application wants to send a Shift_JIS email, you
-	// simply set the Charset property to "Shift_JIS". Note: If a charset property is
-	// not explicitly set, the Chilkat component automatically detects the charset and
-	// chooses the appropriate charset. If all characters are 7bit (i.e. us-ascii) the
-	// charset is left blank. If the email contain a mix of languages such that no one
-	// charset can be chosen, or if the language cannot be determined without
-	// ambiguity, then the "utf-8" charset will be chosen.
+	// Represents the main charset of the email, such as "utf-8", "iso-8859-1",
+	// "Shift_JIS", "us-ascii", etc. This property can be empty if there is no explicit
+	// charset, such as for emails with only us-ascii.
+	// 
+	// Setting this property causes Chilkat to use the new charset in HTML and
+	// plain-text bodies, where possible. This can include updating the HTML META tag
+	// in HTML bodies to agree with the charset specified in the email header and also
+	// the byte representation of the HTML body in the email.
+	// 
 	void put_Charset(const wchar_t *newVal);
 
 	// true if the email arrived encrypted and was successfully decrypted, otherwise
@@ -621,7 +615,8 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// The sender's address for this email message.
 	// 
 	// This is the address of the actual sender acting on behalf of the author listed
-	// in the From: field.
+	// in the From: field. It is the email address passed in the "MAIL FROM" SMTP
+	// command which becomes the "return-path" header in the email when received.
 	// 
 	// Note: The Sender and BounceAddress properties are identical and perform the same
 	// function. Setting the Sender property also sets the BounceAddress property, and
@@ -638,7 +633,8 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// The sender's address for this email message.
 	// 
 	// This is the address of the actual sender acting on behalf of the author listed
-	// in the From: field.
+	// in the From: field. It is the email address passed in the "MAIL FROM" SMTP
+	// command which becomes the "return-path" header in the email when received.
 	// 
 	// Note: The Sender and BounceAddress properties are identical and perform the same
 	// function. Setting the Sender property also sets the BounceAddress property, and
@@ -655,7 +651,8 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// The sender's address for this email message.
 	// 
 	// This is the address of the actual sender acting on behalf of the author listed
-	// in the From: field.
+	// in the From: field. It is the email address passed in the "MAIL FROM" SMTP
+	// command which becomes the "return-path" header in the email when received.
 	// 
 	// Note: The Sender and BounceAddress properties are identical and perform the same
 	// function. Setting the Sender property also sets the BounceAddress property, and
@@ -1791,7 +1788,62 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// parts of the full email. Also, if downloaded from IMAP excluding attachments,
 	// those parts that are the attachments will (of course) be missing.
 	// 
+	// Note: Beginning in v9.5.0.95, the contentType can be wildcarded. For example, it is
+	// possible to specify "text/*", or simply "*" to match any Content-Type.
+	// 
+	// Note: Only non-multipart MIME parts are matched.
+	// 
 	bool GetNthBinaryPartOfType(int index, const wchar_t *contentType, bool inlineOnly, bool excludeAttachments, CkByteData &outBytes);
+
+	// Loads bd with the binary bytes of the Nth MIME sub-part matching the contentType,
+	// which can be an exact Content-Type such as "application/pdf", or a wildcarded
+	// Content-Type such as "application/*", or "*/*". Indexing begins at 0. Call
+	// GetNumPartsOfType to find out how many MIME sub-parts exist for any given
+	// content type. If inlineOnly is true, then only MIME sub-parts having a
+	// content-disposition of "inline" are included. If excludeAttachments is true, then MIME
+	// sub-parts having a content-disposition of "attachment" are excluded.
+	// 
+	// Note: If the email was downloaded as header-only, it will not contain all the
+	// parts of the full email. Also, if downloaded from IMAP excluding attachments,
+	// those parts that are the attachments will (of course) be missing.
+	// 
+	// Note: Beginning in v9.5.0.95, the contentType can be wildcarded. For example, it is
+	// possible to specify "text/*", or simply "*" to match any Content-Type.
+	// 
+	// Note: Only non-multipart MIME parts are matched.
+	// 
+	bool GetNthBinaryPartOfTypeBd(int index, const wchar_t *contentType, bool inlineOnly, bool excludeAttachments, CkBinDataW &bd);
+
+	// Returns the Content-Type of the Nth MIME sub-part matching the specified contentType.
+	// The contentType can be a Content-Type such as "text/plain", or a wildcarded
+	// Content-Type such as "text/*", or even just "*" to match all Content-Types. If
+	// inlineOnly is true, then only MIME sub-parts having a content-disposition of
+	// "inline" are included. If excludeAttachments is true, then MIME sub-parts having a
+	// content-disposition of "attachment" are excluded.
+	// 
+	// Note: Only non-multipart content-types are matched.
+	// 
+	bool GetNthContentType(int index, const wchar_t *contentType, bool inlineOnly, bool excludeAttachments, CkString &outStr);
+	// Returns the Content-Type of the Nth MIME sub-part matching the specified contentType.
+	// The contentType can be a Content-Type such as "text/plain", or a wildcarded
+	// Content-Type such as "text/*", or even just "*" to match all Content-Types. If
+	// inlineOnly is true, then only MIME sub-parts having a content-disposition of
+	// "inline" are included. If excludeAttachments is true, then MIME sub-parts having a
+	// content-disposition of "attachment" are excluded.
+	// 
+	// Note: Only non-multipart content-types are matched.
+	// 
+	const wchar_t *getNthContentType(int index, const wchar_t *contentType, bool inlineOnly, bool excludeAttachments);
+	// Returns the Content-Type of the Nth MIME sub-part matching the specified contentType.
+	// The contentType can be a Content-Type such as "text/plain", or a wildcarded
+	// Content-Type such as "text/*", or even just "*" to match all Content-Types. If
+	// inlineOnly is true, then only MIME sub-parts having a content-disposition of
+	// "inline" are included. If excludeAttachments is true, then MIME sub-parts having a
+	// content-disposition of "attachment" are excluded.
+	// 
+	// Note: Only non-multipart content-types are matched.
+	// 
+	const wchar_t *nthContentType(int index, const wchar_t *contentType, bool inlineOnly, bool excludeAttachments);
 
 	// Returns the text of the Nth MIME sub-part having a specified content type (such
 	// as "text/plain". Indexing begins at 0. Call GetNumPartsOfType to find out how
@@ -1803,6 +1855,11 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// Note: If the email was downloaded as header-only, it will not contain all the
 	// parts of the full email. Also, if downloaded from IMAP excluding attachments,
 	// those parts that are the attachments will (of course) be missing.
+	// 
+	// Note: Beginning in v9.5.0.95, the contentType can be wildcarded. For example, it is
+	// possible to specify "text/*", or simply "*" to match any Content-Type.
+	// 
+	// Note: Only non-multipart MIME parts are matched.
 	// 
 	bool GetNthTextPartOfType(int index, const wchar_t *contentType, bool inlineOnly, bool excludeAttachments, CkString &outStr);
 	// Returns the text of the Nth MIME sub-part having a specified content type (such
@@ -1816,6 +1873,11 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// parts of the full email. Also, if downloaded from IMAP excluding attachments,
 	// those parts that are the attachments will (of course) be missing.
 	// 
+	// Note: Beginning in v9.5.0.95, the contentType can be wildcarded. For example, it is
+	// possible to specify "text/*", or simply "*" to match any Content-Type.
+	// 
+	// Note: Only non-multipart MIME parts are matched.
+	// 
 	const wchar_t *getNthTextPartOfType(int index, const wchar_t *contentType, bool inlineOnly, bool excludeAttachments);
 	// Returns the text of the Nth MIME sub-part having a specified content type (such
 	// as "text/plain". Indexing begins at 0. Call GetNumPartsOfType to find out how
@@ -1828,6 +1890,11 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// parts of the full email. Also, if downloaded from IMAP excluding attachments,
 	// those parts that are the attachments will (of course) be missing.
 	// 
+	// Note: Beginning in v9.5.0.95, the contentType can be wildcarded. For example, it is
+	// possible to specify "text/*", or simply "*" to match any Content-Type.
+	// 
+	// Note: Only non-multipart MIME parts are matched.
+	// 
 	const wchar_t *nthTextPartOfType(int index, const wchar_t *contentType, bool inlineOnly, bool excludeAttachments);
 
 	// Returns the number of MIME sub-parts within the email having a specified content
@@ -1838,6 +1905,12 @@ class CK_VISIBLE_PUBLIC CkEmailW  : public CkWideCharBase
 	// Note: If the email was downloaded as header-only, it will not contain all the
 	// parts of the full email. Also, if downloaded from IMAP excluding attachments,
 	// those parts that are the attachments will (of course) be missing.
+	// 
+	// Note: Beginning in v9.5.0.95, the inlineOnly can be wildcarded. For example, it is
+	// possible to specify "text/*", or simply "*" to match any Content-Type.
+	// 
+	// Note: Only non-multipart MIME parts are matched (i.e. leaf-node MIME parts that
+	// contain a text or binary body).
 	// 
 	int GetNumPartsOfType(const wchar_t *contentType, bool inlineOnly, bool excludeAttachments);
 

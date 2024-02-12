@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkWebSocket_H
 #define _C_CkWebSocket_H
 #include "chilkatDefs.h"
@@ -36,6 +36,8 @@ CK_C_VISIBLE_PUBLIC int CkWebSocket_getFrameDataLen(HCkWebSocket cHandle);
 CK_C_VISIBLE_PUBLIC void CkWebSocket_getFrameOpcode(HCkWebSocket cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const char *CkWebSocket_frameOpcode(HCkWebSocket cHandle);
 CK_C_VISIBLE_PUBLIC int CkWebSocket_getFrameOpcodeInt(HCkWebSocket cHandle);
+CK_C_VISIBLE_PUBLIC int CkWebSocket_getHeartbeatMs(HCkWebSocket cHandle);
+CK_C_VISIBLE_PUBLIC void CkWebSocket_putHeartbeatMs(HCkWebSocket cHandle, int newVal);
 CK_C_VISIBLE_PUBLIC int CkWebSocket_getIdleTimeoutMs(HCkWebSocket cHandle);
 CK_C_VISIBLE_PUBLIC void CkWebSocket_putIdleTimeoutMs(HCkWebSocket cHandle, int newVal);
 CK_C_VISIBLE_PUBLIC BOOL CkWebSocket_getIsConnected(HCkWebSocket cHandle);

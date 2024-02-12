@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkDsa_H
 #define _CkDsa_H

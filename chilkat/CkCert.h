@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkCert_H
 #define _CkCert_H
@@ -12,7 +12,7 @@
 #include "chilkatDefs.h"
 
 #include "CkString.h"
-#include "CkMultiByteBase.h"
+#include "CkClassWithCallbacks.h"
 
 class CkByteData;
 class CkBinData;
@@ -20,8 +20,11 @@ class CkPrivateKey;
 class CkPublicKey;
 class CkCertChain;
 class CkDateTime;
+class CkPkcs11;
 class CkTask;
+class CkJsonObject;
 class CkXmlCertVault;
+class CkBaseProgress;
 
 
 
@@ -33,7 +36,7 @@ class CkXmlCertVault;
 #undef Copy
 
 // CLASS: CkCert
-class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
+class CK_VISIBLE_PUBLIC CkCert  : public CkClassWithCallbacks
 {
     private:
 
@@ -54,7 +57,9 @@ class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
 
 	
 		
-	
+	CkBaseProgress *get_EventCallbackObject(void) const;
+	void put_EventCallbackObject(CkBaseProgress *progress);
+
 
 	// BEGIN PUBLIC INTERFACE
 
@@ -656,6 +661,10 @@ class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
 	const char *extensionAsXml(const char *oid);
 
 
+	// Returns the certificate extension data specified by oid in bd.
+	bool GetExtensionBd(const char *oid, CkBinData &bd);
+
+
 	// Exports the certificate's private key to a PEM string (if the private key is
 	// available).
 	bool GetPrivateKeyPem(CkString &outStr);
@@ -761,6 +770,12 @@ class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
 
 	// Returns true if a private key associated with the certificate is available.
 	bool HasPrivateKey(void);
+
+
+	// Links to the certificate's private key located on an HSM (smart card, token, or
+	// cloud HSM). Once linked, the certificate can be used for signing where the
+	// signing occurs on the HSM. See the example below for more detailed information.
+	bool LinkPkcs11(CkPkcs11 &session);
 
 
 	// (Relevant only when running on a Microsoft Windows operating system.) Searches
@@ -932,6 +947,12 @@ class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
 	bool SaveToFile(const char *path);
 
 
+	// Provides information for a cloud signing service to do the signing via a remote
+	// signing server. Current supported services are AWS KMS, Azure Key Vault, and
+	// ARSS (Aruba Remote Signing Service). See the examples below.
+	bool SetCloudSigner(CkJsonObject &json);
+
+
 	// Initializes the certificate object from a base64 encoded string representation
 	// of the certificate's binary DER format.
 	bool SetFromEncoded(const char *encodedCert);
@@ -945,6 +966,17 @@ class CK_VISIBLE_PUBLIC CkCert  : public CkMultiByteBase
 	// Same as SetPrivateKey, but the key is provided in unencrypted PEM format. (Note:
 	// The privKeyPem is not a file path, it is the actual PEM text.)
 	bool SetPrivateKeyPem(const char *privKeyPem);
+
+
+	// This is an open-ended method to accomodate uploading the private key to a cloud
+	// service, such as AWS KMS, or Azure Key Vault. For details, see the examples
+	// below.
+	bool UploadToCloud(CkJsonObject &jsonIn, CkJsonObject &jsonOut);
+
+	// This is an open-ended method to accomodate uploading the private key to a cloud
+	// service, such as AWS KMS, or Azure Key Vault. For details, see the examples
+	// below.
+	CkTask *UploadToCloudAsync(CkJsonObject &jsonIn, CkJsonObject &jsonOut);
 
 
 	// Adds an XML certificate vault to the object's internal list of sources to be

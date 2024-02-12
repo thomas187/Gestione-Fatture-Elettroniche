@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkSshW_H
 #define _CkSshW_H
@@ -189,17 +189,17 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	const wchar_t *channelOpenFailReason(void);
 
 	// The client-identifier string to be used when connecting to an SSH/SFTP server.
-	// Defaults to "SSH-2.0-PuTTY_Release_0.63". (This string is used to mimic PuTTY
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
 	// because some servers are known to disconnect from clients with unknown client
 	// identifiers.)
 	void get_ClientIdentifier(CkString &str);
 	// The client-identifier string to be used when connecting to an SSH/SFTP server.
-	// Defaults to "SSH-2.0-PuTTY_Release_0.63". (This string is used to mimic PuTTY
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
 	// because some servers are known to disconnect from clients with unknown client
 	// identifiers.)
 	const wchar_t *clientIdentifier(void);
 	// The client-identifier string to be used when connecting to an SSH/SFTP server.
-	// Defaults to "SSH-2.0-PuTTY_Release_0.63". (This string is used to mimic PuTTY
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
 	// because some servers are known to disconnect from clients with unknown client
 	// identifiers.)
 	void put_ClientIdentifier(const wchar_t *newVal);
@@ -306,34 +306,97 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// 
 	void put_EnableCompression(bool newVal);
 
-	// Set to one of the following encryption algorithms to force that cipher to be
-	// used. By default, the component will automatically choose the first cipher
-	// supported by the server in the order listed here: "aes256-ctr", "aes128-ctr",
-	// "aes256-cbc", "aes128-cbc", "twofish256-cbc", "twofish128-cbc", "blowfish-cbc",
-	// "3des-cbc", "arcfour128", "arcfour256". (If blowfish is chosen, the encryption
-	// strength is 128 bits.)
+	// Allows for the application to specify an encryption algorithm (cipher) or a
+	// comma-separated list of algorithms that are acceptable. If this property is set,
+	// then the SSH connection will use one of the specified ciphers.
+	// 
+	// Possible algorithms are:
+	//     chacha20-poly1305@openssh.com
+	//     aes128-ctr
+	//     aes256-ctr
+	//     aes192-ctr
+	//     aes128-cbc
+	//     aes256-cbc
+	//     aes192-cbc
+	//     aes128-gcm@openssh.com
+	//     aes256-gcm@openssh.com
+	//     twofish256-cbc
+	//     twofish128-cbc
+	//     blowfish-cbc
+	//     3des-cbc
+	//     arcfour128
+	//     arcfour256
+	// 
+	// This property is empty by default, which means the encryption chosen will be the
+	// 1st on the above list (in the order listed above) that is also implemented by
+	// the server.
+	// 
+	// Note: The cipher(s) must be specified using the exact spelling in lowercase as
+	// shown above.
 	// 
 	// Important: If this is property is set and the server does NOT support then
 	// encryption algorithm, then the Connect will fail.
 	// 
 	void get_ForceCipher(CkString &str);
-	// Set to one of the following encryption algorithms to force that cipher to be
-	// used. By default, the component will automatically choose the first cipher
-	// supported by the server in the order listed here: "aes256-ctr", "aes128-ctr",
-	// "aes256-cbc", "aes128-cbc", "twofish256-cbc", "twofish128-cbc", "blowfish-cbc",
-	// "3des-cbc", "arcfour128", "arcfour256". (If blowfish is chosen, the encryption
-	// strength is 128 bits.)
+	// Allows for the application to specify an encryption algorithm (cipher) or a
+	// comma-separated list of algorithms that are acceptable. If this property is set,
+	// then the SSH connection will use one of the specified ciphers.
+	// 
+	// Possible algorithms are:
+	//     chacha20-poly1305@openssh.com
+	//     aes128-ctr
+	//     aes256-ctr
+	//     aes192-ctr
+	//     aes128-cbc
+	//     aes256-cbc
+	//     aes192-cbc
+	//     aes128-gcm@openssh.com
+	//     aes256-gcm@openssh.com
+	//     twofish256-cbc
+	//     twofish128-cbc
+	//     blowfish-cbc
+	//     3des-cbc
+	//     arcfour128
+	//     arcfour256
+	// 
+	// This property is empty by default, which means the encryption chosen will be the
+	// 1st on the above list (in the order listed above) that is also implemented by
+	// the server.
+	// 
+	// Note: The cipher(s) must be specified using the exact spelling in lowercase as
+	// shown above.
 	// 
 	// Important: If this is property is set and the server does NOT support then
 	// encryption algorithm, then the Connect will fail.
 	// 
 	const wchar_t *forceCipher(void);
-	// Set to one of the following encryption algorithms to force that cipher to be
-	// used. By default, the component will automatically choose the first cipher
-	// supported by the server in the order listed here: "aes256-ctr", "aes128-ctr",
-	// "aes256-cbc", "aes128-cbc", "twofish256-cbc", "twofish128-cbc", "blowfish-cbc",
-	// "3des-cbc", "arcfour128", "arcfour256". (If blowfish is chosen, the encryption
-	// strength is 128 bits.)
+	// Allows for the application to specify an encryption algorithm (cipher) or a
+	// comma-separated list of algorithms that are acceptable. If this property is set,
+	// then the SSH connection will use one of the specified ciphers.
+	// 
+	// Possible algorithms are:
+	//     chacha20-poly1305@openssh.com
+	//     aes128-ctr
+	//     aes256-ctr
+	//     aes192-ctr
+	//     aes128-cbc
+	//     aes256-cbc
+	//     aes192-cbc
+	//     aes128-gcm@openssh.com
+	//     aes256-gcm@openssh.com
+	//     twofish256-cbc
+	//     twofish128-cbc
+	//     blowfish-cbc
+	//     3des-cbc
+	//     arcfour128
+	//     arcfour256
+	// 
+	// This property is empty by default, which means the encryption chosen will be the
+	// 1st on the above list (in the order listed above) that is also implemented by
+	// the server.
+	// 
+	// Note: The cipher(s) must be specified using the exact spelling in lowercase as
+	// shown above.
 	// 
 	// Important: If this is property is set and the server does NOT support then
 	// encryption algorithm, then the Connect will fail.
@@ -1045,18 +1108,57 @@ class CK_VISIBLE_PUBLIC CkSshW  : public CkClassWithCallbacksW
 	// The domainName may be a domain name or an IPv4 or IPv6 address in string format.
 	// 
 	// Internally, the following SSH connection protocol algorithms are supported:
-	//     Hostkey Types: ssh-rsa, ssh-dsa, ecdsa-sha2-nistp256, rsa-sha2-256,
-	//     rsa-sha2-512, ssh-ed25519
-	//     Key Exchange Methods: curve25519-sha256@libssh.org, ecdh-sha2-nistp256,
-	//     ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256,
-	//     diffie-hellman-group-exchange-sha1, diffie-hellman-group14-sha1,
-	//     diffie-hellman-group1-sha1
-	//     Ciphers: chacha20-poly1305@openssh.com, aes256-ctr, aes192-ctr, aes128-ctr,
-	//     aes256-cbc, aes192-cbc, aes128-cbc, twofish256-cbc, twofish128-cbc,
-	//     blowfish-cbc, 3des-cbc, arcfour128, arcfour256
-	//     MAC Algorithms: hmac-sha2-256, hmac-sha2-512, hmac-sha1, hmac-md5,
-	//     hmac-ripemd160, hmac-sha1-96
-	//     Compression: none, zlib, zlib@openssh.com
+	//     Hostkey:
+	//         ssh-ed25519
+	//         rsa-sha2-256
+	//         rsa-sha2-512
+	//         ecdsa-sha2-nistp256
+	//         ecdsa-sha2-nistp384
+	//         ecdsa-sha2-nistp521
+	//         ssh-rsa
+	//         ssh-dss
+	//     Key Exchange:
+	//         curve25519-sha256
+	//         curve25519-sha256@libssh.org
+	//         ecdh-sha2-nistp256
+	//         ecdh-sha2-nistp384
+	//         ecdh-sha2-nistp521
+	//         diffie-hellman-group14-sha256
+	//         diffie-hellman-group1-sha1
+	//         diffie-hellman-group14-sha1
+	//         diffie-hellman-group16-sha512
+	//         diffie-hellman-group18-sha512
+	//         diffie-hellman-group-exchange-sha256
+	//         diffie-hellman-group-exchange-sha1
+	//     Ciphers:
+	//         aes128-ctr
+	//         aes256-ctr
+	//         aes192-ctr
+	//         aes128-cbc
+	//         aes256-cbc
+	//         aes192-cbc
+	//         aes128-gcm@openssh.com
+	//         aes256-gcm@openssh.com
+	//         twofish256-cbc
+	//         twofish128-cbc
+	//         blowfish-cbc
+	//         (also chacha20-poly1305@openssh.com if explicitly allowed by the
+	//         application)
+	//     MAC Algorithms:
+	//         hmac-sha2-256
+	//         hmac-sha2-512
+	//         hmac-sha1
+	//         hmac-ripemd160
+	//         hmac-sha1-96
+	//         hmac-md5
+	//         (also the following etm algorithms if explicitly allowed)
+	//         hmac-sha1-etm@openssh.com
+	//         hmac-sha2-256-etm@openssh.com
+	//         hmac-sha2-512-etm@openssh.com
+	//     Compression:
+	//         none
+	//         zlib
+	//         zlib@openssh.com
 	// 
 	// Important: All TCP-based Internet communications, regardless of the protocol
 	// (such as HTTP, FTP, SSH, IMAP, POP3, SMTP, etc.), and regardless of SSL/TLS,

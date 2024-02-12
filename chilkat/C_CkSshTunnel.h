@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkSshTunnel_H
 #define _C_CkSshTunnel_H
 #include "chilkatDefs.h"
@@ -30,6 +30,9 @@ CK_C_VISIBLE_PUBLIC const char *CkSshTunnel_acceptLog(HCkSshTunnel cHandle);
 CK_C_VISIBLE_PUBLIC void CkSshTunnel_getAcceptLogPath(HCkSshTunnel cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void CkSshTunnel_putAcceptLogPath(HCkSshTunnel cHandle, const char *newVal);
 CK_C_VISIBLE_PUBLIC const char *CkSshTunnel_acceptLogPath(HCkSshTunnel cHandle);
+CK_C_VISIBLE_PUBLIC void CkSshTunnel_getClientIdentifier(HCkSshTunnel cHandle, HCkString retval);
+CK_C_VISIBLE_PUBLIC void CkSshTunnel_putClientIdentifier(HCkSshTunnel cHandle, const char *newVal);
+CK_C_VISIBLE_PUBLIC const char *CkSshTunnel_clientIdentifier(HCkSshTunnel cHandle);
 CK_C_VISIBLE_PUBLIC int CkSshTunnel_getConnectTimeoutMs(HCkSshTunnel cHandle);
 CK_C_VISIBLE_PUBLIC void CkSshTunnel_putConnectTimeoutMs(HCkSshTunnel cHandle, int newVal);
 CK_C_VISIBLE_PUBLIC void CkSshTunnel_getDebugLogFilePath(HCkSshTunnel cHandle, HCkString retval);

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkXmlDSigGenW_H
 #define _CkXmlDSigGenW_H
@@ -10,15 +10,17 @@
 #include "chilkatDefs.h"
 
 #include "CkString.h"
-#include "CkWideCharBase.h"
+#include "CkClassWithCallbacksW.h"
 
 class CkStringBuilderW;
 class CkBinDataW;
 class CkXmlW;
+class CkTaskW;
 class CkHttpW;
 class CkPrivateKeyW;
 class CkJsonObjectW;
 class CkCertW;
+class CkBaseProgressW;
 
 
 
@@ -28,9 +30,10 @@ class CkCertW;
  
 
 // CLASS: CkXmlDSigGenW
-class CK_VISIBLE_PUBLIC CkXmlDSigGenW  : public CkWideCharBase
+class CK_VISIBLE_PUBLIC CkXmlDSigGenW  : public CkClassWithCallbacksW
 {
-	
+	private:
+	bool m_cbOwned;
 
 	private:
 	
@@ -47,6 +50,9 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGenW  : public CkWideCharBase
 	static CkXmlDSigGenW *createNew(void);
 	
 
+	CkXmlDSigGenW(bool bCallbackOwned);
+	static CkXmlDSigGenW *createNew(bool bCallbackOwned);
+
 	
 	void CK_VISIBLE_PRIVATE inject(void *impl);
 
@@ -54,7 +60,9 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGenW  : public CkWideCharBase
 	// internal resources held by the object. 
 	void dispose(void);
 
-	
+	CkBaseProgressW *get_EventCallbackObject(void) const;
+	void put_EventCallbackObject(CkBaseProgressW *progress);
+
 
 	// BEGIN PUBLIC INTERFACE
 
@@ -135,6 +143,10 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGenW  : public CkWideCharBase
 	//     LocalSigningTime (introduced in v9.5.0.76) Causes the signing time to be
 	//     formatted using a local time (with a timezone offset such as "+01:00" rather
 	//     than "Z" to signify GMT).
+	//     NoReplaceSigningTime Don't replace the <SigningTime> content with a
+	//     timestamp of the current date/time. Instead keep the current value provided by
+	//     the application.
+	//     NoTimestampBias Exclude the timestamp bias from the generated <SigningTime>
 	//     DnReverseOrder (introduced in v9.5.0.77) Causes DN's (certificate
 	//     Distinguished Names) to be written in reverse order. Reverse order leads with
 	//     "CN", such as "CN=..., O=..., OU=..., C=...", whereas normal order ends with
@@ -241,6 +253,10 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGenW  : public CkWideCharBase
 	//     LocalSigningTime (introduced in v9.5.0.76) Causes the signing time to be
 	//     formatted using a local time (with a timezone offset such as "+01:00" rather
 	//     than "Z" to signify GMT).
+	//     NoReplaceSigningTime Don't replace the <SigningTime> content with a
+	//     timestamp of the current date/time. Instead keep the current value provided by
+	//     the application.
+	//     NoTimestampBias Exclude the timestamp bias from the generated <SigningTime>
 	//     DnReverseOrder (introduced in v9.5.0.77) Causes DN's (certificate
 	//     Distinguished Names) to be written in reverse order. Reverse order leads with
 	//     "CN", such as "CN=..., O=..., OU=..., C=...", whereas normal order ends with
@@ -347,6 +363,10 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGenW  : public CkWideCharBase
 	//     LocalSigningTime (introduced in v9.5.0.76) Causes the signing time to be
 	//     formatted using a local time (with a timezone offset such as "+01:00" rather
 	//     than "Z" to signify GMT).
+	//     NoReplaceSigningTime Don't replace the <SigningTime> content with a
+	//     timestamp of the current date/time. Instead keep the current value provided by
+	//     the application.
+	//     NoTimestampBias Exclude the timestamp bias from the generated <SigningTime>
 	//     DnReverseOrder (introduced in v9.5.0.77) Causes DN's (certificate
 	//     Distinguished Names) to be written in reverse order. Reverse order leads with
 	//     "CN", such as "CN=..., O=..., OU=..., C=...", whereas normal order ends with
@@ -1098,12 +1118,22 @@ class CK_VISIBLE_PUBLIC CkXmlDSigGenW  : public CkWideCharBase
 	// 
 	const wchar_t *createXmlDSig(const wchar_t *inXml);
 
+	// Creates an asynchronous task to call the CreateXmlDSig method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *CreateXmlDSigAsync(const wchar_t *inXml);
+
 	// Creates an XML Digital Signature. The application passes the XML to be signed in
 	// sbXml, and it is replaced with the signed XML if successful. (Thus, sbXml is both
 	// an input and output argument.) Note: If creating an enveloping signature where
 	// the Signature element is to be the root element, then the passed-in sbXml may be
 	// empty.
 	bool CreateXmlDSigSb(CkStringBuilderW &sbXml);
+
+	// Creates an asynchronous task to call the CreateXmlDSigSb method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *CreateXmlDSigSbAsync(CkStringBuilderW &sbXml);
 
 	// Sets the HMAC key to be used if the Signature is to use an HMAC signing
 	// algorithm. The encoding specifies the encoding of key, and can be "hex", "base64",

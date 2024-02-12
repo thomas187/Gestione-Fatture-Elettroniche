@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkCsv_H
 #define _CkCsv_H
@@ -75,8 +75,13 @@ class CK_VISIBLE_PUBLIC CkCsv  : public CkMultiByteBase
 	// delimiter when loading a CSV. (Semicolons are typically used in locales where
 	// the comma is used as a decimal point.)
 	// 
-	// Note: If the default comma delimiter is not desired when creating a new CSV,
+	// Note 1: If the default comma delimiter is not desired when creating a new CSV,
 	// make sure to set this property before adding rows/columns to the CSV.
+	// 
+	// Note 2: If the application explicitly sets the delimiter to the vertical bar
+	// character ("|"), and if the EnableQuotes property was never explicitly set, then
+	// EnableQuotes will default to false. This is because when vertical bars are
+	// used, quotes are most likely to be treated the same as other characters.
 	// 
 	void get_Delimiter(CkString &str);
 	// The character that separates fields in a record. It is a comma by default. If
@@ -84,8 +89,13 @@ class CK_VISIBLE_PUBLIC CkCsv  : public CkMultiByteBase
 	// delimiter when loading a CSV. (Semicolons are typically used in locales where
 	// the comma is used as a decimal point.)
 	// 
-	// Note: If the default comma delimiter is not desired when creating a new CSV,
+	// Note 1: If the default comma delimiter is not desired when creating a new CSV,
 	// make sure to set this property before adding rows/columns to the CSV.
+	// 
+	// Note 2: If the application explicitly sets the delimiter to the vertical bar
+	// character ("|"), and if the EnableQuotes property was never explicitly set, then
+	// EnableQuotes will default to false. This is because when vertical bars are
+	// used, quotes are most likely to be treated the same as other characters.
 	// 
 	const char *delimiter(void);
 	// The character that separates fields in a record. It is a comma by default. If
@@ -93,8 +103,13 @@ class CK_VISIBLE_PUBLIC CkCsv  : public CkMultiByteBase
 	// delimiter when loading a CSV. (Semicolons are typically used in locales where
 	// the comma is used as a decimal point.)
 	// 
-	// Note: If the default comma delimiter is not desired when creating a new CSV,
+	// Note 1: If the default comma delimiter is not desired when creating a new CSV,
 	// make sure to set this property before adding rows/columns to the CSV.
+	// 
+	// Note 2: If the application explicitly sets the delimiter to the vertical bar
+	// character ("|"), and if the EnableQuotes property was never explicitly set, then
+	// EnableQuotes will default to false. This is because when vertical bars are
+	// used, quotes are most likely to be treated the same as other characters.
 	// 
 	void put_Delimiter(const char *newVal);
 
@@ -132,14 +147,47 @@ class CK_VISIBLE_PUBLIC CkCsv  : public CkMultiByteBase
 	// that follow the last non-empty row are not included.
 	int get_NumRows(void);
 
-	// This is a catch-all property to be used for uncommon needs. This property
-	// defaults to the empty string and should typically remain empty.
+	// This is a catch-all property to be used for uncommon needs. Chilkat may from
+	// time to time define keywords, which if present, change behavior in some way. If
+	// multiple keywords are needed, set this property to the comma separated list of
+	// keywords.
+	// 
+	// The following keywords are defined:
+	// 
+	//     QuotedCells (v9.5.0.96) Forces all cell contents to be double-quoted when
+	//     emitting the CSV to a file or string
+	//     QuotedColumnNames (v9.5.0.96) Forces all column names to be double-quoted
+	//     when emitting the CSV to a file or string
+	//     EMIT_BOM (v9.5.0.93) Causes Chilkat to emit the utf-8 BOM (byte order mark)
+	//     when writing the CSV to a file (assuming the CSV is written using utf-8).
 	void get_UncommonOptions(CkString &str);
-	// This is a catch-all property to be used for uncommon needs. This property
-	// defaults to the empty string and should typically remain empty.
+	// This is a catch-all property to be used for uncommon needs. Chilkat may from
+	// time to time define keywords, which if present, change behavior in some way. If
+	// multiple keywords are needed, set this property to the comma separated list of
+	// keywords.
+	// 
+	// The following keywords are defined:
+	// 
+	//     QuotedCells (v9.5.0.96) Forces all cell contents to be double-quoted when
+	//     emitting the CSV to a file or string
+	//     QuotedColumnNames (v9.5.0.96) Forces all column names to be double-quoted
+	//     when emitting the CSV to a file or string
+	//     EMIT_BOM (v9.5.0.93) Causes Chilkat to emit the utf-8 BOM (byte order mark)
+	//     when writing the CSV to a file (assuming the CSV is written using utf-8).
 	const char *uncommonOptions(void);
-	// This is a catch-all property to be used for uncommon needs. This property
-	// defaults to the empty string and should typically remain empty.
+	// This is a catch-all property to be used for uncommon needs. Chilkat may from
+	// time to time define keywords, which if present, change behavior in some way. If
+	// multiple keywords are needed, set this property to the comma separated list of
+	// keywords.
+	// 
+	// The following keywords are defined:
+	// 
+	//     QuotedCells (v9.5.0.96) Forces all cell contents to be double-quoted when
+	//     emitting the CSV to a file or string
+	//     QuotedColumnNames (v9.5.0.96) Forces all column names to be double-quoted
+	//     when emitting the CSV to a file or string
+	//     EMIT_BOM (v9.5.0.93) Causes Chilkat to emit the utf-8 BOM (byte order mark)
+	//     when writing the CSV to a file (assuming the CSV is written using utf-8).
 	void put_UncommonOptions(const char *newVal);
 
 
@@ -189,7 +237,8 @@ class CK_VISIBLE_PUBLIC CkCsv  : public CkMultiByteBase
 	const char *columnName(int index);
 
 
-	// Returns the column index for a given column.
+	// Returns the column index for a given column. Returns -1 if no column exists with
+	// the columnName.
 	int GetIndex(const char *columnName);
 
 

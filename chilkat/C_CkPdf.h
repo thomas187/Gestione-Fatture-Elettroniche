@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkPdf_H
 #define _C_CkPdf_H
 #include "chilkatDefs.h"
@@ -25,6 +25,7 @@ CK_C_VISIBLE_PUBLIC void CkPdf_Dispose(HCkPdf handle);
 CK_C_VISIBLE_PUBLIC void CkPdf_getDebugLogFilePath(HCkPdf cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void CkPdf_putDebugLogFilePath(HCkPdf cHandle, const char *newVal);
 CK_C_VISIBLE_PUBLIC const char *CkPdf_debugLogFilePath(HCkPdf cHandle);
+CK_C_VISIBLE_PUBLIC BOOL CkPdf_getHasCertificationSig(HCkPdf cHandle);
 CK_C_VISIBLE_PUBLIC void CkPdf_getLastErrorHtml(HCkPdf cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const char *CkPdf_lastErrorHtml(HCkPdf cHandle);
 CK_C_VISIBLE_PUBLIC void CkPdf_getLastErrorText(HCkPdf cHandle, HCkString retval);
@@ -33,6 +34,7 @@ CK_C_VISIBLE_PUBLIC void CkPdf_getLastErrorXml(HCkPdf cHandle, HCkString retval)
 CK_C_VISIBLE_PUBLIC const char *CkPdf_lastErrorXml(HCkPdf cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_getLastMethodSuccess(HCkPdf cHandle);
 CK_C_VISIBLE_PUBLIC void CkPdf_putLastMethodSuccess(HCkPdf cHandle, BOOL newVal);
+CK_C_VISIBLE_PUBLIC int CkPdf_getNumEmbeddedFiles(HCkPdf cHandle);
 CK_C_VISIBLE_PUBLIC int CkPdf_getNumPages(HCkPdf cHandle);
 CK_C_VISIBLE_PUBLIC int CkPdf_getNumSignatures(HCkPdf cHandle);
 CK_C_VISIBLE_PUBLIC int CkPdf_getSigAllocateSize(HCkPdf cHandle);
@@ -46,10 +48,14 @@ CK_C_VISIBLE_PUBLIC BOOL CkPdf_getVerboseLogging(HCkPdf cHandle);
 CK_C_VISIBLE_PUBLIC void CkPdf_putVerboseLogging(HCkPdf cHandle, BOOL newVal);
 CK_C_VISIBLE_PUBLIC void CkPdf_getVersion(HCkPdf cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const char *CkPdf_version(HCkPdf cHandle);
+CK_C_VISIBLE_PUBLIC BOOL CkPdf_AddEmbeddedFiles(HCkPdf cHandle, HCkJsonObject json, const char *outFilePath);
+CK_C_VISIBLE_PUBLIC BOOL CkPdf_AddEmbeddedFilesBd(HCkPdf cHandle, HCkJsonObject json, HCkBinData bd);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_AddSigningCert(HCkPdf cHandle, HCkCert cert);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_AddVerificationInfo(HCkPdf cHandle, HCkJsonObject jsonOptions, const char *outFilePath);
 CK_C_VISIBLE_PUBLIC HCkTask CkPdf_AddVerificationInfoAsync(HCkPdf cHandle, HCkJsonObject jsonOptions, const char *outFilePath);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetDss(HCkPdf cHandle, HCkJsonObject json);
+CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetEmbeddedFileBd(HCkPdf cHandle, int index, HCkBinData bd);
+CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetEmbeddedFileInfo(HCkPdf cHandle, int index, HCkJsonObject json);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetMetadata(HCkPdf cHandle, HCkStringBuilder sb);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetSignatureContent(HCkPdf cHandle, int index, HCkBinData bd);
 CK_C_VISIBLE_PUBLIC BOOL CkPdf_GetSignerCert(HCkPdf cHandle, int index, HCkCert cert);

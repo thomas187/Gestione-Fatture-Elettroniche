@@ -154,6 +154,9 @@
 #define HCkPkcs11 void *
 #define HCkScMinidriver void *
 #define HCkSCard void *
+#define HCkDns void *
+#define HCkCodeSign void *
+
 
 #else
 typedef void *HCkByteData;
@@ -283,6 +286,8 @@ typedef void *HCkEdDSA;
 typedef void *HCkPkcs11;
 typedef void *HCkScMinidriver;
 typedef void *HCkSCard;
+typedef void *HCkDns;
+typedef void *HCkCodeSign;
 
 typedef void *HCkByteDataW;
 typedef void *HCkStringW;
@@ -411,6 +416,8 @@ typedef void *HCkEdDSAW;
 typedef void *HCkPkcs11W;
 typedef void *HCkScMinidriverW;
 typedef void *HCkSCardW;
+typedef void *HCkDnsW;
+typedef void *HCkCodeSignW;
 #endif
 
 #endif

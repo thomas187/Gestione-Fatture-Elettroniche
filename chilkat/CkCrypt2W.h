@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkCrypt2W_H
 #define _CkCrypt2W_H
@@ -1390,6 +1390,39 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	// 
 	const wchar_t *aesKeyUnwrap(const wchar_t *kek, const wchar_t *wrappedKeyData, const wchar_t *encoding);
 
+	// Implements the AES Key Wrap with Padding Algorithm (RFC 5649) for unwrapping.
+	// The kek is the Key Encryption Key (the AES key used to unwrap the wrappedKeyData). The
+	// arguments and return value are binary encoded strings using the encoding
+	// specified by encoding (which can be "base64", "hex", "base64url", etc.)
+	// 
+	// The kek should be an AES key of 16 bytes, 24 bytes, or 32 bytes (i.e. 128-bits,
+	// 192- bits, or 256-bits). For example, if passed as a hex string, then the kek
+	// should be 32 chars in length, 48 chars, or 64 chars (because each byte is
+	// represented as 2 chars in hex).
+	// 
+	// The wrappedKeyData contains the data to be unwrapped.
+	// 
+	// The unwrapped key is returned as an encoded string (using the encoding specified
+	// in encoding).
+	// 
+	bool AesKeyUnwrapWithPadding(const wchar_t *kek, const wchar_t *wrappedKeyData, const wchar_t *encoding, CkString &outStr);
+	// Implements the AES Key Wrap with Padding Algorithm (RFC 5649) for unwrapping.
+	// The kek is the Key Encryption Key (the AES key used to unwrap the wrappedKeyData). The
+	// arguments and return value are binary encoded strings using the encoding
+	// specified by encoding (which can be "base64", "hex", "base64url", etc.)
+	// 
+	// The kek should be an AES key of 16 bytes, 24 bytes, or 32 bytes (i.e. 128-bits,
+	// 192- bits, or 256-bits). For example, if passed as a hex string, then the kek
+	// should be 32 chars in length, 48 chars, or 64 chars (because each byte is
+	// represented as 2 chars in hex).
+	// 
+	// The wrappedKeyData contains the data to be unwrapped.
+	// 
+	// The unwrapped key is returned as an encoded string (using the encoding specified
+	// in encoding).
+	// 
+	const wchar_t *aesKeyUnwrapWithPadding(const wchar_t *kek, const wchar_t *wrappedKeyData, const wchar_t *encoding);
+
 	// Implements the AES Key Wrap Algorithm (RFC 3394). The kek is the Key Encryption
 	// Key (the AES key used to encrypt the keyData). The arguments and return value are
 	// binary encoded strings using the encoding specified by encoding (which can be
@@ -1428,6 +1461,37 @@ class CK_VISIBLE_PUBLIC CkCrypt2W  : public CkClassWithCallbacksW
 	// data + 8 additional bytes.
 	// 
 	const wchar_t *aesKeyWrap(const wchar_t *kek, const wchar_t *keyData, const wchar_t *encoding);
+
+	// Implements the AES Key Wrap with Padding Algorithm (RFC 5649). The kek is the
+	// Key Encryption Key (the AES key used to encrypt the keyData). The arguments and
+	// return value are binary encoded strings using the encoding specified by encoding
+	// (which can be "base64", "hex", "base64url", etc.)
+	// 
+	// The kek should be an AES key of 16 bytes, 24 bytes, or 32 bytes (i.e. 128-bits,
+	// 192- bits, or 256-bits). For example, if passed as a hex string, then the kek
+	// should be 32 chars in length, 48 chars, or 64 chars (because each byte is
+	// represented as 2 chars in hex).
+	// 
+	// The keyData contains the data to be key wrapped.
+	// 
+	// Returns the wrapped key using the encoding specified in encoding.
+	// 
+	bool AesKeyWrapWithPadding(const wchar_t *kek, const wchar_t *keyData, const wchar_t *encoding, CkString &outStr);
+	// Implements the AES Key Wrap with Padding Algorithm (RFC 5649). The kek is the
+	// Key Encryption Key (the AES key used to encrypt the keyData). The arguments and
+	// return value are binary encoded strings using the encoding specified by encoding
+	// (which can be "base64", "hex", "base64url", etc.)
+	// 
+	// The kek should be an AES key of 16 bytes, 24 bytes, or 32 bytes (i.e. 128-bits,
+	// 192- bits, or 256-bits). For example, if passed as a hex string, then the kek
+	// should be 32 chars in length, 48 chars, or 64 chars (because each byte is
+	// represented as 2 chars in hex).
+	// 
+	// The keyData contains the data to be key wrapped.
+	// 
+	// Returns the wrapped key using the encoding specified in encoding.
+	// 
+	const wchar_t *aesKeyWrapWithPadding(const wchar_t *kek, const wchar_t *keyData, const wchar_t *encoding);
 
 	// Computes and returns a bcrypt hash of the password. The number of rounds of hashing
 	// is determined by the BCryptWorkFactor property.

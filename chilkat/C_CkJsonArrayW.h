@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkJsonArrayWH
 #define _C_CkJsonArrayWH
 #include "chilkatDefs.h"
@@ -37,6 +37,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_AddNumberAt(HCkJsonArrayW cHandle, int ind
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_AddObjectAt(HCkJsonArrayW cHandle, int index);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_AddObjectCopyAt(HCkJsonArrayW cHandle, int index, HCkJsonObjectW jsonObj);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_AddStringAt(HCkJsonArrayW cHandle, int index, const wchar_t *value);
+CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_AddUIntAt(HCkJsonArrayW cHandle, int index, unsigned long value);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_AppendArrayItems(HCkJsonArrayW cHandle, HCkJsonArrayW jarr);
 CK_C_VISIBLE_PUBLIC HCkJsonArrayW CkJsonArrayW_ArrayAt(HCkJsonArrayW cHandle, int index);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_BoolAt(HCkJsonArrayW cHandle, int index);
@@ -60,8 +61,10 @@ CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_SetIntAt(HCkJsonArrayW cHandle, int index,
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_SetNullAt(HCkJsonArrayW cHandle, int index);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_SetNumberAt(HCkJsonArrayW cHandle, int index, const wchar_t *value);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_SetStringAt(HCkJsonArrayW cHandle, int index, const wchar_t *value);
+CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_SetUIntAt(HCkJsonArrayW cHandle, int index, unsigned long value);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_StringAt(HCkJsonArrayW cHandle, int index, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkJsonArrayW_stringAt(HCkJsonArrayW cHandle, int index);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonArrayW_Swap(HCkJsonArrayW cHandle, int index1, int index2);
 CK_C_VISIBLE_PUBLIC int CkJsonArrayW_TypeAt(HCkJsonArrayW cHandle, int index);
+CK_C_VISIBLE_PUBLIC unsigned long CkJsonArrayW_UIntAt(HCkJsonArrayW cHandle, int index);
 #endif

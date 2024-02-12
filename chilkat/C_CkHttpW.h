@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkHttpWH
 #define _C_CkHttpWH
 #include "chilkatDefs.h"
@@ -49,6 +49,9 @@ CK_C_VISIBLE_PUBLIC const wchar_t *CkHttpW_awsRegion(HCkHttpW cHandle);
 CK_C_VISIBLE_PUBLIC void CkHttpW_getAwsSecretKey(HCkHttpW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void  CkHttpW_putAwsSecretKey(HCkHttpW cHandle, const wchar_t *newVal);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkHttpW_awsSecretKey(HCkHttpW cHandle);
+CK_C_VISIBLE_PUBLIC void CkHttpW_getAwsSessionToken(HCkHttpW cHandle, HCkString retval);
+CK_C_VISIBLE_PUBLIC void  CkHttpW_putAwsSessionToken(HCkHttpW cHandle, const wchar_t *newVal);
+CK_C_VISIBLE_PUBLIC const wchar_t *CkHttpW_awsSessionToken(HCkHttpW cHandle);
 CK_C_VISIBLE_PUBLIC int CkHttpW_getAwsSignatureVersion(HCkHttpW cHandle);
 CK_C_VISIBLE_PUBLIC void  CkHttpW_putAwsSignatureVersion(HCkHttpW cHandle, int newVal);
 CK_C_VISIBLE_PUBLIC void CkHttpW_getAwsSubResources(HCkHttpW cHandle, HCkString retval);
@@ -425,6 +428,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkHttpW_S3_UploadString(HCkHttpW cHandle, const wchar_t
 CK_C_VISIBLE_PUBLIC HCkTaskW CkHttpW_S3_UploadStringAsync(HCkHttpW cHandle, const wchar_t *objectContent, const wchar_t *charset, const wchar_t *contentType, const wchar_t *bucketPath, const wchar_t *objectName);
 CK_C_VISIBLE_PUBLIC BOOL CkHttpW_SaveLastError(HCkHttpW cHandle, const wchar_t *path);
 CK_C_VISIBLE_PUBLIC BOOL CkHttpW_SetAuthPrivateKey(HCkHttpW cHandle, const wchar_t *publicKeyId, HCkPrivateKeyW privKey);
+CK_C_VISIBLE_PUBLIC BOOL CkHttpW_SetAuthTokenSb(HCkHttpW cHandle, HCkStringBuilderW sb);
 CK_C_VISIBLE_PUBLIC BOOL CkHttpW_SetCookieXml(HCkHttpW cHandle, const wchar_t *domain, const wchar_t *cookieXml);
 CK_C_VISIBLE_PUBLIC BOOL CkHttpW_SetOAuthRsaKey(HCkHttpW cHandle, HCkPrivateKeyW privKey);
 CK_C_VISIBLE_PUBLIC BOOL CkHttpW_SetPassword(HCkHttpW cHandle, HCkSecureStringW password);

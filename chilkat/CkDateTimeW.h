@@ -284,6 +284,9 @@ class CkDateTimeW  : public CkWideCharBase
 	bool SetFromDosDate2(bool bLocal, unsigned short d, unsigned short t);
 #endif
 
+	// Sets the date/time by querying an NTP server. (added in Chilkat v9.5.0.96)
+	bool SetFromNtpServer(const wchar_t *jsonNtpInfo);
+
 	// Sets the date/time from a Windows FILETIME structure.
 	// 
 	// bLocal indicates whether the passed in date/time is local or UTC.

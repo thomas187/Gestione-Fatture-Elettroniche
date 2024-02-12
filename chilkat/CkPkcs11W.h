@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkPkcs11W_H
 #define _CkPkcs11W_H
@@ -13,7 +13,10 @@
 #include "CkWideCharBase.h"
 
 class CkJsonObjectW;
+class CkPublicKeyW;
 class CkCertW;
+class CkPrivateKeyW;
+class CkSshKeyW;
 
 
 
@@ -97,6 +100,22 @@ class CK_VISIBLE_PUBLIC CkPkcs11W  : public CkWideCharBase
 	// 
 	void put_SharedLibPath(const wchar_t *newVal);
 
+	// If the smart card or token requires a signature context login within the signing
+	// operation, then set this property to the context-specific signature PIN. Most
+	// smart cards do not need this. Don't set this property unless you know for sure
+	// your smart card needs it.
+	void get_SigContextPin(CkString &str);
+	// If the smart card or token requires a signature context login within the signing
+	// operation, then set this property to the context-specific signature PIN. Most
+	// smart cards do not need this. Don't set this property unless you know for sure
+	// your smart card needs it.
+	const wchar_t *sigContextPin(void);
+	// If the smart card or token requires a signature context login within the signing
+	// operation, then set this property to the context-specific signature PIN. Most
+	// smart cards do not need this. Don't set this property unless you know for sure
+	// your smart card needs it.
+	void put_SigContextPin(const wchar_t *newVal);
+
 
 
 	// ----------------------
@@ -108,12 +127,27 @@ class CK_VISIBLE_PUBLIC CkPkcs11W  : public CkWideCharBase
 	// 
 	bool CloseSession(void);
 
+	// Creates an object and returns the handle. The attrs specifies the attributes that
+	// define the object to be created. See the linked examples below for more
+	// information.
+	unsigned long CreatePkcs11Object(CkJsonObjectW &attrs);
+
+	// Destroys an object (deletes it from the HSM). hObject is the object's handle.
+	bool DestroyObject(unsigned long hObject);
+
 	// Discovers the readers, smart cards, and USB tokens accessible via PKCS11 on the
 	// computer (using the DLL/shared lib specified by SharedLibPath). The onlyTokensPresent
 	// specifies if only slots (readers) with tokens (smart cards) present should be
 	// returned. The information is written to the json. (For details, see the example
 	// below.)
 	bool Discover(bool onlyTokensPresent, CkJsonObjectW &json);
+
+	// Export a public key given a public or private key handle. The pubKey is loaded
+	// with the exported public key.
+	// 
+	// See the example linked below for more details.
+	// 
+	bool ExportPublicKey(unsigned long keyHandle, CkPublicKeyW &pubKey);
 
 	// Finds all certificates contained on the smart card (or USB token). This sets the
 	// NumCerts property. Each certificate can be obtained by calling GetCert(index)
@@ -124,6 +158,21 @@ class CK_VISIBLE_PUBLIC CkPkcs11W  : public CkWideCharBase
 	// OpenSession.
 	// 
 	bool FindAllCerts(void);
+
+	// Finds all keys contained on the smart card (or USB token). The keyClass indicates
+	// the kind of keys to return, and can be one of the following:
+	//     public
+	//     private
+	//     secret
+	//     otp
+	// 
+	// Information about the keys is returned in json.
+	// 
+	// Important: Private keys will not be seen unless the PKCS11 session is
+	// authenticated. To authenticate, your application must call Login after calling
+	// OpenSession.
+	// 
+	bool FindAllKeys(const wchar_t *keyClass, CkJsonObjectW &json);
 
 	// Finds the certificate where the given certPart equals the partValue. Possible values for
 	// certPart are: "privateKey", "subjectDN", "subjectDN_withTags", "subjectCN",
@@ -143,11 +192,65 @@ class CK_VISIBLE_PUBLIC CkPkcs11W  : public CkWideCharBase
 	// 
 	bool FindCert(const wchar_t *certPart, const wchar_t *partValue, CkCertW &cert);
 
+	// General function for finding an object such as a private key. Returns the handle
+	// of the first matching object, or 0 if not found.
+	unsigned long FindObject(CkJsonObjectW &jsonTemplate);
+
+	// Generate an EC key pair suitable for signing data and verifying signatures. The
+	// private key is created on the HSM (smart card or token), and the public key is
+	// returned in pubKey. The publicAttrs and privateAttrs contain attributes for the public and
+	// private keys respectively. The PKCS11 public and private key handles are
+	// returned in jsonOut. Handles are used to reference a PKCS11 object, such as a
+	// public or private key, and are valid during the PKCS11 session. To use the key
+	// in future PKCS11 sessions, your application would need to find the object to get
+	// a new handle.
+	// 
+	// See the example linked below for more details.
+	// 
+	bool GenEcKey(CkJsonObjectW &publicAttrs, CkJsonObjectW &privateAttrs, CkJsonObjectW &jsonOut, CkPublicKeyW &pubKey);
+
+	// Generate an RSA key pair suitable for signing data and verifying signatures. The
+	// private key is created on the HSM (smart card or token), and the public key is
+	// returned in pubKey. The publicAttrs and privateAttrs contain attributes for the public and
+	// private keys respectively. The PKCS11 public and private key handles are
+	// returned in jsonOut. Handles are used to reference a PKCS11 object, such as a
+	// public or private key, and are valid during the PKCS11 session. To use the key
+	// in future PKCS11 sessions, your application would need to find the object to get
+	// a new handle.
+	// 
+	// See the example linked below for more details.
+	// 
+	bool GenRsaKey(CkJsonObjectW &publicAttrs, CkJsonObjectW &privateAttrs, CkJsonObjectW &jsonOut, CkPublicKeyW &pubKey);
+
+	// Generates a symmetric encryption key. The keyType is the key type, which can be one
+	// of the following values:
+	//     AES
+	//     AES XTS
+	//     Blowfish
+	//     Twofish
+	//     ChaCha20
+	// 
+	// The jsonTemplate is a template that specifies attributes about the key to be generated.
+	// See the example at the link below.
+	// 
+	// The handle to the generated key is returned. A value of 0 is returned on
+	// failure.
+	// 
+	unsigned long GenSecretKey(const wchar_t *keyType, CkJsonObjectW &jsonTemplate);
+
 	// Loads cert with the Nth certificate indicated by index. The 1st certificate is at
 	// index 0. The FindAllCerts method must be called beforehand to load the certs
 	// from the smart card into this object. After calling FindAllCerts, the NumCerts
 	// property is set and each certificate can be retrieved by calling GetCert.
 	bool GetCert(int index, CkCertW &cert);
+
+	// Imports a private key onto the HSM. Returns the handle of the unwrapped key, or
+	// 0 if failed. See the linked example below for more details.
+	unsigned long ImportPrivateKey(CkPrivateKeyW &privKey, CkJsonObjectW &jsonTemplate);
+
+	// Imports an SSH private key onto the HSM. Returns the handle of the unwrapped
+	// key, or 0 if failed.
+	unsigned long ImportSshKey(CkSshKeyW &sshKey, CkJsonObjectW &jsonTemplate);
 
 	// Initializes the PKCS#11 library. Should be called after specifying the
 	// SharedLibPath. The DLL (or .so/.dylib) is dynamically loaded and the PKCS#11 lib
@@ -249,6 +352,21 @@ class CK_VISIBLE_PUBLIC CkPkcs11W  : public CkWideCharBase
 	//         UZI-pas
 	//         UZI-pas 2
 	bool OpenSession(int slotId, bool readWrite);
+
+	// Quickly establishes a session on the 1st unempty slot, with or without login. If
+	// the pin is the empty string, then no login will take place. The userType can be one
+	// of the following integer values:
+	//     Security Officer (0)
+	//     Normal User (1)
+	//     Context Specific (2)
+	// 
+	// Except for special circumstances, you should always select Normal User. If pin
+	// is the empty string, then no login takes place and userType is ignored.
+	// 
+	// Calling this method takes the place of making separate calls to Initialize,
+	// OpenSession, and Login.
+	// 
+	bool QuickSession(int userType, const wchar_t *pin);
 
 	// Modifies the PIN of the user that is currently logged in, or the Normal User PIN
 	// if the session is not logged in.

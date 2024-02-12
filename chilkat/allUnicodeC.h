@@ -1,4 +1,4 @@
-// This file is generated for Chilkat v9.5.0.94
+// This file is generated for Chilkat v9.5.0.97
 
 #ifndef _ALL_CHILKAT_UNICODE_C_H
 #define _ALL_CHILKAT_UNICODE_C_H
@@ -20,6 +20,9 @@
 #include "C_CkCertStoreW.h"
 #include "C_CkCgiW.h"
 #include "C_CkCharsetW.h"
+#ifdef WIN32
+#include "C_CkCodeSignW.h"
+#endif
 #include "C_CkCompressionW.h"
 #ifdef WIN32
 #include "C_CkCreateCSW.h"
@@ -33,6 +36,7 @@
 #include "C_CkDhW.h"
 #include "C_CkDirTreeW.h"
 #include "C_CkDkimW.h"
+#include "C_CkDnsW.h"
 #include "C_CkDsaW.h"
 #include "C_CkDtObjW.h"
 #include "C_CkEccW.h"

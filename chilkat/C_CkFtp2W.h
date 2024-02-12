@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkFtp2WH
 #define _C_CkFtp2WH
 #include "chilkatDefs.h"
@@ -348,9 +348,11 @@ CK_C_VISIBLE_PUBLIC HCkTaskW CkFtp2W_GetRemoteFileTextDataAsync(HCkFtp2W cHandle
 CK_C_VISIBLE_PUBLIC int CkFtp2W_GetSize(HCkFtp2W cHandle, int index);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkFtp2W_GetSizeAsync(HCkFtp2W cHandle, int index);
 CK_C_VISIBLE_PUBLIC __int64 CkFtp2W_GetSize64(HCkFtp2W cHandle, int index);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkFtp2W_GetSize64Async(HCkFtp2W cHandle, int index);
 CK_C_VISIBLE_PUBLIC int CkFtp2W_GetSizeByName(HCkFtp2W cHandle, const wchar_t *filename);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkFtp2W_GetSizeByNameAsync(HCkFtp2W cHandle, const wchar_t *filename);
 CK_C_VISIBLE_PUBLIC __int64 CkFtp2W_GetSizeByName64(HCkFtp2W cHandle, const wchar_t *filename);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkFtp2W_GetSizeByName64Async(HCkFtp2W cHandle, const wchar_t *filename);
 CK_C_VISIBLE_PUBLIC BOOL CkFtp2W_GetSizeStr(HCkFtp2W cHandle, int index, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkFtp2W_getSizeStr(HCkFtp2W cHandle, int index);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkFtp2W_GetSizeStrAsync(HCkFtp2W cHandle, int index);

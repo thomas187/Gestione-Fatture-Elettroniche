@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkWebSocket_H
 #define _CkWebSocket_H
@@ -125,6 +125,15 @@ class CK_VISIBLE_PUBLIC CkWebSocket  : public CkClassWithCallbacks
 	// 9 - Ping
 	// 10 - Pong
 	int get_FrameOpcodeInt(void);
+
+	// The time interval, in milliseconds, between AbortCheck event callbacks. The
+	// heartbeat provides a means for an application to monitor a method call that has
+	// event callbacks, and to abort it while in progress.
+	int get_HeartbeatMs(void);
+	// The time interval, in milliseconds, between AbortCheck event callbacks. The
+	// heartbeat provides a means for an application to monitor a method call that has
+	// event callbacks, and to abort it while in progress.
+	void put_HeartbeatMs(int newVal);
 
 	// The maximum amount of time to wait for additional incoming data when receiving,
 	// or the max time to wait to send additional data. The default value is 30000 (30

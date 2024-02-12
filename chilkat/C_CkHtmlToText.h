@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkHtmlToText_H
 #define _C_CkHtmlToText_H
 #include "chilkatDefs.h"
@@ -37,6 +37,7 @@ CK_C_VISIBLE_PUBLIC const char *CkHtmlToText_readFileToString(HCkHtmlToText cHan
 CK_C_VISIBLE_PUBLIC BOOL CkHtmlToText_SaveLastError(HCkHtmlToText cHandle, const char *path);
 CK_C_VISIBLE_PUBLIC BOOL CkHtmlToText_ToText(HCkHtmlToText cHandle, const char *html, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkHtmlToText_toText(HCkHtmlToText cHandle, const char *html);
+CK_C_VISIBLE_PUBLIC BOOL CkHtmlToText_ToTextSb(HCkHtmlToText cHandle, HCkStringBuilder sb);
 CK_C_VISIBLE_PUBLIC BOOL CkHtmlToText_UnlockComponent(HCkHtmlToText cHandle, const char *code);
 CK_C_VISIBLE_PUBLIC BOOL CkHtmlToText_WriteStringToFile(HCkHtmlToText cHandle, const char *stringToWrite, const char *filename, const char *charset);
 #endif

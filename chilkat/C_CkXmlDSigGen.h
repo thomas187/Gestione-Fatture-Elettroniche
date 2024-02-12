@@ -1,10 +1,24 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkXmlDSigGen_H
 #define _C_CkXmlDSigGen_H
 #include "chilkatDefs.h"
 #include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
+
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setAbortCheck(HCkXmlDSigGen cHandle, BOOL (*fnAbortCheck)(void));
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setPercentDone(HCkXmlDSigGen cHandle, BOOL (*fnPercentDone)(int pctDone));
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setProgressInfo(HCkXmlDSigGen cHandle, void (*fnProgressInfo)(const char *name, const char *value));
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setTaskCompleted(HCkXmlDSigGen cHandle, void (*fnTaskCompleted)(HCkTask hTask));
+
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setAbortCheck2(HCkXmlDSigGen cHandle, BOOL (*fnAbortCheck2)(void *pContext));
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setPercentDone2(HCkXmlDSigGen cHandle, BOOL (*fnPercentDone2)(int pctDone, void *pContext));
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setProgressInfo2(HCkXmlDSigGen cHandle, void (*fnProgressInfo2)(const char *name, const char *value, void *pContext));
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setTaskCompleted2(HCkXmlDSigGen cHandle, void (*fnTaskCompleted2)(HCkTask hTask, void *pContext));
+
+// setExternalProgress is for C callback functions defined in the external programming language (such as Go)
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setExternalProgress(HCkXmlDSigGen cHandle, BOOL on);
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_setCallbackContext(HCkXmlDSigGen cHandle, void *pContext);
 
 CK_C_VISIBLE_PUBLIC HCkXmlDSigGen CkXmlDSigGen_Create(void);
 CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_Dispose(HCkXmlDSigGen handle);
@@ -99,7 +113,9 @@ CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGen_ConstructSignedInfo(HCkXmlDSigGen cHandle,
 CK_C_VISIBLE_PUBLIC const char *CkXmlDSigGen_constructSignedInfo(HCkXmlDSigGen cHandle, HCkStringBuilder sbXml);
 CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGen_CreateXmlDSig(HCkXmlDSigGen cHandle, const char *inXml, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkXmlDSigGen_createXmlDSig(HCkXmlDSigGen cHandle, const char *inXml);
+CK_C_VISIBLE_PUBLIC HCkTask CkXmlDSigGen_CreateXmlDSigAsync(HCkXmlDSigGen cHandle, const char *inXml);
 CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGen_CreateXmlDSigSb(HCkXmlDSigGen cHandle, HCkStringBuilder sbXml);
+CK_C_VISIBLE_PUBLIC HCkTask CkXmlDSigGen_CreateXmlDSigSbAsync(HCkXmlDSigGen cHandle, HCkStringBuilder sbXml);
 CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGen_SaveLastError(HCkXmlDSigGen cHandle, const char *path);
 CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGen_SetHmacKey(HCkXmlDSigGen cHandle, const char *key, const char *encoding);
 CK_C_VISIBLE_PUBLIC void CkXmlDSigGen_SetHttpObj(HCkXmlDSigGen cHandle, HCkHttp http);

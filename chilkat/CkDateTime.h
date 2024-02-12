@@ -59,6 +59,10 @@ class CK_VISIBLE_PUBLIC CkDateTime  : public CkMultiByteBase
 	bool Serialize(CkString &outStr);
 	const char *serialize(void);
 
+
+	// Sets the date/time by querying an NTP server. (added in Chilkat v9.5.0.96)
+	bool SetFromNtpServer(const char *jsonNtpInfo);
+
 	bool SetFromCurrentSystemTime(void);
 
 	// bLocal indicates whether the date/time returned is local or UTC,

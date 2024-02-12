@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkZipW_H
 #define _CkZipW_H
@@ -729,6 +729,15 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// writing to fail. The default value is true.
 	void put_IgnoreAccessDenied(bool newVal);
 
+	// An application can set this property to prevent unzipping any files larger than
+	// a max size uncompressed. The default value of this property is 0, which means
+	// any size file can be unzipped.
+	unsigned long get_MaxUncompressSize(void);
+	// An application can set this property to prevent unzipping any files larger than
+	// a max size uncompressed. The default value of this property is 0, which means
+	// any size file can be unzipped.
+	void put_MaxUncompressSize(unsigned long newVal);
+
 	// The number of entries in the Zip, including both files and directories.
 	int get_NumEntries(void);
 
@@ -1203,17 +1212,37 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// stored in the Zip
 	bool ExtractInto(const wchar_t *dirPath);
 
+	// Creates an asynchronous task to call the ExtractInto method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ExtractIntoAsync(const wchar_t *dirPath);
+
 	// Unzip all files matching a wildcard pattern.
 	bool ExtractMatching(const wchar_t *dirPath, const wchar_t *pattern);
+
+	// Creates an asynchronous task to call the ExtractMatching method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ExtractMatchingAsync(const wchar_t *dirPath, const wchar_t *pattern);
 
 	// Extracts only the files that have more recent last-modified-times than the files
 	// on disk. This allows you to easily refresh only the files that have been
 	// updated.
 	bool ExtractNewer(const wchar_t *dirPath);
 
+	// Creates an asynchronous task to call the ExtractNewer method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ExtractNewerAsync(const wchar_t *dirPath);
+
 	// Identical to calling ZipEntry.Extract. This method is deprecated and the Extract
 	// method of the zip entry should be called instead.
 	bool ExtractOne(CkZipEntryW &entry, const wchar_t *dirPath);
+
+	// Creates an asynchronous task to call the ExtractOne method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ExtractOneAsync(CkZipEntryW &entry, const wchar_t *dirPath);
 
 	// Return the first entry in the Zip. Call ZipEntry.NextEntry to iterate over the
 	// entries in a Zip until a NULL is returned.
@@ -1265,6 +1294,28 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// (Relevant only when running on a Microsoft Windows operating system.) Gets the
 	// value of an EXE config param as described in the ExeXmlConfig property.
 	const wchar_t *exeConfigParam(const wchar_t *name);
+
+	// Returns the size of the file contained within the Zip that has the largest
+	// uncompressed size. The size is returned in string form because it could be
+	// larger than what can be held in a 32-bit unsigned integer, and we leave it to
+	// the application to convert the string to an integer number. (If necessary.
+	// Perhaps your application is only interested in the order of magnitude, which can
+	// be known by the length of the string.)
+	bool GetMaxUncompressedSize(CkString &outStr);
+	// Returns the size of the file contained within the Zip that has the largest
+	// uncompressed size. The size is returned in string form because it could be
+	// larger than what can be held in a 32-bit unsigned integer, and we leave it to
+	// the application to convert the string to an integer number. (If necessary.
+	// Perhaps your application is only interested in the order of magnitude, which can
+	// be known by the length of the string.)
+	const wchar_t *getMaxUncompressedSize(void);
+	// Returns the size of the file contained within the Zip that has the largest
+	// uncompressed size. The size is returned in string form because it could be
+	// larger than what can be held in a 32-bit unsigned integer, and we leave it to
+	// the application to convert the string to an integer number. (If necessary.
+	// Perhaps your application is only interested in the order of magnitude, which can
+	// be known by the length of the string.)
+	const wchar_t *maxUncompressedSize(void);
 
 	// Inserts a new and empty entry into the Zip object. To insert at the beginning of
 	// the Zip, beforeIndex should be 0. The ZipEntry's FileName property is
@@ -1507,6 +1558,11 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// 
 	bool WriteExe(const wchar_t *exeFilename);
 
+	// Creates an asynchronous task to call the WriteExe method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *WriteExeAsync(const wchar_t *exeFilename);
+
 	// (Relevant only when running on a Microsoft Windows operating system.) Writes a
 	// self-extracting MS-Windows EXE with no limitations on total file size and no
 	// limitations on the size of any one file contained within. The 1st argument is
@@ -1517,10 +1573,20 @@ class CK_VISIBLE_PUBLIC CkZipW  : public CkClassWithCallbacksW
 	// https://www.chilkatsoft.com/d2/SaExtract.zip
 	bool WriteExe2(const wchar_t *exePath, const wchar_t *destExePath, bool bAesEncrypt, int keyLength, const wchar_t *password);
 
+	// Creates an asynchronous task to call the WriteExe2 method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *WriteExe2Async(const wchar_t *exePath, const wchar_t *destExePath, bool bAesEncrypt, int keyLength, const wchar_t *password);
+
 	// (Relevant only when running on a Microsoft Windows operating system.) Same as
 	// WriteExe, but instead of writing a file, the MS-Windows EXE is written to
 	// memory.
 	bool WriteExeToMemory(CkByteData &outBytes);
+
+	// Creates an asynchronous task to call the WriteExeToMemory method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *WriteExeToMemoryAsync(void);
 
 	// Same as WriteZip, but instead of writing the Zip to a file, it writes to memory.
 	// Zips that are written to memory can also be opened from memory by calling

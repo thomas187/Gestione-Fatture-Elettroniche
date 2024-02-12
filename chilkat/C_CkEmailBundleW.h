@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkEmailBundleWH
 #define _C_CkEmailBundleWH
 #include "chilkatDefs.h"

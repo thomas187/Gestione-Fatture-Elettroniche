@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkHtmlToXml_H
 #define _C_CkHtmlToXml_H
 #include "chilkatDefs.h"
@@ -46,6 +46,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkHtmlToXml_SaveLastError(HCkHtmlToXml cHandle, const c
 CK_C_VISIBLE_PUBLIC BOOL CkHtmlToXml_SetHtmlBd(HCkHtmlToXml cHandle, HCkBinData bd);
 CK_C_VISIBLE_PUBLIC void CkHtmlToXml_SetHtmlBytes(HCkHtmlToXml cHandle, HCkByteData inData);
 CK_C_VISIBLE_PUBLIC BOOL CkHtmlToXml_SetHtmlFromFile(HCkHtmlToXml cHandle, const char *filename);
+CK_C_VISIBLE_PUBLIC BOOL CkHtmlToXml_SetHtmlSb(HCkHtmlToXml cHandle, HCkStringBuilder sb);
 CK_C_VISIBLE_PUBLIC BOOL CkHtmlToXml_ToXml(HCkHtmlToXml cHandle, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkHtmlToXml_toXml(HCkHtmlToXml cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkHtmlToXml_ToXmlSb(HCkHtmlToXml cHandle, HCkStringBuilder sb);

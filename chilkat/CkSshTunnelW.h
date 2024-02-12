@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkSshTunnelW_H
 #define _CkSshTunnelW_H
@@ -98,6 +98,22 @@ class CK_VISIBLE_PUBLIC CkSshTunnelW  : public CkClassWithCallbacksW
 	const wchar_t *acceptLogPath(void);
 	// Specifies a log file to be kept for the activity in the listen thread.
 	void put_AcceptLogPath(const wchar_t *newVal);
+
+	// The client-identifier string to be used when connecting to an SSH server.
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
+	// because some servers are known to disconnect from clients with unknown client
+	// identifiers.)
+	void get_ClientIdentifier(CkString &str);
+	// The client-identifier string to be used when connecting to an SSH server.
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
+	// because some servers are known to disconnect from clients with unknown client
+	// identifiers.)
+	const wchar_t *clientIdentifier(void);
+	// The client-identifier string to be used when connecting to an SSH server.
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
+	// because some servers are known to disconnect from clients with unknown client
+	// identifiers.)
+	void put_ClientIdentifier(const wchar_t *newVal);
 
 	// Maximum number of milliseconds to wait when connecting to an SSH server. The
 	// default value is 10000 (i.e. 10 seconds). A value of 0 indicates no timeout

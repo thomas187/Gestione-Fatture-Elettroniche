@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkCharsetW_H
 #define _CkCharsetW_H
@@ -732,7 +732,7 @@ class CK_VISIBLE_PUBLIC CkCharsetW  : public CkWideCharBase
 	// should be set before calling this method.
 	const wchar_t *convertToUnicode(CkByteData &inData);
 
-	// To be documented soon.
+	// Converts the mbData to utf-16 bytes.
 	bool ConvertToUtf16(CkByteData &mbData, CkByteData &outUniData);
 
 	// Converts non-US-ASCII characters to Unicode decimal entities (_AMP_#xxxxx;)
@@ -819,8 +819,28 @@ class CK_VISIBLE_PUBLIC CkCharsetW  : public CkWideCharBase
 	const wchar_t *upperCase(const wchar_t *inStr);
 
 	// URL decodes a string.
+	// 
+	// This method assumes the ANSI byte representation was used for encoding. For
+	// example, the letter É, where the ANSI charset is Latin-1, would appear as "%C9"
+	// when URL encoded. (As opposed to the utf-8 encoding where É is represented by 2
+	// bytes 0xC3, 0x89 and would appear as "%C3%89" when URl encoded. This method
+	// assumes ANSI encoding.
+	// 
+	// You can use encoding/decoding methods in Chilkat's StringBuilder class to
+	// specify the charset from which to decode or encode.
+	// 
 	bool UrlDecodeStr(const wchar_t *inStr, CkString &outStr);
 	// URL decodes a string.
+	// 
+	// This method assumes the ANSI byte representation was used for encoding. For
+	// example, the letter É, where the ANSI charset is Latin-1, would appear as "%C9"
+	// when URL encoded. (As opposed to the utf-8 encoding where É is represented by 2
+	// bytes 0xC3, 0x89 and would appear as "%C3%89" when URl encoded. This method
+	// assumes ANSI encoding.
+	// 
+	// You can use encoding/decoding methods in Chilkat's StringBuilder class to
+	// specify the charset from which to decode or encode.
+	// 
 	const wchar_t *urlDecodeStr(const wchar_t *inStr);
 
 	// Returns true if the byte data conforms to the charset passed in the first

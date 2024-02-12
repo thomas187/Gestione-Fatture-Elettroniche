@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkSpiderW_H
 #define _CkSpiderW_H
@@ -400,11 +400,17 @@ class CK_VISIBLE_PUBLIC CkSpiderW  : public CkClassWithCallbacksW
 	// Indexing begins at 0.
 	const wchar_t *avoidPattern(int index);
 
-	// To be documented soon.
+	// Returns the second-level + top-level domain of the domain. For example, if domain is
+	// "xyz.example.com", this returns "example.com". For some domains, such as
+	// "xyz.example.co.uk", the top 3 levels are returned, such as "example.co.uk".
 	bool GetBaseDomain(const wchar_t *domain, CkString &outStr);
-	// To be documented soon.
+	// Returns the second-level + top-level domain of the domain. For example, if domain is
+	// "xyz.example.com", this returns "example.com". For some domains, such as
+	// "xyz.example.co.uk", the top 3 levels are returned, such as "example.co.uk".
 	const wchar_t *getBaseDomain(const wchar_t *domain);
-	// To be documented soon.
+	// Returns the second-level + top-level domain of the domain. For example, if domain is
+	// "xyz.example.com", this returns "example.com". For some domains, such as
+	// "xyz.example.co.uk", the top 3 levels are returned, such as "example.co.uk".
 	const wchar_t *baseDomain(const wchar_t *domain);
 
 	// Returns the Nth URL in the failed URL list. Indexing begins at 0.

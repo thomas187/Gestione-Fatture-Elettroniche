@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkStream_H
 #define _C_CkStream_H
 #include "chilkatDefs.h"
@@ -33,6 +33,8 @@ CK_C_VISIBLE_PUBLIC const char *CkStream_debugLogFilePath(HCkStream cHandle);
 CK_C_VISIBLE_PUBLIC int CkStream_getDefaultChunkSize(HCkStream cHandle);
 CK_C_VISIBLE_PUBLIC void CkStream_putDefaultChunkSize(HCkStream cHandle, int newVal);
 CK_C_VISIBLE_PUBLIC BOOL CkStream_getEndOfStream(HCkStream cHandle);
+CK_C_VISIBLE_PUBLIC int CkStream_getHeartbeatMs(HCkStream cHandle);
+CK_C_VISIBLE_PUBLIC void CkStream_putHeartbeatMs(HCkStream cHandle, int newVal);
 CK_C_VISIBLE_PUBLIC BOOL CkStream_getIsWriteClosed(HCkStream cHandle);
 CK_C_VISIBLE_PUBLIC void CkStream_getLastErrorHtml(HCkStream cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const char *CkStream_lastErrorHtml(HCkStream cHandle);

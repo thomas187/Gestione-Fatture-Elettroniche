@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkPrivateKey_H
 #define _CkPrivateKey_H
@@ -12,12 +12,15 @@
 #include "chilkatDefs.h"
 
 #include "CkString.h"
-#include "CkMultiByteBase.h"
+#include "CkClassWithCallbacks.h"
 
 class CkByteData;
 class CkPublicKey;
 class CkStringBuilder;
 class CkBinData;
+class CkTask;
+class CkJsonObject;
+class CkBaseProgress;
 
 
 
@@ -29,7 +32,7 @@ class CkBinData;
 #undef Copy
 
 // CLASS: CkPrivateKey
-class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
+class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkClassWithCallbacks
 {
     private:
 
@@ -50,7 +53,9 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 
 	
 		
-	
+	CkBaseProgress *get_EventCallbackObject(void) const;
+	void put_EventCallbackObject(CkBaseProgress *progress);
+
 
 	// BEGIN PUBLIC INTERFACE
 
@@ -79,6 +84,16 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 	// The default value is "3des". Possible choices also include "aes128", "aes192",
 	// and "aes256". All of the encryption algorithm choices use CBC mode.
 	void put_Pkcs8EncryptAlg(const char *newVal);
+
+	// This is a catch-all property to be used for uncommon needs. This property
+	// defaults to the empty string, and should typically remain empty.
+	void get_UncommonOptions(CkString &str);
+	// This is a catch-all property to be used for uncommon needs. This property
+	// defaults to the empty string, and should typically remain empty.
+	const char *uncommonOptions(void);
+	// This is a catch-all property to be used for uncommon needs. This property
+	// defaults to the empty string, and should typically remain empty.
+	void put_UncommonOptions(const char *newVal);
 
 
 
@@ -882,6 +897,17 @@ class CK_VISIBLE_PUBLIC CkPrivateKey  : public CkMultiByteBase
 
 	// Saves the private key to an XML file.
 	bool SaveXmlFile(const char *path);
+
+
+	// This is an open-ended method to accomodate uploading the private key to a cloud
+	// service, such as AWS KMS, or Azure Key Vault. For details, see the examples
+	// below.
+	bool UploadToCloud(CkJsonObject &jsonIn, CkJsonObject &jsonOut);
+
+	// This is an open-ended method to accomodate uploading the private key to a cloud
+	// service, such as AWS KMS, or Azure Key Vault. For details, see the examples
+	// below.
+	CkTask *UploadToCloudAsync(CkJsonObject &jsonIn, CkJsonObject &jsonOut);
 
 
 

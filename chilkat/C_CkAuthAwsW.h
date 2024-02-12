@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkAuthAwsWH
 #define _C_CkAuthAwsWH
 #include "chilkatDefs.h"

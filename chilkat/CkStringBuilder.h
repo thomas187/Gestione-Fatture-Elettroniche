@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkStringBuilder_H
 #define _CkStringBuilder_H
@@ -106,6 +106,11 @@ class CK_VISIBLE_PUBLIC CkStringBuilder  : public CkMultiByteBase
 	// object. If crlf is true, then a CRLF line ending is used. Otherwise a LF line
 	// ending is used.
 	bool AppendLine(const char *value, bool crlf);
+
+
+	// Append numBytes random bytes encoded according to encoding. encoding can be "hex",
+	// "hex_lower", "base64", "base64url", or any other encoding supported by Chilkat.
+	bool AppendRandom(int numBytes, const char *encoding);
 
 
 	// Appends the contents of another StringBuilder to this instance.

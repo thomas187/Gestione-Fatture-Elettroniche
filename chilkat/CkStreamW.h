@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkStreamW_H
 #define _CkStreamW_H
@@ -123,6 +123,15 @@ class CK_VISIBLE_PUBLIC CkStreamW  : public CkClassWithCallbacksW
 	// already ended, all calls to Read* methods will return false with the
 	// ReadFailReason set to 3 (already at end-of-stream).
 	bool get_EndOfStream(void);
+
+	// The time interval, in milliseconds, between AbortCheck event callbacks. The
+	// heartbeat provides a means for an application to monitor a method call that has
+	// event callbacks, and to abort it while in progress.
+	int get_HeartbeatMs(void);
+	// The time interval, in milliseconds, between AbortCheck event callbacks. The
+	// heartbeat provides a means for an application to monitor a method call that has
+	// event callbacks, and to abort it while in progress.
+	void put_HeartbeatMs(int newVal);
 
 	// true if the stream is closed for writing. Once closed, no more data may be
 	// written to the stream.

@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkSFtp_H
 #define _C_CkSFtp_H
 #include "chilkatDefs.h"
@@ -249,9 +249,12 @@ CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_GetFileOwnerAsync(HCkSFtp cHandle, const char
 CK_C_VISIBLE_PUBLIC int CkSFtp_GetFilePermissions(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
 CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_GetFilePermissionsAsync(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
 CK_C_VISIBLE_PUBLIC int CkSFtp_GetFileSize32(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_GetFileSize32Async(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
 CK_C_VISIBLE_PUBLIC __int64 CkSFtp_GetFileSize64(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_GetFileSize64Async(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_GetFileSizeStr(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSFtp_getFileSizeStr(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_GetFileSizeStrAsync(HCkSFtp cHandle, const char *pathOrHandle, BOOL bFollowLinks, BOOL bIsHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_GetHostKeyFP(HCkSFtp cHandle, const char *hashAlg, BOOL includeKeyType, BOOL includeHashName, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSFtp_getHostKeyFP(HCkSFtp cHandle, const char *hashAlg, BOOL includeKeyType, BOOL includeHashName);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_HardLink(HCkSFtp cHandle, const char *oldPath, const char *newPath);
@@ -275,17 +278,23 @@ CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadFileBdAsync(HCkSFtp cHandle, const char *
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_ReadFileBytes(HCkSFtp cHandle, const char *handle, int numBytes, HCkByteData outBytes);
 CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadFileBytesAsync(HCkSFtp cHandle, const char *handle, int numBytes);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_ReadFileBytes32(HCkSFtp cHandle, const char *handle, int offset, int numBytes, HCkByteData outBytes);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadFileBytes32Async(HCkSFtp cHandle, const char *handle, int offset, int numBytes);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_ReadFileBytes64(HCkSFtp cHandle, const char *handle, __int64 offset, int numBytes, HCkByteData outBytes);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadFileBytes64Async(HCkSFtp cHandle, const char *handle, __int64 offset, int numBytes);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_ReadFileBytes64s(HCkSFtp cHandle, const char *handle, const char *offset, int numBytes, HCkByteData outBytes);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadFileBytes64sAsync(HCkSFtp cHandle, const char *handle, const char *offset, int numBytes);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_ReadFileText(HCkSFtp cHandle, const char *handle, int numBytes, const char *charset, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSFtp_readFileText(HCkSFtp cHandle, const char *handle, int numBytes, const char *charset);
 CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadFileTextAsync(HCkSFtp cHandle, const char *handle, int numBytes, const char *charset);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_ReadFileText32(HCkSFtp cHandle, const char *handle, int offset, int numBytes, const char *charset, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSFtp_readFileText32(HCkSFtp cHandle, const char *handle, int offset, int numBytes, const char *charset);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadFileText32Async(HCkSFtp cHandle, const char *handle, int offset, int numBytes, const char *charset);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_ReadFileText64(HCkSFtp cHandle, const char *handle, __int64 offset, int numBytes, const char *charset, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSFtp_readFileText64(HCkSFtp cHandle, const char *handle, __int64 offset, int numBytes, const char *charset);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadFileText64Async(HCkSFtp cHandle, const char *handle, __int64 offset, int numBytes, const char *charset);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_ReadFileText64s(HCkSFtp cHandle, const char *handle, const char *offset, int numBytes, const char *charset, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSFtp_readFileText64s(HCkSFtp cHandle, const char *handle, const char *offset, int numBytes, const char *charset);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadFileText64sAsync(HCkSFtp cHandle, const char *handle, const char *offset, int numBytes, const char *charset);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_ReadLink(HCkSFtp cHandle, const char *path, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSFtp_readLink(HCkSFtp cHandle, const char *path);
 CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_ReadLinkAsync(HCkSFtp cHandle, const char *path);
@@ -347,11 +356,17 @@ CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_WriteFileBdAsync(HCkSFtp cHandle, const char 
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_WriteFileBytes(HCkSFtp cHandle, const char *handle, HCkByteData byteData);
 CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_WriteFileBytesAsync(HCkSFtp cHandle, const char *handle, HCkByteData byteData);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_WriteFileBytes32(HCkSFtp cHandle, const char *handle, int offset, HCkByteData data);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_WriteFileBytes32Async(HCkSFtp cHandle, const char *handle, int offset, HCkByteData data);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_WriteFileBytes64(HCkSFtp cHandle, const char *handle, __int64 offset64, HCkByteData data);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_WriteFileBytes64Async(HCkSFtp cHandle, const char *handle, __int64 offset64, HCkByteData data);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_WriteFileBytes64s(HCkSFtp cHandle, const char *handle, const char *offset64, HCkByteData data);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_WriteFileBytes64sAsync(HCkSFtp cHandle, const char *handle, const char *offset64, HCkByteData data);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_WriteFileText(HCkSFtp cHandle, const char *handle, const char *charset, const char *textData);
 CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_WriteFileTextAsync(HCkSFtp cHandle, const char *handle, const char *charset, const char *textData);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_WriteFileText32(HCkSFtp cHandle, const char *handle, int offset32, const char *charset, const char *textData);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_WriteFileText32Async(HCkSFtp cHandle, const char *handle, int offset32, const char *charset, const char *textData);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_WriteFileText64(HCkSFtp cHandle, const char *handle, __int64 offset64, const char *charset, const char *textData);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_WriteFileText64Async(HCkSFtp cHandle, const char *handle, __int64 offset64, const char *charset, const char *textData);
 CK_C_VISIBLE_PUBLIC BOOL CkSFtp_WriteFileText64s(HCkSFtp cHandle, const char *handle, const char *offset64, const char *charset, const char *textData);
+CK_C_VISIBLE_PUBLIC HCkTask CkSFtp_WriteFileText64sAsync(HCkSFtp cHandle, const char *handle, const char *offset64, const char *charset, const char *textData);
 #endif

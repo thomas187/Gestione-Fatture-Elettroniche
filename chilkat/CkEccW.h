@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkEccW_H
 #define _CkEccW_H
@@ -59,6 +59,33 @@ class CK_VISIBLE_PUBLIC CkEccW  : public CkWideCharBase
 	// ----------------------
 	// Properties
 	// ----------------------
+	// If true, the ECDSA signatures produced by this object will use ASN.1 format.
+	// Otherwise the ECDSA signature will be a concatenation of the two raw byte arrays
+	// for r and s.
+	// 
+	// ECDSA signatures have two equal sized parts, r and s. There are two common
+	// formats for encoding the signature:
+	// 
+	// (a) Concatenating the raw byte array of r and s
+	// (b) Encoding both into a structured ASN.1 / DER sequence.
+	// 
+	// The default value of this property is true, which is to use ASN.1, which is
+	// the behavior of earlier versions of Chilkat before this property was added.
+	bool get_AsnFormat(void);
+	// If true, the ECDSA signatures produced by this object will use ASN.1 format.
+	// Otherwise the ECDSA signature will be a concatenation of the two raw byte arrays
+	// for r and s.
+	// 
+	// ECDSA signatures have two equal sized parts, r and s. There are two common
+	// formats for encoding the signature:
+	// 
+	// (a) Concatenating the raw byte array of r and s
+	// (b) Encoding both into a structured ASN.1 / DER sequence.
+	// 
+	// The default value of this property is true, which is to use ASN.1, which is
+	// the behavior of earlier versions of Chilkat before this property was added.
+	void put_AsnFormat(bool newVal);
+
 
 
 	// ----------------------

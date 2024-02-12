@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkPrivateKeyWH
 #define _C_CkPrivateKeyWH
 #include "chilkatDefs.h"
@@ -6,6 +6,11 @@
 #include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
+
+CK_C_VISIBLE_PUBLIC void CkPrivateKeyW_setAbortCheck(HCkPrivateKeyW cHandle, BOOL (*fnAbortCheck)(void));
+CK_C_VISIBLE_PUBLIC void CkPrivateKeyW_setPercentDone(HCkPrivateKeyW cHandle, BOOL (*fnPercentDone)(int pctDone));
+CK_C_VISIBLE_PUBLIC void CkPrivateKeyW_setProgressInfo(HCkPrivateKeyW cHandle, void (*fnProgressInfo)(const wchar_t *name, const wchar_t *value));
+CK_C_VISIBLE_PUBLIC void CkPrivateKeyW_setTaskCompleted(HCkPrivateKeyW cHandle, void (*fnTaskCompleted)(HCkTaskW hTask));
 
 CK_C_VISIBLE_PUBLIC HCkPrivateKeyW CkPrivateKeyW_Create(void);
 CK_C_VISIBLE_PUBLIC void CkPrivateKeyW_Dispose(HCkPrivateKeyW handle);
@@ -26,6 +31,9 @@ CK_C_VISIBLE_PUBLIC void  CkPrivateKeyW_putLastMethodSuccess(HCkPrivateKeyW cHan
 CK_C_VISIBLE_PUBLIC void CkPrivateKeyW_getPkcs8EncryptAlg(HCkPrivateKeyW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void  CkPrivateKeyW_putPkcs8EncryptAlg(HCkPrivateKeyW cHandle, const wchar_t *newVal);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkPrivateKeyW_pkcs8EncryptAlg(HCkPrivateKeyW cHandle);
+CK_C_VISIBLE_PUBLIC void CkPrivateKeyW_getUncommonOptions(HCkPrivateKeyW cHandle, HCkString retval);
+CK_C_VISIBLE_PUBLIC void  CkPrivateKeyW_putUncommonOptions(HCkPrivateKeyW cHandle, const wchar_t *newVal);
+CK_C_VISIBLE_PUBLIC const wchar_t *CkPrivateKeyW_uncommonOptions(HCkPrivateKeyW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_getVerboseLogging(HCkPrivateKeyW cHandle);
 CK_C_VISIBLE_PUBLIC void  CkPrivateKeyW_putVerboseLogging(HCkPrivateKeyW cHandle, BOOL newVal);
 CK_C_VISIBLE_PUBLIC void CkPrivateKeyW_getVersion(HCkPrivateKeyW cHandle, HCkString retval);
@@ -87,4 +95,6 @@ CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_SavePkcs8PemFile(HCkPrivateKeyW cHandle, 
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_SaveRsaDerFile(HCkPrivateKeyW cHandle, const wchar_t *path);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_SaveRsaPemFile(HCkPrivateKeyW cHandle, const wchar_t *path);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_SaveXmlFile(HCkPrivateKeyW cHandle, const wchar_t *path);
+CK_C_VISIBLE_PUBLIC BOOL CkPrivateKeyW_UploadToCloud(HCkPrivateKeyW cHandle, HCkJsonObjectW jsonIn, HCkJsonObjectW jsonOut);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkPrivateKeyW_UploadToCloudAsync(HCkPrivateKeyW cHandle, HCkJsonObjectW jsonIn, HCkJsonObjectW jsonOut);
 #endif

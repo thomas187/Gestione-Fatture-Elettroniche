@@ -1,10 +1,24 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkPrivateKey_H
 #define _C_CkPrivateKey_H
 #include "chilkatDefs.h"
 #include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
+
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setAbortCheck(HCkPrivateKey cHandle, BOOL (*fnAbortCheck)(void));
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setPercentDone(HCkPrivateKey cHandle, BOOL (*fnPercentDone)(int pctDone));
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setProgressInfo(HCkPrivateKey cHandle, void (*fnProgressInfo)(const char *name, const char *value));
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setTaskCompleted(HCkPrivateKey cHandle, void (*fnTaskCompleted)(HCkTask hTask));
+
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setAbortCheck2(HCkPrivateKey cHandle, BOOL (*fnAbortCheck2)(void *pContext));
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setPercentDone2(HCkPrivateKey cHandle, BOOL (*fnPercentDone2)(int pctDone, void *pContext));
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setProgressInfo2(HCkPrivateKey cHandle, void (*fnProgressInfo2)(const char *name, const char *value, void *pContext));
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setTaskCompleted2(HCkPrivateKey cHandle, void (*fnTaskCompleted2)(HCkTask hTask, void *pContext));
+
+// setExternalProgress is for C callback functions defined in the external programming language (such as Go)
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setExternalProgress(HCkPrivateKey cHandle, BOOL on);
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_setCallbackContext(HCkPrivateKey cHandle, void *pContext);
 
 CK_C_VISIBLE_PUBLIC HCkPrivateKey CkPrivateKey_Create(void);
 CK_C_VISIBLE_PUBLIC void CkPrivateKey_Dispose(HCkPrivateKey handle);
@@ -25,6 +39,9 @@ CK_C_VISIBLE_PUBLIC void CkPrivateKey_putLastMethodSuccess(HCkPrivateKey cHandle
 CK_C_VISIBLE_PUBLIC void CkPrivateKey_getPkcs8EncryptAlg(HCkPrivateKey cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void CkPrivateKey_putPkcs8EncryptAlg(HCkPrivateKey cHandle, const char *newVal);
 CK_C_VISIBLE_PUBLIC const char *CkPrivateKey_pkcs8EncryptAlg(HCkPrivateKey cHandle);
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_getUncommonOptions(HCkPrivateKey cHandle, HCkString retval);
+CK_C_VISIBLE_PUBLIC void CkPrivateKey_putUncommonOptions(HCkPrivateKey cHandle, const char *newVal);
+CK_C_VISIBLE_PUBLIC const char *CkPrivateKey_uncommonOptions(HCkPrivateKey cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKey_getUtf8(HCkPrivateKey cHandle);
 CK_C_VISIBLE_PUBLIC void CkPrivateKey_putUtf8(HCkPrivateKey cHandle, BOOL newVal);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKey_getVerboseLogging(HCkPrivateKey cHandle);
@@ -88,4 +105,6 @@ CK_C_VISIBLE_PUBLIC BOOL CkPrivateKey_SavePkcs8PemFile(HCkPrivateKey cHandle, co
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKey_SaveRsaDerFile(HCkPrivateKey cHandle, const char *path);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKey_SaveRsaPemFile(HCkPrivateKey cHandle, const char *path);
 CK_C_VISIBLE_PUBLIC BOOL CkPrivateKey_SaveXmlFile(HCkPrivateKey cHandle, const char *path);
+CK_C_VISIBLE_PUBLIC BOOL CkPrivateKey_UploadToCloud(HCkPrivateKey cHandle, HCkJsonObject jsonIn, HCkJsonObject jsonOut);
+CK_C_VISIBLE_PUBLIC HCkTask CkPrivateKey_UploadToCloudAsync(HCkPrivateKey cHandle, HCkJsonObject jsonIn, HCkJsonObject jsonOut);
 #endif

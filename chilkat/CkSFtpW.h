@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkSFtpW_H
 #define _CkSFtpW_H
@@ -122,17 +122,17 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	void put_BandwidthThrottleUp(int newVal);
 
 	// The client-identifier string to be used when connecting to an SSH/SFTP server.
-	// Defaults to "SSH-2.0-PuTTY_Release_0.63". (This string is used to mimic PuTTY
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
 	// because some servers are known to disconnect from clients with unknown client
 	// identifiers.)
 	void get_ClientIdentifier(CkString &str);
 	// The client-identifier string to be used when connecting to an SSH/SFTP server.
-	// Defaults to "SSH-2.0-PuTTY_Release_0.63". (This string is used to mimic PuTTY
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
 	// because some servers are known to disconnect from clients with unknown client
 	// identifiers.)
 	const wchar_t *clientIdentifier(void);
 	// The client-identifier string to be used when connecting to an SSH/SFTP server.
-	// Defaults to "SSH-2.0-PuTTY_Release_0.63". (This string is used to mimic PuTTY
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
 	// because some servers are known to disconnect from clients with unknown client
 	// identifiers.)
 	void put_ClientIdentifier(const wchar_t *newVal);
@@ -628,23 +628,17 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// If true, then the file last-modified and create date/time will be preserved
 	// for downloaded and uploaded files. The default value is false.
 	// 
-	// Note: Prior to version 9.5.0.40, this property only applied to downloads.
-	// Starting in v9.5.0.40, it also applies to the UploadFileByName method.
-	//     It does not apply to uploads or downloads where the remote file is opened to
-	//     obtain a handle, the data is uploaded/downloaded, and then the handle is closed.
-	//     The last-mod date/times are always preserved ini the SyncTreeDownload and
-	//     SyncTreeUpload methods.
+	// Note: It does not apply to uploads or downloads where the remote file is opened
+	// to obtain a handle, the data is uploaded/downloaded, and then the handle is
+	// closed.
 	// 
 	bool get_PreserveDate(void);
 	// If true, then the file last-modified and create date/time will be preserved
 	// for downloaded and uploaded files. The default value is false.
 	// 
-	// Note: Prior to version 9.5.0.40, this property only applied to downloads.
-	// Starting in v9.5.0.40, it also applies to the UploadFileByName method.
-	//     It does not apply to uploads or downloads where the remote file is opened to
-	//     obtain a handle, the data is uploaded/downloaded, and then the handle is closed.
-	//     The last-mod date/times are always preserved ini the SyncTreeDownload and
-	//     SyncTreeUpload methods.
+	// Note: It does not apply to uploads or downloads where the remote file is opened
+	// to obtain a handle, the data is uploaded/downloaded, and then the handle is
+	// closed.
 	// 
 	void put_PreserveDate(bool newVal);
 
@@ -1165,59 +1159,58 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// block the connection. If the connection fails, make sure to check all potential
 	// external causes of blockage.
 	// 
-	// The following algorithms are supported by Chilkat SSH/SFTP:Key Exchange:
-	// curve25519-sha256@libssh.org
-	// ecdh-sha2-nistp256
-	// ecdh-sha2-nistp384
-	// ecdh-sha2-nistp521
-	// diffie-hellman-group14-sha256
-	// diffie-hellman-group1-sha1
-	// diffie-hellman-group14-sha1
-	// diffie-hellman-group16-sha512
-	// diffie-hellman-group18-sha512
-	// diffie-hellman-group-exchange-sha256
-	// diffie-hellman-group-exchange-sha1
-	// 
-	// Host Key:
-	// ssh-rsa
-	// ssh-dss
-	// ecdsa-sha2-nistp256
-	// rsa-sha2-256
-	// rsa-sha2-512
-	// ssh-ed25519
-	// ecdsa-sha2-nistp384
-	// ecdsa-sha2-nistp521
-	// 
-	// Cipher:
-	// chacha20-poly1305@openssh.com
-	// aes128-ctr
-	// aes256-ctr
-	// aes192-ctr
-	// aes128-cbc
-	// aes256-cbc
-	// aes192-cbc
-	// twofish256-cbc
-	// twofish128-cbc
-	// blowfish-cbc
-	// 3des-cbc
-	// arcfour128
-	// arcfour256
-	// 
-	// Mac:
-	// hmac-sha2-256-etm@openssh.com
-	// hmac-sha2-512-etm@openssh.com
-	// hmac-sha1-etm@openssh.com
-	// hmac-sha1
-	// hmac-sha2-256
-	// hmac-sha2-512
-	// hmac-ripemd160
-	// hmac-sha1-96
-	// hmac-md5
-	// 
-	// Compression:
-	// zlib
-	// zlib@openssh.com
-	// none
+	// The following algorithms are supported by Chilkat SSH/SFTP:
+	//     Hostkey:
+	//         ssh-ed25519
+	//         rsa-sha2-256
+	//         rsa-sha2-512
+	//         ecdsa-sha2-nistp256
+	//         ecdsa-sha2-nistp384
+	//         ecdsa-sha2-nistp521
+	//         ssh-rsa
+	//         ssh-dss
+	//     Key Exchange:
+	//         curve25519-sha256
+	//         curve25519-sha256@libssh.org
+	//         ecdh-sha2-nistp256
+	//         ecdh-sha2-nistp384
+	//         ecdh-sha2-nistp521
+	//         diffie-hellman-group14-sha256
+	//         diffie-hellman-group1-sha1
+	//         diffie-hellman-group14-sha1
+	//         diffie-hellman-group16-sha512
+	//         diffie-hellman-group18-sha512
+	//         diffie-hellman-group-exchange-sha256
+	//         diffie-hellman-group-exchange-sha1
+	//     Ciphers:
+	//         aes128-ctr
+	//         aes256-ctr
+	//         aes192-ctr
+	//         aes128-cbc
+	//         aes256-cbc
+	//         aes192-cbc
+	//         aes128-gcm@openssh.com
+	//         aes256-gcm@openssh.com
+	//         twofish256-cbc
+	//         twofish128-cbc
+	//         blowfish-cbc
+	//         (also chacha20-poly1305@openssh.com if explicitly allowed by the
+	//         application)
+	//     MAC Algorithms:
+	//         hmac-sha2-256
+	//         hmac-sha2-512
+	//         hmac-sha1
+	//         hmac-ripemd160
+	//         hmac-sha1-96
+	//         hmac-md5
+	//         (also the following etm algorithms if explicitly allowed)
+	//         hmac-sha1-etm@openssh.com
+	//         hmac-sha2-256-etm@openssh.com
+	//         hmac-sha2-512-etm@openssh.com
+	//     Compression:
+	//         none
+	//         zlib
+	//         zlib@openssh.com
 	// 
 	bool Connect(const wchar_t *domainName, int port);
 
@@ -1635,12 +1628,22 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// is true, then symbolic links will be followed on the server.
 	int GetFileSize32(const wchar_t *pathOrHandle, bool bFollowLinks, bool bIsHandle);
 
+	// Creates an asynchronous task to call the GetFileSize32 method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *GetFileSize32Async(const wchar_t *pathOrHandle, bool bFollowLinks, bool bIsHandle);
+
 	// Returns a 64-bit integer containing the size (in bytes) of a file on the SSH
 	// server. pathOrHandle may be a remote filepath or an open handle string as returned by
 	// OpenFile. If pathOrHandle is a handle, then bIsHandle must be set to true, otherwise it
 	// should be false. If bFollowLinks is true, then symbolic links will be followed on
 	// the server.
 	__int64 GetFileSize64(const wchar_t *pathOrHandle, bool bFollowLinks, bool bIsHandle);
+
+	// Creates an asynchronous task to call the GetFileSize64 method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *GetFileSize64Async(const wchar_t *pathOrHandle, bool bFollowLinks, bool bIsHandle);
 
 	// Returns the size in bytes (in decimal string form) of a file on the SSH server.
 	// pathOrHandle may be a remote filepath or an open handle string as returned by OpenFile.
@@ -1672,6 +1675,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// such as ReadFileBytes64s allow for 64-bit values to be passed as strings.
 	// 
 	const wchar_t *fileSizeStr(const wchar_t *pathOrHandle, bool bFollowLinks, bool bIsHandle);
+
+	// Creates an asynchronous task to call the GetFileSizeStr method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *GetFileSizeStrAsync(const wchar_t *pathOrHandle, bool bFollowLinks, bool bIsHandle);
 
 	// Returns the host key fingerprint of the server, which is automatically set after
 	// connecting to an SSH/SFTP server. The hashAlg can be any hash algorithm supported
@@ -2142,6 +2150,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// then fewer bytes may be returned.
 	bool ReadFileBytes32(const wchar_t *handle, int offset, int numBytes, CkByteData &outBytes);
 
+	// Creates an asynchronous task to call the ReadFileBytes32 method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ReadFileBytes32Async(const wchar_t *handle, int offset, int numBytes);
+
 	// Reads file data from a remote file on the SSH server. The handle is a file handle
 	// returned by the OpenFile method. The offset is a 64-bit integer measured in bytes
 	// relative to the beginning of the file. The offset is ignored if the "textMode"
@@ -2149,6 +2162,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// to read. If the end-of-file is reached prior to reading the number of requested
 	// bytes, then fewer bytes may be returned.
 	bool ReadFileBytes64(const wchar_t *handle, __int64 offset, int numBytes, CkByteData &outBytes);
+
+	// Creates an asynchronous task to call the ReadFileBytes64 method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ReadFileBytes64Async(const wchar_t *handle, __int64 offset, int numBytes);
 
 	// (This method exists for systems that do not support 64-bit integers. The 64-bit
 	// integer offset is passed as a decimal string instead.)
@@ -2162,6 +2180,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// returned.
 	// 
 	bool ReadFileBytes64s(const wchar_t *handle, const wchar_t *offset, int numBytes, CkByteData &outBytes);
+
+	// Creates an asynchronous task to call the ReadFileBytes64s method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ReadFileBytes64sAsync(const wchar_t *handle, const wchar_t *offset, int numBytes);
 
 	// This method is identical to ReadFileBytes except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
@@ -2232,6 +2255,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// 
 	const wchar_t *readFileText32(const wchar_t *handle, int offset, int numBytes, const wchar_t *charset);
 
+	// Creates an asynchronous task to call the ReadFileText32 method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ReadFileText32Async(const wchar_t *handle, int offset, int numBytes, const wchar_t *charset);
+
 	// This method is identical to ReadFileBytes64 except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
@@ -2261,6 +2289,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// 
 	const wchar_t *readFileText64(const wchar_t *handle, __int64 offset, int numBytes, const wchar_t *charset);
 
+	// Creates an asynchronous task to call the ReadFileText64 method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ReadFileText64Async(const wchar_t *handle, __int64 offset, int numBytes, const wchar_t *charset);
+
 	// This method is identical to ReadFileBytes64s except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
 	// returned as a string. A list of supported charset values may be found on this
@@ -2289,6 +2322,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// all of the iso-8859-* encodings, or the Windows-* encodings.
 	// 
 	const wchar_t *readFileText64s(const wchar_t *handle, const wchar_t *offset, int numBytes, const wchar_t *charset);
+
+	// Creates an asynchronous task to call the ReadFileText64s method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *ReadFileText64sAsync(const wchar_t *handle, const wchar_t *offset, int numBytes, const wchar_t *charset);
 
 	// Returns the target of a symbolic link on the server. The path is the path of the
 	// symbolic link on the server.
@@ -2707,15 +2745,30 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// from the beginning of the file.
 	bool WriteFileBytes32(const wchar_t *handle, int offset, CkByteData &data);
 
+	// Creates an asynchronous task to call the WriteFileBytes32 method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *WriteFileBytes32Async(const wchar_t *handle, int offset, CkByteData &data);
+
 	// Writes data to an open file at a specific offset from the beginning of the file.
 	// The handle is a file handle returned by the OpenFile method. The offset64 is an offset
 	// from the beginning of the file.
 	bool WriteFileBytes64(const wchar_t *handle, __int64 offset64, CkByteData &data);
 
+	// Creates an asynchronous task to call the WriteFileBytes64 method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *WriteFileBytes64Async(const wchar_t *handle, __int64 offset64, CkByteData &data);
+
 	// Writes data to an open file at a specific offset from the beginning of the file.
 	// The handle is a file handle returned by the OpenFile method. The offset64 is an offset
 	// (in decimal string format) from the beginning of the file.
 	bool WriteFileBytes64s(const wchar_t *handle, const wchar_t *offset64, CkByteData &data);
+
+	// Creates an asynchronous task to call the WriteFileBytes64s method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *WriteFileBytes64sAsync(const wchar_t *handle, const wchar_t *offset64, CkByteData &data);
 
 	// Appends character data to an open file. The handle is a file handle returned by
 	// the OpenFile method. charset is a character encoding and is typically set to values
@@ -2743,6 +2796,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteFileText32(const wchar_t *handle, int offset32, const wchar_t *charset, const wchar_t *textData);
 
+	// Creates an asynchronous task to call the WriteFileText32 method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *WriteFileText32Async(const wchar_t *handle, int offset32, const wchar_t *charset, const wchar_t *textData);
+
 	// Writes character data to an open file at a specific offset from the beginning of
 	// the file. The handle is a file handle returned by the OpenFile method. charset is a
 	// character encoding and is typically set to values such as "ansi", "utf-8",
@@ -2750,6 +2808,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteFileText64(const wchar_t *handle, __int64 offset64, const wchar_t *charset, const wchar_t *textData);
+
+	// Creates an asynchronous task to call the WriteFileText64 method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *WriteFileText64Async(const wchar_t *handle, __int64 offset64, const wchar_t *charset, const wchar_t *textData);
 
 	// Writes character data to an open file at a specific offset from the beginning of
 	// the file. The handle is a file handle returned by the OpenFile method. The offset64 is
@@ -2759,6 +2822,11 @@ class CK_VISIBLE_PUBLIC CkSFtpW  : public CkClassWithCallbacksW
 	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteFileText64s(const wchar_t *handle, const wchar_t *offset64, const wchar_t *charset, const wchar_t *textData);
+
+	// Creates an asynchronous task to call the WriteFileText64s method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *WriteFileText64sAsync(const wchar_t *handle, const wchar_t *offset64, const wchar_t *charset, const wchar_t *textData);
 
 
 

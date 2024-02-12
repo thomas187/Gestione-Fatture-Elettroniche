@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkCertW_H
 #define _CkCertW_H
@@ -10,7 +10,7 @@
 #include "chilkatDefs.h"
 
 #include "CkString.h"
-#include "CkWideCharBase.h"
+#include "CkClassWithCallbacksW.h"
 
 class CkByteData;
 class CkBinDataW;
@@ -18,8 +18,11 @@ class CkPrivateKeyW;
 class CkPublicKeyW;
 class CkCertChainW;
 class CkDateTimeW;
+class CkPkcs11W;
 class CkTaskW;
+class CkJsonObjectW;
 class CkXmlCertVaultW;
+class CkBaseProgressW;
 
 
 
@@ -29,9 +32,10 @@ class CkXmlCertVaultW;
  
 
 // CLASS: CkCertW
-class CK_VISIBLE_PUBLIC CkCertW  : public CkWideCharBase
+class CK_VISIBLE_PUBLIC CkCertW  : public CkClassWithCallbacksW
 {
-	
+	private:
+	bool m_cbOwned;
 
 	private:
 	
@@ -48,6 +52,9 @@ class CK_VISIBLE_PUBLIC CkCertW  : public CkWideCharBase
 	static CkCertW *createNew(void);
 	
 
+	CkCertW(bool bCallbackOwned);
+	static CkCertW *createNew(bool bCallbackOwned);
+
 	
 	void CK_VISIBLE_PRIVATE inject(void *impl);
 
@@ -55,7 +62,9 @@ class CK_VISIBLE_PUBLIC CkCertW  : public CkWideCharBase
 	// internal resources held by the object. 
 	void dispose(void);
 
-	
+	CkBaseProgressW *get_EventCallbackObject(void) const;
+	void put_EventCallbackObject(CkBaseProgressW *progress);
+
 
 	// BEGIN PUBLIC INTERFACE
 
@@ -636,6 +645,9 @@ class CK_VISIBLE_PUBLIC CkCertW  : public CkWideCharBase
 	// 
 	const wchar_t *extensionAsXml(const wchar_t *oid);
 
+	// Returns the certificate extension data specified by oid in bd.
+	bool GetExtensionBd(const wchar_t *oid, CkBinDataW &bd);
+
 	// Exports the certificate's private key to a PEM string (if the private key is
 	// available).
 	bool GetPrivateKeyPem(CkString &outStr);
@@ -730,6 +742,11 @@ class CK_VISIBLE_PUBLIC CkCertW  : public CkWideCharBase
 
 	// Returns true if a private key associated with the certificate is available.
 	bool HasPrivateKey(void);
+
+	// Links to the certificate's private key located on an HSM (smart card, token, or
+	// cloud HSM). Once linked, the certificate can be used for signing where the
+	// signing occurs on the HSM. See the example below for more detailed information.
+	bool LinkPkcs11(CkPkcs11W &session);
 
 	// (Relevant only when running on a Microsoft Windows operating system.) Searches
 	// the Windows Local Machine and Current User registry-based certificate stores for
@@ -881,6 +898,11 @@ class CK_VISIBLE_PUBLIC CkCertW  : public CkWideCharBase
 	// Saves a certificate object to a .cer file.
 	bool SaveToFile(const wchar_t *path);
 
+	// Provides information for a cloud signing service to do the signing via a remote
+	// signing server. Current supported services are AWS KMS, Azure Key Vault, and
+	// ARSS (Aruba Remote Signing Service). See the examples below.
+	bool SetCloudSigner(CkJsonObjectW &json);
+
 	// Initializes the certificate object from a base64 encoded string representation
 	// of the certificate's binary DER format.
 	bool SetFromEncoded(const wchar_t *encodedCert);
@@ -892,6 +914,16 @@ class CK_VISIBLE_PUBLIC CkCertW  : public CkWideCharBase
 	// Same as SetPrivateKey, but the key is provided in unencrypted PEM format. (Note:
 	// The privKeyPem is not a file path, it is the actual PEM text.)
 	bool SetPrivateKeyPem(const wchar_t *privKeyPem);
+
+	// This is an open-ended method to accomodate uploading the private key to a cloud
+	// service, such as AWS KMS, or Azure Key Vault. For details, see the examples
+	// below.
+	bool UploadToCloud(CkJsonObjectW &jsonIn, CkJsonObjectW &jsonOut);
+
+	// Creates an asynchronous task to call the UploadToCloud method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *UploadToCloudAsync(CkJsonObjectW &jsonIn, CkJsonObjectW &jsonOut);
 
 	// Adds an XML certificate vault to the object's internal list of sources to be
 	// searched for certificates for help in building certificate chains and verifying

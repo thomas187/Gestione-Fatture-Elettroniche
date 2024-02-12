@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkSFtp_H
 #define _CkSFtp_H
@@ -117,17 +117,17 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	void put_BandwidthThrottleUp(int newVal);
 
 	// The client-identifier string to be used when connecting to an SSH/SFTP server.
-	// Defaults to "SSH-2.0-PuTTY_Release_0.63". (This string is used to mimic PuTTY
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
 	// because some servers are known to disconnect from clients with unknown client
 	// identifiers.)
 	void get_ClientIdentifier(CkString &str);
 	// The client-identifier string to be used when connecting to an SSH/SFTP server.
-	// Defaults to "SSH-2.0-PuTTY_Release_0.63". (This string is used to mimic PuTTY
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
 	// because some servers are known to disconnect from clients with unknown client
 	// identifiers.)
 	const char *clientIdentifier(void);
 	// The client-identifier string to be used when connecting to an SSH/SFTP server.
-	// Defaults to "SSH-2.0-PuTTY_Release_0.63". (This string is used to mimic PuTTY
+	// Defaults to "SSH-2.0-PuTTY_Release_0.78". (This string is used to mimic PuTTY
 	// because some servers are known to disconnect from clients with unknown client
 	// identifiers.)
 	void put_ClientIdentifier(const char *newVal);
@@ -623,23 +623,17 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// If true, then the file last-modified and create date/time will be preserved
 	// for downloaded and uploaded files. The default value is false.
 	// 
-	// Note: Prior to version 9.5.0.40, this property only applied to downloads.
-	// Starting in v9.5.0.40, it also applies to the UploadFileByName method.
-	//     It does not apply to uploads or downloads where the remote file is opened to
-	//     obtain a handle, the data is uploaded/downloaded, and then the handle is closed.
-	//     The last-mod date/times are always preserved ini the SyncTreeDownload and
-	//     SyncTreeUpload methods.
+	// Note: It does not apply to uploads or downloads where the remote file is opened
+	// to obtain a handle, the data is uploaded/downloaded, and then the handle is
+	// closed.
 	// 
 	bool get_PreserveDate(void);
 	// If true, then the file last-modified and create date/time will be preserved
 	// for downloaded and uploaded files. The default value is false.
 	// 
-	// Note: Prior to version 9.5.0.40, this property only applied to downloads.
-	// Starting in v9.5.0.40, it also applies to the UploadFileByName method.
-	//     It does not apply to uploads or downloads where the remote file is opened to
-	//     obtain a handle, the data is uploaded/downloaded, and then the handle is closed.
-	//     The last-mod date/times are always preserved ini the SyncTreeDownload and
-	//     SyncTreeUpload methods.
+	// Note: It does not apply to uploads or downloads where the remote file is opened
+	// to obtain a handle, the data is uploaded/downloaded, and then the handle is
+	// closed.
 	// 
 	void put_PreserveDate(bool newVal);
 
@@ -1189,59 +1183,58 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// block the connection. If the connection fails, make sure to check all potential
 	// external causes of blockage.
 	// 
-	// The following algorithms are supported by Chilkat SSH/SFTP:Key Exchange:
-	// curve25519-sha256@libssh.org
-	// ecdh-sha2-nistp256
-	// ecdh-sha2-nistp384
-	// ecdh-sha2-nistp521
-	// diffie-hellman-group14-sha256
-	// diffie-hellman-group1-sha1
-	// diffie-hellman-group14-sha1
-	// diffie-hellman-group16-sha512
-	// diffie-hellman-group18-sha512
-	// diffie-hellman-group-exchange-sha256
-	// diffie-hellman-group-exchange-sha1
-	// 
-	// Host Key:
-	// ssh-rsa
-	// ssh-dss
-	// ecdsa-sha2-nistp256
-	// rsa-sha2-256
-	// rsa-sha2-512
-	// ssh-ed25519
-	// ecdsa-sha2-nistp384
-	// ecdsa-sha2-nistp521
-	// 
-	// Cipher:
-	// chacha20-poly1305@openssh.com
-	// aes128-ctr
-	// aes256-ctr
-	// aes192-ctr
-	// aes128-cbc
-	// aes256-cbc
-	// aes192-cbc
-	// twofish256-cbc
-	// twofish128-cbc
-	// blowfish-cbc
-	// 3des-cbc
-	// arcfour128
-	// arcfour256
-	// 
-	// Mac:
-	// hmac-sha2-256-etm@openssh.com
-	// hmac-sha2-512-etm@openssh.com
-	// hmac-sha1-etm@openssh.com
-	// hmac-sha1
-	// hmac-sha2-256
-	// hmac-sha2-512
-	// hmac-ripemd160
-	// hmac-sha1-96
-	// hmac-md5
-	// 
-	// Compression:
-	// zlib
-	// zlib@openssh.com
-	// none
+	// The following algorithms are supported by Chilkat SSH/SFTP:
+	//     Hostkey:
+	//         ssh-ed25519
+	//         rsa-sha2-256
+	//         rsa-sha2-512
+	//         ecdsa-sha2-nistp256
+	//         ecdsa-sha2-nistp384
+	//         ecdsa-sha2-nistp521
+	//         ssh-rsa
+	//         ssh-dss
+	//     Key Exchange:
+	//         curve25519-sha256
+	//         curve25519-sha256@libssh.org
+	//         ecdh-sha2-nistp256
+	//         ecdh-sha2-nistp384
+	//         ecdh-sha2-nistp521
+	//         diffie-hellman-group14-sha256
+	//         diffie-hellman-group1-sha1
+	//         diffie-hellman-group14-sha1
+	//         diffie-hellman-group16-sha512
+	//         diffie-hellman-group18-sha512
+	//         diffie-hellman-group-exchange-sha256
+	//         diffie-hellman-group-exchange-sha1
+	//     Ciphers:
+	//         aes128-ctr
+	//         aes256-ctr
+	//         aes192-ctr
+	//         aes128-cbc
+	//         aes256-cbc
+	//         aes192-cbc
+	//         aes128-gcm@openssh.com
+	//         aes256-gcm@openssh.com
+	//         twofish256-cbc
+	//         twofish128-cbc
+	//         blowfish-cbc
+	//         (also chacha20-poly1305@openssh.com if explicitly allowed by the
+	//         application)
+	//     MAC Algorithms:
+	//         hmac-sha2-256
+	//         hmac-sha2-512
+	//         hmac-sha1
+	//         hmac-ripemd160
+	//         hmac-sha1-96
+	//         hmac-md5
+	//         (also the following etm algorithms if explicitly allowed)
+	//         hmac-sha1-etm@openssh.com
+	//         hmac-sha2-256-etm@openssh.com
+	//         hmac-sha2-512-etm@openssh.com
+	//     Compression:
+	//         none
+	//         zlib
+	//         zlib@openssh.com
 	// 
 	bool Connect(const char *domainName, int port);
 
@@ -1264,59 +1257,58 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// block the connection. If the connection fails, make sure to check all potential
 	// external causes of blockage.
 	// 
-	// The following algorithms are supported by Chilkat SSH/SFTP:Key Exchange:
-	// curve25519-sha256@libssh.org
-	// ecdh-sha2-nistp256
-	// ecdh-sha2-nistp384
-	// ecdh-sha2-nistp521
-	// diffie-hellman-group14-sha256
-	// diffie-hellman-group1-sha1
-	// diffie-hellman-group14-sha1
-	// diffie-hellman-group16-sha512
-	// diffie-hellman-group18-sha512
-	// diffie-hellman-group-exchange-sha256
-	// diffie-hellman-group-exchange-sha1
-	// 
-	// Host Key:
-	// ssh-rsa
-	// ssh-dss
-	// ecdsa-sha2-nistp256
-	// rsa-sha2-256
-	// rsa-sha2-512
-	// ssh-ed25519
-	// ecdsa-sha2-nistp384
-	// ecdsa-sha2-nistp521
-	// 
-	// Cipher:
-	// chacha20-poly1305@openssh.com
-	// aes128-ctr
-	// aes256-ctr
-	// aes192-ctr
-	// aes128-cbc
-	// aes256-cbc
-	// aes192-cbc
-	// twofish256-cbc
-	// twofish128-cbc
-	// blowfish-cbc
-	// 3des-cbc
-	// arcfour128
-	// arcfour256
-	// 
-	// Mac:
-	// hmac-sha2-256-etm@openssh.com
-	// hmac-sha2-512-etm@openssh.com
-	// hmac-sha1-etm@openssh.com
-	// hmac-sha1
-	// hmac-sha2-256
-	// hmac-sha2-512
-	// hmac-ripemd160
-	// hmac-sha1-96
-	// hmac-md5
-	// 
-	// Compression:
-	// zlib
-	// zlib@openssh.com
-	// none
+	// The following algorithms are supported by Chilkat SSH/SFTP:
+	//     Hostkey:
+	//         ssh-ed25519
+	//         rsa-sha2-256
+	//         rsa-sha2-512
+	//         ecdsa-sha2-nistp256
+	//         ecdsa-sha2-nistp384
+	//         ecdsa-sha2-nistp521
+	//         ssh-rsa
+	//         ssh-dss
+	//     Key Exchange:
+	//         curve25519-sha256
+	//         curve25519-sha256@libssh.org
+	//         ecdh-sha2-nistp256
+	//         ecdh-sha2-nistp384
+	//         ecdh-sha2-nistp521
+	//         diffie-hellman-group14-sha256
+	//         diffie-hellman-group1-sha1
+	//         diffie-hellman-group14-sha1
+	//         diffie-hellman-group16-sha512
+	//         diffie-hellman-group18-sha512
+	//         diffie-hellman-group-exchange-sha256
+	//         diffie-hellman-group-exchange-sha1
+	//     Ciphers:
+	//         aes128-ctr
+	//         aes256-ctr
+	//         aes192-ctr
+	//         aes128-cbc
+	//         aes256-cbc
+	//         aes192-cbc
+	//         aes128-gcm@openssh.com
+	//         aes256-gcm@openssh.com
+	//         twofish256-cbc
+	//         twofish128-cbc
+	//         blowfish-cbc
+	//         (also chacha20-poly1305@openssh.com if explicitly allowed by the
+	//         application)
+	//     MAC Algorithms:
+	//         hmac-sha2-256
+	//         hmac-sha2-512
+	//         hmac-sha1
+	//         hmac-ripemd160
+	//         hmac-sha1-96
+	//         hmac-md5
+	//         (also the following etm algorithms if explicitly allowed)
+	//         hmac-sha1-etm@openssh.com
+	//         hmac-sha2-256-etm@openssh.com
+	//         hmac-sha2-512-etm@openssh.com
+	//     Compression:
+	//         none
+	//         zlib
+	//         zlib@openssh.com
 	// 
 	CkTask *ConnectAsync(const char *domainName, int port);
 
@@ -1857,6 +1849,13 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// is true, then symbolic links will be followed on the server.
 	int GetFileSize32(const char *pathOrHandle, bool bFollowLinks, bool bIsHandle);
 
+	// Returns the size in bytes of a file on the SSH server. If the file size exceeds
+	// what can be represented in 32-bits, a value of -1 is returned. pathOrHandle may be a
+	// remote filepath or an open handle string as returned by OpenFile. If pathOrHandle is a
+	// handle, then bIsHandle must be set to true, otherwise it should be false. If bFollowLinks
+	// is true, then symbolic links will be followed on the server.
+	CkTask *GetFileSize32Async(const char *pathOrHandle, bool bFollowLinks, bool bIsHandle);
+
 
 	// Returns a 64-bit integer containing the size (in bytes) of a file on the SSH
 	// server. pathOrHandle may be a remote filepath or an open handle string as returned by
@@ -1864,6 +1863,13 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// should be false. If bFollowLinks is true, then symbolic links will be followed on
 	// the server.
 	__int64 GetFileSize64(const char *pathOrHandle, bool bFollowLinks, bool bIsHandle);
+
+	// Returns a 64-bit integer containing the size (in bytes) of a file on the SSH
+	// server. pathOrHandle may be a remote filepath or an open handle string as returned by
+	// OpenFile. If pathOrHandle is a handle, then bIsHandle must be set to true, otherwise it
+	// should be false. If bFollowLinks is true, then symbolic links will be followed on
+	// the server.
+	CkTask *GetFileSize64Async(const char *pathOrHandle, bool bFollowLinks, bool bIsHandle);
 
 
 	// Returns the size in bytes (in decimal string form) of a file on the SSH server.
@@ -1897,6 +1903,17 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// such as ReadFileBytes64s allow for 64-bit values to be passed as strings.
 	// 
 	const char *fileSizeStr(const char *pathOrHandle, bool bFollowLinks, bool bIsHandle);
+
+	// Returns the size in bytes (in decimal string form) of a file on the SSH server.
+	// pathOrHandle may be a remote filepath or an open handle string as returned by OpenFile.
+	// If pathOrHandle is a handle, then bIsHandle must be set to true, otherwise it should be
+	// false. If bFollowLinks is true, then symbolic links will be followed on the server.
+	// 
+	// Note: This method exists for environments that do not have 64-bit integer
+	// support. The Add64 method is provided for 64-bit addition, and other methods
+	// such as ReadFileBytes64s allow for 64-bit values to be passed as strings.
+	// 
+	CkTask *GetFileSizeStrAsync(const char *pathOrHandle, bool bFollowLinks, bool bIsHandle);
 
 
 	// Returns the host key fingerprint of the server, which is automatically set after
@@ -2548,6 +2565,15 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// then fewer bytes may be returned.
 	bool ReadFileBytes32(const char *handle, int offset, int numBytes, CkByteData &outBytes);
 
+	// Reads file data from a remote file on the SSH server. The handle is a file handle
+	// returned by the OpenFile method. The offset is measured in bytes relative to the
+	// beginning of the file. (64-bit offsets are supported via the ReadFileBytes64 and
+	// ReadFileBytes64s methods.) The offset is ignored if the "textMode" flag was
+	// specified during the OpenFile. The numBytes is the maximum number of bytes to read.
+	// If the end-of-file is reached prior to reading the number of requested bytes,
+	// then fewer bytes may be returned.
+	CkTask *ReadFileBytes32Async(const char *handle, int offset, int numBytes);
+
 
 	// Reads file data from a remote file on the SSH server. The handle is a file handle
 	// returned by the OpenFile method. The offset is a 64-bit integer measured in bytes
@@ -2556,6 +2582,14 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// to read. If the end-of-file is reached prior to reading the number of requested
 	// bytes, then fewer bytes may be returned.
 	bool ReadFileBytes64(const char *handle, __int64 offset, int numBytes, CkByteData &outBytes);
+
+	// Reads file data from a remote file on the SSH server. The handle is a file handle
+	// returned by the OpenFile method. The offset is a 64-bit integer measured in bytes
+	// relative to the beginning of the file. The offset is ignored if the "textMode"
+	// flag was specified during the OpenFile. The numBytes is the maximum number of bytes
+	// to read. If the end-of-file is reached prior to reading the number of requested
+	// bytes, then fewer bytes may be returned.
+	CkTask *ReadFileBytes64Async(const char *handle, __int64 offset, int numBytes);
 
 
 	// (This method exists for systems that do not support 64-bit integers. The 64-bit
@@ -2570,6 +2604,19 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// returned.
 	// 
 	bool ReadFileBytes64s(const char *handle, const char *offset, int numBytes, CkByteData &outBytes);
+
+	// (This method exists for systems that do not support 64-bit integers. The 64-bit
+	// integer offset is passed as a decimal string instead.)
+	// 
+	// Reads file data from a remote file on the SSH server. The handle is a file handle
+	// returned by the OpenFile method. The offset is a 64-bit integer represented as a
+	// decimal string. It represents an offset in bytes from the beginning of the file.
+	// The offset is ignored if the "textMode" flag was specified during the OpenFile.
+	// The numBytes is the maximum number of bytes to read. If the end-of-file is reached
+	// prior to reading the number of requested bytes, then fewer bytes may be
+	// returned.
+	// 
+	CkTask *ReadFileBytes64sAsync(const char *handle, const char *offset, int numBytes);
 
 
 	// This method is identical to ReadFileBytes except for one thing: The bytes are
@@ -2655,6 +2702,21 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// all of the iso-8859-* encodings, or the Windows-* encodings.
 	// 
 	const char *readFileText32(const char *handle, int offset, int numBytes, const char *charset);
+	// This method is identical to ReadFileBytes32 except for one thing: The bytes are
+	// interpreted according to the specified charset (i.e. the character encoding) and
+	// returned as a string. A list of supported charset values may be found on this
+	// page: Supported Charsets
+	// <https://www.chilkatsoft.com/p/p_463.asp>.
+	// 
+	// Note: If the charset is an encoding where a single character might be represented
+	// in multiple bytes (such as utf-8, Shift_JIS, etc.) then there is a risk that the
+	// very last character may be partially read. This is because the method specifies
+	// the number of bytes to read, not the number of characters. This is never a
+	// problem with character encodings that use a single byte per character, such as
+	// all of the iso-8859-* encodings, or the Windows-* encodings.
+	// 
+	CkTask *ReadFileText32Async(const char *handle, int offset, int numBytes, const char *charset);
+
 
 	// This method is identical to ReadFileBytes64 except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
@@ -2685,6 +2747,21 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// all of the iso-8859-* encodings, or the Windows-* encodings.
 	// 
 	const char *readFileText64(const char *handle, __int64 offset, int numBytes, const char *charset);
+	// This method is identical to ReadFileBytes64 except for one thing: The bytes are
+	// interpreted according to the specified charset (i.e. the character encoding) and
+	// returned as a string. A list of supported charset values may be found on this
+	// page: Supported Charsets
+	// <https://www.chilkatsoft.com/p/p_463.asp>.
+	// 
+	// Note: If the charset is an encoding where a single character might be represented
+	// in multiple bytes (such as utf-8, Shift_JIS, etc.) then there is a risk that the
+	// very last character may be partially read. This is because the method specifies
+	// the number of bytes to read, not the number of characters. This is never a
+	// problem with character encodings that use a single byte per character, such as
+	// all of the iso-8859-* encodings, or the Windows-* encodings.
+	// 
+	CkTask *ReadFileText64Async(const char *handle, __int64 offset, int numBytes, const char *charset);
+
 
 	// This method is identical to ReadFileBytes64s except for one thing: The bytes are
 	// interpreted according to the specified charset (i.e. the character encoding) and
@@ -2715,6 +2792,21 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// all of the iso-8859-* encodings, or the Windows-* encodings.
 	// 
 	const char *readFileText64s(const char *handle, const char *offset, int numBytes, const char *charset);
+	// This method is identical to ReadFileBytes64s except for one thing: The bytes are
+	// interpreted according to the specified charset (i.e. the character encoding) and
+	// returned as a string. A list of supported charset values may be found on this
+	// page: Supported Charsets
+	// <https://www.chilkatsoft.com/p/p_463.asp>.
+	// 
+	// Note: If the charset is an encoding where a single character might be represented
+	// in multiple bytes (such as utf-8, Shift_JIS, etc.) then there is a risk that the
+	// very last character may be partially read. This is because the method specifies
+	// the number of bytes to read, not the number of characters. This is never a
+	// problem with character encodings that use a single byte per character, such as
+	// all of the iso-8859-* encodings, or the Windows-* encodings.
+	// 
+	CkTask *ReadFileText64sAsync(const char *handle, const char *offset, int numBytes, const char *charset);
+
 
 	// Returns the target of a symbolic link on the server. The path is the path of the
 	// symbolic link on the server.
@@ -3240,17 +3332,32 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// from the beginning of the file.
 	bool WriteFileBytes32(const char *handle, int offset, CkByteData &data);
 
+	// Writes data to an open file at a specific offset from the beginning of the file.
+	// The handle is a file handle returned by the OpenFile method. The offset is an offset
+	// from the beginning of the file.
+	CkTask *WriteFileBytes32Async(const char *handle, int offset, CkByteData &data);
+
 
 	// Writes data to an open file at a specific offset from the beginning of the file.
 	// The handle is a file handle returned by the OpenFile method. The offset64 is an offset
 	// from the beginning of the file.
 	bool WriteFileBytes64(const char *handle, __int64 offset64, CkByteData &data);
 
+	// Writes data to an open file at a specific offset from the beginning of the file.
+	// The handle is a file handle returned by the OpenFile method. The offset64 is an offset
+	// from the beginning of the file.
+	CkTask *WriteFileBytes64Async(const char *handle, __int64 offset64, CkByteData &data);
+
 
 	// Writes data to an open file at a specific offset from the beginning of the file.
 	// The handle is a file handle returned by the OpenFile method. The offset64 is an offset
 	// (in decimal string format) from the beginning of the file.
 	bool WriteFileBytes64s(const char *handle, const char *offset64, CkByteData &data);
+
+	// Writes data to an open file at a specific offset from the beginning of the file.
+	// The handle is a file handle returned by the OpenFile method. The offset64 is an offset
+	// (in decimal string format) from the beginning of the file.
+	CkTask *WriteFileBytes64sAsync(const char *handle, const char *offset64, CkByteData &data);
 
 
 	// Appends character data to an open file. The handle is a file handle returned by
@@ -3288,6 +3395,14 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteFileText32(const char *handle, int offset32, const char *charset, const char *textData);
 
+	// Writes character data to an open file at a specific offset from the beginning of
+	// the file. The handle is a file handle returned by the OpenFile method. charset is a
+	// character encoding and is typically set to values such as "ansi", "utf-8",
+	// "windows-1252", etc. A list of supported character encodings is found on this
+	// page: Supported Charsets
+	// <https://www.chilkatsoft.com/p/p_463.asp>.
+	CkTask *WriteFileText32Async(const char *handle, int offset32, const char *charset, const char *textData);
+
 
 	// Writes character data to an open file at a specific offset from the beginning of
 	// the file. The handle is a file handle returned by the OpenFile method. charset is a
@@ -3296,6 +3411,14 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteFileText64(const char *handle, __int64 offset64, const char *charset, const char *textData);
+
+	// Writes character data to an open file at a specific offset from the beginning of
+	// the file. The handle is a file handle returned by the OpenFile method. charset is a
+	// character encoding and is typically set to values such as "ansi", "utf-8",
+	// "windows-1252", etc. A list of supported character encodings is found on this
+	// page: Supported Charsets
+	// <https://www.chilkatsoft.com/p/p_463.asp>.
+	CkTask *WriteFileText64Async(const char *handle, __int64 offset64, const char *charset, const char *textData);
 
 
 	// Writes character data to an open file at a specific offset from the beginning of
@@ -3306,6 +3429,15 @@ class CK_VISIBLE_PUBLIC CkSFtp  : public CkClassWithCallbacks
 	// page: Supported Charsets
 	// <https://www.chilkatsoft.com/p/p_463.asp>.
 	bool WriteFileText64s(const char *handle, const char *offset64, const char *charset, const char *textData);
+
+	// Writes character data to an open file at a specific offset from the beginning of
+	// the file. The handle is a file handle returned by the OpenFile method. The offset64 is
+	// an offset (in decimal string format) from the beginning of the file. charset is a
+	// character encoding and is typically set to values such as "ansi", "utf-8",
+	// "windows-1252", etc. A list of supported character encodings is found on this
+	// page: Supported Charsets
+	// <https://www.chilkatsoft.com/p/p_463.asp>.
+	CkTask *WriteFileText64sAsync(const char *handle, const char *offset64, const char *charset, const char *textData);
 
 
 

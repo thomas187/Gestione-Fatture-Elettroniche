@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkHtmlToTextW_H
 #define _CkHtmlToTextW_H
@@ -12,6 +12,7 @@
 #include "CkString.h"
 #include "CkWideCharBase.h"
 
+class CkStringBuilderW;
 
 
 
@@ -113,6 +114,9 @@ class CK_VISIBLE_PUBLIC CkHtmlToTextW  : public CkWideCharBase
 	bool ToText(const wchar_t *html, CkString &outStr);
 	// Converts HTML to plain-text.
 	const wchar_t *toText(const wchar_t *html);
+
+	// Converts the HTML in sb to plain-text.
+	bool ToTextSb(CkStringBuilderW &sb);
 
 	// Unlocks the component. An arbitrary unlock code may be passed to automatically
 	// begin a 30-day trial.

@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkHashtable_H
 #define _C_CkHashtable_H
 #include "chilkatDefs.h"
@@ -8,6 +8,7 @@
 
 CK_C_VISIBLE_PUBLIC HCkHashtable CkHashtable_Create(void);
 CK_C_VISIBLE_PUBLIC void CkHashtable_Dispose(HCkHashtable handle);
+CK_C_VISIBLE_PUBLIC int CkHashtable_getCount(HCkHashtable cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkHashtable_getLastMethodSuccess(HCkHashtable cHandle);
 CK_C_VISIBLE_PUBLIC void CkHashtable_putLastMethodSuccess(HCkHashtable cHandle, BOOL newVal);
 CK_C_VISIBLE_PUBLIC BOOL CkHashtable_getUtf8(HCkHashtable cHandle);

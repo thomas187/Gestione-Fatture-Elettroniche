@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkHttpW_H
 #define _CkHttpW_H
@@ -102,16 +102,16 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	void put_Accept(const wchar_t *newVal);
 
 	// The Accept-Charset header field to be automatically included with GET requests
-	// issued by QuickGet or QuickGetStr. The default value is
-	// "ISO-8859-1,utf-8;q=0.7,*;q=0.7".
+	// issued by QuickGet or QuickGetStr. The default value is the empty string, which
+	// means no Accept-Charset header is included.
 	void get_AcceptCharset(CkString &str);
 	// The Accept-Charset header field to be automatically included with GET requests
-	// issued by QuickGet or QuickGetStr. The default value is
-	// "ISO-8859-1,utf-8;q=0.7,*;q=0.7".
+	// issued by QuickGet or QuickGetStr. The default value is the empty string, which
+	// means no Accept-Charset header is included.
 	const wchar_t *acceptCharset(void);
 	// The Accept-Charset header field to be automatically included with GET requests
-	// issued by QuickGet or QuickGetStr. The default value is
-	// "ISO-8859-1,utf-8;q=0.7,*;q=0.7".
+	// issued by QuickGet or QuickGetStr. The default value is the empty string, which
+	// means no Accept-Charset header is included.
 	void put_AcceptCharset(const wchar_t *newVal);
 
 	// The Accept-Language header field to be automatically included with GET requests
@@ -234,6 +234,16 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	const wchar_t *awsSecretKey(void);
 	// The AWS Secret Key to be used with the Amazon S3 methods listed below.
 	void put_AwsSecretKey(const wchar_t *newVal);
+
+	// This is only used if a set of temporary security credentials were obtained by
+	// calling the AssumeRole action of the AWS Security Token Service.
+	void get_AwsSessionToken(CkString &str);
+	// This is only used if a set of temporary security credentials were obtained by
+	// calling the AssumeRole action of the AWS Security Token Service.
+	const wchar_t *awsSessionToken(void);
+	// This is only used if a set of temporary security credentials were obtained by
+	// calling the AssumeRole action of the AWS Security Token Service.
+	void put_AwsSessionToken(const wchar_t *newVal);
 
 	// Selects the AWS Signature Version algorithm. The default value is 4. May be set
 	// to 2 to select AWS Signature Version 2. (The only valid choices are 2 and 4.)
@@ -1861,29 +1871,17 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// server exceptions.
 	void put_UseIEProxy(bool newVal);
 
-	// The UserAgent header field to be automatically included with GET requests issued
-	// by QuickGet or QuickGetStr. The default value is "Mozilla/5.0 (Windows NT 6.3;
-	// WOW64; rv:49.0) Gecko/20100101 Firefox/49.0". The reason for this default is to
-	// get the same server behavior for a recent version of a typical and popular
-	// browser. Some sites may respond differently depending on the User-Agent, and the
-	// goal is to avoid strange responses that are different than what a typical
-	// browser would receive.
+	// This property, if set, is the value of the User-Agent header field to be
+	// automatically included with GET requests issued by QuickGet or QuickGetStr. The
+	// default value is the empty string and no User-Agent header field will be sent.
 	void get_UserAgent(CkString &str);
-	// The UserAgent header field to be automatically included with GET requests issued
-	// by QuickGet or QuickGetStr. The default value is "Mozilla/5.0 (Windows NT 6.3;
-	// WOW64; rv:49.0) Gecko/20100101 Firefox/49.0". The reason for this default is to
-	// get the same server behavior for a recent version of a typical and popular
-	// browser. Some sites may respond differently depending on the User-Agent, and the
-	// goal is to avoid strange responses that are different than what a typical
-	// browser would receive.
+	// This property, if set, is the value of the User-Agent header field to be
+	// automatically included with GET requests issued by QuickGet or QuickGetStr. The
+	// default value is the empty string and no User-Agent header field will be sent.
 	const wchar_t *userAgent(void);
-	// The UserAgent header field to be automatically included with GET requests issued
-	// by QuickGet or QuickGetStr. The default value is "Mozilla/5.0 (Windows NT 6.3;
-	// WOW64; rv:49.0) Gecko/20100101 Firefox/49.0". The reason for this default is to
-	// get the same server behavior for a recent version of a typical and popular
-	// browser. Some sites may respond differently depending on the User-Agent, and the
-	// goal is to avoid strange responses that are different than what a typical
-	// browser would receive.
+	// This property, if set, is the value of the User-Agent header field to be
+	// automatically included with GET requests issued by QuickGet or QuickGetStr. The
+	// default value is the empty string and no User-Agent header field will be sent.
 	void put_UserAgent(const wchar_t *newVal);
 
 	// Indicates whether the last HTTP request was redirected (i.e. the redirect was
@@ -3018,6 +3016,10 @@ class CK_VISIBLE_PUBLIC CkHttpW  : public CkClassWithCallbacksW
 	// v9.5.0.89, this is used automatically add the Authorization header (Signature)
 	// for Amazon Pay requests.
 	bool SetAuthPrivateKey(const wchar_t *publicKeyId, CkPrivateKeyW &privKey);
+
+	// Sets the AuthToken property. The sb contains the OAuth2 access token to be
+	// used.
+	bool SetAuthTokenSb(CkStringBuilderW &sb);
 
 	// Restores cookies for a particular domain. It is assumed that the cookie XML was
 	// previously retrieved via the GetCookieXml method, and saved to some sort of

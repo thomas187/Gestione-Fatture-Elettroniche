@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkRestW_H
 #define _CkRestW_H
@@ -155,17 +155,9 @@ class CK_VISIBLE_PUBLIC CkRestW  : public CkClassWithCallbacksW
 
 	// The maximum amount of time to wait for the connection to be accepted by the HTTP
 	// server.
-	// 
-	// Note: Suprisingly, this property was forgotten and not added until Chilkat
-	// v9.5.0.71.
-	// 
 	int get_ConnectTimeoutMs(void);
 	// The maximum amount of time to wait for the connection to be accepted by the HTTP
 	// server.
-	// 
-	// Note: Suprisingly, this property was forgotten and not added until Chilkat
-	// v9.5.0.71.
-	// 
 	void put_ConnectTimeoutMs(int newVal);
 
 	// If true then all calls to Send* or FullRequest* methods will not actually send
@@ -436,6 +428,12 @@ class CK_VISIBLE_PUBLIC CkRestW  : public CkClassWithCallbacksW
 
 	// Adds a query parameter. If the query parameter already exists, then it is
 	// replaced.
+	// 
+	// To allow duplicates, you can add the keyword "AllowDuplicateQueryParams" to the
+	// UncommonOptions property value. In other words, if the query parameter already
+	// exists, it is not replaced and instead an additional param with the same name is
+	// added.
+	// 
 	bool AddQueryParam(const wchar_t *name, const wchar_t *value);
 
 	// Adds the query parameters from the queryString. The queryString is a query string of the

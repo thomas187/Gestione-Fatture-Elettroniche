@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkHtmlToText_H
 #define _CkHtmlToText_H
@@ -14,6 +14,7 @@
 #include "CkString.h"
 #include "CkMultiByteBase.h"
 
+class CkStringBuilder;
 
 
 
@@ -114,6 +115,10 @@ class CK_VISIBLE_PUBLIC CkHtmlToText  : public CkMultiByteBase
 
 	// Converts HTML to plain-text.
 	const char *toText(const char *html);
+
+	// Converts the HTML in sb to plain-text.
+	bool ToTextSb(CkStringBuilder &sb);
+
 
 	// Unlocks the component. An arbitrary unlock code may be passed to automatically
 	// begin a 30-day trial.

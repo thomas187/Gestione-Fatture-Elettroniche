@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkTaskChainW_H
 #define _CkTaskChainW_H
@@ -10,9 +10,10 @@
 #include "chilkatDefs.h"
 
 #include "CkString.h"
-#include "CkWideCharBase.h"
+#include "CkClassWithCallbacksW.h"
 
 class CkTaskW;
+class CkBaseProgressW;
 
 
 
@@ -22,9 +23,10 @@ class CkTaskW;
  
 
 // CLASS: CkTaskChainW
-class CK_VISIBLE_PUBLIC CkTaskChainW  : public CkWideCharBase
+class CK_VISIBLE_PUBLIC CkTaskChainW  : public CkClassWithCallbacksW
 {
-	
+	private:
+	bool m_cbOwned;
 
 	private:
 	
@@ -41,6 +43,9 @@ class CK_VISIBLE_PUBLIC CkTaskChainW  : public CkWideCharBase
 	static CkTaskChainW *createNew(void);
 	
 
+	CkTaskChainW(bool bCallbackOwned);
+	static CkTaskChainW *createNew(bool bCallbackOwned);
+
 	
 	void CK_VISIBLE_PRIVATE inject(void *impl);
 
@@ -48,7 +53,9 @@ class CK_VISIBLE_PUBLIC CkTaskChainW  : public CkWideCharBase
 	// internal resources held by the object. 
 	void dispose(void);
 
-	
+	CkBaseProgressW *get_EventCallbackObject(void) const;
+	void put_EventCallbackObject(CkBaseProgressW *progress);
+
 
 	// BEGIN PUBLIC INTERFACE
 

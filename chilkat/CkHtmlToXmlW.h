@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkHtmlToXmlW_H
 #define _CkHtmlToXmlW_H
@@ -146,6 +146,9 @@ class CK_VISIBLE_PUBLIC CkHtmlToXmlW  : public CkWideCharBase
 
 	// Sets the Html property by loading the HTML from a file.
 	bool SetHtmlFromFile(const wchar_t *filename);
+
+	// Sets the Html property from the contents of sb.
+	bool SetHtmlSb(CkStringBuilderW &sb);
 
 	// Converts the HTML in the "Html" property to XML and returns the XML string.
 	bool ToXml(CkString &outStr);

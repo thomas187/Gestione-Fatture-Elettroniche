@@ -1,4 +1,4 @@
-// This file is generated for Chilkat v9.5.0.94
+// This file is generated for Chilkat v9.5.0.97
 
 #ifndef _ALL_CHILKAT_C_H
 #define _ALL_CHILKAT_C_H
@@ -23,6 +23,9 @@
 #include "C_CkByteData.h"
 #include "C_CkDateTime.h"
 #include "C_CkString.h"
+#ifdef WIN32
+#include "C_CkCodeSign.h"
+#endif
 #include "C_CkCompression.h"
 #ifdef WIN32
 #include "C_CkCreateCS.h"
@@ -36,6 +39,7 @@
 #include "C_CkDh.h"
 #include "C_CkDirTree.h"
 #include "C_CkDkim.h"
+#include "C_CkDns.h"
 #include "C_CkDsa.h"
 #include "C_CkDtObj.h"
 #include "C_CkEcc.h"

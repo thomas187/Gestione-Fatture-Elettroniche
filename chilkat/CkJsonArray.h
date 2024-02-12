@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkJsonArray_H
 #define _CkJsonArray_H
@@ -146,6 +146,12 @@ class CK_VISIBLE_PUBLIC CkJsonArray  : public CkMultiByteBase
 	// of 0. To append, pass an index of -1. Indexing is 0-based (the 1st member is at
 	// index 0).
 	bool AddStringAt(int index, const char *value);
+
+
+	// Inserts a new unsigned integer member to the position indicated by index. To
+	// prepend, pass an index of 0. To append, pass an index of -1. Indexing is 0-based
+	// (the 1st member is at index 0).
+	bool AddUIntAt(int index, unsigned long value);
 
 
 	// Appends the array items contained in jarr.
@@ -298,6 +304,11 @@ const char *emit(void);
 	bool SetStringAt(int index, const char *value);
 
 
+	// Sets the unsigned integer value of the Nth array element. Indexing is 0-based
+	// (the 1st member is at index 0).
+	bool SetUIntAt(int index, unsigned long value);
+
+
 	// Returns the string value of the Nth array element. Indexing is 0-based (the 1st
 	// member is at index 0).
 	bool StringAt(int index, CkString &outStr);
@@ -319,6 +330,11 @@ const char *emit(void);
 	//     null
 	// Returns -1 if no member exists at the given index.
 	int TypeAt(int index);
+
+
+	// Returns the unsigned integer value of the Nth array element. Indexing is 0-based
+	// (the 1st member is at index 0).
+	unsigned long UIntAt(int index);
 
 
 

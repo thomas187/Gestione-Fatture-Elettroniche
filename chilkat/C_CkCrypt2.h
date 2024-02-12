@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkCrypt2_H
 #define _C_CkCrypt2_H
 #include "chilkatDefs.h"
@@ -144,8 +144,12 @@ CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_AddPfxSourceFile(HCkCrypt2 cHandle, const char
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_AddSigningCert(HCkCrypt2 cHandle, HCkCert cert);
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_AesKeyUnwrap(HCkCrypt2 cHandle, const char *kek, const char *wrappedKeyData, const char *encoding, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCrypt2_aesKeyUnwrap(HCkCrypt2 cHandle, const char *kek, const char *wrappedKeyData, const char *encoding);
+CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_AesKeyUnwrapWithPadding(HCkCrypt2 cHandle, const char *kek, const char *wrappedKeyData, const char *encoding, HCkString outStr);
+CK_C_VISIBLE_PUBLIC const char *CkCrypt2_aesKeyUnwrapWithPadding(HCkCrypt2 cHandle, const char *kek, const char *wrappedKeyData, const char *encoding);
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_AesKeyWrap(HCkCrypt2 cHandle, const char *kek, const char *keyData, const char *encoding, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCrypt2_aesKeyWrap(HCkCrypt2 cHandle, const char *kek, const char *keyData, const char *encoding);
+CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_AesKeyWrapWithPadding(HCkCrypt2 cHandle, const char *kek, const char *keyData, const char *encoding, HCkString outStr);
+CK_C_VISIBLE_PUBLIC const char *CkCrypt2_aesKeyWrapWithPadding(HCkCrypt2 cHandle, const char *kek, const char *keyData, const char *encoding);
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_BCryptHash(HCkCrypt2 cHandle, const char *password, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCrypt2_bCryptHash(HCkCrypt2 cHandle, const char *password);
 CK_C_VISIBLE_PUBLIC BOOL CkCrypt2_BCryptVerify(HCkCrypt2 cHandle, const char *password, const char *bcryptHash);

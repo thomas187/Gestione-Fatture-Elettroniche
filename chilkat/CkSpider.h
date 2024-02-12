@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkSpider_H
 #define _CkSpider_H
@@ -414,12 +414,18 @@ class CK_VISIBLE_PUBLIC CkSpider  : public CkClassWithCallbacks
 	const char *avoidPattern(int index);
 
 
-	// To be documented soon.
+	// Returns the second-level + top-level domain of the domain. For example, if domain is
+	// "xyz.example.com", this returns "example.com". For some domains, such as
+	// "xyz.example.co.uk", the top 3 levels are returned, such as "example.co.uk".
 	bool GetBaseDomain(const char *domain, CkString &outStr);
 
-	// To be documented soon.
+	// Returns the second-level + top-level domain of the domain. For example, if domain is
+	// "xyz.example.com", this returns "example.com". For some domains, such as
+	// "xyz.example.co.uk", the top 3 levels are returned, such as "example.co.uk".
 	const char *getBaseDomain(const char *domain);
-	// To be documented soon.
+	// Returns the second-level + top-level domain of the domain. For example, if domain is
+	// "xyz.example.com", this returns "example.com". For some domains, such as
+	// "xyz.example.co.uk", the top 3 levels are returned, such as "example.co.uk".
 	const char *baseDomain(const char *domain);
 
 

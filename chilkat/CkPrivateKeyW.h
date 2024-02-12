@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkPrivateKeyW_H
 #define _CkPrivateKeyW_H
@@ -10,12 +10,15 @@
 #include "chilkatDefs.h"
 
 #include "CkString.h"
-#include "CkWideCharBase.h"
+#include "CkClassWithCallbacksW.h"
 
 class CkByteData;
 class CkPublicKeyW;
 class CkStringBuilderW;
 class CkBinDataW;
+class CkJsonObjectW;
+class CkTaskW;
+class CkBaseProgressW;
 
 
 
@@ -25,9 +28,10 @@ class CkBinDataW;
  
 
 // CLASS: CkPrivateKeyW
-class CK_VISIBLE_PUBLIC CkPrivateKeyW  : public CkWideCharBase
+class CK_VISIBLE_PUBLIC CkPrivateKeyW  : public CkClassWithCallbacksW
 {
-	
+	private:
+	bool m_cbOwned;
 
 	private:
 	
@@ -44,6 +48,9 @@ class CK_VISIBLE_PUBLIC CkPrivateKeyW  : public CkWideCharBase
 	static CkPrivateKeyW *createNew(void);
 	
 
+	CkPrivateKeyW(bool bCallbackOwned);
+	static CkPrivateKeyW *createNew(bool bCallbackOwned);
+
 	
 	void CK_VISIBLE_PRIVATE inject(void *impl);
 
@@ -51,7 +58,9 @@ class CK_VISIBLE_PUBLIC CkPrivateKeyW  : public CkWideCharBase
 	// internal resources held by the object. 
 	void dispose(void);
 
-	
+	CkBaseProgressW *get_EventCallbackObject(void) const;
+	void put_EventCallbackObject(CkBaseProgressW *progress);
+
 
 	// BEGIN PUBLIC INTERFACE
 
@@ -80,6 +89,16 @@ class CK_VISIBLE_PUBLIC CkPrivateKeyW  : public CkWideCharBase
 	// The default value is "3des". Possible choices also include "aes128", "aes192",
 	// and "aes256". All of the encryption algorithm choices use CBC mode.
 	void put_Pkcs8EncryptAlg(const wchar_t *newVal);
+
+	// This is a catch-all property to be used for uncommon needs. This property
+	// defaults to the empty string, and should typically remain empty.
+	void get_UncommonOptions(CkString &str);
+	// This is a catch-all property to be used for uncommon needs. This property
+	// defaults to the empty string, and should typically remain empty.
+	const wchar_t *uncommonOptions(void);
+	// This is a catch-all property to be used for uncommon needs. This property
+	// defaults to the empty string, and should typically remain empty.
+	void put_UncommonOptions(const wchar_t *newVal);
 
 
 
@@ -828,6 +847,16 @@ class CK_VISIBLE_PUBLIC CkPrivateKeyW  : public CkWideCharBase
 
 	// Saves the private key to an XML file.
 	bool SaveXmlFile(const wchar_t *path);
+
+	// This is an open-ended method to accomodate uploading the private key to a cloud
+	// service, such as AWS KMS, or Azure Key Vault. For details, see the examples
+	// below.
+	bool UploadToCloud(CkJsonObjectW &jsonIn, CkJsonObjectW &jsonOut);
+
+	// Creates an asynchronous task to call the UploadToCloud method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *UploadToCloudAsync(CkJsonObjectW &jsonIn, CkJsonObjectW &jsonOut);
 
 
 

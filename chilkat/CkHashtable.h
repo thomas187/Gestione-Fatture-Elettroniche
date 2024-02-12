@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkHashtable_H
 #define _CkHashtable_H
@@ -55,6 +55,9 @@ class CK_VISIBLE_PUBLIC CkHashtable  : public CkMultiByteBase
 	// ----------------------
 	// Properties
 	// ----------------------
+	// The number of items (strings/integers) contained in the hash table.
+	int get_Count(void);
+
 
 
 	// ----------------------

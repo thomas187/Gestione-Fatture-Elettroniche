@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkJsonObjectWH
 #define _C_CkJsonObjectWH
 #include "chilkatDefs.h"
@@ -125,9 +125,11 @@ CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_StringAt(HCkJsonObjectW cHandle, int inde
 CK_C_VISIBLE_PUBLIC const wchar_t *CkJsonObjectW_stringAt(HCkJsonObjectW cHandle, int index);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_StringOf(HCkJsonObjectW cHandle, const wchar_t *jsonPath, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkJsonObjectW_stringOf(HCkJsonObjectW cHandle, const wchar_t *jsonPath);
+CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_StringOfEquals(HCkJsonObjectW cHandle, const wchar_t *jsonPath, const wchar_t *value, BOOL caseSensitive);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_StringOfSb(HCkJsonObjectW cHandle, const wchar_t *jsonPath, HCkStringBuilderW sb);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_Swap(HCkJsonObjectW cHandle, int index1, int index2);
 CK_C_VISIBLE_PUBLIC int CkJsonObjectW_TypeAt(HCkJsonObjectW cHandle, int index);
+CK_C_VISIBLE_PUBLIC unsigned long CkJsonObjectW_UIntOf(HCkJsonObjectW cHandle, const wchar_t *jsonPath);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_UpdateBd(HCkJsonObjectW cHandle, const wchar_t *jsonPath, const wchar_t *encoding, HCkBinDataW bd);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_UpdateBool(HCkJsonObjectW cHandle, const wchar_t *jsonPath, BOOL value);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_UpdateInt(HCkJsonObjectW cHandle, const wchar_t *jsonPath, int value);
@@ -137,5 +139,6 @@ CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_UpdateNull(HCkJsonObjectW cHandle, const 
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_UpdateNumber(HCkJsonObjectW cHandle, const wchar_t *jsonPath, const wchar_t *numericStr);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_UpdateSb(HCkJsonObjectW cHandle, const wchar_t *jsonPath, HCkStringBuilderW sb);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_UpdateString(HCkJsonObjectW cHandle, const wchar_t *jsonPath, const wchar_t *value);
+CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_UpdateUInt(HCkJsonObjectW cHandle, const wchar_t *jsonPath, unsigned long value);
 CK_C_VISIBLE_PUBLIC BOOL CkJsonObjectW_WriteFile(HCkJsonObjectW cHandle, const wchar_t *path);
 #endif

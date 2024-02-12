@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkZip_H
 #define _CkZip_H
@@ -724,6 +724,15 @@ class CK_VISIBLE_PUBLIC CkZip  : public CkClassWithCallbacks
 	// writing to fail. The default value is true.
 	void put_IgnoreAccessDenied(bool newVal);
 
+	// An application can set this property to prevent unzipping any files larger than
+	// a max size uncompressed. The default value of this property is 0, which means
+	// any size file can be unzipped.
+	unsigned long get_MaxUncompressSize(void);
+	// An application can set this property to prevent unzipping any files larger than
+	// a max size uncompressed. The default value of this property is 0, which means
+	// any size file can be unzipped.
+	void put_MaxUncompressSize(unsigned long newVal);
+
 	// The number of entries in the Zip, including both files and directories.
 	int get_NumEntries(void);
 
@@ -1249,9 +1258,16 @@ class CK_VISIBLE_PUBLIC CkZip  : public CkClassWithCallbacks
 	// stored in the Zip
 	bool ExtractInto(const char *dirPath);
 
+	// Unzips all the files in a Zip into a single directory regardless of the path
+	// stored in the Zip
+	CkTask *ExtractIntoAsync(const char *dirPath);
+
 
 	// Unzip all files matching a wildcard pattern.
 	bool ExtractMatching(const char *dirPath, const char *pattern);
+
+	// Unzip all files matching a wildcard pattern.
+	CkTask *ExtractMatchingAsync(const char *dirPath, const char *pattern);
 
 
 	// Extracts only the files that have more recent last-modified-times than the files
@@ -1259,10 +1275,19 @@ class CK_VISIBLE_PUBLIC CkZip  : public CkClassWithCallbacks
 	// updated.
 	bool ExtractNewer(const char *dirPath);
 
+	// Extracts only the files that have more recent last-modified-times than the files
+	// on disk. This allows you to easily refresh only the files that have been
+	// updated.
+	CkTask *ExtractNewerAsync(const char *dirPath);
+
 
 	// Identical to calling ZipEntry.Extract. This method is deprecated and the Extract
 	// method of the zip entry should be called instead.
 	bool ExtractOne(CkZipEntry &entry, const char *dirPath);
+
+	// Identical to calling ZipEntry.Extract. This method is deprecated and the Extract
+	// method of the zip entry should be called instead.
+	CkTask *ExtractOneAsync(CkZipEntry &entry, const char *dirPath);
 
 
 	// Return the first entry in the Zip. Call ZipEntry.NextEntry to iterate over the
@@ -1324,6 +1349,30 @@ class CK_VISIBLE_PUBLIC CkZip  : public CkClassWithCallbacks
 	// (Relevant only when running on a Microsoft Windows operating system.) Gets the
 	// value of an EXE config param as described in the ExeXmlConfig property.
 	const char *exeConfigParam(const char *name);
+
+
+	// Returns the size of the file contained within the Zip that has the largest
+	// uncompressed size. The size is returned in string form because it could be
+	// larger than what can be held in a 32-bit unsigned integer, and we leave it to
+	// the application to convert the string to an integer number. (If necessary.
+	// Perhaps your application is only interested in the order of magnitude, which can
+	// be known by the length of the string.)
+	bool GetMaxUncompressedSize(CkString &outStr);
+
+	// Returns the size of the file contained within the Zip that has the largest
+	// uncompressed size. The size is returned in string form because it could be
+	// larger than what can be held in a 32-bit unsigned integer, and we leave it to
+	// the application to convert the string to an integer number. (If necessary.
+	// Perhaps your application is only interested in the order of magnitude, which can
+	// be known by the length of the string.)
+	const char *getMaxUncompressedSize(void);
+	// Returns the size of the file contained within the Zip that has the largest
+	// uncompressed size. The size is returned in string form because it could be
+	// larger than what can be held in a 32-bit unsigned integer, and we leave it to
+	// the application to convert the string to an integer number. (If necessary.
+	// Perhaps your application is only interested in the order of magnitude, which can
+	// be known by the length of the string.)
+	const char *maxUncompressedSize(void);
 
 
 	// Inserts a new and empty entry into the Zip object. To insert at the beginning of
@@ -1603,6 +1652,35 @@ class CK_VISIBLE_PUBLIC CkZip  : public CkClassWithCallbacks
 	// 
 	bool WriteExe(const char *exeFilename);
 
+	// (Relevant only when running on a Microsoft Windows operating system.) Writes an
+	// MS-Windows self-extracting executable. There are no limitations on the total
+	// size, individual file size, or number of files that can be added to a
+	// self-extracting EXE.
+	// 
+	// If the resultant EXE will automatically accept these command-line arguments when
+	// run:
+	// 
+	// -log logFileName
+	// 
+	// Creates a log file that lists the settings embedded within the EXE and logs the
+	// errors, warnings, and other information about the self-extraction.
+	// 
+	// -unzipDir unzipDirectoryPath
+	// 
+	// Unzips to this directory path without user intervention. (UNC paths, such as
+	// \\servername\path, are not supported.)
+	// 
+	// -pwd password
+	// 
+	// Specifies the password for an encrypted EXE
+	// 
+	// -ap autoRunParams
+	// 
+	// Specifies the command line parameters to be passed to the AutoRun executable
+	// (embedded within the EXE).
+	// 
+	CkTask *WriteExeAsync(const char *exeFilename);
+
 
 	// (Relevant only when running on a Microsoft Windows operating system.) Writes a
 	// self-extracting MS-Windows EXE with no limitations on total file size and no
@@ -1614,11 +1692,26 @@ class CK_VISIBLE_PUBLIC CkZip  : public CkClassWithCallbacks
 	// https://www.chilkatsoft.com/d2/SaExtract.zip
 	bool WriteExe2(const char *exePath, const char *destExePath, bool bAesEncrypt, int keyLength, const char *password);
 
+	// (Relevant only when running on a Microsoft Windows operating system.) Writes a
+	// self-extracting MS-Windows EXE with no limitations on total file size and no
+	// limitations on the size of any one file contained within. The 1st argument is
+	// the pre-existing EXE housing that is to be used. Essentially, the
+	// self-extracting EXE is a concatenation of the EXE housing and the
+	// compressed/encrypted data. The 2nd argument is the name of the EXE to create or
+	// overwrite. A housing for use with WriteExe2 can be found here:
+	// https://www.chilkatsoft.com/d2/SaExtract.zip
+	CkTask *WriteExe2Async(const char *exePath, const char *destExePath, bool bAesEncrypt, int keyLength, const char *password);
+
 
 	// (Relevant only when running on a Microsoft Windows operating system.) Same as
 	// WriteExe, but instead of writing a file, the MS-Windows EXE is written to
 	// memory.
 	bool WriteExeToMemory(CkByteData &outBytes);
+
+	// (Relevant only when running on a Microsoft Windows operating system.) Same as
+	// WriteExe, but instead of writing a file, the MS-Windows EXE is written to
+	// memory.
+	CkTask *WriteExeToMemoryAsync(void);
 
 
 	// Same as WriteZip, but instead of writing the Zip to a file, it writes to memory.

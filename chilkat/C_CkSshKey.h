@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkSshKey_H
 #define _C_CkSshKey_H
 #include "chilkatDefs.h"
@@ -64,4 +64,5 @@ CK_C_VISIBLE_PUBLIC BOOL CkSshKey_ToRfc4716PublicKey(HCkSshKey cHandle, HCkStrin
 CK_C_VISIBLE_PUBLIC const char *CkSshKey_toRfc4716PublicKey(HCkSshKey cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkSshKey_ToXml(HCkSshKey cHandle, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkSshKey_toXml(HCkSshKey cHandle);
+CK_C_VISIBLE_PUBLIC BOOL CkSshKey_UsePkcs11(HCkSshKey cHandle, HCkPkcs11 session, unsigned long privKeyHandle, unsigned long pubKeyHandle, const char *keyType);
 #endif

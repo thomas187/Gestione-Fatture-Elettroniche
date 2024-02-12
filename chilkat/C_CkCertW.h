@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkCertWH
 #define _C_CkCertWH
 #include "chilkatDefs.h"
@@ -6,6 +6,11 @@
 #include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
+
+CK_C_VISIBLE_PUBLIC void CkCertW_setAbortCheck(HCkCertW cHandle, BOOL (*fnAbortCheck)(void));
+CK_C_VISIBLE_PUBLIC void CkCertW_setPercentDone(HCkCertW cHandle, BOOL (*fnPercentDone)(int pctDone));
+CK_C_VISIBLE_PUBLIC void CkCertW_setProgressInfo(HCkCertW cHandle, void (*fnProgressInfo)(const wchar_t *name, const wchar_t *value));
+CK_C_VISIBLE_PUBLIC void CkCertW_setTaskCompleted(HCkCertW cHandle, void (*fnTaskCompleted)(HCkTaskW hTask));
 
 CK_C_VISIBLE_PUBLIC HCkCertW CkCertW_Create(void);
 CK_C_VISIBLE_PUBLIC void CkCertW_Dispose(HCkCertW handle);
@@ -134,6 +139,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetExtensionAsText(HCkCertW cHandle, const wcha
 CK_C_VISIBLE_PUBLIC const wchar_t *CkCertW_getExtensionAsText(HCkCertW cHandle, const wchar_t *oid);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetExtensionAsXml(HCkCertW cHandle, const wchar_t *oid, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkCertW_getExtensionAsXml(HCkCertW cHandle, const wchar_t *oid);
+CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetExtensionBd(HCkCertW cHandle, const wchar_t *oid, HCkBinDataW bd);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetPrivateKeyPem(HCkCertW cHandle, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkCertW_getPrivateKeyPem(HCkCertW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_GetPubKeyDer(HCkCertW cHandle, BOOL preferPkcs1, HCkBinDataW bd);
@@ -147,6 +153,7 @@ CK_C_VISIBLE_PUBLIC HCkDateTimeW CkCertW_GetValidToDt(HCkCertW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_HashOf(HCkCertW cHandle, const wchar_t *part, const wchar_t *hashAlg, const wchar_t *encoding, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkCertW_hashOf(HCkCertW cHandle, const wchar_t *part, const wchar_t *hashAlg, const wchar_t *encoding);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_HasPrivateKey(HCkCertW cHandle);
+CK_C_VISIBLE_PUBLIC BOOL CkCertW_LinkPkcs11(HCkCertW cHandle, HCkPkcs11W session);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_LoadByCommonName(HCkCertW cHandle, const wchar_t *cn);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_LoadByEmailAddress(HCkCertW cHandle, const wchar_t *emailAddress);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_LoadByIssuerAndSerialNumber(HCkCertW cHandle, const wchar_t *issuerCN, const wchar_t *serialNumber);
@@ -171,9 +178,12 @@ CK_C_VISIBLE_PUBLIC BOOL CkCertW_LoadTaskResult(HCkCertW cHandle, HCkTaskW task)
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_PemFileToDerFile(HCkCertW cHandle, const wchar_t *fromPath, const wchar_t *toPath);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_SaveLastError(HCkCertW cHandle, const wchar_t *path);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_SaveToFile(HCkCertW cHandle, const wchar_t *path);
+CK_C_VISIBLE_PUBLIC BOOL CkCertW_SetCloudSigner(HCkCertW cHandle, HCkJsonObjectW json);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_SetFromEncoded(HCkCertW cHandle, const wchar_t *encodedCert);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_SetPrivateKey(HCkCertW cHandle, HCkPrivateKeyW privKey);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_SetPrivateKeyPem(HCkCertW cHandle, const wchar_t *privKeyPem);
+CK_C_VISIBLE_PUBLIC BOOL CkCertW_UploadToCloud(HCkCertW cHandle, HCkJsonObjectW jsonIn, HCkJsonObjectW jsonOut);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkCertW_UploadToCloudAsync(HCkCertW cHandle, HCkJsonObjectW jsonIn, HCkJsonObjectW jsonOut);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_UseCertVault(HCkCertW cHandle, HCkXmlCertVaultW vault);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_VerifySignature(HCkCertW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkCertW_X509PKIPathv1(HCkCertW cHandle, HCkString outStr);

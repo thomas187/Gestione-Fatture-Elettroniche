@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkFtp2W_H
 #define _CkFtp2W_H
@@ -2515,7 +2515,7 @@ class CK_VISIBLE_PUBLIC CkFtp2W  : public CkClassWithCallbacksW
 	// The caller is responsible for deleting the object returned by this method.
 	CkTaskW *GetFileSbAsync(const wchar_t *remoteFilePath, const wchar_t *charset, CkStringBuilderW &sb);
 
-	// Downloads a file to a stream. If called synchronously, the remoteFilePath must have a
+	// Downloads a file to a stream. If called synchronously, the toStream must have a
 	// sink, such as a file or another stream object. If called asynchronously, then
 	// the foreground thread can read the stream.
 	bool GetFileToStream(const wchar_t *remoteFilePath, CkStreamW &toStream);
@@ -3316,6 +3316,11 @@ class CK_VISIBLE_PUBLIC CkFtp2W  : public CkClassWithCallbacksW
 	// integer. Returns -1 if the file does not exist.
 	__int64 GetSize64(int index);
 
+	// Creates an asynchronous task to call the GetSize64 method with the arguments
+	// provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *GetSize64Async(int index);
+
 	// Returns a remote file's size in bytes. Returns -1 if the file does not exist.
 	// 
 	// Note: The filename passed to this method must NOT include a path. Prior to calling
@@ -3344,6 +3349,11 @@ class CK_VISIBLE_PUBLIC CkFtp2W  : public CkClassWithCallbacksW
 	// value of ListPattern is "*", which will match all filenames.)
 	// 
 	__int64 GetSizeByName64(const wchar_t *filename);
+
+	// Creates an asynchronous task to call the GetSizeByName64 method with the
+	// arguments provided. (Async methods are available starting in Chilkat v9.5.0.52.)
+	// The caller is responsible for deleting the object returned by this method.
+	CkTaskW *GetSizeByName64Async(const wchar_t *filename);
 
 	// Returns the size in decimal string format of the Nth remote file in the current
 	// directory. This is helpful for cases when the file size (in bytes) is greater

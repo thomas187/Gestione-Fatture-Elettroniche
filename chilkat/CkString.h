@@ -44,6 +44,15 @@ class CK_VISIBLE_PUBLIC CkString : public CkObject
 	CkString &operator=(bool b);
 	CkString &operator=(char c);
 
+	bool operator==(const CkString& s) const;
+	bool operator==(const char *s) const;
+	bool operator!=(const CkString& s) const;
+	bool operator!=(const char *s) const;
+
+	// Append s to this CkString
+	CkString &operator+=(const CkString& s);
+	CkString &operator+=(const char *s);
+
        // 
        // operator to cast to a const char *
        // 
@@ -311,8 +320,8 @@ class CK_VISIBLE_PUBLIC CkString : public CkObject
         bool equals(const char *s) const;   
         bool equalsIgnoreCase(const char *s) const;
 
-        bool equalsStr(CkString &s) const;
-        bool equalsIgnoreCaseStr(CkString &s) const;
+        bool equalsStr(const CkString &s) const;
+        bool equalsIgnoreCaseStr(const CkString &s) const;
 
         bool equalsW(const wchar_t *s) const;   
         bool equalsIgnoreCaseW(const wchar_t *s) const;

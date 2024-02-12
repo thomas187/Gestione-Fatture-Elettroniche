@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkMailMan_H
 #define _CkMailMan_H
@@ -776,7 +776,7 @@ class CK_VISIBLE_PUBLIC CkMailMan  : public CkClassWithCallbacks
 	const char *pop3SessionLog(void);
 
 	// Controls whether SPA authentication for POP3 is used or not. To use SPA
-	// authentication, set this propoerty = true. No other programming changes are
+	// authentication, set this property = true. No other programming changes are
 	// required. The default value is false.
 	// 
 	// Note: If SPA (i.e. NTLM) authentication does not succeed, set the
@@ -784,7 +784,7 @@ class CK_VISIBLE_PUBLIC CkMailMan  : public CkClassWithCallbacks
 	// 
 	bool get_Pop3SPA(void);
 	// Controls whether SPA authentication for POP3 is used or not. To use SPA
-	// authentication, set this propoerty = true. No other programming changes are
+	// authentication, set this property = true. No other programming changes are
 	// required. The default value is false.
 	// 
 	// Note: If SPA (i.e. NTLM) authentication does not succeed, set the
@@ -1751,30 +1751,18 @@ class CK_VISIBLE_PUBLIC CkMailMan  : public CkClassWithCallbacks
 	// list of the following comma separated keywords:
 	//     "ProtectFromVpn" - Introduced in v9.5.0.80. On Android systems, will bypass
 	//     any VPN that may be installed or active.
-	//     "EnableTls13" - Introduced in v9.5.0.82. Causes TLS 1.3 to be offered in the
-	//     ClientHello of the TLS protocol, allowing the server to select TLS 1.3 for the
-	//     session. Future versions of Chilkat will enable TLS 1.3 by default. This option
-	//     is only necessary in v9.5.0.82 if TLS 1.3 is desired.
 	void get_UncommonOptions(CkString &str);
 	// This is a catch-all property to be used for uncommon needs. This property
 	// defaults to the empty string and should typically remain empty. Can be set to a
 	// list of the following comma separated keywords:
 	//     "ProtectFromVpn" - Introduced in v9.5.0.80. On Android systems, will bypass
 	//     any VPN that may be installed or active.
-	//     "EnableTls13" - Introduced in v9.5.0.82. Causes TLS 1.3 to be offered in the
-	//     ClientHello of the TLS protocol, allowing the server to select TLS 1.3 for the
-	//     session. Future versions of Chilkat will enable TLS 1.3 by default. This option
-	//     is only necessary in v9.5.0.82 if TLS 1.3 is desired.
 	const char *uncommonOptions(void);
 	// This is a catch-all property to be used for uncommon needs. This property
 	// defaults to the empty string and should typically remain empty. Can be set to a
 	// list of the following comma separated keywords:
 	//     "ProtectFromVpn" - Introduced in v9.5.0.80. On Android systems, will bypass
 	//     any VPN that may be installed or active.
-	//     "EnableTls13" - Introduced in v9.5.0.82. Causes TLS 1.3 to be offered in the
-	//     ClientHello of the TLS protocol, allowing the server to select TLS 1.3 for the
-	//     session. Future versions of Chilkat will enable TLS 1.3 by default. This option
-	//     is only necessary in v9.5.0.82 if TLS 1.3 is desired.
 	void put_UncommonOptions(const char *newVal);
 
 	// If true, will automatically use APOP authentication if the POP3 server
@@ -2786,6 +2774,10 @@ class CK_VISIBLE_PUBLIC CkMailMan  : public CkClassWithCallbacks
 	// Note: After sending email, information about what transpired is available via
 	// the LastJsonData method.
 	// 
+	// Note: Returns true if the final SMTP status code in the SMTP session is in the
+	// 200's or 300's. See SMTP Server Return Codes
+	// <https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes>
+	// 
 	bool SendEmail(CkEmail &email);
 
 	// Sends a single email. The connection to the SMTP server will remain open so that
@@ -2807,6 +2799,10 @@ class CK_VISIBLE_PUBLIC CkMailMan  : public CkClassWithCallbacks
 	// Note: After sending email, information about what transpired is available via
 	// the LastJsonData method.
 	// 
+	// Note: Returns true if the final SMTP status code in the SMTP session is in the
+	// 200's or 300's. See SMTP Server Return Codes
+	// <https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes>
+	// 
 	CkTask *SendEmailAsync(CkEmail &email);
 
 
@@ -2823,6 +2819,10 @@ class CK_VISIBLE_PUBLIC CkMailMan  : public CkClassWithCallbacks
 	// are usually the same email addresses found in the MIME headers, but need not be
 	// (unless the SMTP server enforces policies that require them to be the same).
 	// 
+	// Note: Returns true if the final SMTP status code in the SMTP session is in the
+	// 200's or 300's. See SMTP Server Return Codes
+	// <https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes>
+	// 
 	bool SendMime(const char *fromAddr, const char *recipients, const char *mimeSource);
 
 	// Provides complete control over the email that is sent. The MIME text passed in
@@ -2838,15 +2838,29 @@ class CK_VISIBLE_PUBLIC CkMailMan  : public CkClassWithCallbacks
 	// are usually the same email addresses found in the MIME headers, but need not be
 	// (unless the SMTP server enforces policies that require them to be the same).
 	// 
+	// Note: Returns true if the final SMTP status code in the SMTP session is in the
+	// 200's or 300's. See SMTP Server Return Codes
+	// <https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes>
+	// 
 	CkTask *SendMimeAsync(const char *fromAddr, const char *recipients, const char *mimeSource);
 
 
 	// This method is the same as SendMimeBytes, except the MIME is passed in an object
 	// (mimeData) rather than explicitly passing the bytes.
+	// 
+	// Note: Returns true if the final SMTP status code in the SMTP session is in the
+	// 200's or 300's. See SMTP Server Return Codes
+	// <https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes>
+	// 
 	bool SendMimeBd(const char *fromAddr, const char *recipients, CkBinData &mimeData);
 
 	// This method is the same as SendMimeBytes, except the MIME is passed in an object
 	// (mimeData) rather than explicitly passing the bytes.
+	// 
+	// Note: Returns true if the final SMTP status code in the SMTP session is in the
+	// 200's or 300's. See SMTP Server Return Codes
+	// <https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes>
+	// 
 	CkTask *SendMimeBdAsync(const char *fromAddr, const char *recipients, CkBinData &mimeData);
 
 
@@ -2861,6 +2875,10 @@ class CK_VISIBLE_PUBLIC CkMailMan  : public CkClassWithCallbacks
 	// are usually the same email addresses found in the MIME headers, but need not be
 	// (unless the SMTP server enforces policies that require them to be the same).
 	// 
+	// Note: Returns true if the final SMTP status code in the SMTP session is in the
+	// 200's or 300's. See SMTP Server Return Codes
+	// <https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes>
+	// 
 	bool SendMimeBytes(const char *fromAddr, const char *recipients, CkByteData &mimeSource);
 
 	// This method is the same as SendMime, except the MIME is passed in a byte array.
@@ -2873,6 +2891,10 @@ class CK_VISIBLE_PUBLIC CkMailMan  : public CkClassWithCallbacks
 	// command. The recipients are the email addresses passed in "RCPT TO" commands. These
 	// are usually the same email addresses found in the MIME headers, but need not be
 	// (unless the SMTP server enforces policies that require them to be the same).
+	// 
+	// Note: Returns true if the final SMTP status code in the SMTP session is in the
+	// 200's or 300's. See SMTP Server Return Codes
+	// <https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes>
 	// 
 	CkTask *SendMimeBytesAsync(const char *fromAddr, const char *recipients, CkByteData &mimeSource);
 

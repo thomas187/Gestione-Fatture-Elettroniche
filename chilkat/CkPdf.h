@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkPdf_H
 #define _CkPdf_H
@@ -14,11 +14,11 @@
 #include "CkString.h"
 #include "CkClassWithCallbacks.h"
 
+class CkJsonObject;
+class CkBinData;
 class CkCert;
 class CkTask;
-class CkJsonObject;
 class CkStringBuilder;
-class CkBinData;
 class CkHttp;
 class CkPrivateKey;
 class CkBaseProgress;
@@ -63,19 +63,33 @@ class CK_VISIBLE_PUBLIC CkPdf  : public CkClassWithCallbacks
 	// ----------------------
 	// Properties
 	// ----------------------
+	// Returns true if the currently open PDF has a certification signature.
+	// 
+	// PDF defines two types of signatures: approval and certification.
+	// 
+	// The differences are as follows:
+	//     Approval: There can be any number of approval signatures in a document.
+	//     Certification: There can be only one certification signature and it must be
+	//     the first one in a document.
+	// 
+	bool get_HasCertificationSig(void);
+
+	// The number of embedded files present in the currently open PDF.
+	int get_NumEmbeddedFiles(void);
+
 	// The number of pages in the currently open PDF.
 	int get_NumPages(void);
 
 	// The number of digital signatures present in the currently open PDF.
 	int get_NumSignatures(void);
 
-	// Defaults to 14400. This property should generally be left unchanged. If signing
+	// Defaults to 15000. This property should generally be left unchanged. If signing
 	// fails and the following message is in the LastErrorText: "Did not allocate
 	// enough space for the PDF signature.", then you should increase this value. The
 	// actual signature size will be noted in the LastErrorText, and you can use that
 	// value to set an allocation size that is somewhat larger.
 	int get_SigAllocateSize(void);
-	// Defaults to 14400. This property should generally be left unchanged. If signing
+	// Defaults to 15000. This property should generally be left unchanged. If signing
 	// fails and the following message is in the LastErrorText: "Did not allocate
 	// enough space for the PDF signature.", then you should increase this value. The
 	// actual signature size will be noted in the LastErrorText, and you can use that
@@ -136,6 +150,29 @@ class CK_VISIBLE_PUBLIC CkPdf  : public CkClassWithCallbacks
 	// ----------------------
 	// Methods
 	// ----------------------
+	// Embeds one or more files in a PDF.
+	// 
+	// The json specifies the files to be attached to the PDF. See the linked example
+	// below.
+	// 
+	// The json is a JSON object containing an array of JSON objects, where each object
+	// can contain the following members.
+	//     localFilePath: (required) The local file to be embedded in the PDF.
+	//     description: (required) It is a short description of the embedded file.
+	//     subType: (optional) Specifies the file type, such as application/xml,
+	//     text/plain, etc. If not specified, then Chilkat will automatically choose a
+	//     subType based on the file extension.
+	//     embeddedFilename: (optional) Specifies the name of the file to be used
+	//     within the PDF in the desire is for it to be different than the filename in the
+	//     local filesystem. If not present, then the filename part of the localFilePath.
+	// 
+	bool AddEmbeddedFiles(CkJsonObject &json, const char *outFilePath);
+
+
+	// The same as AddEmbeddedFiles, but writes the resultant PDF to the bd.
+	bool AddEmbeddedFilesBd(CkJsonObject &json, CkBinData &bd);
+
+
 	// Adds a certificate to be used for PDF signing. To sign with more than one
 	// certificate, call AddSigningCert once per certificate.
 	// 
@@ -169,6 +206,19 @@ class CK_VISIBLE_PUBLIC CkPdf  : public CkClassWithCallbacks
 	// Returns the information in JSON format (in json). If there is no /DSS then an
 	// empty JSON document "{}" is returned in json.
 	bool GetDss(CkJsonObject &json);
+
+
+	// Loads the bd with the contents of the Nth embedded file contained in the
+	// currently open PDF. The index specifies the index of the embedded file. The 1st
+	// embedded file is at index 0. See the example linked below.
+	bool GetEmbeddedFileBd(int index, CkBinData &bd);
+
+
+	// Gets information about the Nth embedded file contained in the currently open
+	// PDF. The index specifies the index of the embedded file. The 1st embedded file is
+	// at index 0. The json is filled with information about the embedded file. See the
+	// example linked below.
+	bool GetEmbeddedFileInfo(int index, CkJsonObject &json);
 
 
 	// If the PDF contains Metadata, then loads the Metadata XML into sb and returns
@@ -395,8 +445,8 @@ class CK_VISIBLE_PUBLIC CkPdf  : public CkClassWithCallbacks
 	//     page - The page number where the signature will be placed. Page 1 is the 1st
 	//     page.
 	//     reason - Optional to provide text indicating the reason for the signature.
-	//     signatureAlgorithm - If the signing certificate is RSA-based, then chooses
-	//     the RSA padding scheme. Possible values are "pkcs" for PKCS-v1_5 or "pss" for
+	//     signingAlgorithm - If the signing certificate is RSA-based, then chooses the
+	//     RSA padding scheme. Possible values are "pkcs" for PKCS-v1_5 or "pss" for
 	//     RSASSA-PSS.
 	//     signingCertificateV2 - Set to "1" to include the "SigningCertificateV2"
 	//     authenticated attribute. This is desired in most cases.
@@ -572,8 +622,8 @@ class CK_VISIBLE_PUBLIC CkPdf  : public CkClassWithCallbacks
 	//     page - The page number where the signature will be placed. Page 1 is the 1st
 	//     page.
 	//     reason - Optional to provide text indicating the reason for the signature.
-	//     signatureAlgorithm - If the signing certificate is RSA-based, then chooses
-	//     the RSA padding scheme. Possible values are "pkcs" for PKCS-v1_5 or "pss" for
+	//     signingAlgorithm - If the signing certificate is RSA-based, then chooses the
+	//     RSA padding scheme. Possible values are "pkcs" for PKCS-v1_5 or "pss" for
 	//     RSASSA-PSS.
 	//     signingCertificateV2 - Set to "1" to include the "SigningCertificateV2"
 	//     authenticated attribute. This is desired in most cases.

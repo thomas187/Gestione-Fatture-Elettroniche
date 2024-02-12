@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkOAuth2WH
 #define _C_CkOAuth2WH
 #include "chilkatDefs.h"
@@ -104,6 +104,7 @@ CK_C_VISIBLE_PUBLIC void  CkOAuth2W_putVerboseLogging(HCkOAuth2W cHandle, BOOL n
 CK_C_VISIBLE_PUBLIC void CkOAuth2W_getVersion(HCkOAuth2W cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkOAuth2W_version(HCkOAuth2W cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkOAuth2W_AddAuthQueryParam(HCkOAuth2W cHandle, const wchar_t *name, const wchar_t *value);
+CK_C_VISIBLE_PUBLIC BOOL CkOAuth2W_AddRefreshQueryParam(HCkOAuth2W cHandle, const wchar_t *name, const wchar_t *value);
 CK_C_VISIBLE_PUBLIC BOOL CkOAuth2W_AddTokenQueryParam(HCkOAuth2W cHandle, const wchar_t *name, const wchar_t *value);
 CK_C_VISIBLE_PUBLIC BOOL CkOAuth2W_Cancel(HCkOAuth2W cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkOAuth2W_GetRedirectRequestParam(HCkOAuth2W cHandle, const wchar_t *paramName, HCkString outStr);

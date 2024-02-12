@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkEccWH
 #define _C_CkEccWH
 #include "chilkatDefs.h"
@@ -9,6 +9,8 @@
 
 CK_C_VISIBLE_PUBLIC HCkEccW CkEccW_Create(void);
 CK_C_VISIBLE_PUBLIC void CkEccW_Dispose(HCkEccW handle);
+CK_C_VISIBLE_PUBLIC BOOL CkEccW_getAsnFormat(HCkEccW cHandle);
+CK_C_VISIBLE_PUBLIC void  CkEccW_putAsnFormat(HCkEccW cHandle, BOOL newVal);
 CK_C_VISIBLE_PUBLIC void CkEccW_getDebugLogFilePath(HCkEccW cHandle, HCkString retval);
 CK_C_VISIBLE_PUBLIC void  CkEccW_putDebugLogFilePath(HCkEccW cHandle, const wchar_t *newVal);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkEccW_debugLogFilePath(HCkEccW cHandle);

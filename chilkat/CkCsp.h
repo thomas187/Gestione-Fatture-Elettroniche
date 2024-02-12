@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkCsp_H
 #define _CkCsp_H
@@ -95,9 +95,11 @@ class CK_VISIBLE_PUBLIC CkCsp  : public CkMultiByteBase
 	// CSP. The default is typically the name of the current logged-in user.
 	void put_KeyContainerName(const char *newVal);
 
-	// To be documented soon.
+	// Indicates if the machine keyset (true) or current user keyset (false) should
+	// be used when acquiring a CSP.
 	bool get_MachineKeyset(void);
-	// To be documented soon.
+	// Indicates if the machine keyset (true) or current user keyset (false) should
+	// be used when acquiring a CSP.
 	void put_MachineKeyset(bool newVal);
 
 	// The number of encryption algorithms provided by the currently selected CSP.

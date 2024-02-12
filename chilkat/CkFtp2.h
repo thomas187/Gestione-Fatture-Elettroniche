@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkFtp2_H
 #define _CkFtp2_H
@@ -2682,12 +2682,12 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	CkTask *GetFileSbAsync(const char *remoteFilePath, const char *charset, CkStringBuilder &sb);
 
 
-	// Downloads a file to a stream. If called synchronously, the remoteFilePath must have a
+	// Downloads a file to a stream. If called synchronously, the toStream must have a
 	// sink, such as a file or another stream object. If called asynchronously, then
 	// the foreground thread can read the stream.
 	bool GetFileToStream(const char *remoteFilePath, CkStream &toStream);
 
-	// Downloads a file to a stream. If called synchronously, the remoteFilePath must have a
+	// Downloads a file to a stream. If called synchronously, the toStream must have a
 	// sink, such as a file or another stream object. If called asynchronously, then
 	// the foreground thread can read the stream.
 	CkTask *GetFileToStreamAsync(const char *remoteFilePath, CkStream &toStream);
@@ -3694,6 +3694,10 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// integer. Returns -1 if the file does not exist.
 	__int64 GetSize64(int index);
 
+	// Returns the size of the Nth remote file in the current directory as a 64-bit
+	// integer. Returns -1 if the file does not exist.
+	CkTask *GetSize64Async(int index);
+
 
 	// Returns a remote file's size in bytes. Returns -1 if the file does not exist.
 	// 
@@ -3731,6 +3735,18 @@ class CK_VISIBLE_PUBLIC CkFtp2  : public CkClassWithCallbacks
 	// value of ListPattern is "*", which will match all filenames.)
 	// 
 	__int64 GetSizeByName64(const char *filename);
+
+	// Returns a remote file's size in bytes as a 64-bit integer.
+	// 
+	// Note: The filename passed to this method must NOT include a path. Prior to calling
+	// this method, make sure to set the current remote directory (via the
+	// ChangeRemoteDir method) to the remote directory where this file exists.
+	// 
+	// Note: Prior to calling this method, it should be ensured that the ListPattern
+	// property is set to a pattern that would match the requested filename. (The default
+	// value of ListPattern is "*", which will match all filenames.)
+	// 
+	CkTask *GetSizeByName64Async(const char *filename);
 
 
 	// Returns the size in decimal string format of the Nth remote file in the current

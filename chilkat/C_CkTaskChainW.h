@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkTaskChainWH
 #define _C_CkTaskChainWH
 #include "chilkatDefs.h"
@@ -6,6 +6,11 @@
 #include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
+
+CK_C_VISIBLE_PUBLIC void CkTaskChainW_setAbortCheck(HCkTaskChainW cHandle, BOOL (*fnAbortCheck)(void));
+CK_C_VISIBLE_PUBLIC void CkTaskChainW_setPercentDone(HCkTaskChainW cHandle, BOOL (*fnPercentDone)(int pctDone));
+CK_C_VISIBLE_PUBLIC void CkTaskChainW_setProgressInfo(HCkTaskChainW cHandle, void (*fnProgressInfo)(const wchar_t *name, const wchar_t *value));
+CK_C_VISIBLE_PUBLIC void CkTaskChainW_setTaskCompleted(HCkTaskChainW cHandle, void (*fnTaskCompleted)(HCkTaskW hTask));
 
 CK_C_VISIBLE_PUBLIC HCkTaskChainW CkTaskChainW_Create(void);
 CK_C_VISIBLE_PUBLIC void CkTaskChainW_Dispose(HCkTaskChainW handle);

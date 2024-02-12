@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkJsonObject_H
 #define _CkJsonObject_H
@@ -610,6 +610,11 @@ const char *emit(void);
 	// Returns the string value at the specified jsonPath.
 	const char *stringOf(const char *jsonPath);
 
+	// Returns true if the string value at the specified jsonPath equals value. Otherwise
+	// returns false
+	bool StringOfEquals(const char *jsonPath, const char *value, bool caseSensitive);
+
+
 	// Appends the string value at the specified jsonPath to sb.
 	bool StringOfSb(const char *jsonPath, CkStringBuilder &sb);
 
@@ -627,6 +632,10 @@ const char *emit(void);
 	//     null
 	// Returns -1 if no member exists at the given index.
 	int TypeAt(int index);
+
+
+	// Returns the unsigned integer at the specified jsonPath.
+	unsigned long UIntOf(const char *jsonPath);
 
 
 	// Updates or appends a new string member with the encoded contents of bd. If the
@@ -651,8 +660,8 @@ const char *emit(void);
 	bool UpdateNewArray(const char *jsonPath);
 
 
-	// Updates or appends a new and empty array at the jsonPath. If the full path specified
-	// by jsonPath does not exist, it is automatically created as needed.
+	// Updates or appends a new and empty JSON object at the jsonPath. If the full path
+	// specified by jsonPath does not exist, it is automatically created as needed.
 	bool UpdateNewObject(const char *jsonPath);
 
 
@@ -680,6 +689,11 @@ const char *emit(void);
 	// present. Version 9.5.0.68 fixes the problem.
 	// 
 	bool UpdateString(const char *jsonPath, const char *value);
+
+
+	// Updates or appends a new unsigned integer member. If the full path specified by
+	// jsonPath does not exist, it is automatically created as needed.
+	bool UpdateUInt(const char *jsonPath, unsigned long value);
 
 
 	// Saves the JSON to a file.

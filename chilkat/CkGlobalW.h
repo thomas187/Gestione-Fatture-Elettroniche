@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkGlobalW_H
 #define _CkGlobalW_H
@@ -172,13 +172,19 @@ class CK_VISIBLE_PUBLIC CkGlobalW  : public CkWideCharBase
 	void put_PreferIpv6(bool newVal);
 
 	// If set, indicates the path of a log file to be used by the thread pool thread
-	// and each of the pool worker threads for logging async activity.
+	// and each of the pool worker threads for logging async activity. Chilkat always
+	// appends to the log file. If the log file already exists, then new information
+	// will be appended.
 	void get_ThreadPoolLogPath(CkString &str);
 	// If set, indicates the path of a log file to be used by the thread pool thread
-	// and each of the pool worker threads for logging async activity.
+	// and each of the pool worker threads for logging async activity. Chilkat always
+	// appends to the log file. If the log file already exists, then new information
+	// will be appended.
 	const wchar_t *threadPoolLogPath(void);
 	// If set, indicates the path of a log file to be used by the thread pool thread
-	// and each of the pool worker threads for logging async activity.
+	// and each of the pool worker threads for logging async activity. Chilkat always
+	// appends to the log file. If the log file already exists, then new information
+	// will be appended.
 	void put_ThreadPoolLogPath(const wchar_t *newVal);
 
 	// This is a catch-all property to be used for uncommon needs. This property

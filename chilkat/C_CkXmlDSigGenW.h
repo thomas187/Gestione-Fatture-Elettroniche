@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkXmlDSigGenWH
 #define _C_CkXmlDSigGenWH
 #include "chilkatDefs.h"
@@ -6,6 +6,11 @@
 #include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
+
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGenW_setAbortCheck(HCkXmlDSigGenW cHandle, BOOL (*fnAbortCheck)(void));
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGenW_setPercentDone(HCkXmlDSigGenW cHandle, BOOL (*fnPercentDone)(int pctDone));
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGenW_setProgressInfo(HCkXmlDSigGenW cHandle, void (*fnProgressInfo)(const wchar_t *name, const wchar_t *value));
+CK_C_VISIBLE_PUBLIC void CkXmlDSigGenW_setTaskCompleted(HCkXmlDSigGenW cHandle, void (*fnTaskCompleted)(HCkTaskW hTask));
 
 CK_C_VISIBLE_PUBLIC HCkXmlDSigGenW CkXmlDSigGenW_Create(void);
 CK_C_VISIBLE_PUBLIC void CkXmlDSigGenW_Dispose(HCkXmlDSigGenW handle);
@@ -98,7 +103,9 @@ CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGenW_ConstructSignedInfo(HCkXmlDSigGenW cHandl
 CK_C_VISIBLE_PUBLIC const wchar_t *CkXmlDSigGenW_constructSignedInfo(HCkXmlDSigGenW cHandle, HCkStringBuilderW sbXml);
 CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGenW_CreateXmlDSig(HCkXmlDSigGenW cHandle, const wchar_t *inXml, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkXmlDSigGenW_createXmlDSig(HCkXmlDSigGenW cHandle, const wchar_t *inXml);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkXmlDSigGenW_CreateXmlDSigAsync(HCkXmlDSigGenW cHandle, const wchar_t *inXml);
 CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGenW_CreateXmlDSigSb(HCkXmlDSigGenW cHandle, HCkStringBuilderW sbXml);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkXmlDSigGenW_CreateXmlDSigSbAsync(HCkXmlDSigGenW cHandle, HCkStringBuilderW sbXml);
 CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGenW_SaveLastError(HCkXmlDSigGenW cHandle, const wchar_t *path);
 CK_C_VISIBLE_PUBLIC BOOL CkXmlDSigGenW_SetHmacKey(HCkXmlDSigGenW cHandle, const wchar_t *key, const wchar_t *encoding);
 CK_C_VISIBLE_PUBLIC void CkXmlDSigGenW_SetHttpObj(HCkXmlDSigGenW cHandle, HCkHttpW http);

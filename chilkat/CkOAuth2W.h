@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkOAuth2W_H
 #define _CkOAuth2W_H
@@ -904,6 +904,11 @@ class CK_VISIBLE_PUBLIC CkOAuth2W  : public CkClassWithCallbacksW
 	// require non-standard/custom query parms. This method can be called multiple
 	// times, once per additional query parm to be added.
 	bool AddAuthQueryParam(const wchar_t *name, const wchar_t *value);
+
+	// Adds an additional query param (name=value) to the HTTP request sent in the
+	// RefreshAccessToken method. This method can be called multiple times, once per
+	// additional query parm to be added.
+	bool AddRefreshQueryParam(const wchar_t *name, const wchar_t *value);
 
 	// Adds an additional custom query param (name=value) to the request that occurs
 	// (internally) to exchange the authorization code for a token. This method exists

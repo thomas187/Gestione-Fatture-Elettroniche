@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkHtmlToXml_H
 #define _CkHtmlToXml_H
@@ -153,6 +153,10 @@ class CK_VISIBLE_PUBLIC CkHtmlToXml  : public CkMultiByteBase
 
 	// Sets the Html property by loading the HTML from a file.
 	bool SetHtmlFromFile(const char *filename);
+
+
+	// Sets the Html property from the contents of sb.
+	bool SetHtmlSb(CkStringBuilder &sb);
 
 
 	// Converts the HTML in the "Html" property to XML and returns the XML string.

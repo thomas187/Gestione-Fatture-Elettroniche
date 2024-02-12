@@ -1,10 +1,24 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkCert_H
 #define _C_CkCert_H
 #include "chilkatDefs.h"
 #include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
+
+CK_C_VISIBLE_PUBLIC void CkCert_setAbortCheck(HCkCert cHandle, BOOL (*fnAbortCheck)(void));
+CK_C_VISIBLE_PUBLIC void CkCert_setPercentDone(HCkCert cHandle, BOOL (*fnPercentDone)(int pctDone));
+CK_C_VISIBLE_PUBLIC void CkCert_setProgressInfo(HCkCert cHandle, void (*fnProgressInfo)(const char *name, const char *value));
+CK_C_VISIBLE_PUBLIC void CkCert_setTaskCompleted(HCkCert cHandle, void (*fnTaskCompleted)(HCkTask hTask));
+
+CK_C_VISIBLE_PUBLIC void CkCert_setAbortCheck2(HCkCert cHandle, BOOL (*fnAbortCheck2)(void *pContext));
+CK_C_VISIBLE_PUBLIC void CkCert_setPercentDone2(HCkCert cHandle, BOOL (*fnPercentDone2)(int pctDone, void *pContext));
+CK_C_VISIBLE_PUBLIC void CkCert_setProgressInfo2(HCkCert cHandle, void (*fnProgressInfo2)(const char *name, const char *value, void *pContext));
+CK_C_VISIBLE_PUBLIC void CkCert_setTaskCompleted2(HCkCert cHandle, void (*fnTaskCompleted2)(HCkTask hTask, void *pContext));
+
+// setExternalProgress is for C callback functions defined in the external programming language (such as Go)
+CK_C_VISIBLE_PUBLIC void CkCert_setExternalProgress(HCkCert cHandle, BOOL on);
+CK_C_VISIBLE_PUBLIC void CkCert_setCallbackContext(HCkCert cHandle, void *pContext);
 
 CK_C_VISIBLE_PUBLIC HCkCert CkCert_Create(void);
 CK_C_VISIBLE_PUBLIC void CkCert_Dispose(HCkCert handle);
@@ -135,6 +149,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkCert_GetExtensionAsText(HCkCert cHandle, const char *
 CK_C_VISIBLE_PUBLIC const char *CkCert_getExtensionAsText(HCkCert cHandle, const char *oid);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_GetExtensionAsXml(HCkCert cHandle, const char *oid, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCert_getExtensionAsXml(HCkCert cHandle, const char *oid);
+CK_C_VISIBLE_PUBLIC BOOL CkCert_GetExtensionBd(HCkCert cHandle, const char *oid, HCkBinData bd);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_GetPrivateKeyPem(HCkCert cHandle, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCert_getPrivateKeyPem(HCkCert cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_GetPubKeyDer(HCkCert cHandle, BOOL preferPkcs1, HCkBinData bd);
@@ -148,6 +163,7 @@ CK_C_VISIBLE_PUBLIC HCkDateTime CkCert_GetValidToDt(HCkCert cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_HashOf(HCkCert cHandle, const char *part, const char *hashAlg, const char *encoding, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const char *CkCert_hashOf(HCkCert cHandle, const char *part, const char *hashAlg, const char *encoding);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_HasPrivateKey(HCkCert cHandle);
+CK_C_VISIBLE_PUBLIC BOOL CkCert_LinkPkcs11(HCkCert cHandle, HCkPkcs11 session);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_LinkPrivateKey(HCkCert cHandle, const char *keyContainerName, BOOL bMachineKeyset, BOOL bForSigning);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_LoadByCommonName(HCkCert cHandle, const char *cn);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_LoadByEmailAddress(HCkCert cHandle, const char *emailAddress);
@@ -173,9 +189,12 @@ CK_C_VISIBLE_PUBLIC BOOL CkCert_LoadTaskResult(HCkCert cHandle, HCkTask task);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_PemFileToDerFile(HCkCert cHandle, const char *fromPath, const char *toPath);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_SaveLastError(HCkCert cHandle, const char *path);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_SaveToFile(HCkCert cHandle, const char *path);
+CK_C_VISIBLE_PUBLIC BOOL CkCert_SetCloudSigner(HCkCert cHandle, HCkJsonObject json);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_SetFromEncoded(HCkCert cHandle, const char *encodedCert);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_SetPrivateKey(HCkCert cHandle, HCkPrivateKey privKey);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_SetPrivateKeyPem(HCkCert cHandle, const char *privKeyPem);
+CK_C_VISIBLE_PUBLIC BOOL CkCert_UploadToCloud(HCkCert cHandle, HCkJsonObject jsonIn, HCkJsonObject jsonOut);
+CK_C_VISIBLE_PUBLIC HCkTask CkCert_UploadToCloudAsync(HCkCert cHandle, HCkJsonObject jsonIn, HCkJsonObject jsonOut);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_UseCertVault(HCkCert cHandle, HCkXmlCertVault vault);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_VerifySignature(HCkCert cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkCert_X509PKIPathv1(HCkCert cHandle, HCkString outStr);

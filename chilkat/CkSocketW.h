@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkSocketW_H
 #define _CkSocketW_H
@@ -393,10 +393,18 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// The maximum number of milliseconds to wait on a socket read operation while no
 	// additional data is forthcoming. To wait indefinitely, set this property to 0.
 	// The default value is 0.
+	// 
+	// This applies to all methods that read from the socket, and also any other
+	// methods that read on the socket, such as SshOpenTunnel.
+	// 
 	int get_MaxReadIdleMs(void);
 	// The maximum number of milliseconds to wait on a socket read operation while no
 	// additional data is forthcoming. To wait indefinitely, set this property to 0.
 	// The default value is 0.
+	// 
+	// This applies to all methods that read from the socket, and also any other
+	// methods that read on the socket, such as SshOpenTunnel.
+	// 
 	void put_MaxReadIdleMs(int newVal);
 
 	// The maximum number of milliseconds to wait for the socket to become writeable on
@@ -502,13 +510,35 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// 
 	void put_PercentDoneScale(int newVal);
 
-	// If true, then use IPv6 over IPv4 when both are supported for a particular
-	// domain. The default value of this property is false, which will choose IPv4
-	// over IPv6.
+	// If the socket is used for initiating connections, then this property behaves as
+	// follows: When connecting to a domain name, the automatic DNS lookup could result
+	// in both IPv4 and IPv6 addresses. If this property is true, then the IPv6
+	// address is chosen, otherwise the IPv4 address is chosen. The default value of
+	// this property is false, which will choose IPv4 over IPv6.
+	// 
+	// If the socket is used for listening and receiving connections, then this
+	// property controls whether to listen on IPv6 or IPv4. If this property is true,
+	// then IPv6 connections can be accepted, otherwise only IPv4 connections can be
+	// accepted. (Note: Chilkat was updated in v9.5.0.97 to enable "dual-stack"
+	// support, where a server can handle both IPv6 and IPv4 traffic using a single
+	// socket. Prior to v9.5.0.97, setting this property to true had the effect that
+	// only IPv6 connections could be accepted.)
+	// 
 	bool get_PreferIpv6(void);
-	// If true, then use IPv6 over IPv4 when both are supported for a particular
-	// domain. The default value of this property is false, which will choose IPv4
-	// over IPv6.
+	// If the socket is used for initiating connections, then this property behaves as
+	// follows: When connecting to a domain name, the automatic DNS lookup could result
+	// in both IPv4 and IPv6 addresses. If this property is true, then the IPv6
+	// address is chosen, otherwise the IPv4 address is chosen. The default value of
+	// this property is false, which will choose IPv4 over IPv6.
+	// 
+	// If the socket is used for listening and receiving connections, then this
+	// property controls whether to listen on IPv6 or IPv4. If this property is true,
+	// then IPv6 connections can be accepted, otherwise only IPv4 connections can be
+	// accepted. (Note: Chilkat was updated in v9.5.0.97 to enable "dual-stack"
+	// support, where a server can handle both IPv6 and IPv4 traffic using a single
+	// socket. Prior to v9.5.0.97, setting this property to true had the effect that
+	// only IPv6 connections could be accepted.)
+	// 
 	void put_PreferIpv6(bool newVal);
 
 	// Returns the cumulative receive rate in bytes per second. The measurement
@@ -1103,6 +1133,12 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// server. Choosing an exact protocol will cause the connection to fail unless that
 	// exact protocol is negotiated. It is better to choose "X or higher" than an exact
 	// protocol. The "default" is effectively "SSL 3.0 or higher".
+	// 
+	// Note: Chilkat does not yet implement TLS 1.3 for the server-side of the TLS
+	// protocol. Chilkat can do TLS 1.3 on the client-side, such as when connecting to
+	// servers, but not when acting as a server and receiving/accepting TLS
+	// connections.
+	// 
 	void get_SslProtocol(CkString &str);
 	// Selects the secure protocol to be used for secure (SSL/TLS) connections.
 	// Possible values are:
@@ -1124,6 +1160,12 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// server. Choosing an exact protocol will cause the connection to fail unless that
 	// exact protocol is negotiated. It is better to choose "X or higher" than an exact
 	// protocol. The "default" is effectively "SSL 3.0 or higher".
+	// 
+	// Note: Chilkat does not yet implement TLS 1.3 for the server-side of the TLS
+	// protocol. Chilkat can do TLS 1.3 on the client-side, such as when connecting to
+	// servers, but not when acting as a server and receiving/accepting TLS
+	// connections.
+	// 
 	const wchar_t *sslProtocol(void);
 	// Selects the secure protocol to be used for secure (SSL/TLS) connections.
 	// Possible values are:
@@ -1145,6 +1187,12 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// server. Choosing an exact protocol will cause the connection to fail unless that
 	// exact protocol is negotiated. It is better to choose "X or higher" than an exact
 	// protocol. The "default" is effectively "SSL 3.0 or higher".
+	// 
+	// Note: Chilkat does not yet implement TLS 1.3 for the server-side of the TLS
+	// protocol. Chilkat can do TLS 1.3 on the client-side, such as when connecting to
+	// servers, but not when acting as a server and receiving/accepting TLS
+	// connections.
+	// 
 	void put_SslProtocol(const wchar_t *newVal);
 
 	// A charset such as "utf-8", "windows-1252", "Shift_JIS", "iso-8859-1", etc.
@@ -2123,6 +2171,9 @@ class CK_VISIBLE_PUBLIC CkSocketW  : public CkClassWithCallbacksW
 	// SshAuthenticatePw or SshAuthenticatePk to authenticate. A program would then
 	// call SshOpenChannel to connect to the destination server (via the SSH tunnel).
 	// Any number of channels can be opened over the same SSH tunnel.
+	// 
+	// The MaxReadIdleMs property applies to this method for controlling how long it
+	// takes before a timeout.
 	// 
 	bool SshOpenTunnel(const wchar_t *sshHostname, int sshPort);
 

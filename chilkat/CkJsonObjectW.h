@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkJsonObjectW_H
 #define _CkJsonObjectW_H
@@ -539,6 +539,10 @@ const wchar_t *emit(void);
 	// Returns the string value at the specified jsonPath.
 	const wchar_t *stringOf(const wchar_t *jsonPath);
 
+	// Returns true if the string value at the specified jsonPath equals value. Otherwise
+	// returns false
+	bool StringOfEquals(const wchar_t *jsonPath, const wchar_t *value, bool caseSensitive);
+
 	// Appends the string value at the specified jsonPath to sb.
 	bool StringOfSb(const wchar_t *jsonPath, CkStringBuilderW &sb);
 
@@ -554,6 +558,9 @@ const wchar_t *emit(void);
 	//     null
 	// Returns -1 if no member exists at the given index.
 	int TypeAt(int index);
+
+	// Returns the unsigned integer at the specified jsonPath.
+	unsigned long UIntOf(const wchar_t *jsonPath);
 
 	// Updates or appends a new string member with the encoded contents of bd. If the
 	// full path specified by jsonPath does not exist, it is automatically created as
@@ -573,8 +580,8 @@ const wchar_t *emit(void);
 	// by jsonPath does not exist, it is automatically created as needed.
 	bool UpdateNewArray(const wchar_t *jsonPath);
 
-	// Updates or appends a new and empty array at the jsonPath. If the full path specified
-	// by jsonPath does not exist, it is automatically created as needed.
+	// Updates or appends a new and empty JSON object at the jsonPath. If the full path
+	// specified by jsonPath does not exist, it is automatically created as needed.
 	bool UpdateNewObject(const wchar_t *jsonPath);
 
 	// Updates or appends a null member. If the full path specified by jsonPath does not
@@ -598,6 +605,10 @@ const wchar_t *emit(void);
 	// present. Version 9.5.0.68 fixes the problem.
 	// 
 	bool UpdateString(const wchar_t *jsonPath, const wchar_t *value);
+
+	// Updates or appends a new unsigned integer member. If the full path specified by
+	// jsonPath does not exist, it is automatically created as needed.
+	bool UpdateUInt(const wchar_t *jsonPath, unsigned long value);
 
 	// Saves the JSON to a file.
 	bool WriteFile(const wchar_t *path);

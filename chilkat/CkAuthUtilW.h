@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
 #ifndef _CkAuthUtilW_H
 #define _CkAuthUtilW_H
@@ -59,11 +59,19 @@ class CK_VISIBLE_PUBLIC CkAuthUtilW  : public CkWideCharBase
 	// ----------------------
 	// Methods
 	// ----------------------
+	// Note: The Walmart REST API no longer users signatures for authentication. OAuth
+	// is now used. This method is deprecated and should no longer be used.
+	// 
 	// Generates a Walmart authentication signature for Walmart REST API calls. Returns
 	// a JSON string that contains both the WM_SEC_AUTH_SIGNATURE and WM_SEC.TIMESTAMP.
+	// 
 	bool WalmartSignature(const wchar_t *requestUrl, const wchar_t *consumerId, const wchar_t *privateKey, const wchar_t *requestMethod, CkString &outStr);
+	// Note: The Walmart REST API no longer users signatures for authentication. OAuth
+	// is now used. This method is deprecated and should no longer be used.
+	// 
 	// Generates a Walmart authentication signature for Walmart REST API calls. Returns
 	// a JSON string that contains both the WM_SEC_AUTH_SIGNATURE and WM_SEC.TIMESTAMP.
+	// 
 	const wchar_t *walmartSignature(const wchar_t *requestUrl, const wchar_t *consumerId, const wchar_t *privateKey, const wchar_t *requestMethod);
 
 

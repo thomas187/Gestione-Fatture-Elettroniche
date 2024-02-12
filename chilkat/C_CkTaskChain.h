@@ -1,10 +1,24 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkTaskChain_H
 #define _C_CkTaskChain_H
 #include "chilkatDefs.h"
 #include "ck_inttypes.h"
 #include "Chilkat_C.h"
 
+
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setAbortCheck(HCkTaskChain cHandle, BOOL (*fnAbortCheck)(void));
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setPercentDone(HCkTaskChain cHandle, BOOL (*fnPercentDone)(int pctDone));
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setProgressInfo(HCkTaskChain cHandle, void (*fnProgressInfo)(const char *name, const char *value));
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setTaskCompleted(HCkTaskChain cHandle, void (*fnTaskCompleted)(HCkTask hTask));
+
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setAbortCheck2(HCkTaskChain cHandle, BOOL (*fnAbortCheck2)(void *pContext));
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setPercentDone2(HCkTaskChain cHandle, BOOL (*fnPercentDone2)(int pctDone, void *pContext));
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setProgressInfo2(HCkTaskChain cHandle, void (*fnProgressInfo2)(const char *name, const char *value, void *pContext));
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setTaskCompleted2(HCkTaskChain cHandle, void (*fnTaskCompleted2)(HCkTask hTask, void *pContext));
+
+// setExternalProgress is for C callback functions defined in the external programming language (such as Go)
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setExternalProgress(HCkTaskChain cHandle, BOOL on);
+CK_C_VISIBLE_PUBLIC void CkTaskChain_setCallbackContext(HCkTaskChain cHandle, void *pContext);
 
 CK_C_VISIBLE_PUBLIC HCkTaskChain CkTaskChain_Create(void);
 CK_C_VISIBLE_PUBLIC void CkTaskChain_Dispose(HCkTaskChain handle);

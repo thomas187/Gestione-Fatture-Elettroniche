@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkZipWH
 #define _C_CkZipWH
 #include "chilkatDefs.h"
@@ -94,6 +94,8 @@ CK_C_VISIBLE_PUBLIC void CkZipW_getLastErrorXml(HCkZipW cHandle, HCkString retva
 CK_C_VISIBLE_PUBLIC const wchar_t *CkZipW_lastErrorXml(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_getLastMethodSuccess(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC void  CkZipW_putLastMethodSuccess(HCkZipW cHandle, BOOL newVal);
+CK_C_VISIBLE_PUBLIC unsigned long CkZipW_getMaxUncompressSize(HCkZipW cHandle);
+CK_C_VISIBLE_PUBLIC void  CkZipW_putMaxUncompressSize(HCkZipW cHandle, unsigned long newVal);
 CK_C_VISIBLE_PUBLIC int CkZipW_getNumEntries(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC int CkZipW_getOemCodePage(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC void  CkZipW_putOemCodePage(HCkZipW cHandle, int newVal);
@@ -155,9 +157,13 @@ CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_ExtractAsync(HCkZipW cHandle, const wchar_t 
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_ExtractExe(HCkZipW cHandle, const wchar_t *exePath, const wchar_t *dirPath);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_ExtractExeAsync(HCkZipW cHandle, const wchar_t *exePath, const wchar_t *dirPath);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_ExtractInto(HCkZipW cHandle, const wchar_t *dirPath);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_ExtractIntoAsync(HCkZipW cHandle, const wchar_t *dirPath);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_ExtractMatching(HCkZipW cHandle, const wchar_t *dirPath, const wchar_t *pattern);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_ExtractMatchingAsync(HCkZipW cHandle, const wchar_t *dirPath, const wchar_t *pattern);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_ExtractNewer(HCkZipW cHandle, const wchar_t *dirPath);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_ExtractNewerAsync(HCkZipW cHandle, const wchar_t *dirPath);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_ExtractOne(HCkZipW cHandle, HCkZipEntryW entry, const wchar_t *dirPath);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_ExtractOneAsync(HCkZipW cHandle, HCkZipEntryW entry, const wchar_t *dirPath);
 CK_C_VISIBLE_PUBLIC HCkZipEntryW CkZipW_FirstEntry(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC HCkZipEntryW CkZipW_FirstMatchingEntry(HCkZipW cHandle, const wchar_t *pattern);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_GetDirectoryAsXML(HCkZipW cHandle, HCkString outXml);
@@ -168,6 +174,8 @@ CK_C_VISIBLE_PUBLIC HCkZipEntryW CkZipW_GetEntryByName(HCkZipW cHandle, const wc
 CK_C_VISIBLE_PUBLIC HCkStringArrayW CkZipW_GetExclusions(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_GetExeConfigParam(HCkZipW cHandle, const wchar_t *name, HCkString outStr);
 CK_C_VISIBLE_PUBLIC const wchar_t *CkZipW_getExeConfigParam(HCkZipW cHandle, const wchar_t *name);
+CK_C_VISIBLE_PUBLIC BOOL CkZipW_GetMaxUncompressedSize(HCkZipW cHandle, HCkString outStr);
+CK_C_VISIBLE_PUBLIC const wchar_t *CkZipW_getMaxUncompressedSize(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC HCkZipEntryW CkZipW_InsertNew(HCkZipW cHandle, const wchar_t *fileName, int beforeIndex);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_IsNoCompressExtension(HCkZipW cHandle, const wchar_t *fileExtension);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_IsPasswordProtected(HCkZipW cHandle, const wchar_t *zipFilename);
@@ -206,8 +214,11 @@ CK_C_VISIBLE_PUBLIC BOOL CkZipW_VerifyPassword(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_WriteBd(HCkZipW cHandle, HCkBinDataW binData);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_WriteBdAsync(HCkZipW cHandle, HCkBinDataW binData);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_WriteExe(HCkZipW cHandle, const wchar_t *exeFilename);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_WriteExeAsync(HCkZipW cHandle, const wchar_t *exeFilename);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_WriteExe2(HCkZipW cHandle, const wchar_t *exePath, const wchar_t *destExePath, BOOL bAesEncrypt, int keyLength, const wchar_t *password);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_WriteExe2Async(HCkZipW cHandle, const wchar_t *exePath, const wchar_t *destExePath, BOOL bAesEncrypt, int keyLength, const wchar_t *password);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_WriteExeToMemory(HCkZipW cHandle, HCkByteData outBytes);
+CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_WriteExeToMemoryAsync(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_WriteToMemory(HCkZipW cHandle, HCkByteData outData);
 CK_C_VISIBLE_PUBLIC HCkTaskW CkZipW_WriteToMemoryAsync(HCkZipW cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkZipW_WriteZip(HCkZipW cHandle);

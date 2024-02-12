@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.94
+// This header is generated for Chilkat 9.5.0.97
 
-#define _CkVersion 9.5.0.94
+#define _CkVersion 9.5.0.97
 
 #ifndef _CkCharset_H
 #define _CkCharset_H
@@ -741,7 +741,7 @@ class CK_VISIBLE_PUBLIC CkCharset  : public CkMultiByteBase
 	// should be set before calling this method.
 	const char *convertToUnicode(CkByteData &inData);
 
-	// To be documented soon.
+	// Converts the mbData to utf-16 bytes.
 	bool ConvertToUtf16(CkByteData &mbData, CkByteData &outUniData);
 
 
@@ -845,9 +845,29 @@ class CK_VISIBLE_PUBLIC CkCharset  : public CkMultiByteBase
 	const char *upperCase(const char *inStr);
 
 	// URL decodes a string.
+	// 
+	// This method assumes the ANSI byte representation was used for encoding. For
+	// example, the letter É, where the ANSI charset is Latin-1, would appear as "%C9"
+	// when URL encoded. (As opposed to the utf-8 encoding where É is represented by 2
+	// bytes 0xC3, 0x89 and would appear as "%C3%89" when URl encoded. This method
+	// assumes ANSI encoding.
+	// 
+	// You can use encoding/decoding methods in Chilkat's StringBuilder class to
+	// specify the charset from which to decode or encode.
+	// 
 	bool UrlDecodeStr(const char *inStr, CkString &outStr);
 
 	// URL decodes a string.
+	// 
+	// This method assumes the ANSI byte representation was used for encoding. For
+	// example, the letter É, where the ANSI charset is Latin-1, would appear as "%C9"
+	// when URL encoded. (As opposed to the utf-8 encoding where É is represented by 2
+	// bytes 0xC3, 0x89 and would appear as "%C3%89" when URl encoded. This method
+	// assumes ANSI encoding.
+	// 
+	// You can use encoding/decoding methods in Chilkat's StringBuilder class to
+	// specify the charset from which to decode or encode.
+	// 
 	const char *urlDecodeStr(const char *inStr);
 
 	// Returns true if the byte data conforms to the charset passed in the first

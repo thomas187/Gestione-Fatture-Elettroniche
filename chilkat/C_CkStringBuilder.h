@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.94
+// This is a generated source file for Chilkat version 9.5.0.97
 #ifndef _C_CkStringBuilder_H
 #define _C_CkStringBuilder_H
 #include "chilkatDefs.h"
@@ -22,6 +22,7 @@ CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendEncoded(HCkStringBuilder cHandle,
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendInt(HCkStringBuilder cHandle, int value);
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendInt64(HCkStringBuilder cHandle, __int64 value);
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendLine(HCkStringBuilder cHandle, const char *value, BOOL crlf);
+CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendRandom(HCkStringBuilder cHandle, int numBytes, const char *encoding);
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendSb(HCkStringBuilder cHandle, HCkStringBuilder sb);
 CK_C_VISIBLE_PUBLIC BOOL CkStringBuilder_AppendUuid(HCkStringBuilder cHandle, BOOL lowerCase);
 CK_C_VISIBLE_PUBLIC void CkStringBuilder_Clear(HCkStringBuilder cHandle);
