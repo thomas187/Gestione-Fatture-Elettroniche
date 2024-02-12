@@ -12,4 +12,5 @@ chilkat/*
 # Eccezione per il file load.pri nella cartella chilkat
 !chilkat/chilkat.pri
 
+# Ignora tutti i file .user
 .user
