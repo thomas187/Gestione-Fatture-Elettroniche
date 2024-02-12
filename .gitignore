@@ -1,1 +1,13 @@
 builds/
+
+# Ignora tutti i file .dll
+*.dll
+
+# Ignora tutti i file .a
+*.a
+
+# Ignora tutti i file nella cartella chilkat
+chilkat/*
+
+# Eccezione per il file load.pri nella cartella chilkat
+!chilkat/chilkat.pri
