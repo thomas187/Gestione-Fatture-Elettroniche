@@ -30,6 +30,7 @@ HEADERS += \
 
 # Chilkat
 #-------------------------------------------------
+# chilkat-mingw-i686-9.0.0-posix-dwarf.zip
 include(chilkat/chilkat.pri)
 win32: LIBS += -L$$PWD/./ -llibchilkat-9.5.0
 LIBS += -lwsock32
