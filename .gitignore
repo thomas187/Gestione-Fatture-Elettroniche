@@ -13,4 +13,4 @@ chilkat/*
 !chilkat/chilkat.pri
 
 # Ignora tutti i file .user
-.user
+*.user
