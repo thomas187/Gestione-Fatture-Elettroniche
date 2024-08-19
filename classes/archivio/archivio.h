@@ -13,6 +13,8 @@ class Archivio : public QObject
     Q_STATIC(Archivio)
     Q_ADD_PROPERTY(QString, xmlFolder, XmlFolder, "C:\\Users\\denic\\AppData\\Roaming\\e-media\\SDIPEC\\dati\\ricevute")
     Q_ADD_PROPERTY(XmlList*, xmlList, XmlList, nullptr)
+    Q_ADD_PROPERTY(QString, filterFromDate, FilterFromDate, "")
+    Q_ADD_PROPERTY(QString, filterToDate, FilterToDate, "")
     Q_ADD_PROPERTY(QFileSystemWatcher*, watcher, Watcher, nullptr)
     Q_ADD_PROPERTY(QStringList, spese, Spese, {})
 

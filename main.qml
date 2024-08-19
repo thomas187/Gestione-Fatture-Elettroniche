@@ -34,7 +34,9 @@ Window {
 
     function updateDateStrings(){
         expFromStrDate = expFromDate.toLocaleString(Qt.locale("it_IT"),"yyyy-MM-dd")
+        Archivio.filterFromDate = expFromStrDate
         expToStrDate = expToDate.toLocaleString(Qt.locale("it_IT"),"yyyy-MM-dd")
+        Archivio.filterToDate = expToStrDate
     }
 
 

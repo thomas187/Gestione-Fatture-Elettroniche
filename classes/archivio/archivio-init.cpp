@@ -42,9 +42,55 @@ void Archivio::initWatcher()
     updateWatcher();
 }
 
-
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDir>
 void Archivio::initList()
 {
+
+    auto fetchInvoicePaths = [=](const QString &dbPath, const QDate &minDate, const QDate &maxDate)->QStringList {
+
+        if (QSqlDatabase::contains("qt_sql_default_connection"))
+            QSqlDatabase::removeDatabase("qt_sql_default_connection");
+
+        // Connessione al database SQLite
+        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+        db.setDatabaseName(dbPath);
+
+        if (!db.open()) {
+            qDebug() << "Errore nell'aprire il database:" << db.lastError().text();
+            qDebug() << "Percorso database:" << dbPath;
+            return {};
+        }
+
+        // Query per selezionare i percorsi delle fatture tra minDate e maxDate
+        QSqlQuery query;
+        query.prepare("SELECT File FROM tbl_fatture WHERE data BETWEEN ? AND ?");
+
+        // Bind delle variabili
+        query.addBindValue(minDate.toString("yyyy-MM-dd"));
+        query.addBindValue(maxDate.toString("yyyy-MM-dd"));
+
+        // Esecuzione della query
+        if (!query.exec()) {
+            qDebug() << "Errore nella query:" << query.lastError().text();
+            db.close();
+            return {};
+        }
+
+        // Stampa i percorsi delle fatture trovate
+        QStringList files;
+        while (query.next()) {
+            QString path = query.value(0).toString();
+            files += path;
+        }
+
+        // Chiudi la connessione al database
+        db.close();
+        return files;
+    };
+
     auto updateList = [=]{
 
         auto children = this->findChildren<XmlFile*>();
@@ -53,7 +99,18 @@ void Archivio::initList()
         this->xmlList()->clear();
 
         QDir dir(this->xmlFolder());
-        QStringList files = dir.entryList({"*.xml", "*.XML", "*.xml.p7m", "*.XML.P7M"},QDir::Files);
+        QString relativo = "..\\database\\sdipec.sqlite";
+        QString assoluto = dir.absoluteFilePath(relativo);
+        assoluto.replace("\\","/");
+
+        QStringList files;
+        if (QFile::exists(assoluto)) {
+            QDate minDate = QDate::fromString(this->filterFromDate(), "yyyy-MM-dd");
+            QDate maxDate = QDate::fromString(this->filterToDate(), "yyyy-MM-dd");
+            files = fetchInvoicePaths(assoluto, minDate, maxDate);
+        } else {
+            files = dir.entryList({"*.xml", "*.XML", "*.xml.p7m", "*.XML.P7M"},QDir::Files);
+        }
 
         for(const auto &file : qAsConst(files)){
             auto path = QString("%1/%2").arg(dir.absolutePath(),file);
@@ -63,9 +120,9 @@ void Archivio::initList()
             xml->setPath(path);
             this->xmlList()->append(xml);
         }
-
-
     };
+    connect(this, &Archivio::filterFromDateChanged, this, updateList);
+    connect(this, &Archivio::filterToDateChanged, this, updateList);
     connect(this, &Archivio::xmlFolderChanged, this, updateList);
     connect(this->watcher(), &QFileSystemWatcher::directoryChanged, this, updateList);
     updateList();
