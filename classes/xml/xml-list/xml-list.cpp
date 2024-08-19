@@ -89,9 +89,6 @@ void XmlList::initParsing()
             return;
 
         singleShot("startStopTimers", 5, this, [=](QVariant, int, QObject*){
-            auto timer = new QTimer(this);
-            timer->setInterval(5);
-            connect(timer, &QTimer::timeout, this, syncFile);
             syncFile();
         });
     };
