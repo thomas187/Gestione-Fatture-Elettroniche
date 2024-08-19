@@ -123,9 +123,21 @@ void XmlFile::getImposte(){
         }
 
         if(check_importo || check_imposta){
-            auto key = check_importo ? "imponibile" : "imposta";
-            auto property = QString("%1_%2").arg(key,aliquota_property);
-            this->setProperty(property.toStdString().c_str(), item.second);
+            if(aliquota_property=="0"){
+                auto current = this->natura_iva();
+                auto value = item.second.replace(".",",");
+                QLocale locale(QLocale::Italian);
+                bool ok;
+                current += locale.toDouble(value, &ok);
+                if(!ok)
+                    qDebug() << "Failed to parse the number:" << value << ", file:" << this->path();
+                else
+                    this->setNatura_iva(current);
+            } else {
+                auto key = check_importo ? "imponibile" : "imposta";
+                auto property = QString("%1_%2").arg(key,aliquota_property);
+                this->setProperty(property.toStdString().c_str(), item.second);
+            }
         }
 
         if(check_imposta)

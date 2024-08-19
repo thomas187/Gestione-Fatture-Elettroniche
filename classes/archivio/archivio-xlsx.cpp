@@ -80,6 +80,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         IVA_22,
         ALIQUOTA_SPESE_22,
         IVA_SPESE_22,
+        NATURA_IVA,
         ALTRO
     };
 
@@ -152,6 +153,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
             document->write(nRows+rowMin, IVA_22,            formula.arg(QChar((short)64+IVA_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
             document->write(nRows+rowMin, ALIQUOTA_SPESE_22, formula.arg(QChar((short)64+ALIQUOTA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
             document->write(nRows+rowMin, IVA_SPESE_22,      formula.arg(QChar((short)64+IVA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
+            document->write(nRows+rowMin, NATURA_IVA,        formula.arg(QChar((short)64+NATURA_IVA).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
         }
 
         auto boldFormat = bold;
@@ -194,6 +196,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         inserisciValoreDocumento(item, row, IVA_SPESE_22, item->tipo()==XmlFile::SPESE ? item->imposta_22() : 0, format);
         inserisciValoreDocumento(item, row, ALIQUOTA_22, item->tipo()==XmlFile::SPESE ? 0 : item->imponibile_22(), format);
         inserisciValoreDocumento(item, row, IVA_22, item->tipo()==XmlFile::SPESE ? 0 : item->imposta_22(), format);
+        inserisciValoreDocumento(item, row, NATURA_IVA, item->natura_iva(), format);
 
         auto altro_format = format;
         altro_format.setHorizontalAlignment(Format::HorizontalAlignment::AlignLeft);
@@ -228,6 +231,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         document->write(row, IVA_SPESE_22, "", format);
         document->write(row, ALIQUOTA_22, "", format);
         document->write(row, IVA_22, "", format);
+        document->write(row, NATURA_IVA, "", format);
         document->write(row, ALTRO, "", format);
 
     }
@@ -242,7 +246,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         document->setColumnWidth(INTESTAZIONE,43);
         document->setColumnWidth(TIPO_DOCUMENTO,20);
         document->setColumnWidth(ALTRO,30);
-        for(int c=IMPORTI; c<=IVA_SPESE_22; c++)
+        for(int c=IMPORTI; c<ALTRO; c++)
             document->setColumnWidth(c,18);
     }
 

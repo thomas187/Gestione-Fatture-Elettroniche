@@ -37,6 +37,7 @@ public:
         Imposta_10Role,
         Imponibile_22Role,
         Imposta_22Role,
+        Natura_IvaRole,
         TotaleRole,
         FileNameRole,
         FileNameFixedRole,
@@ -67,6 +68,7 @@ public:
         roles[Imposta_10Role] = "imposta_10";
         roles[Imponibile_22Role] = "imponibile_22";
         roles[Imposta_22Role] = "imposta_22";
+        roles[Natura_IvaRole] = "natura_iva";
         roles[TotaleRole] = "totale";
         roles[FileNameRole] = "fileName";
         roles[FileNameFixedRole] = "fileNameFixed";
@@ -161,6 +163,7 @@ public:
             {Imposta_10Role, "imposta_10"},
             {Imponibile_22Role, "imponibile_22"},
             {Imposta_22Role, "imposta_22"},
+            {Natura_IvaRole, "natura_iva"},
             {TotaleRole, "totale"},
             {FileNameRole, "fileName"},
             {FileNameFixedRole, "fileNameFixed"},
@@ -318,6 +321,7 @@ public:
         else if(role == Imposta_10Role) item->setImposta_10(value.toDouble());
         else if(role == Imponibile_22Role) item->setImponibile_22(value.toDouble());
         else if(role == Imposta_22Role) item->setImposta_22(value.toDouble());
+        else if(role == Natura_IvaRole) item->setNatura_iva(value.toDouble());
         else if(role == TotaleRole) item->setTotale(value.toDouble());
         else if(role == FileNameRole) return false;
         else if(role == FileNameFixedRole) return false;
@@ -355,6 +359,7 @@ public:
         else if(role == Imposta_10Role) return item->imposta_10();
         else if(role == Imponibile_22Role) return item->imponibile_22();
         else if(role == Imposta_22Role) return item->imposta_22();
+        else if(role == Natura_IvaRole) return item->natura_iva();
         else if(role == TotaleRole) return item->totale();
         else if(role == FileNameRole) {
             QFileInfo info(item->path());
@@ -401,6 +406,7 @@ private:
         connect(xmlFile, &XmlFile::imposta_10Changed, this, &XmlList::slotDataChanged);
         connect(xmlFile, &XmlFile::imponibile_22Changed, this, &XmlList::slotDataChanged);
         connect(xmlFile, &XmlFile::imposta_22Changed, this, &XmlList::slotDataChanged);
+        connect(xmlFile, &XmlFile::natura_ivaChanged, this, &XmlList::slotDataChanged);
         connect(xmlFile, &XmlFile::totaleChanged, this, &XmlList::slotDataChanged);
         connect(xmlFile, &XmlFile::syncChanged, this, &XmlList::slotDataChanged);
         connect(xmlFile, &XmlFile::tipoChanged, this, &XmlList::slotDataChanged);
@@ -421,6 +427,7 @@ private:
         disconnect(xmlFile, &XmlFile::imposta_10Changed, this, &XmlList::slotDataChanged);
         disconnect(xmlFile, &XmlFile::imponibile_22Changed, this, &XmlList::slotDataChanged);
         disconnect(xmlFile, &XmlFile::imposta_22Changed, this, &XmlList::slotDataChanged);
+        disconnect(xmlFile, &XmlFile::natura_ivaChanged, this, &XmlList::slotDataChanged);
         disconnect(xmlFile, &XmlFile::totaleChanged, this, &XmlList::slotDataChanged);
         disconnect(xmlFile, &XmlFile::syncChanged, this, &XmlList::slotDataChanged);
         disconnect(xmlFile, &XmlFile::tipoChanged, this, &XmlList::slotDataChanged);

@@ -18,6 +18,7 @@ void Archivio::exportFile(QString format, QList<XmlFile*> list, QString folder, 
         header += QString("Imponibile (%1\%)").arg(imp);
         header += QString("Imposta (%1\%)").arg(imp);
     }
+    header += "Natura IVA";
     header += "XML";
 
     QString text = header.join(";");
@@ -43,7 +44,7 @@ void Archivio::exportFile(QString format, QList<XmlFile*> list, QString folder, 
             else
                 line += "-;";
         }
-
+        line += QString::number(item->natura_iva(),'f',2).replace(".",",") + ";";
         line += item->path()+"\n";
         text += line;
     }
