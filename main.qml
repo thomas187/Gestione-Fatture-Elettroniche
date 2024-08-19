@@ -175,6 +175,13 @@ Window {
                     text: qsTr("Tipo documento")
                     onCheckedChanged: if(checked){ Archivio.xmlList.filterRole = XmlList.TipoStringaFixedRole }
                 }
+                Item{
+                    Layout.fillWidth: true
+                }
+                Button{
+                    text: "Download Libraries"
+                    onClicked: Qt.openUrlExternally($_CHILKAT_LIB_ZIP)
+                }
             }
 
             TextField{

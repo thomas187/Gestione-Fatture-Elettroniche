@@ -32,6 +32,9 @@ HEADERS += \
 # Chilkat
 #-------------------------------------------------
 # chilkat-mingw-i686-9.0.0-posix-dwarf.zip
+CHILKAT_LIB_ZIP = https://chilkatdownload.com/9.5.0.99/chilkat-mingw-i686-9.0.0-posix-dwarf.zip
+DEFINES += CHILKAT_LIB_ZIP=\\"\"$$CHILKAT_LIB_ZIP\\"\"
+#-------------------------------------------------
 include(chilkat/chilkat.pri)
 win32: LIBS += -L$$PWD/./ -llibchilkat-9.5.0
 LIBS += -lwsock32

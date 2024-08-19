@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 #include "custom.h"
 
@@ -19,6 +20,7 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
+    engine.rootContext()->setContextProperty("$_CHILKAT_LIB_ZIP", CHILKAT_LIB_ZIP);
 
     return app.exec();
 }
