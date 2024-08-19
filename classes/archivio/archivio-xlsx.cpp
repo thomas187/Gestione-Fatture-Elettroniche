@@ -201,7 +201,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         auto altro_format = format;
         altro_format.setHorizontalAlignment(Format::HorizontalAlignment::AlignLeft);
         normal.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
-        document->write(row, ALTRO, QString(), altro_format);
+        document->write(row, ALTRO, item->altro().length()>21 ? item->altro().left(21)+"…" : item->altro(), altro_format);
 
     }
 

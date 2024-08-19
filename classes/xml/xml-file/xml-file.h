@@ -24,6 +24,7 @@ class XmlFile : public QObject
     Q_ADD_PROPERTY_DOUBLE(double, imponibile_22, Imponibile_22, 0)
     Q_ADD_PROPERTY_DOUBLE(double, imposta_22, Imposta_22, 0)
     Q_ADD_PROPERTY_DOUBLE(double, natura_iva, Natura_iva, 0)
+    Q_ADD_PROPERTY(QString, altro, Altro, "")
     Q_ADD_PROPERTY_DOUBLE(double, totale, Totale, 0)
     Q_ADD_PROPERTY_MAP(QString, QString, map, Map)
 

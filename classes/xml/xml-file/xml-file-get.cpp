@@ -93,6 +93,13 @@ void XmlFile::getImposte(){
     for(int i=0; i<this->list().count(); i++){
         auto item = this->list().at(i);
 
+        if(item.first.contains("DatiRiepilogo/Natura")){
+            auto current = this->altro().split(", ");
+            current += item.second;
+            current.removeAll("");
+            this->setAltro(current.join(", "));
+        }
+
         bool check_aliquota = item.first.contains("DatiRiepilogo/AliquotaIVA");
         bool check_importo = item.first.contains("DatiRiepilogo/ImponibileImporto");
         bool check_imposta = item.first.contains("DatiRiepilogo/Imposta");
