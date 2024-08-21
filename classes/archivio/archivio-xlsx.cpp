@@ -21,7 +21,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
     auto document = new Document(path, this);
 
     auto font = QFont();
-    font.setPointSize(14);
+    font.setPointSize(16);
 
     auto bold = Format();
     bold.setFont(font);
@@ -62,6 +62,22 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
     note.setBottomBorderStyle(Format::BorderDashDot);
     note.setRightBorderColor(QColor(0,0,0));
     note.setRightBorderStyle(Format::BorderThin);
+
+    auto sumFont = font;
+    sumFont.setPointSize(15);
+    sumFont.setBold(true);
+    auto sumFormat = Format();
+    sumFormat.setFont(sumFont);
+    sumFormat.setPatternBackgroundColor(QColor(255,255,204));
+    sumFormat.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+    sumFormat.setVerticalAlignment(Format::VerticalAlignment::AlignVCenter);
+    sumFormat.setBottomBorderColor(QColor(178,178,178));
+    sumFormat.setBottomBorderStyle(Format::BorderThin);
+    sumFormat.setTopBorderColor(QColor(178,178,178));
+    sumFormat.setTopBorderStyle(Format::BorderThin);
+    sumFormat.setRightBorderColor(QColor(178,178,178));
+    sumFormat.setRightBorderStyle(Format::BorderThin);
+    sumFormat.setNumberFormat(QStringLiteral("€ #,##0.00"));
 
     enum COLONNE{
         N_OPERAZ = 1,
@@ -128,7 +144,7 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
                 document->copySheet(dummySheet,sheetName);
         }
         document->selectSheet(sheetName);
-        document->setRowHeight(row,30);
+        document->setRowHeight(row,row,36.3);
 
         if(newSheet){
             QString formula = QString("=SUM(%1%2:%1%3)");  /// =SUM(D2:D36)+'Foglio 1'!D37
@@ -142,18 +158,22 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
 
             QString arg4 = sheetIndex>1 ? QString::number(nRows+rowMin) : "";
             document->setRowHeight(nRows+rowMin,30);
-            document->write(nRows+rowMin, IMPORTI,           formula.arg(QChar((short)64+IMPORTI).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, ALIQUOTA_4,        formula.arg(QChar((short)64+ALIQUOTA_4).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, IVA_4,             formula.arg(QChar((short)64+IVA_4).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, ALIQUOTA_5,        formula.arg(QChar((short)64+ALIQUOTA_5).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, IVA_5,             formula.arg(QChar((short)64+IVA_5).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, ALIQUOTA_10,       formula.arg(QChar((short)64+ALIQUOTA_10).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, IVA_10,            formula.arg(QChar((short)64+IVA_10).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, ALIQUOTA_22,       formula.arg(QChar((short)64+ALIQUOTA_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, IVA_22,            formula.arg(QChar((short)64+IVA_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, ALIQUOTA_SPESE_22, formula.arg(QChar((short)64+ALIQUOTA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, IVA_SPESE_22,      formula.arg(QChar((short)64+IVA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
-            document->write(nRows+rowMin, NATURA_IVA,        formula.arg(QChar((short)64+NATURA_IVA).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4));
+            for(int i=N_OPERAZ; i<=TIPO_DOCUMENTO; i++)
+                document->write(nRows+rowMin, i, "", sumFormat);
+            document->write(nRows+rowMin, IMPORTI,           formula.arg(QChar((short)64+IMPORTI).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, ALIQUOTA_4,        formula.arg(QChar((short)64+ALIQUOTA_4).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, IVA_4,             formula.arg(QChar((short)64+IVA_4).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, ALIQUOTA_5,        formula.arg(QChar((short)64+ALIQUOTA_5).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, IVA_5,             formula.arg(QChar((short)64+IVA_5).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, ALIQUOTA_10,       formula.arg(QChar((short)64+ALIQUOTA_10).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, IVA_10,            formula.arg(QChar((short)64+IVA_10).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, ALIQUOTA_22,       formula.arg(QChar((short)64+ALIQUOTA_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, IVA_22,            formula.arg(QChar((short)64+IVA_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, ALIQUOTA_SPESE_22, formula.arg(QChar((short)64+ALIQUOTA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, IVA_SPESE_22,      formula.arg(QChar((short)64+IVA_SPESE_22).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            document->write(nRows+rowMin, NATURA_IVA,        formula.arg(QChar((short)64+NATURA_IVA).toLatin1()).arg(rowMin).arg(rowMax).arg(arg4), sumFormat);
+            for(int i=ALTRO; i<=ALTRO; i++)
+                document->write(nRows+rowMin, i, "", sumFormat);
         }
 
         auto boldFormat = bold;
@@ -168,6 +188,13 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
             format = note;
         }
 
+        if(row==rowMin){
+            format.setTopBorderColor(QColor(178,178,178));
+            format.setTopBorderStyle(Format::BorderThin);
+            boldFormat.setTopBorderColor(QColor(178,178,178));
+            boldFormat.setTopBorderStyle(Format::BorderThin);
+        }
+
         document->write(row, N_OPERAZ, i+1, boldFormat);
 
         document->write(row, DATA, item->date().toString("yyyy-MM-dd"), boldFormat);
@@ -179,6 +206,12 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         auto intestazione_format = format;
         intestazione_format.setHorizontalAlignment(Format::HorizontalAlignment::AlignLeft);
         normal.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
+
+        if(row==rowMin){
+            intestazione_format.setTopBorderColor(QColor(178,178,178));
+            intestazione_format.setTopBorderStyle(Format::BorderThin);
+        }
+
         document->write(row, INTESTAZIONE, intestazione, intestazione_format);
 
         auto tLength = item->tipoStringa().length();
@@ -199,9 +232,9 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
         inserisciValoreDocumento(item, row, NATURA_IVA, item->natura_iva(), format);
 
         auto altro_format = format;
-        altro_format.setHorizontalAlignment(Format::HorizontalAlignment::AlignLeft);
+        altro_format.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
         normal.setHorizontalAlignment(Format::HorizontalAlignment::AlignHCenter);
-        document->write(row, ALTRO, item->altro().length()>21 ? item->altro().left(21)+"…" : item->altro(), altro_format);
+        document->write(row, ALTRO, item->altro().length()>21 ? item->altro().left(19)+"…" : item->altro(), altro_format);
 
     }
 
@@ -240,14 +273,14 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
     for(const auto &sheet : qAsConst(sheetNames)){
         document->selectSheet(sheet);
 
-        document->setColumnWidth(N_OPERAZ,15);
-        document->setColumnWidth(DATA,18);
-        document->setColumnWidth(PIVA,22);
-        document->setColumnWidth(INTESTAZIONE,43);
-        document->setColumnWidth(TIPO_DOCUMENTO,20);
-        document->setColumnWidth(ALTRO,30);
+        document->setColumnWidth(N_OPERAZ,8);
+        document->setColumnWidth(DATA,22);
+        document->setColumnWidth(PIVA,26);
+        document->setColumnWidth(INTESTAZIONE,45);
+        document->setColumnWidth(TIPO_DOCUMENTO,24);
+        document->setColumnWidth(ALTRO,23);
         for(int c=IMPORTI; c<ALTRO; c++)
-            document->setColumnWidth(c,18);
+            document->setColumnWidth(c,19);
     }
 
     if(!dummySheet.isEmpty() && sheetNames.contains(dummySheet))
