@@ -107,6 +107,7 @@ void Archivio::initList()
         if (QFile::exists(assoluto)) {
             QDate minDate = QDate::fromString(this->filterFromDate(), "yyyy-MM-dd");
             QDate maxDate = QDate::fromString(this->filterToDate(), "yyyy-MM-dd");
+            maxDate = maxDate.addMonths(1);
             files = fetchInvoicePaths(assoluto, minDate, maxDate);
         } else {
             files = dir.entryList({"*.xml", "*.XML", "*.xml.p7m", "*.XML.P7M"},QDir::Files);
