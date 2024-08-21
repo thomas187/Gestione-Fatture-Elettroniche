@@ -11,6 +11,7 @@ class XmlFile : public QObject
 {
     Q_OBJECT
     Q_ADD_PROPERTY(QString, path, Path, "")
+    Q_ADD_PROPERTY(QString, file, File, "")
     Q_ADD_PROPERTY(QString, partIva, PartIva, "")
     Q_ADD_PROPERTY(QString, intestazione, Intestazione, "")
     Q_ADD_PROPERTY(QString, vData, VData, "")

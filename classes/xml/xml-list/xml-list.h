@@ -215,6 +215,18 @@ public:
         return contains;
     }
 
+    bool containsFile(QString file){
+        bool contains = false;
+        for(XmlFile* xmlFile : qAsConst(m_model)){
+            if(contains)
+                break;
+            bool itemContains = true;
+            itemContains &= xmlFile->file() == file;
+            contains |= itemContains;
+        }
+        return contains;
+    }
+
     bool removeOne(XmlFile *xmlFile){
         ASSERT_X_RET(this->contains(xmlFile), Q_FUNC_INFO, "xmlFile out of range", false);
         int row = m_model.indexOf(xmlFile);
