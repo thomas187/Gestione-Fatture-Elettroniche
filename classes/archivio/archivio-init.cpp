@@ -99,7 +99,7 @@ void Archivio::initList()
         assoluto.replace("\\","/");
 
         QStringList files;
-        if (QFile::exists(assoluto)) {
+        if (QFile::exists(assoluto) && !this->showAll()) {
             QDate minDate = QDate::fromString(this->filterFromDate(), "yyyy-MM-dd");
             QDate maxDate = QDate::fromString(this->filterToDate(), "yyyy-MM-dd");
             maxDate = maxDate.addMonths(1);
@@ -129,6 +129,7 @@ void Archivio::initList()
         }
 
     };
+    connect(this, &Archivio::showAllChanged, this, updateList);
     connect(this, &Archivio::filterFromDateChanged, this, updateList);
     connect(this, &Archivio::filterToDateChanged, this, updateList);
     connect(this, &Archivio::xmlFolderChanged, this, updateList);

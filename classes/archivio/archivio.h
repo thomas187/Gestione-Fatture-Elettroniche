@@ -17,6 +17,7 @@ class Archivio : public QObject
     Q_ADD_PROPERTY(QString, filterToDate, FilterToDate, "")
     Q_ADD_PROPERTY(QFileSystemWatcher*, watcher, Watcher, nullptr)
     Q_ADD_PROPERTY(QStringList, spese, Spese, {})
+    Q_ADD_PROPERTY(bool, showAll, ShowAll, false)
 
 public:
     explicit Archivio(QObject *parent = nullptr);

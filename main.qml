@@ -178,6 +178,15 @@ Window {
                 Item{
                     Layout.fillWidth: true
                 }
+                CheckBox{
+                    text: "Show all"
+                    checked: Archivio.showAll
+                    onCheckedChanged: {
+                        Archivio.showAll = checked
+                        checked = Archivio.showAll
+                    }
+                }
+
                 Button{
                     text: "Download Libraries"
                     onClicked: Qt.openUrlExternally($_CHILKAT_LIB_ZIP)
