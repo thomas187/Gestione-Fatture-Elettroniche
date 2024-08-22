@@ -21,9 +21,17 @@ void Archivio::initSettings()
     this->setXmlFolder(folder.toString());
     connect(this, &Archivio::xmlFolderChanged, this, [=]{ settings.setValue("folder", this->xmlFolder()); });
 
-    auto spese = settings.value("spese");
-    if(spese.isValid())
-        this->setSpese(spese.toStringList());
+    auto spese = settings.value("spese").toStringList();
+    spese += this->spese();
+    spese += "IT-01219980529"; /// Estra
+    spese += "IT-05846780723"; /// Carta
+    spese += "IT-10542790968"; /// Nexi
+    spese += "IT-03495190716"; /// Industrial Point
+    spese += "IT-01573850516"; /// Aruba
+    spese += "IT-15844561009"; /// Elettrico Nazionale
+    spese += "IT-07440240724"; /// RAM Ufficio
+    spese.removeDuplicates();
+    this->setSpese(spese);
 
 }
 
