@@ -269,6 +269,13 @@ void Archivio::xlsxExport(QString folder, QString expFromStrDate, QString expToS
 
     }
 
+    /// Aggiunta foglio vuoto
+    //////////////////////////////////////////////////////
+    document->copySheet(dummySheet,"Vuoto");
+    document->selectSheet("Vuoto");
+    document->setRowHeight(rowMin,rowMax,36.3);
+    //////////////////////////////////////////////////////
+
     auto sheetNames = document->sheetNames();
     for(const auto &sheet : qAsConst(sheetNames)){
         document->selectSheet(sheet);
